@@ -111,7 +111,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav mr-auto py-0">
                 <a class="nav-item nav-link active" asp-action="Index" asp-controller="Home">Home</a>
-                <a class="nav-item nav-link"  asp-action="Produtos" asp-controller="Produto">Shop</a>
+                <a class="nav-item nav-link" asp-action="Produtos" asp-controller="Produto">Shop</a>
                 <a class="nav-item nav-link" asp-action="Index" asp-controller="Produto">Shop Detail</a>
                 <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i
@@ -125,11 +125,7 @@
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
               </div>
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                <a asp-action="Login" asp-controller="Cliente" class="btn px-0 ml-3">
-                  <i class="bi bi-person-circle text-primary"></i>
-                  <span class="badge text-secondary border-secondary"
-                    style="padding-bottom: 2px">Login</span>
-                </a>
+                <partial name="_LoginPartial"></partial>
                 <a href="" class="btn px-0 ml-3">
                   <i class="fas fa-heart text-primary"></i>
                   <span class="badge text-secondary border border-secondary rounded-circle"
@@ -267,21 +263,21 @@
   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="/mail/jqBootstrapValidation.min.js"></script>
-    <script src="/mail/contact.js"></script>
+  <!-- Contact Javascript File -->
+  <script src="/mail/jqBootstrapValidation.min.js"></script>
+  <script src="/mail/contact.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
+  <!-- Template Javascript -->
+  <script src="/js/main.js"></script>
 
 </body>
 

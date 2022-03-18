@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppEcommerce.Models.User> SignInManager
+@inject UserManager<AppEcommerce.Models.User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a asp-area="Identity" asp-page="/Account/Manage/Index">
+        <i class="bi bi-person-circle text-primary"></i>
+        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">Seja Bem-Vindo!</span>
+    </a>
+}
+else
+{
+    <a asp-area="Identity" asp-page="/Account/Login">
+        <i class="bi bi-person-circle text-primary"></i>
+        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">Entrar</span>
+    </a>
+}

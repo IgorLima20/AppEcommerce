@@ -42,7 +42,6 @@ namespace AppEcommerce.Models
         [Required]
         public string Referencia { get; set; }
 
-        public bool Selecionado { get; set; }
 
         [NotMapped]
         public string EnderecoCompleto

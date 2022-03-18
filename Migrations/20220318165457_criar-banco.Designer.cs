@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220315011635_criar-banco")]
+    [Migration("20220318165457_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,9 +82,6 @@ namespace AppEcommerce.Migrations
                     b.Property<string>("Referencia")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("Selecionado")
-                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("IdEndereco");
 
@@ -273,16 +270,16 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2124457a-2224-47bf-891d-1f1dbce0caf2",
+                            Id = "c24f61cc-8437-4718-ad24-17a96cdff8f1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e712ca7f-e523-4b3b-bf45-4250a8f92274",
+                            ConcurrencyStamp = "36cf4080-3393-48cd-a2ee-c35ad81aeca1",
                             Email = "admin@ecommerce.com.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "ADMIN@ECOMMERCE.COM.BR",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMBkAYxtQ0lRVvvHCvzBUQKmPzK5tkbob6RM3c3LqOgmrG2aRUZJVw1ptA+QNoQDxQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELF8Yvxh19vBUrs5jjqR5Oyo+twH+k7dZCrEeFLul9zxn3c3AcOommODdoeCs0sN8w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "46555465",
                             TwoFactorEnabled = false,
@@ -318,22 +315,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2124457a-2224-47bf-891d-1f1dbce0caf2",
-                            ConcurrencyStamp = "2b828d00-504c-46a4-8056-1b7d03beb288",
+                            Id = "c24f61cc-8437-4718-ad24-17a96cdff8f1",
+                            ConcurrencyStamp = "f012cbe7-f9ba-4098-ae6c-c43f37bdae21",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "2176bf08-c9ae-4fb1-8636-1974fe867208",
-                            ConcurrencyStamp = "f852eaa4-375e-41cc-b505-159d944bf385",
+                            Id = "610a9b8a-951a-497f-9a08-7dbba1d8c0b6",
+                            ConcurrencyStamp = "ce755db1-207c-46e3-a6c8-6aec24d2152e",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "ddd6cb8a-fa9f-4a41-a0dc-e2ce7a8eff8c",
-                            ConcurrencyStamp = "65d9d0e1-0bb7-4a58-b962-1f048e7aeed0",
+                            Id = "e5caf0e3-4f89-4477-8e15-4cf51a769585",
+                            ConcurrencyStamp = "75563777-554c-4045-b0d4-c77f782d028c",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -424,8 +421,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2124457a-2224-47bf-891d-1f1dbce0caf2",
-                            RoleId = "2124457a-2224-47bf-891d-1f1dbce0caf2"
+                            UserId = "c24f61cc-8437-4718-ad24-17a96cdff8f1",
+                            RoleId = "c24f61cc-8437-4718-ad24-17a96cdff8f1"
                         });
                 });
 
