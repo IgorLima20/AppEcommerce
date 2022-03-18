@@ -18,6 +18,7 @@ namespace AppEcommerce.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();

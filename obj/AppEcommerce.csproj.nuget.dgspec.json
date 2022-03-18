@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj": {}
+    "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj": {
+    "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
+        "projectUniqueName": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
         "projectName": "AppEcommerce",
-        "projectPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
-        "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\obj\\",
+        "projectPath": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
+        "packagesPath": "C:\\Users\\igors\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\etec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\igors\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,47 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.4, )"
             }
           },
           "imports": [
@@ -55,6 +93,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.13, 5.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
