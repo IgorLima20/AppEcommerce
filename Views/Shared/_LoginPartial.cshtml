@@ -6,13 +6,15 @@
 {
     <a asp-area="Identity" asp-page="/Account/Manage/Index">
         <i class="bi bi-person-circle text-primary"></i>
-        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">Seja Bem-Vindo!</span>
+        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">
+            Seja Bem-vindo <b class="text-primary">@UserManager.GetUserAsync(User).Result.UserName</b>
+        </span>
     </a>
 }
 else
 {
     <a asp-area="Identity" asp-page="/Account/Login">
-        <i class="bi bi-person-circle text-primary"></i>
+        <i class="bi bi-person-circle logar"></i>
         <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">Entrar</span>
     </a>
 }

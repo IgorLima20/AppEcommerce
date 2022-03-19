@@ -1,0 +1,36 @@
+@{
+    ViewBag.Subtitulo = "Entrar";
+}
+
+<!-- Checkout Start -->
+
+<div class="container pt-2">
+    <div class="row justify-content-center">
+        <form class="col-sm-8 col-md-6 col-lg-4">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span
+                    class="bg-secondary pr-3">Entrar</span>
+            </h5>
+            <div class="form-floating mb-3">
+                <input type="email" id="txtEmail" class="form-control" placeholder=" " autofocus>
+                <label for="txtEmail">E-mail</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" id="txtSenha" class="form-control" placeholder=" ">
+                <label for="txtSenha">Senha</label>
+            </div>
+            @* <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" value="" id="chkLembrar">
+                <label for="chkLembrar" class="form-check-label">Lembrar de mim</label>
+                </div> *@
+            <button class="btn btn-block btn-primary font-weight-bold py-3"><i class="bi bi-door-open-fill"></i> Entrar</button>
+            <p class="mt-3">
+                Ainda não é cadastrado? <a asp-action="Cadastro" asp-controller="Cliente">Clique Aqui</a> para se cadastrar.
+            </p>
+            @* <p class="mt-3">
+                Esqueceu sua senha? <a href="/recuperarsenha.html">Clique Aqui</a> para recuperá-la.
+                </p> *@
+        </form>
+    </div>
+</div>
+
+<!-- Checkout End -->
