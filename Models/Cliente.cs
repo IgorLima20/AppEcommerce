@@ -27,11 +27,8 @@ namespace AppEcommerce.Models
             get => (int)Math.Floor((DateTime.Now - DataNascimento).TotalDays / 365.2425);
         }
 
-        public Guid IdEndereco { get; set; }
-
-        [ForeignKey("IdEndereco")]
-        public Endereco Endereco { get; set; }
-
         public ICollection<Pedido> Pedido { get; set; }
+
+        public ICollection<Endereco> Endereco { get; set; }
     }
 }

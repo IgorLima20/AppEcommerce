@@ -4,33 +4,35 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
+<div class="container pt-2">
+    <div class="row justify-content-center">
+        <form method="post" class="col-sm-8 col-md-6 col-lg-4">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span
+                    class="bg-secondary pr-3">Cadastrar-se</span>
+            </h5>
+            <div asp-validation-summary="All" hidden></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" placeholder=" " autofocus />
+                <label asp-for="Input.Email">E-mail</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" placeholder=" " />
+                <label asp-for="Input.Password">Senha</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder=" " />
+                <label asp-for="Input.ConfirmPassword">Confirma Senha</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button class="btn btn-block btn-primary font-weight-bold py-3" type="submit" class="btn btn-primary"><i class="bi bi-ui-checks"></i> Cadastar</button>
+            <p class="mt-3">
+                Já possui uma conta? <a asp-area="Identity" asp-page="Login">Clique Aqui</a> Para Logar.
+            </p>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
+    @* <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to register.</h4>
             <hr />
@@ -59,7 +61,7 @@
                 }
             }
         </section>
-    </div>
+    </div> *@
 </div>
 
 @section Scripts {

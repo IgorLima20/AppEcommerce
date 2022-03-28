@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,8 @@ namespace AppEcommerce.Models
 
         [Required]
         public string Referencia { get; set; }
+
+        public bool Selecionado { get; set; }
 
 
         [NotMapped]

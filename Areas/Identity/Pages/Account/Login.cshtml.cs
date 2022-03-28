@@ -44,14 +44,16 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Digite seu E-mail ou Nome de Usuário")]
+            [Display(Name = "E-mail / Usuário", Prompt = "E-mail / Usuário")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Digite sua Senha de Acesso")]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha", Prompt = "Senha")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Manter Conectado?")]
             public bool RememberMe { get; set; }
         }
 
@@ -80,17 +82,13 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
         
             if (ModelState.IsValid)
             {
-
-                var userName  =Input.Email;
+                var userName = Input.Email;
                 if (IsValidEmail(Input.Email))
                 {
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     if (user != null)
-                    {
                         userName = user.UserName;
-                    }
                 }
-
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(userName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
@@ -108,11 +106,12 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
                     _logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
-                else
+                if (result.IsNotAllowed)
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
+                    _logger.LogWarning("User confirmation needed");
+                    return RedirectToPage("./ResendEmailConfirmation");
                 }
+                ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos.");
             }
 
             // If we got this far, something failed, redisplay form
@@ -126,11 +125,10 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
                 MailAddress m = new MailAddress(emailaddress);
                 return true;
             }
-            catch (FormatException)
+            catch(FormatException)
             {
                 return false;
             }
         }
-
     }
 }

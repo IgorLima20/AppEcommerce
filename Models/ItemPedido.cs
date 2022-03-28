@@ -7,32 +7,26 @@ using System.Threading.Tasks;
 
 namespace AppEcommerce.Models
 {
-    [Table("ItemPedido")]
     public class ItemPedido
     {   
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid Id { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, Column(Order = 1)]
         public Guid IdPedido { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [ForeignKey("IdPedido")]
+        public Pedido Pedido { get; set; }
+
+        [Key, Column(Order = 2)]
         public Guid IdProduto { get; set; }
+
+        [ForeignKey("IdProduto")]
+        public Produto Produto { get; set; }
 
         [Required]
         public int Quantidade { get; set; }
 
         public double ValorUnitario { get; set; }
 
-        [ForeignKey("IdPedido")]
-        public Pedido Pedido { get; set; }
-
-        [ForeignKey("IdProduto")]
-        public Produto Produto { get; set; }
-
         [NotMapped]
-        public double ValorItem { get => this.Quantidade * this.
-            ValorUnitario;}
+        public double ValorItem { get => this.Quantidade * this.ValorUnitario;}
     }
 }

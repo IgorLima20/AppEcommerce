@@ -1,0 +1,21 @@
+@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+<div class="container pt-2">
+    <div class="row justify-content-center">
+        <form class="col-sm-8 col-md-6 col-lg-4" method="post">
+            <div class="text-center mb-4">
+                <h1 class="display-4 my-3"><a asp-controller="Home" asp-action="Index">INFO TECH</a></h1>
+                <p class="h5 text-center ">Seja Bem-vindo a nossa Loja Online de Tecnologia</p>
+            </div>
+            <p class="text-center">Registro Completo, faça seu Login para começar!!!</p>
+            <p class="text-center mt-2"><a class="btn btn-block btn-primary font-weight-bold py-3" asp-area="Identity"
+                    asp-page="Login"><i class="bi bi-door-open-fill"></i> Fazer
+                    Login</a></p>
+            <p class="mt-3 mb-2 text-muted text-center">&copy; @DateTime.Now.Year</p>
+        </form>
+    </div>
+</div>

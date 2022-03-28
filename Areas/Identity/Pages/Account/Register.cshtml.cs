@@ -46,20 +46,20 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "Informe um endereço de E-mail")]
+            [EmailAddress(ErrorMessage = "Informe um endereço de E-mail Válido!!")]
+            [Display(Name = "E-mail", Prompt = "E-mail")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Digite sua Senha de Acesso")]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Senha", Prompt = "Senha")]            
+            [StringLength(100, ErrorMessage = "Sua {0} deve possuir no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
             public string Password { get; set; }
 
+            [Display(Name = "Confirmação de Senha", Prompt = "Confirmação de Senha")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "Senha e Confirmação de Senha não conferem!")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -91,6 +91,8 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    
+                    await _userManager.AddToRoleAsync(user, "Usuario");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -104,7 +106,19 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    if (error.Code == "PasswordRequiresUpper")
+                        ModelState.AddModelError(string.Empty, "A senha precisa ter no mínimo um caracter maiúsculo.");
+                    else
+                    if (error.Code == "PasswordRequiresDigit")
+                        ModelState.AddModelError(string.Empty, "A senha precisa ter no minimo um número.");
+                    else
+                    if (error.Code == "PasswordRequiresLower")
+                        ModelState.AddModelError(string.Empty, "A senha precisa ter no minimo um caracter minúsculo.");
+                    else
+                    if (error.Code == "DuplicateUserName")
+                        ModelState.AddModelError(string.Empty, "Esse Nome de Usuário já existe. Informe outro nome!");
+                    else
+                        ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 

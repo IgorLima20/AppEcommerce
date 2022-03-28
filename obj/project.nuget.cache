@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Fr0ONVOC60EMChxv9b8REdicbGApHLJTCtNuTOXmKeNSft8C54ipad74uIq854J9tnGoKFebcBOAQNUBkb+qw==",
+  "dgSpecHash": "TJTm9cK/EU/b0djD94euJ31zREFKqtYnYN5o7DfY01HMsiGec4v+doq6Ov13nkZNnyBzsmQtkuBBP/803mgp3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\igors\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj",
+  "projectFilePath": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\igors\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\igors\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.15\\microsoft.aspnetcore.cryptography.internal.5.0.15.nupkg.sha512",

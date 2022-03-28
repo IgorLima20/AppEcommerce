@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AppEcommerce.Data;
 using AppEcommerce.Models;
+using AppEcommerce.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,10 +34,25 @@ namespace AppEcommerce
                 options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao))
             );
             services.AddIdentity<User, IdentityRole>(
-                options => options.SignIn.RequireConfirmedAccount = false
-            ).AddEntityFrameworkStores<Contexto>().AddDefaultUI().AddDefaultTokenProviders();
+                options => options.SignIn.RequireConfirmedAccount = true
+            )
+                .AddEntityFrameworkStores<Contexto>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default Password setting
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength = 6;
+            });
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            
+            services.AddTransient<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
