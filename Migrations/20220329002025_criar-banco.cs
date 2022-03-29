@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppEcommerce.Migrations
 {
-    public partial class segundo : Migration
+    public partial class criarbanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -102,12 +102,12 @@ namespace AppEcommerce.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    Nome = table.Column<string>(type: "varchar(400)", maxLength: 400, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Valor = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Estoque = table.Column<uint>(type: "int unsigned", nullable: false),
                     IdMarca = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Descricao = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: true)
+                    Descricao = table.Column<string>(type: "varchar(800)", maxLength: 800, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Imagem = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -381,12 +381,12 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Imagem", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("cf47b113-ae00-4f5c-87d8-1b65d2280836"), "~/img/Produtos/001.png", "Computadores" },
-                    { new Guid("8ac5f7bb-5883-40cf-aa0a-a1cfde657db4"), "~/img/Produtos/002.png", "Celulares" },
-                    { new Guid("98f2f61f-450b-4e5b-8891-d36dbceff9d2"), "~/img/Produtos/003.png", "Periféricos" },
-                    { new Guid("07a816fc-c491-4bfc-a4e5-dfc464d633e8"), "~/img/Produtos/004.png", "Games" },
-                    { new Guid("184e86c0-0a13-41cc-8ab1-667313c4d2c0"), "~/img/Produtos/005.png", "Cadeiras" },
-                    { new Guid("919d71e2-ae91-4a96-8ea7-263df044a894"), "~/img/Produtos/006.png", "Conectividade" }
+                    { new Guid("5d6894a6-0ad6-4336-9754-a464893d5b5c"), "~/img/Produtos/001.png", "Computadores" },
+                    { new Guid("eea6dd87-d7a2-41f9-ac45-7859a1b7284e"), "~/img/Produtos/002.png", "Celulares" },
+                    { new Guid("c501ae48-63aa-44da-90e1-fbc6c5062247"), "~/img/Produtos/003.png", "Periféricos" },
+                    { new Guid("4fea67de-4fdf-4aaa-b129-aca0a2958c7f"), "~/img/Produtos/004.png", "Games" },
+                    { new Guid("20aa43f5-1e02-470e-9b88-d9ccf572de76"), "~/img/Produtos/005.png", "Cadeiras" },
+                    { new Guid("f0aa5c03-f53f-4dec-acd9-4b726e590ee3"), "~/img/Produtos/006.png", "Conectividade" }
                 });
 
             migrationBuilder.InsertData(
@@ -394,8 +394,8 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("96599f87-cbd2-459c-9de2-6380a202f5d3"), "Nvidia" },
-                    { new Guid("15a1b099-2352-4f3d-820b-d13c0fb7a86b"), "Logitech" }
+                    { new Guid("e5438382-dcae-4014-b196-15f74941a1ae"), "Nvidia" },
+                    { new Guid("f7ac5250-9335-4931-8e2a-4a37188226c2"), "Logitech" }
                 });
 
             migrationBuilder.InsertData(
@@ -403,31 +403,31 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "e5e2f42e-4253-4dca-a2e5-e18ef0137e39", "6d125838-e071-4289-a7aa-14c5e8b38c11", "Administrador", "ADMINISTRADOR" },
-                    { "aec91074-41c1-489d-9393-bd5fce349ca1", "5a3c7b5d-54c1-4a88-87ee-c8cae5f44b65", "Moderador", "MODERADOR" },
-                    { "f8e25da2-86e8-4394-a86e-226d304d7904", "c16d6c0a-8815-488a-8572-a41d1dcf8bab", "Usuario", "USUARIO" }
+                    { "a4235f21-9f22-4214-ae6f-4a715cc66db9", "2aab4688-5012-4c06-a6e1-aa676c6c4790", "Administrador", "ADMINISTRADOR" },
+                    { "b5aaefbf-d412-4a7b-896b-7a1362bb31d8", "a66770a3-fe89-4e74-b266-e0f8041d886d", "Moderador", "MODERADOR" },
+                    { "eaf89f8d-70dc-4adf-b588-3fa066276291", "65ec10d0-f218-482e-997d-564efbdad946", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "e5e2f42e-4253-4dca-a2e5-e18ef0137e39", 0, "85084c2e-c33e-447b-bc0c-adff5dd328b7", "admin@ecommerce.com.br", true, false, null, "Igor Oliveira de Lima", "ADMIN@ECOMMERCE.COM.BR", "ADMIN", "AQAAAAEAACcQAAAAEG14oklt4I/qiORw+JXc1dBCG8yrS+20lQ8Bxmi34i4UlqB7z7Dz7UWTd3iv32Nsug==", null, false, "12405375", false, "Admin" });
+                values: new object[] { "a4235f21-9f22-4214-ae6f-4a715cc66db9", 0, "edbef875-17f2-4024-a478-3b17510c3133", "admin@ecommerce.com.br", true, false, null, "Igor Oliveira de Lima", "ADMIN@ECOMMERCE.COM.BR", "ADMIN", "AQAAAAEAACcQAAAAEAi2/ET7RJhzJo1Bf0at9F+opBH1bJw4AeHTS8tkq2OMdzmJmOpT5PCOT1EJyigfiw==", null, false, "12405375", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
                 columns: new[] { "Id", "Descricao", "Estoque", "IdCategoria", "IdMarca", "Imagem", "Nome", "Valor" },
                 values: new object[,]
                 {
-                    { new Guid("8ebb1449-21e2-4123-96c7-c749863d73ec"), "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("cf47b113-ae00-4f5c-87d8-1b65d2280836"), new Guid("96599f87-cbd2-459c-9de2-6380a202f5d3"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223.99m },
-                    { new Guid("a91988c1-5965-490c-a1a4-715013eda0e0"), "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("cf47b113-ae00-4f5c-87d8-1b65d2280836"), new Guid("96599f87-cbd2-459c-9de2-6380a202f5d3"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
-                    { new Guid("321e2f1c-44af-49da-98ef-7399eb8b0c18"), "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("98f2f61f-450b-4e5b-8891-d36dbceff9d2"), new Guid("15a1b099-2352-4f3d-820b-d13c0fb7a86b"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
-                    { new Guid("5bd6f63e-4791-4891-ad70-8cc4274abad1"), "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("98f2f61f-450b-4e5b-8891-d36dbceff9d2"), new Guid("15a1b099-2352-4f3d-820b-d13c0fb7a86b"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179.99m }
+                    { new Guid("ea601512-3920-4a16-afcf-e9c80d8c7a99"), "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("5d6894a6-0ad6-4336-9754-a464893d5b5c"), new Guid("e5438382-dcae-4014-b196-15f74941a1ae"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223.99m },
+                    { new Guid("43c931cc-7b66-4a90-8e97-ca181095e316"), "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("5d6894a6-0ad6-4336-9754-a464893d5b5c"), new Guid("e5438382-dcae-4014-b196-15f74941a1ae"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
+                    { new Guid("bed6b737-ad73-43f8-8615-e3b1dd0adf2d"), "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("c501ae48-63aa-44da-90e1-fbc6c5062247"), new Guid("f7ac5250-9335-4931-8e2a-4a37188226c2"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
+                    { new Guid("83b67ddb-572f-421a-b0cc-d77653122f7a"), "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("c501ae48-63aa-44da-90e1-fbc6c5062247"), new Guid("f7ac5250-9335-4931-8e2a-4a37188226c2"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179.99m }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "e5e2f42e-4253-4dca-a2e5-e18ef0137e39", "e5e2f42e-4253-4dca-a2e5-e18ef0137e39" });
+                values: new object[] { "a4235f21-9f22-4214-ae6f-4a715cc66db9", "a4235f21-9f22-4214-ae6f-4a715cc66db9" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",

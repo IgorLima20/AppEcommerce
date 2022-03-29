@@ -15,7 +15,7 @@ namespace AppEcommerce.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(400)]
         public string Nome { get; set; }
 
         [Required]
@@ -32,7 +32,7 @@ namespace AppEcommerce.Models
         [ForeignKey("IdMarca")]
         public Marca Marca { get; set; }
 
-        [StringLength(300)]
+        [StringLength(800)]
         public string Descricao { get; set; }
 
         [StringLength(200)]

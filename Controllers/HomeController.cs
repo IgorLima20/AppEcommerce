@@ -25,18 +25,22 @@ namespace AppEcommerce.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var produtos = _contexto.Produtos.Include(c => c.Categoria ).ToList();
             return View(produtos);
         }
 
-        public IActionResult Contato()
+        public IActionResult Show(Guid Id)
         {
-            return View();
+            var produto = _contexto.Produtos.Where(v => v.Id == Id).SingleOrDefault();
+            return View(produto);
+           
         }
 
-        public IActionResult Componetentes()
-        {
-            return View();
+        public IActionResult Filtro(Guid Id)
+        {   
+            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToList();
+            return View(filtro);
         }
 
         public IActionResult Partes()
