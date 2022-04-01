@@ -32,6 +32,7 @@ namespace AppEcommerce.Controllers
 
         public IActionResult Show(Guid Id)
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var produto = _contexto.Produtos.Where(v => v.Id == Id).SingleOrDefault();
             return View(produto);
            
@@ -39,12 +40,14 @@ namespace AppEcommerce.Controllers
 
         public IActionResult Filtro(Guid Id)
         {   
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToList();
             return View(filtro);
         }
 
         public IActionResult Partes()
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             return View();
         }
 
