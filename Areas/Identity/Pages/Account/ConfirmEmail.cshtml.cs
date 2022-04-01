@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using AppEcommerce.Data;
 
 namespace AppEcommerce.Areas.Identity.Pages.Account
 {
@@ -17,9 +18,12 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
     {
         private readonly UserManager<User> _userManager;
 
-        public ConfirmEmailModel(UserManager<User> userManager)
+        private readonly Contexto _contexto;
+
+        public ConfirmEmailModel(UserManager<User> userManager, Contexto contexto)
         {
             _userManager = userManager;
+            _contexto = contexto;
         }
 
         [TempData]
@@ -27,6 +31,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetAsync(string userId, string code)
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             if (userId == null || code == null)
             {
                 return RedirectToPage("/Index");

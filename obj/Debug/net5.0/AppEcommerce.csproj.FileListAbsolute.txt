@@ -1426,3 +1426,6 @@ C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfi
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\Razor\Views\Home\Show.cshtml.g.cs
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\Razor\Views\Home\Filtro.cshtml.g.cs
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_MenuCategorias.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Home\Filtro.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Home\Show.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_MenuCategorias.cshtml.g.cs

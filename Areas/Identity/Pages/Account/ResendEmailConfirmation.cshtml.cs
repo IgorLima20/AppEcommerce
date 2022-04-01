@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using AppEcommerce.Data;
+using System.Linq;
 
 namespace AppEcommerce.Areas.Identity.Pages.Account
 {
@@ -19,10 +21,13 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ResendEmailConfirmationModel(UserManager<User> userManager, IEmailSender emailSender)
+        private readonly Contexto _contexto;
+
+        public ResendEmailConfirmationModel(UserManager<User> userManager, IEmailSender emailSender, Contexto contexto)
         {
             _userManager = userManager;
             _emailSender = emailSender;
+            _contexto = contexto;
         }
 
         [BindProperty]
@@ -38,10 +43,12 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public void OnGet()
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -67,6 +74,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
                 "Confirm your email",
                 $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             ModelState.AddModelError(string.Empty, "OK");
             return Page();
         }

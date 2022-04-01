@@ -33,7 +33,8 @@ namespace AppEcommerce.Controllers
         public IActionResult Show(Guid Id)
         {
             ViewData["Categorias"] = _contexto.Categorias.ToList();
-            var produto = _contexto.Produtos.Where(v => v.Id == Id).SingleOrDefault();
+            ViewData["Marca"] = _contexto.Marcas.ToList();
+            var produto = _contexto.Produtos.Where(v => v.Id == Id).Include(m => m.Categoria).SingleOrDefault();
             return View(produto);
            
         }

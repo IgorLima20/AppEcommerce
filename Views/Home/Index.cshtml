@@ -52,7 +52,7 @@
                                 <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem
                                     magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                                    href="#">Shop Now</a>
+                                    href="#">Shop</a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                 <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem
                                     magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                                    href="#">Shop Now</a>
+                                    href="#">Shop</a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                 <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem
                                     magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                                    href="#">Shop Now</a>
+                                    href="#">Shop</a>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,8 @@
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">Save 20%</h6>
                     <h3 class="text-white mb-3">Special Offer</h3>
-                    <a href="" class="btn btn-primary">Shop Now</a>
+                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                        href="#">Shop</a>
                 </div>
             </div>
             <div class="product-offer mb-30" style="height: 200px;">
@@ -99,7 +100,8 @@
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">Save 20%</h6>
                     <h3 class="text-white mb-3">Special Offer</h3>
-                    <a href="" class="btn btn-primary">Shop Now</a>
+                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                        href="#">Shop</a>
                 </div>
             </div>
         </div>
@@ -141,11 +143,12 @@
             class="bg-secondary pr-3">Categorias</span></h2>
     <div class="row px-xl-5 pb-3">
         @foreach (var categoria in ViewBag.Categorias)
-        {   
+        {
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     @* <p class="text-right">@produtos..Count() Produtos</p> *@
-                    <a asp-action="Filtro" asp-route-id="@categoria.Id" class="cat-img position-relative overflow-hidden mb-3">
+                    <a asp-action="Filtro" asp-route-id="@categoria.Id"
+                    class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="@Url.Content(@categoria.Imagem)" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">@categoria.Nome</h5>
@@ -188,7 +191,7 @@
     <div class="row px-xl-5">
         @foreach (var produtos in Model)
         {
-            <div class=" card-group col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="card-group col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
                         <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
@@ -196,23 +199,23 @@
                         <div class="product-action">
                             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                            <a class="btn btn-outline-dark btn-square"  asp-action="Show" asp-route-id="@produtos.Id"><i class="fa fa-search"></i></a>
+                            <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"><i
+                                class="fa fa-search"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
                         <p class="card-text truncar-3l">
-                            <a class="h5 text-decoration-none" href="">@produtos.Nome</a
-                        </p>
+                            <a class="h5 text-decoration-none" href="">@produtos.Nome</a </p>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>@produtos.Valor.ToString("C")</h5>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             @* <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>*@
-                            <small>@produtos.Estoque em Estoque</small> 
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>*@
+                            <small>@produtos.Estoque em Estoque</small>
                         </div>
                     </div>
                 </div>

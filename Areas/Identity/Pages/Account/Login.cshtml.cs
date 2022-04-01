@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Net.Mail;
+using AppEcommerce.Data;
 
 namespace AppEcommerce.Areas.Identity.Pages.Account
 {
@@ -22,14 +23,16 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly Contexto _contexto;
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager, Contexto contexto)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _contexto = contexto;
         }
 
         [BindProperty]
@@ -59,6 +62,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);

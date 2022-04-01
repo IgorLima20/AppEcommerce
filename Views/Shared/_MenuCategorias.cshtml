@@ -1,3 +1,3 @@
 @foreach (var categoria in ViewBag.Categorias) {
-<a href="" class="nav-item nav-link">@categoria.Nome</a>
+<a asp-action="Filtro" asp-route-id="@categoria.Id" class="nav-item nav-link">@categoria.Nome</a>
 }
