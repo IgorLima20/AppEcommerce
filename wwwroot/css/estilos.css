@@ -6210,7 +6210,8 @@ label .text-dark {
   }
   
   .bg-dark {
-    background-color: #181C20 !important;
+    background-color: #272A2E
+     !important;
   }
   
   a.bg-dark:hover, a.bg-dark:focus,

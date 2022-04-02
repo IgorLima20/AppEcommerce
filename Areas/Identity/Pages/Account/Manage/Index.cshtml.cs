@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using AppEcommerce.Data;
+using AppEcommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,15 +13,18 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+
+        private readonly Contexto _contexto;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<User> userManager,
+            SignInManager<User> signInManager, Contexto contexto)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _contexto = contexto;
         }
 
         public string Username { get; set; }
@@ -37,7 +42,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(User user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -51,7 +56,8 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
         }
 
         public async Task<IActionResult> OnGetAsync()
-        {
+        {   
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {

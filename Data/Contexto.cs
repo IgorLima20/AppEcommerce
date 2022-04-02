@@ -136,7 +136,7 @@ namespace AppEcommerce.Data
                 new Categoria()
                 {
                     Id = guid[0],
-                    Nome = "Computadores",
+                    Nome = "Hardware",
                     Imagem = "~/img/Produtos/001.png"
                 },
                 new Categoria()
@@ -230,7 +230,26 @@ namespace AppEcommerce.Data
                     Imagem = "~/img/Produtos/4.jpg",
                     IdCategoria = guid[2] 
                 },
-
+                new Produto(){
+                    Id = Guid.NewGuid(),
+                    Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
+                    Valor = 349.90,
+                    Estoque = 1,
+                    IdMarca = gui[1],
+                    Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
+                    Imagem = "~/img/Produtos/5.jpg",
+                    IdCategoria = guid[2] 
+                },
+                new Produto(){
+                    Id = Guid.NewGuid(),
+                    Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
+                    Valor = 2743.98,
+                    Estoque = 0,
+                    IdMarca = gui[0],
+                    Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
+                    Imagem = "~/img/Produtos/6.jpg",
+                    IdCategoria = guid[0] 
+                },
             };
             modelBuilder.Entity<Produto>().HasData(produtos);
             #endregion

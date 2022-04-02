@@ -4,17 +4,62 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <a asp-area="Identity" asp-page="/Account/Manage/Index">
-        <i class="bi bi-person-circle text-primary"></i>
-        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">
-            Seja Bem-vindo <b class="text-primary">@UserManager.GetUserAsync(User).Result.UserName</b>
-        </span>
-    </a>
+    <div class="dropdown">
+        <a href="">
+            <i class="bi bi-person-circle text-primary" style="font-size: 20px"></i>
+            <span class="badge text-secondary border-secondary" style="padding-bottom: 2px; font-size: 14px">
+                Seja Bem-vindo <b class="text-primary">@UserManager.GetUserAsync(User).Result.UserName</b>
+            </span>
+        </a>
+        <div class="dropdown-content">
+
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
+            <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
+            <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
+            asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            </form>
+        </div>
+    </div>
 }
 else
 {
     <a asp-area="Identity" asp-page="/Account/Login">
-        <i class="bi bi-person-circle text-primary"></i>
-        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px">Entrar</span>
+        <i class="bi bi-person-circle text-primary" style="font-size: 20px;"></i>
+        <span class="badge text-secondary border-secondary" style="padding-bottom: 2px; font-size: 14px">Entrar</span>
     </a>
 }
+
+<style>
+    .dropdown {
+        display: inline-block;
+        position: relative;
+
+    }
+
+    .dropdown-content {
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: -170px;
+        display: none;
+        position: absolute;
+        width: 200px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color: #000000;
+        padding: 5px;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #d4d4d4;
+    }
+</style>

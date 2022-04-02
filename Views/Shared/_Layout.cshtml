@@ -41,11 +41,11 @@
 <body>
   <div class="d-flex flex-column wrapper">
     <div class="container-fluid">
-      <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+      <div class="row align-items-center bg-dark py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
           <a href="" class="text-decoration-none">
-            <span class="h1 text-uppercase text-primary bg-dark px-2">Info</span>
-            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Tech</span>
+            <span class="h1 text-uppercase text-primary bg-dark px-2">BUY</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SELL</span>
           </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
@@ -53,16 +53,16 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search for products">
               <div class="input-group-append">
-                <span class="input-group-text bg-transparent text-primary">
+                <span class="input-group-text bg-dark text-primary" style="border-color: #3F4147;">
                   <i class="fa fa-search"></i>
                 </span>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-lg-4 col-6 text-right">
-          <p class="m-0">Customer Service</p>
-          <h5 class="m-0">+012 345 6789</h5>
+        <div class="col-lg-4 col-6 text-right ">
+          <p class="m-0 text-white">Customer Service</p>
+          <h5 class="m-0 text-white">+012 345 6789</h5>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
         <div class="col-lg-3 d-none d-lg-block">
           <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse"
             href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
-            <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categories</h6>
+            <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categorias</h6>
             <i class="fa fa-angle-down text-dark"></i>
           </a>
           <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
@@ -110,12 +110,12 @@
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                 <partial name="_LoginPartial"></partial>
                 <a href="" class="btn px-0 ml-3">
-                  <i class="fas fa-heart text-primary"></i>
+                  <i class="fas fa-heart text-primary" style="font-size: 20px;"></i>
                   <span class="badge text-secondary border border-secondary rounded-circle"
                     style="padding-bottom: 2px;">0</span>
                 </a>
                 <a class="btn px-0 ml-3" asp-action="Index" asp-controller="Carrinho">
-                  <i class="fas fa-shopping-cart text-primary"></i>
+                  <i class="fas fa-shopping-cart text-primary" style="font-size: 20px;"></i>
                   <span class="badge text-secondary border border-secondary rounded-circle"
                     style="padding-bottom: 2px;">0</span>
                 </a>
