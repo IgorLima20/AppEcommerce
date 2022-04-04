@@ -12,7 +12,6 @@
             </span>
         </a>
         <div class="dropdown-content">
-
             <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
             <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
             <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
@@ -31,7 +30,7 @@ else
 
 <style>
     .dropdown {
-        display: inline-block;
+        display: inline-flex;
         position: relative;
 
     }
@@ -39,7 +38,7 @@ else
     .dropdown-content {
         border-radius: 5px;
         padding: 5px;
-        margin-left: -170px;
+        margin-left: -144px;
         display: none;
         position: absolute;
         width: 200px;

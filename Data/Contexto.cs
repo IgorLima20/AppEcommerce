@@ -174,8 +174,8 @@ namespace AppEcommerce.Data
             #endregion
 
             #region Populate Marca
-            Guid[] gui = new Guid[2];
-            for (int i = 0; i < 2; i++) gui[i] = Guid.NewGuid();
+            Guid[] gui = new Guid[4];
+            for (int i = 0; i < 4; i++) gui[i] = Guid.NewGuid();
             modelBuilder.Entity<Marca>().HasData(
                 new Marca(){
                     Id = gui[0],
@@ -184,6 +184,14 @@ namespace AppEcommerce.Data
                  new Marca(){
                     Id = gui[1],
                     Nome = "Logitech"
+                },
+                 new Marca(){
+                    Id = gui[2],
+                    Nome = "Motorola"
+                },
+                 new Marca(){
+                    Id = gui[3],
+                    Nome = "D-Link"
                 }
             );
             #endregion
@@ -249,6 +257,26 @@ namespace AppEcommerce.Data
                     Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
                     Imagem = "~/img/Produtos/6.jpg",
                     IdCategoria = guid[0] 
+                },
+                new Produto(){
+                    Id = Guid.NewGuid(),
+                    Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
+                    Valor = 892.05,
+                    Estoque = 20,
+                    IdMarca = gui[2],
+                    Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
+                    Imagem = "~/img/Produtos/7.jpg",
+                    IdCategoria = guid[1] 
+                },
+                new Produto(){
+                    Id = Guid.NewGuid(),
+                    Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
+                    Valor = 164.90,
+                    Estoque = 10,
+                    IdMarca = gui[3],
+                    Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
+                    Imagem = "~/img/Produtos/8.jpg",
+                    IdCategoria = guid[5] 
                 },
             };
             modelBuilder.Entity<Produto>().HasData(produtos);

@@ -25,18 +25,18 @@ namespace AppEcommerce.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
-            var produtos = _contexto.Produtos.Include(c => c.Categoria ).ToList();
+            ViewData["Categorias"] = _contexto.Categorias.Take(6);
+            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria ).Take(8);
             return View(produtos);
         }
 
-        public IActionResult Show(Guid Id)
+        public IActionResult Show(Guid Id, Guid IdCategoria)
         {
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             ViewData["Marca"] = _contexto.Marcas.ToList();
+            ViewData["Produtos"] = _contexto.Produtos.Where(c => c.IdCategoria == IdCategoria).Where(s => s.Id != Id).Include(i => i.Categoria).Take(4);
             var produto = _contexto.Produtos.Where(v => v.Id == Id).Include(m => m.Categoria).SingleOrDefault();
             return View(produto);
-           
         }
 
         public IActionResult Filtro(Guid Id)
@@ -45,13 +45,6 @@ namespace AppEcommerce.Controllers
             var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToList();
             return View(filtro);
         }
-
-        public IActionResult Partes()
-        {
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
-            return View();
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
