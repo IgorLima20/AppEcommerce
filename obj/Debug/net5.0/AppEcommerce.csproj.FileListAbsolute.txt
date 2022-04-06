@@ -487,3 +487,8 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\ref\AppEcommerce.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.pdb
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfig.cache
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\JetBrains.Annotations.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.Bootstrap4.Core.dll

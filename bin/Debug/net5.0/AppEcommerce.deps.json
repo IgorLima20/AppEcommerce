@@ -43,6 +43,9 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "5.0.2",
           "Pomelo.EntityFrameworkCore.MySql": "5.0.4",
+          "X.PagedList.Mvc": "8.0.7",
+          "X.PagedList.Mvc.Bootstrap4": "8.1.0",
+          "X.PagedList.Mvc.Core": "8.1.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -333,6 +336,17 @@
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
+        }
+      },
+      "JetBrains.Annotations/2021.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "2021.1.0.0",
+            "fileVersion": "2021.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.15": {
@@ -1989,6 +2003,59 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "X.PagedList/8.1.0": {
+        "dependencies": {
+          "JetBrains.Annotations": "2021.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc/8.0.7": {
+        "runtime": {
+          "lib/net48/X.PagedList.Mvc.dll": {
+            "assemblyVersion": "8.0.7.0",
+            "fileVersion": "8.0.7.0"
+          }
+        },
+        "compile": {
+          "lib/net48/X.PagedList.Mvc.dll": {}
+        }
+      },
+      "X.PagedList.Mvc.Bootstrap4/8.1.0": {
+        "dependencies": {
+          "X.PagedList.Mvc.Core": "8.1.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/X.PagedList.Mvc.Bootstrap4.Core.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/X.PagedList.Mvc.Bootstrap4.Core.dll": {}
+        }
+      },
+      "X.PagedList.Mvc.Core/8.1.0": {
+        "dependencies": {
+          "X.PagedList": "8.1.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/X.PagedList.Mvc.Core.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/X.PagedList.Mvc.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3662,6 +3729,13 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
+    "JetBrains.Annotations/2021.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n9JSw5Z+F+6gp9vSv4aLH6p/bx3GAYA6FZVq1wJq/TJySv/kPgFKLGFeS7A8Xa5X4/GWorh5gd43yjamUgnBNA==",
+      "path": "jetbrains.annotations/2021.1.0",
+      "hashPath": "jetbrains.annotations.2021.1.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.15": {
       "type": "package",
       "serviceable": true,
@@ -4613,6 +4687,34 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "X.PagedList/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xBZNtE+WU6FEKEapLvIdTFn4h3Ue03dsBE1LfnhzsLFIrop5bX6f7UuXnsenG/QK1OPHYknkC0a0vPBAMo0bXQ==",
+      "path": "x.pagedlist/8.1.0",
+      "hashPath": "x.pagedlist.8.1.0.nupkg.sha512"
+    },
+    "X.PagedList.Mvc/8.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Svb2MC/Cy5Q6z2Kj7e6hpWJJOs/R0o12oojyxXDsPat7YnrdYU3Tfs5ntk6SLbDLZNH0flPwNFQ1N+l5tQU/eg==",
+      "path": "x.pagedlist.mvc/8.0.7",
+      "hashPath": "x.pagedlist.mvc.8.0.7.nupkg.sha512"
+    },
+    "X.PagedList.Mvc.Bootstrap4/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sP9V26oOtwwJrHhuOZ7T95/3oSoLGpUIqKg0gdpjepNvCrVCEQqO5CHirM6etl5qIUEK+7q2+rYhsI6UDfo57A==",
+      "path": "x.pagedlist.mvc.bootstrap4/8.1.0",
+      "hashPath": "x.pagedlist.mvc.bootstrap4.8.1.0.nupkg.sha512"
+    },
+    "X.PagedList.Mvc.Core/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nqz9rSjU/St77F25GV8TogDfkVsbErC0o6o8hJtkkXrAilXHjsEALRMn8eVhgAFJ3XFWvvaHHSiDN3SnTGWSEA==",
+      "path": "x.pagedlist.mvc.core/8.1.0",
+      "hashPath": "x.pagedlist.mvc.core.8.1.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",

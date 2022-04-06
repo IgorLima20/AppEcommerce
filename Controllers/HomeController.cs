@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using AppEcommerce.Models;
 using AppEcommerce.Data;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace AppEcommerce.Controllers
 {
@@ -17,7 +18,7 @@ namespace AppEcommerce.Controllers
 
         private readonly Contexto _contexto;
 
-        public HomeController(ILogger<HomeController> logger,  Contexto contexto)
+        public HomeController(ILogger<HomeController> logger, Contexto contexto)
         {
             _logger = logger;
             _contexto = contexto;
@@ -26,7 +27,7 @@ namespace AppEcommerce.Controllers
         public IActionResult Index()
         {
             ViewData["Categorias"] = _contexto.Categorias.Take(6);
-            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria ).Take(8);
+            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }
 
@@ -34,15 +35,18 @@ namespace AppEcommerce.Controllers
         {
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             ViewData["Marca"] = _contexto.Marcas.ToList();
-            ViewData["Produtos"] = _contexto.Produtos.Where(c => c.IdCategoria == IdCategoria).Where(s => s.Id != Id).Include(i => i.Categoria).Take(4);
+            ViewData["Produtos"] = _contexto.Produtos.Where(c => c.IdCategoria == IdCategoria).Where(s => s.Id != Id).Include(i => i.Categoria).Take(4).ToList();
             var produto = _contexto.Produtos.Where(v => v.Id == Id).Include(m => m.Categoria).SingleOrDefault();
             return View(produto);
         }
 
-        public IActionResult Filtro(Guid Id)
-        {   
+        public IActionResult Filtro(Guid Id, int? pagina)
+        {
+            var tamanhoPagina = 1;
+            int numeroPagina = pagina ?? 1;
+
             ViewData["Categorias"] = _contexto.Categorias.ToList();
-            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToList();
+            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(numeroPagina, tamanhoPagina);
             return View(filtro);
         }
 
