@@ -1,29 +1,123 @@
 ﻿@{
+
+
+
+
+
+
+
     if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+
+
+
+
+
+
+
     {
+
+
+
+
+
+
+
         Layout = (string)parentLayout;
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
     else
+
+
+
+
+
+
+
     {
+
+
+
+
+
+
+
         Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+
+
+
+
+
+
+
     }
 }
 
-<h2>Manage your account</h2>
+<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/css/Login.css">
 
-<div>
+
+
+<main class="flex-fill">
+    <div class="container">
+        <h2>Minha Conta</h2>
+        <div class="row gx-3">
+            <div class="col-4">
+                <div class="list-group">
+                    <partial name="_ManageNav" />
+                </div>
+            </div>
+            <div class="col-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@* <main class="flex-fill">
+    <div class="container">
+    <h2>Minha Conta</h2>
+    <div class="row gx-3">
+    <div class="list-group">
+    <partial name="_ManageNav" />
+    </div>
+    <div class="col-8">
+    @RenderBody()
+    </div>
+    </div>
+    </div>
+    </main> *@
+
+
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+@* <div>
     <h4>Change your account settings</h4>
     <hr />
     <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
-        </div>
+    <div class="col-md-3">
+    <partial name="_ManageNav" />
     </div>
-</div>
+    <div class="col-md-9">
+
+    </div>
+    </div>
+    </div> *@
 
 @section Scripts {
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 }

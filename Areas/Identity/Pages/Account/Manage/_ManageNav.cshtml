@@ -2,14 +2,54 @@
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
-<ul class="nav nav-pills flex-column">
-    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+
+<a id="profile" asp-page="./Index" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-person fs-6"></i> Dados Pessoais
+</a>
+<a id="email" asp-page="./Email" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-mailbox fs-6"></i> E-mail
+</a>
+<a id="change-password" asp-page="./ChangePassword" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-lock fs-6"></i> Senha
+</a>
+<a href="/clientePedidos.html" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-truck fs-6"></i> Pedidos
+</a>
+<a href="/clienteFavoritos.html" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-heart fs-6"></i> Favoritos
+</a>
+<a href="/clienteSenha.html" class="btn list-group-item list-group-item-action btn-primary">
+    <i  class="bi-house-door fs-6"></i> Senha
+</a>
+<a href="/Index.html" class="btn list-group-item list-group-item-action btn-primary">
+    <i class="bi-door-open fs-6"></i> Sair
+</a>
+
+
+
+
+
+@* <ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
+    asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email"
+    asp-page="./Email">Email</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
+    asp-page="./ChangePassword">Password</a></li>
     @if (hasExternalLogins)
+
+
+
     {
-        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+    <li id="external-logins" class="nav-item"><a id="external-login"
+    class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External
+    logins</a></li>
+
+
+
     }
-    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
-</ul>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"
+    id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data"
+    asp-page="./PersonalData">Personal data</a></li>
+    </ul> *@

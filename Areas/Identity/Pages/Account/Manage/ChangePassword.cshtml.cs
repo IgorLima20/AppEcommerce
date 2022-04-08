@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using AppEcommerce.Data;
+using AppEcommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,18 +13,20 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
+        private readonly Contexto _contexto;
 
         public ChangePasswordModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
-            ILogger<ChangePasswordModel> logger)
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            ILogger<ChangePasswordModel> logger, Contexto contexto)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _contexto = contexto;
         }
 
         [BindProperty]
@@ -52,6 +56,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnGetAsync()
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {

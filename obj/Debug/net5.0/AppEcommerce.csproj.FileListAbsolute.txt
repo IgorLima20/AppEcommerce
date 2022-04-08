@@ -340,6 +340,8 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\System.Diagn
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\System.Runtime.Caching.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -487,8 +489,5 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\ref\AppEcommerce.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.pdb
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfig.cache
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\JetBrains.Annotations.dll
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.dll
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.dll
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\X.PagedList.Mvc.Bootstrap4.Core.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

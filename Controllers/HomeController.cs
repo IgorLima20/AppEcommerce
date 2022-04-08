@@ -42,11 +42,11 @@ namespace AppEcommerce.Controllers
 
         public IActionResult Filtro(Guid Id, int? pagina)
         {
-            var tamanhoPagina = 1;
-            int numeroPagina = pagina ?? 1;
+            var pageSize = 9;
+            int pageNumber = pagina ?? 1;
 
             ViewData["Categorias"] = _contexto.Categorias.ToList();
-            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(numeroPagina, tamanhoPagina);
+            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(pageNumber, pageSize);
             return View(filtro);
         }
 

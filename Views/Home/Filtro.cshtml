@@ -1,9 +1,73 @@
 @using X.PagedList.Mvc.Core;
+@using X.PagedList;
 @model X.PagedList.PagedList<AppEcommerce.Models.Produto>
 
 <link rel="stylesheet" href="~/content/PagedList.css" type="text/css" />
 
 @{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ViewBag.Subtitulo = "InfoTech";
 }
 
@@ -164,6 +228,69 @@
                     </div>
                 </div>
                 @foreach (var produto in Model)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {
                     <div class="card-group col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
@@ -197,11 +324,74 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
 
 
 
-                <div class="row">
+                @* <div class="row">
                     <div class="col-md-8">
 
                     </div>
@@ -211,12 +401,14 @@
                             @Model.TotalItemCount
                         </span>
                     </div>
-                </div>
+                </div> *@
 
-                @{
+                @* @{
+
                     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-                }
+
+                    var nextDisabled = !Model.HasN.extPage ? "disabled" : "";
+                    } *@
 
                 @* <a asp-action="Filtro" asp-route-sortOrder="@ViewData["CurrentSort"]"
                     asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]"
@@ -229,14 +421,20 @@
                     Next
                     </a> *@
 
-                @if (@Model.Count > 0)
+
+                @if (@Model.Count() > 9)
                 {
-                    <div class="col-12">
-                        <nav>
+                    <div class="col-12 text-center">
+                        <nav class="">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    @Html.PagedListPager(Model, page => Url.Action("Filtro", new { pagina = page }))
-                                </li>
+                                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Filtro", new { pagina = page }),
+                            new X.PagedList.Mvc.Common.PagedListRenderOptions
+                            {
+                                @* DisplayItemSliceAndTotal = true, *@
+                                ContainerDivClasses = new[] { "navigation" },
+                                LiElementClasses = new[] { "page-item" },
+                                PageClasses = new[] { "page-link" },
+                            })
                             </ul>
                         </nav>
                     </div>
@@ -248,6 +446,16 @@
 </div>
 <!-- Shop End -->
 
+@section Scripts{
+<script>
+    // Workaround to fix style of text for showing items .. through ..
+    // Problem related to Boostrap 4 according to issue in link below
+    // https://github.com/dncuug/X.PagedList/issues/127
+    $(document).ready(function () {
+        $('ul.pagination > li.disabled > a').addClass('page-link');
+    });
+</script>
+}
 
 @* string sortOrder, string currentFilter, string searchString, int? pageNumber
 
