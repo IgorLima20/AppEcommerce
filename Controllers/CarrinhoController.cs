@@ -78,8 +78,9 @@ namespace AppEcommerce.Controllers
             return cartId;
         }
 
-         public async Task<IActionResult> Adicionar(Guid? id, int qtde = 1)
+        public async Task<IActionResult> Adicionar(Guid? id, int qtde = 1)
         {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
             if (id == null) return NotFound();
 
             var produto = await _contexto.Produtos.FindAsync(id);
@@ -103,12 +104,11 @@ namespace AppEcommerce.Controllers
                     Pedido = new Pedido
                     {
                         IdCarrinho = cartId,
-                        DataHoraPedido = DateTime.UtcNow,
-                        Situacao = Pedido.SituacaoPedido.Carrinho,
+                        DataPedido = DateTime.UtcNow,
                         ItensPedido = new List<ItemPedido>()
                     };
 
-                    AppUser appUser = _signInManager.IsSignedIn(User) ?
+                    User appUser = _signInManager.IsSignedIn(User) ?
                         await _userManager.GetUserAsync(User) : null;
 
                     if (appUser != null)
@@ -116,7 +116,7 @@ namespace AppEcommerce.Controllers
                         Cliente cliente = await _contexto.Clientes.FirstOrDefaultAsync<Cliente>(
                             c => c.Email.ToLower().Equals(appUser.Email.ToLower()));
 
-                        if (cliente != null) Pedido.IdCliente = cliente.IdCliente;
+                        if (cliente != null) Pedido.IdCliente = cliente.Id;
                     }
 
                     _contexto.Pedidos.Add(Pedido);
@@ -129,7 +129,7 @@ namespace AppEcommerce.Controllers
                     {
                         IdProduto = id.Value,
                         Quantidade = qtde,
-                        ValorUnitario = produto.Preco.Value
+                        ValorUnitario = produto.Valor
                     });
                 }
                 else
@@ -144,6 +144,9 @@ namespace AppEcommerce.Controllers
             }
 
             TotalPedido = Pedido.ItensPedido.Sum(x => x.Quantidade * x.ValorUnitario);
+
+            ViewData["TotalPedido"] = TotalPedido;
+            ViewData["Pedido"] = Pedido;
 
             return View("Index");
         }

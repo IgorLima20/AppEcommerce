@@ -10263,19 +10263,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\igors\\.nuget\\packages\\": {}
+    "C:\\Users\\etec\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
+      "projectUniqueName": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
       "projectName": "AppEcommerce",
-      "projectPath": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
-      "packagesPath": "C:\\Users\\igors\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\obj\\",
+      "projectPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
+      "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\igors\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\etec\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10358,12 +10358,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.13, 5.0.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

@@ -22,19 +22,17 @@ namespace AppEcommerce.Models
         [Column(TypeName = "decimal(10, 2)")]
         public double ValorTotal { get; set; }
 
-        [Required]
-        public string IdCliente { get; set; }
+        public string? IdCliente { get; set; }
 
         [ForeignKey("IdCliente")]
-        public Cliente Cliente { get; set; }
+        public Cliente? Cliente { get; set; }
 
         public string IdCarrinho { get; set; }
         
-        [Required]
-        public Guid IdEndereco { get; set; }
+        public Guid? IdEndereco { get; set; }
 
         [ForeignKey("IdEndereco")]
-        public Endereco EnderecoEntrega { get; set; }
+        public Endereco? EnderecoEntrega { get; set; }
 
         public  ICollection<ItemPedido> ItensPedido { get; set; }
     }
