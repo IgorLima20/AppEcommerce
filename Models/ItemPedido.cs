@@ -16,7 +16,7 @@ namespace AppEcommerce.Models
         public Pedido Pedido { get; set; }
 
         [Key, Column(Order = 2)]
-        public Guid IdProduto { get; set; }
+        public int IdProduto { get; set; }
 
         [ForeignKey("IdProduto")]
         public Produto Produto { get; set; }

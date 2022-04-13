@@ -39,37 +39,37 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0c6df3e2-a683-4462-8bf8-71154281dca7"),
+                            Id = new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"),
                             Imagem = "~/img/Produtos/001.png",
                             Nome = "Hardware"
                         },
                         new
                         {
-                            Id = new Guid("863d632c-4b1f-4b4c-8847-57f668af4457"),
+                            Id = new Guid("f1dc080a-e8f9-44d5-9fc1-0cb0cd8144b9"),
                             Imagem = "~/img/Produtos/002.png",
                             Nome = "Celulares"
                         },
                         new
                         {
-                            Id = new Guid("338be046-53ef-46e6-8ad7-401bb0d527c7"),
+                            Id = new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"),
                             Imagem = "~/img/Produtos/003.png",
                             Nome = "Periféricos"
                         },
                         new
                         {
-                            Id = new Guid("10c4ff57-4f81-4827-a048-534d0d081b30"),
+                            Id = new Guid("e73ec719-2252-4872-9a36-907e44f0d3a3"),
                             Imagem = "~/img/Produtos/004.png",
                             Nome = "Games"
                         },
                         new
                         {
-                            Id = new Guid("079fafe8-507f-4311-a430-e3d4fff52fb0"),
+                            Id = new Guid("f2600388-6a1a-4f50-b8ef-717c0735f97a"),
                             Imagem = "~/img/Produtos/005.png",
                             Nome = "Cadeiras"
                         },
                         new
                         {
-                            Id = new Guid("c403dd2e-0cd7-4c18-969c-2d24a4066b73"),
+                            Id = new Guid("09110a54-cae0-4388-92bb-ad367d2de110"),
                             Imagem = "~/img/Produtos/006.png",
                             Nome = "Conectividade"
                         });
@@ -137,8 +137,8 @@ namespace AppEcommerce.Migrations
                     b.Property<Guid>("IdPedido")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("IdProduto")
-                        .HasColumnType("char(36)");
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
@@ -171,22 +171,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a7e5c61b-c085-4c77-8585-8a6cddd65ce7"),
+                            Id = new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"),
                             Nome = "Nvidia"
                         },
                         new
                         {
-                            Id = new Guid("0d9429a2-c20c-432d-86f9-6f1e8dc3e7ce"),
+                            Id = new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"),
                             Nome = "Logitech"
                         },
                         new
                         {
-                            Id = new Guid("2c4d98d2-2f26-4a8a-b83e-d7cf19fa1a13"),
+                            Id = new Guid("e40c5330-1c9f-4ed5-b1d4-f5f291847810"),
                             Nome = "Motorola"
                         },
                         new
                         {
-                            Id = new Guid("7f2d7279-2eca-4d14-ac18-72322016c0ac"),
+                            Id = new Guid("66970ae5-068d-443f-8b91-e5122c8016a4"),
                             Nome = "D-Link"
                         });
                 });
@@ -202,9 +202,6 @@ namespace AppEcommerce.Migrations
 
                     b.Property<DateTime>("DataPedido")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("IdCarrinho")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("IdCliente")
                         .HasColumnType("varchar(255)");
@@ -226,9 +223,9 @@ namespace AppEcommerce.Migrations
 
             modelBuilder.Entity("AppEcommerce.Models.Produto", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Descricao")
                         .HasMaxLength(800)
@@ -266,92 +263,114 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1f15336a-3e18-40ff-ba38-19793ab7b043"),
+                            Id = 1,
                             Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
                             Estoque = 8u,
-                            IdCategoria = new Guid("0c6df3e2-a683-4462-8bf8-71154281dca7"),
-                            IdMarca = new Guid("a7e5c61b-c085-4c77-8585-8a6cddd65ce7"),
+                            IdCategoria = new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"),
+                            IdMarca = new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"),
                             Imagem = "~/img/Produtos/1.jpg",
                             Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
                             Valor = 1223m
                         },
                         new
                         {
-                            Id = new Guid("3937108d-f367-4097-b17a-61ecfeb98bba"),
+                            Id = 2,
                             Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
                             Estoque = 10u,
-                            IdCategoria = new Guid("0c6df3e2-a683-4462-8bf8-71154281dca7"),
-                            IdMarca = new Guid("a7e5c61b-c085-4c77-8585-8a6cddd65ce7"),
+                            IdCategoria = new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"),
+                            IdMarca = new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"),
                             Imagem = "~/img/Produtos/2.jpg",
                             Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
                             Valor = 7936m
                         },
                         new
                         {
-                            Id = new Guid("f961aadc-4d8c-4dcc-aa32-55ae86668ac1"),
+                            Id = 3,
                             Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
                             Estoque = 16u,
-                            IdCategoria = new Guid("338be046-53ef-46e6-8ad7-401bb0d527c7"),
-                            IdMarca = new Guid("0d9429a2-c20c-432d-86f9-6f1e8dc3e7ce"),
+                            IdCategoria = new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"),
+                            IdMarca = new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"),
                             Imagem = "~/img/Produtos/3.jpg",
                             Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
                             Valor = 209m
                         },
                         new
                         {
-                            Id = new Guid("4c4d8cbd-dc99-4c31-8d5a-0ba927f99ac2"),
+                            Id = 4,
                             Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
                             Estoque = 20u,
-                            IdCategoria = new Guid("338be046-53ef-46e6-8ad7-401bb0d527c7"),
-                            IdMarca = new Guid("0d9429a2-c20c-432d-86f9-6f1e8dc3e7ce"),
+                            IdCategoria = new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"),
+                            IdMarca = new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"),
                             Imagem = "~/img/Produtos/4.jpg",
                             Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
                             Valor = 179m
                         },
                         new
                         {
-                            Id = new Guid("e1ed76ee-0817-4bfb-b231-d10e3ebc041c"),
+                            Id = 5,
                             Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
                             Estoque = 1u,
-                            IdCategoria = new Guid("338be046-53ef-46e6-8ad7-401bb0d527c7"),
-                            IdMarca = new Guid("0d9429a2-c20c-432d-86f9-6f1e8dc3e7ce"),
+                            IdCategoria = new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"),
+                            IdMarca = new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"),
                             Imagem = "~/img/Produtos/5.jpg",
                             Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
                             Valor = 349m
                         },
                         new
                         {
-                            Id = new Guid("6a4eff94-d5be-45ca-b459-996b16d7e80d"),
+                            Id = 6,
                             Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
                             Estoque = 0u,
-                            IdCategoria = new Guid("0c6df3e2-a683-4462-8bf8-71154281dca7"),
-                            IdMarca = new Guid("a7e5c61b-c085-4c77-8585-8a6cddd65ce7"),
+                            IdCategoria = new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"),
+                            IdMarca = new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"),
                             Imagem = "~/img/Produtos/6.jpg",
                             Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
                             Valor = 2743m
                         },
                         new
                         {
-                            Id = new Guid("4101d390-4790-402f-bc5f-a1893f7f4aec"),
+                            Id = 7,
                             Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
                             Estoque = 20u,
-                            IdCategoria = new Guid("863d632c-4b1f-4b4c-8847-57f668af4457"),
-                            IdMarca = new Guid("2c4d98d2-2f26-4a8a-b83e-d7cf19fa1a13"),
+                            IdCategoria = new Guid("f1dc080a-e8f9-44d5-9fc1-0cb0cd8144b9"),
+                            IdMarca = new Guid("e40c5330-1c9f-4ed5-b1d4-f5f291847810"),
                             Imagem = "~/img/Produtos/7.jpg",
                             Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
                             Valor = 892m
                         },
                         new
                         {
-                            Id = new Guid("4b6e494e-179c-40e7-967a-8a20c4f09a2e"),
+                            Id = 8,
                             Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
                             Estoque = 10u,
-                            IdCategoria = new Guid("c403dd2e-0cd7-4c18-969c-2d24a4066b73"),
-                            IdMarca = new Guid("7f2d7279-2eca-4d14-ac18-72322016c0ac"),
+                            IdCategoria = new Guid("09110a54-cae0-4388-92bb-ad367d2de110"),
+                            IdMarca = new Guid("66970ae5-068d-443f-8b91-e5122c8016a4"),
                             Imagem = "~/img/Produtos/8.jpg",
                             Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
                             Valor = 164m
                         });
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ShoppingCartItemId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.User", b =>
@@ -424,18 +443,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "81b2285f-da5e-4a58-bba0-b24750ed81cb",
+                            Id = "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc04f57e-40ee-4c2a-876f-5af709f7bea1",
+                            ConcurrencyStamp = "18b5323a-b699-4c69-8d8c-b311b18eb3ca",
                             Email = "admin@ecommerce.com.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "ADMIN@ECOMMERCE.COM.BR",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBfpyDucKOoaFdrHWG2Z7n/K9LSiXZbFC9xbgPEcz2UEVIw5n5jVZ1Ix2dN8qT0lmg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFw+ji0beKPnZ3dJfx7dxdXY3j8s46uwB2rIRzcw9ExmFgG2RP3TBmcIvF97Lr1b3A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "31764686",
+                            SecurityStamp = "64356400",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -469,22 +488,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "81b2285f-da5e-4a58-bba0-b24750ed81cb",
-                            ConcurrencyStamp = "8de189aa-059f-44b8-b323-e16e2f976e06",
+                            Id = "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c",
+                            ConcurrencyStamp = "79a0da8c-0821-44d0-ba5d-ee5f9bd5c40d",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "d5ee5172-d29a-451f-9349-6a014615b3c8",
-                            ConcurrencyStamp = "ac0714c8-a447-49f3-9d1d-135e0eb1d24f",
+                            Id = "87a028f4-1661-4f5f-acef-b0d1f9332282",
+                            ConcurrencyStamp = "357ea974-6243-4bcf-9f26-7b7501a695de",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "af09db16-1263-44c1-aee8-3f7af6143121",
-                            ConcurrencyStamp = "c983d285-b840-47f2-89a6-1fa3348eee82",
+                            Id = "8b0028b9-d964-4fbd-a6d0-fe95e06d8a41",
+                            ConcurrencyStamp = "71cb67f6-620a-4a6c-beb5-7018d5721b69",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -575,8 +594,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "81b2285f-da5e-4a58-bba0-b24750ed81cb",
-                            RoleId = "81b2285f-da5e-4a58-bba0-b24750ed81cb"
+                            UserId = "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c",
+                            RoleId = "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c"
                         });
                 });
 
@@ -677,6 +696,15 @@ namespace AppEcommerce.Migrations
                     b.Navigation("Categoria");
 
                     b.Navigation("Marca");
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("AppEcommerce.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

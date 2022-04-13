@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AppEcommerce.Data;
 using AppEcommerce.Models;
 using AppEcommerce.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,21 @@ namespace AppEcommerce
             services.AddDbContext<Contexto>(
                 options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao))
             );
+
+
+            services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
+
+
+            services.AddHttpContextAccessor();
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
+
+            services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            // services.AddScoped<IShoppingCart, ShoppingCart>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => options.LoginPath = "/Identity/Account/Login");
             services.AddIdentity<User, IdentityRole>(
                 options => options.SignIn.RequireConfirmedAccount = true
             )
@@ -51,17 +67,25 @@ namespace AppEcommerce
                 options.Password.RequiredLength = 6;
             });
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
-            
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.AddSession(options =>
+            services.AddRazorPages().AddRazorRuntimeCompilation().AddCookieTempDataProvider(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(10);
-                options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
+            }); ;
+
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LoginPath = "/Login";
+                options.AccessDeniedPath = "/Login";
+                options.SlidingExpiration = true;
             });
-            services.AddSession();
+
+
+            services.AddTransient<IEmailSender, EmailSender>();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -80,6 +104,8 @@ namespace AppEcommerce
             app.UseStaticFiles();
 
             app.UseSession();
+
+            app.UseCookiePolicy();
 
             app.UseRouting();
 

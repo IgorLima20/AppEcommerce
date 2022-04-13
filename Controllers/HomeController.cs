@@ -18,21 +18,26 @@ namespace AppEcommerce.Controllers
 
         private readonly Contexto _contexto;
 
-        public HomeController(ILogger<HomeController> logger, Contexto contexto)
+        private ShoppingCart _shoppingCart;
+
+        public HomeController(ILogger<HomeController> logger, Contexto contexto, ShoppingCart shoppingCart)
         {
             _logger = logger;
             _contexto = contexto;
+            _shoppingCart = shoppingCart;
         }
 
         public IActionResult Index()
         {
+            ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.Take(6);
             var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }
 
-        public IActionResult Show(Guid Id, Guid IdCategoria)
+        public IActionResult Show(int Id, Guid IdCategoria)
         {
+            ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             ViewData["Marca"] = _contexto.Marcas.ToList();
             ViewData["Produtos"] = _contexto.Produtos.Where(c => c.IdCategoria == IdCategoria).Where(s => s.Id != Id).Include(i => i.Categoria).Take(4).ToList();
@@ -45,6 +50,7 @@ namespace AppEcommerce.Controllers
             var pageSize = 9;
             int pageNumber = pagina ?? 1;
 
+            ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(pageNumber, pageSize);
             return View(filtro);

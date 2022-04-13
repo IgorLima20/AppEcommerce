@@ -197,7 +197,7 @@
                         <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
                         <img class="img-fluid w-100" src="@Url.Content(produtos.Imagem)" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" asp-action="Adicionar" asp-controller="Carrinho"  asp-route-id="@produtos.Id"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id" asp-route-IdCategoria="@produtos.IdCategoria"><i
                                 class="fa fa-search"></i></a>
@@ -207,7 +207,7 @@
                         <p class="card-text truncar-3l">
                             <a class="h5 text-decoration-none" href="">@produtos.Nome</a </p>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>@produtos.Valor.ToString("C")</h5>
+                            <h5>R$ @produtos.Valor.ToString("F2")</h5>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             @* <small class="fa fa-star text-primary mr-1"></small>

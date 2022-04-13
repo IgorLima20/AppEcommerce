@@ -1,160 +1,171 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using AppEcommerce.Models;
-using Microsoft.AspNetCore.Http;
-using AppEcommerce.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+// using System;
+// using System.Collections.Generic;
+// using System.Diagnostics;
+// using System.Linq;
+// using System.Threading.Tasks;
+// using Microsoft.AspNetCore.Mvc;
+// using Microsoft.Extensions.Logging;
+// using AppEcommerce.Models;
+// using Microsoft.AspNetCore.Http;
+// using AppEcommerce.Data;
+// using Microsoft.AspNetCore.Identity;
+// using Microsoft.EntityFrameworkCore;
 
-namespace AppEcommerce.Controllers
-{
-    public class CarrinhoController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
+// namespace AppEcommerce.Controllers
+// {
+//     public class CarrinhoController : Controller
+//     {
+//         private readonly ILogger<HomeController> _logger;
 
-        private readonly Contexto _contexto;
+//         private readonly Contexto _contexto;
 
-        public Pedido Pedido { get; set; }
+//         public Pedido Pedido { get; set; }
 
-        public double TotalPedido { get; set; }
-        
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+//         public double TotalPedido { get; set; }
 
-        private const string COOKIE_NAME = ".AspNetCore.CartId";
+//         private readonly UserManager<User> _userManager;
+//         private readonly SignInManager<User> _signInManager;
 
-        public CarrinhoController(ILogger<HomeController> logger, Contexto contexto,  UserManager<User> userManager,
-            SignInManager<User> signInManager)
-        {
-            _logger = logger;
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _contexto = contexto;
-        }
+//         public string COOKIE_NAME
+//         {
+//             get { return ".AspNetCore.CartId"; }
+//         }
 
-        public async Task<IActionResult> Index()
-        {
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
-            if (Request.Cookies.ContainsKey(COOKIE_NAME))
-            {
-                var cartId =  Request.Cookies[COOKIE_NAME];
-                Pedido = await _contexto.Pedidos.Include("ItensPedido").Include("ItensPedido.Produto").FirstOrDefaultAsync(p => p.IdCarrinho == cartId);
-                if (Pedido != null)
-                {
-                    TotalPedido = Pedido.ItensPedido.Sum(x => x.Quantidade * Convert.ToDouble(x.ValorUnitario));
-                }
-                else
-                {
-                    TotalPedido = 0;
-                }
-            }
-            else SetCartCookie();
+//         public CarrinhoController(ILogger<HomeController> logger, Contexto contexto, UserManager<User> userManager,
+//             SignInManager<User> signInManager)
+//         {
+//             _logger = logger;
+//             _userManager = userManager;
+//             _signInManager = signInManager;
+//             _contexto = contexto;
+//         }
 
-            ViewData["TotalPedido"] = TotalPedido;
-            ViewData["Pedido"] = Pedido;
-            return View();
-        }
+//         public async Task<IActionResult> Index()
+//         {
+//             if (Request.Cookies.ContainsKey(COOKIE_NAME))
+//             {
+//                 var cartId = Request.Cookies[COOKIE_NAME];
+//                 Pedido = await _contexto.Pedidos.Include("ItensPedido").Include("ItensPedido.Produto").
+//                     FirstOrDefaultAsync(p => p.IdCarrinho == cartId);
+//                 if (Pedido != null)
+//                 {
+//                     if (Pedido.Situacao != Pedido.SituacaoPedido.Carrinho)
+//                     {
+//                         Response.Cookies.Delete(COOKIE_NAME);
+//                         return RedirectToPage("/Index");
+//                     }
+//                     TotalPedido = Pedido.ItensPedido.Sum(x => x.Quantidade * x.ValorUnitario);
+//                 }
+//                 else
+//                 {
+//                     TotalPedido = 0;
+//                 }
+//             }
+//             else
+//             {
+//                 TotalPedido = 0;
+//                 SetCartCookie();
+//             }
 
-        public string SetCartCookie()
-        {
-            var cartId = Guid.NewGuid().ToString();
+//             return View(Pedido);
+//         }
 
-            var options = new Microsoft.AspNetCore.Http.CookieOptions()
-            {
-                Path = "/",
-                Expires = DateTime.UtcNow.AddDays(90),
-                IsEssential = true,
-                Secure = false,
-                SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None,
-                HttpOnly = false
-            };
-            Response.Cookies.Append(COOKIE_NAME, cartId, options);
+//         public string SetCartCookie()
+//         {
+//             var cartId = Guid.NewGuid().ToString();
 
-            return cartId;
-        }
+//             var options = new Microsoft.AspNetCore.Http.CookieOptions()
+//             {
+//                 Path = "/",
+//                 Expires = DateTime.UtcNow.AddDays(90),
+//                 IsEssential = true,
+//                 Secure = false,
+//                 SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None,
+//                 HttpOnly = false //necess�rio para acessar vai ajax
+//             };
 
-        public async Task<IActionResult> Adicionar(Guid? id, int qtde = 1)
-        {
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
-            if (id == null) return NotFound();
+//             Response.Cookies.Append(COOKIE_NAME, cartId, options);
 
-            var produto = await _contexto.Produtos.FindAsync(id);
+//             return cartId;
+//         }
 
-            if (produto != null)
-            {
-                string cartId = null;
+//         public async Task<IActionResult> Adicionar(Guid? id, int qtde = 1)
+//         {
+//             if (id == null) return NotFound();
 
-                if (Request.Cookies.ContainsKey(COOKIE_NAME))
-                {
-                    cartId = Request.Cookies[COOKIE_NAME];
-                    Pedido = await _contexto.Pedidos.Include("ItensPedido").Include("ItensPedido.Produto").FirstOrDefaultAsync(p => p.IdCarrinho == cartId);
-                }
-                else
-                {
-                    cartId = SetCartCookie();
-                }
+//             var produto = await _contexto.Produtos.FindAsync(id);
 
-                if (Pedido == null)
-                {
-                    Pedido = new Pedido
-                    {
-                        IdCarrinho = cartId,
-                        DataPedido = DateTime.UtcNow,
-                        ItensPedido = new List<ItemPedido>()
-                    };
+//             if (produto != null)
+//             {
+//                 string cartId = null;
 
-                    User appUser = _signInManager.IsSignedIn(User) ?
-                        await _userManager.GetUserAsync(User) : null;
+//                 if (Request.Cookies.ContainsKey(COOKIE_NAME))
+//                 {
+//                     cartId = Request.Cookies[COOKIE_NAME];
+//                     Pedido = await _contexto.Pedidos.Include("ItensPedido").Include("ItensPedido.Produto").FirstOrDefaultAsync(p => p.IdCarrinho == cartId);
+//                 }
+//                 else
+//                 {
+//                     cartId = SetCartCookie();
+//                 }
 
-                    if (appUser != null)
-                    {
-                        Cliente cliente = await _contexto.Clientes.FirstOrDefaultAsync<Cliente>(
-                            c => c.Email.ToLower().Equals(appUser.Email.ToLower()));
+//                 if (Pedido == null)
+//                 {
+//                     Pedido = new Pedido
+//                     {
+//                         IdCarrinho = cartId,
+//                         DataPedido = DateTime.UtcNow,
+//                         ItensPedido = new List<ItemPedido>()
+//                     };
 
-                        if (cliente != null) Pedido.IdCliente = cliente.Id;
-                    }
+//                     User appUser = _signInManager.IsSignedIn(User) ?
+//                         await _userManager.GetUserAsync(User) : null;
 
-                    _contexto.Pedidos.Add(Pedido);
-                }
+//                     if (appUser != null)
+//                     {
+//                         Cliente cliente = await _contexto.Clientes.FirstOrDefaultAsync<Cliente>(
+//                             c => c.Email.ToLower().Equals(appUser.Email.ToLower()));
 
-                var itemPedido = Pedido.ItensPedido.FirstOrDefault(ip => ip.IdProduto == id);
-                if (itemPedido == null)
-                {
-                    Pedido.ItensPedido.Add(new ItemPedido
-                    {
-                        IdProduto = id.Value,
-                        Quantidade = qtde,
-                        ValorUnitario = produto.Valor
-                    });
-                }
-                else
-                {
-                    itemPedido.Quantidade += qtde;
-                }
+//                         if (cliente != null) Pedido.IdCliente = cliente.Id;
+//                     }
 
-                if (_contexto.SaveChanges() <= 0)
-                {
-                    ModelState.AddModelError("", "Ocorreu um erro ao adicionar o item ao carrinho.");
-                }
-            }
+//                     _contexto.Pedidos.Add(Pedido);
+//                 }
 
-            TotalPedido = Pedido.ItensPedido.Sum(x => x.Quantidade * x.ValorUnitario);
+//                 var itemPedido = Pedido.ItensPedido.FirstOrDefault(ip => ip.IdProduto == id);
+//                 if (itemPedido == null)
+//                 {
+//                     Pedido.ItensPedido.Add(new ItemPedido
+//                     {
+//                         IdProduto = id.Value,
+//                         Quantidade = qtde,
+//                         ValorUnitario = produto.Valor
+//                     });
+//                 }
+//                 else
+//                 {
+//                     itemPedido.Quantidade += qtde;
+//                 }
 
-            ViewData["TotalPedido"] = TotalPedido;
-            ViewData["Pedido"] = Pedido;
+//                 if (_contexto.SaveChanges() < 0)
+//                 {
+//                     ModelState.AddModelError("", "Ocorreu um erro ao adicionar o item ao carrinho.");
+//                 }
+//             }
 
-            return View("Index");
-        }
-    
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
-}
+//             TotalPedido = Pedido.ItensPedido.Sum(x => x.Quantidade * x.ValorUnitario);
+
+//             ViewData["Categorias"] = _contexto.Categorias.ToList();
+//             ViewData["TotalPedido"] = TotalPedido;
+//             ViewData["Cookie"] = COOKIE_NAME;
+
+//             return View("Index", Pedido);
+//         }
+
+//         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+//         public IActionResult Error()
+//         {
+//             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+//         }
+//     }
+// }

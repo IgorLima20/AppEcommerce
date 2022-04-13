@@ -12,15 +12,14 @@ namespace AppEcommerce.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(400)]
         public string Nome { get; set; }
 
-        [Required]
         [Column(TypeName = "decimal(10, 2)")]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Required]
         public uint Estoque { get; set; }

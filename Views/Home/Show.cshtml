@@ -35,7 +35,7 @@
                     </div>
                     <small class="pt-1">(99 Reviews)</small>
                     </div> *@
-                <h3 class="font-weight-semi-bold mb-4">@Model.Valor.ToString("C")</h3>
+                <h3 class="font-weight-semi-bold mb-4">R$ @Model.Valor.ToString("F2")</h3>
                 <p class="mb-4">@Model.Descricao</p>
                 @* <div class="d-flex mb-3">
                     <strong class="text-dark mr-3">Sizes:</strong>
@@ -124,7 +124,9 @@
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Adicionar</button>
+                        <button class="btn btn-primary px-3">
+                            <a  href="@Url.Action("AddToCart","ShoppingCart", new {id = Model.Id })"></a>
+                            <i class="fa fa-shopping-cart mr-1"></i> Adicionar</button>
                     </div>
                 }
             </div>

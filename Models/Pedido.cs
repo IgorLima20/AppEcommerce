@@ -8,6 +8,17 @@ namespace AppEcommerce.Models
     [Table("Pedido")]
     public class Pedido
     {
+        public enum SituacaoPedido
+        {
+            Carrinho,
+            Realizado,
+            Verificado,
+            Atendido,
+            Entregue,
+            Cancelado
+        }
+
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid IdPedido { get; set; }
@@ -27,7 +38,6 @@ namespace AppEcommerce.Models
         [ForeignKey("IdCliente")]
         public Cliente? Cliente { get; set; }
 
-        public string IdCarrinho { get; set; }
         
         public Guid? IdEndereco { get; set; }
 
