@@ -14,5 +14,7 @@ namespace AppEcommerce.Models
         public int Amount { get; set; }
 
         public string ShoppingCartId { get; set; }
+
+        // public ICollection<Produto> Prod { get; set; }
     }
 }

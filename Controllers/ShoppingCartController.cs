@@ -39,7 +39,7 @@ namespace AppEcommerce.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int Id)
         {
-            ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
+            ViewData["ShoppingCartItems"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
             if (selectedProduto != null)
@@ -56,6 +56,17 @@ namespace AppEcommerce.Controllers
             if (selectedProduto != null)
             {
                 _shoppingCart.RemoveFromCart(selectedProduto);
+            }
+            return RedirectToAction("Index");
+        }
+
+        public RedirectToActionResult RemoveProdShoppingCart(int Id)
+        {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
+            var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
+            if (selectedProduto != null)
+            {
+                _shoppingCart.RemoveProd(selectedProduto);
             }
             return RedirectToAction("Index");
         }

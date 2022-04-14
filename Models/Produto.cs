@@ -44,6 +44,6 @@ namespace AppEcommerce.Models
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }
 
-        public  ICollection<ItemPedido> ProdutosItens { get; set; }
+        // public  ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

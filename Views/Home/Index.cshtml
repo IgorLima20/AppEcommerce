@@ -146,7 +146,7 @@
         {
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    @* <p class="text-right">@produtos..Count() Produtos</p> *@
+                    @* <p class="text-right">@categoria.Id.Count() Produtos</p> *@
                     <a asp-action="Filtro" asp-route-id="@categoria.Id"
                     class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="@Url.Content(@categoria.Imagem)" alt="">

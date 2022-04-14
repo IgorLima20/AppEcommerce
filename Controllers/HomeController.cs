@@ -18,13 +18,12 @@ namespace AppEcommerce.Controllers
 
         private readonly Contexto _contexto;
 
-        private ShoppingCart _shoppingCart;
+        // private ShoppingCart _shoppingCart;
 
-        public HomeController(ILogger<HomeController> logger, Contexto contexto, ShoppingCart shoppingCart)
+        public HomeController(ILogger<HomeController> logger, Contexto contexto)
         {
             _logger = logger;
             _contexto = contexto;
-            _shoppingCart = shoppingCart;
         }
 
         public IActionResult Index()

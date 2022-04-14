@@ -124,9 +124,9 @@
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3">
-                            <a  href="@Url.Action("AddToCart","ShoppingCart", new {id = Model.Id })"></a>
-                            <i class="fa fa-shopping-cart mr-1"></i> Adicionar</button>
+                        <a class="btn btn-primary px-3" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@Model.Id">
+                            <i class="fa fa-shopping-cart mr-1"></i> Adicionar
+                        </a>
                     </div>
                 }
             </div>

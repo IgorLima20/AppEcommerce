@@ -21,7 +21,7 @@ namespace AppEcommerce.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid IdPedido { get; set; }
+        public int IdPedido { get; set; }
 
         [Required]
         public DateTime DataPedido { get; set; }
@@ -37,13 +37,13 @@ namespace AppEcommerce.Models
 
         [ForeignKey("IdCliente")]
         public Cliente? Cliente { get; set; }
-
+        public decimal Total { get; set; }
         
         public Guid? IdEndereco { get; set; }
 
         [ForeignKey("IdEndereco")]
         public Endereco? EnderecoEntrega { get; set; }
 
-        public  ICollection<ItemPedido> ItensPedido { get; set; }
+        // public  ICollection<ItemPedido> ItensPedido { get; set; }
     }
 }

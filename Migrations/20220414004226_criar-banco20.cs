@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppEcommerce.Migrations
 {
-    public partial class criarbanco : Migration
+    public partial class criarbanco20 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -347,12 +347,14 @@ namespace AppEcommerce.Migrations
                 name: "Pedido",
                 columns: table => new
                 {
-                    IdPedido = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    IdPedido = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     DataPedido = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     DataEntrega = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ValorTotal = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     IdCliente = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Total = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     IdEndereco = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
                 },
                 constraints: table =>
@@ -374,26 +376,28 @@ namespace AppEcommerce.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ItemPedidos",
+                name: "PedidoDetalhes",
                 columns: table => new
                 {
-                    IdPedido = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    IdProduto = table.Column<int>(type: "int", nullable: false),
-                    Quantidade = table.Column<int>(type: "int", nullable: false),
-                    ValorUnitario = table.Column<double>(type: "double", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    PedidoId = table.Column<int>(type: "int", nullable: false),
+                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemPedidos", x => new { x.IdPedido, x.IdProduto });
+                    table.PrimaryKey("PK_PedidoDetalhes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ItemPedidos_Pedido_IdPedido",
-                        column: x => x.IdPedido,
+                        name: "FK_PedidoDetalhes_Pedido_PedidoId",
+                        column: x => x.PedidoId,
                         principalTable: "Pedido",
                         principalColumn: "IdPedido",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ItemPedidos_Produto_IdProduto",
-                        column: x => x.IdProduto,
+                        name: "FK_PedidoDetalhes_Produto_ProdutoId",
+                        column: x => x.ProdutoId,
                         principalTable: "Produto",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -405,12 +409,12 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Imagem", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"), "~/img/Produtos/001.png", "Hardware" },
-                    { new Guid("f1dc080a-e8f9-44d5-9fc1-0cb0cd8144b9"), "~/img/Produtos/002.png", "Celulares" },
-                    { new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"), "~/img/Produtos/003.png", "Periféricos" },
-                    { new Guid("e73ec719-2252-4872-9a36-907e44f0d3a3"), "~/img/Produtos/004.png", "Games" },
-                    { new Guid("f2600388-6a1a-4f50-b8ef-717c0735f97a"), "~/img/Produtos/005.png", "Cadeiras" },
-                    { new Guid("09110a54-cae0-4388-92bb-ad367d2de110"), "~/img/Produtos/006.png", "Conectividade" }
+                    { new Guid("dcbee6ce-5a59-4b7d-82a5-d55917983d0b"), "~/img/Produtos/001.png", "Hardware" },
+                    { new Guid("a762d765-7367-4978-b98e-70203d3f8c91"), "~/img/Produtos/002.png", "Celulares" },
+                    { new Guid("5c876e71-5d17-4617-9551-e2c392f88607"), "~/img/Produtos/003.png", "Periféricos" },
+                    { new Guid("a03eeaaa-e276-4ded-917c-6875f80bb102"), "~/img/Produtos/004.png", "Games" },
+                    { new Guid("e200364d-e30e-4e89-b859-4862400ab713"), "~/img/Produtos/005.png", "Cadeiras" },
+                    { new Guid("09c6e9e4-6623-4969-b50f-1c6a703da5d5"), "~/img/Produtos/006.png", "Conectividade" }
                 });
 
             migrationBuilder.InsertData(
@@ -418,10 +422,10 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"), "Nvidia" },
-                    { new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"), "Logitech" },
-                    { new Guid("e40c5330-1c9f-4ed5-b1d4-f5f291847810"), "Motorola" },
-                    { new Guid("66970ae5-068d-443f-8b91-e5122c8016a4"), "D-Link" }
+                    { new Guid("cf1fc963-20dc-4ddf-b561-dd88a84b473a"), "Nvidia" },
+                    { new Guid("baf2beb5-9cce-4fdc-8db3-28ebd14559a6"), "Logitech" },
+                    { new Guid("d1004b16-6c20-4409-9dcb-1ed02c310bf4"), "Motorola" },
+                    { new Guid("11e7c4c7-75eb-4bd0-93fc-e088a5e315c1"), "D-Link" }
                 });
 
             migrationBuilder.InsertData(
@@ -429,45 +433,40 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c", "79a0da8c-0821-44d0-ba5d-ee5f9bd5c40d", "Administrador", "ADMINISTRADOR" },
-                    { "87a028f4-1661-4f5f-acef-b0d1f9332282", "357ea974-6243-4bcf-9f26-7b7501a695de", "Moderador", "MODERADOR" },
-                    { "8b0028b9-d964-4fbd-a6d0-fe95e06d8a41", "71cb67f6-620a-4a6c-beb5-7018d5721b69", "Usuario", "USUARIO" }
+                    { "5fe8c1ce-f0c5-48db-a096-3487185aa9d6", "442d793e-eb12-490b-98b7-f01312a03692", "Administrador", "ADMINISTRADOR" },
+                    { "8b329d86-09a5-4e94-a7f2-0ed0509f6e61", "0818f461-4f81-44b3-b829-bad14f2f07d1", "Moderador", "MODERADOR" },
+                    { "885b754b-0c42-4285-87fc-3b1e0b8eb9f5", "444fdd73-18de-4969-a318-9036ab324353", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c", 0, "18b5323a-b699-4c69-8d8c-b311b18eb3ca", "admin@ecommerce.com.br", true, false, null, "Igor Oliveira de Lima", "ADMIN@ECOMMERCE.COM.BR", "ADMIN", "AQAAAAEAACcQAAAAEFw+ji0beKPnZ3dJfx7dxdXY3j8s46uwB2rIRzcw9ExmFgG2RP3TBmcIvF97Lr1b3A==", null, false, "64356400", false, "Admin" });
+                values: new object[] { "5fe8c1ce-f0c5-48db-a096-3487185aa9d6", 0, "d569dfde-2791-4a5e-a4bc-cb194ee520d2", "admin@ecommerce.com.br", true, false, null, "Igor Oliveira de Lima", "ADMIN@ECOMMERCE.COM.BR", "ADMIN", "AQAAAAEAACcQAAAAECy/ItxX4YQs1zskyXu9pu+//I8rZ759NMWP2hq8FMfZ0Jc+A2YV0EC5tjTmtGCSDw==", null, false, "12896286", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
                 columns: new[] { "Id", "Descricao", "Estoque", "IdCategoria", "IdMarca", "Imagem", "Nome", "Valor" },
                 values: new object[,]
                 {
-                    { 1, "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"), new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223m },
-                    { 2, "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"), new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
-                    { 6, "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.", 0u, new Guid("2aa0fdd6-3f4a-4783-b7c3-ad91cc7e806a"), new Guid("b5f0504f-0f0e-4213-b7b7-c6043cf33c02"), "~/img/Produtos/6.jpg", "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp", 2743m },
-                    { 3, "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"), new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
-                    { 4, "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"), new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179m },
-                    { 5, "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.", 1u, new Guid("4e070b90-e37b-4195-bf86-84ea2c4e7c0c"), new Guid("2fb24442-f704-4356-bd74-6326ac0cb86c"), "~/img/Produtos/5.jpg", "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290", 349m },
-                    { 7, "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.", 20u, new Guid("f1dc080a-e8f9-44d5-9fc1-0cb0cd8144b9"), new Guid("e40c5330-1c9f-4ed5-b1d4-f5f291847810"), "~/img/Produtos/7.jpg", "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR", 892m },
-                    { 8, "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ", 10u, new Guid("09110a54-cae0-4388-92bb-ad367d2de110"), new Guid("66970ae5-068d-443f-8b91-e5122c8016a4"), "~/img/Produtos/8.jpg", "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842", 164m }
+                    { 1, "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("dcbee6ce-5a59-4b7d-82a5-d55917983d0b"), new Guid("cf1fc963-20dc-4ddf-b561-dd88a84b473a"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223m },
+                    { 2, "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("dcbee6ce-5a59-4b7d-82a5-d55917983d0b"), new Guid("cf1fc963-20dc-4ddf-b561-dd88a84b473a"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
+                    { 6, "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.", 0u, new Guid("dcbee6ce-5a59-4b7d-82a5-d55917983d0b"), new Guid("cf1fc963-20dc-4ddf-b561-dd88a84b473a"), "~/img/Produtos/6.jpg", "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp", 2743m },
+                    { 3, "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("5c876e71-5d17-4617-9551-e2c392f88607"), new Guid("baf2beb5-9cce-4fdc-8db3-28ebd14559a6"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
+                    { 4, "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("5c876e71-5d17-4617-9551-e2c392f88607"), new Guid("baf2beb5-9cce-4fdc-8db3-28ebd14559a6"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179m },
+                    { 5, "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.", 1u, new Guid("5c876e71-5d17-4617-9551-e2c392f88607"), new Guid("baf2beb5-9cce-4fdc-8db3-28ebd14559a6"), "~/img/Produtos/5.jpg", "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290", 349m },
+                    { 7, "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.", 20u, new Guid("a762d765-7367-4978-b98e-70203d3f8c91"), new Guid("d1004b16-6c20-4409-9dcb-1ed02c310bf4"), "~/img/Produtos/7.jpg", "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR", 892m },
+                    { 8, "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ", 10u, new Guid("09c6e9e4-6623-4969-b50f-1c6a703da5d5"), new Guid("11e7c4c7-75eb-4bd0-93fc-e088a5e315c1"), "~/img/Produtos/8.jpg", "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842", 164m }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c", "45bbcb68-ffb0-4e36-91d5-36cb476d2c5c" });
+                values: new object[] { "5fe8c1ce-f0c5-48db-a096-3487185aa9d6", "5fe8c1ce-f0c5-48db-a096-3487185aa9d6" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",
                 table: "Endereco",
                 column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ItemPedidos_IdProduto",
-                table: "ItemPedidos",
-                column: "IdProduto");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pedido_IdCliente",
@@ -478,6 +477,16 @@ namespace AppEcommerce.Migrations
                 name: "IX_Pedido_IdEndereco",
                 table: "Pedido",
                 column: "IdEndereco");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PedidoDetalhes_PedidoId",
+                table: "PedidoDetalhes",
+                column: "PedidoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PedidoDetalhes_ProdutoId",
+                table: "PedidoDetalhes",
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produto_IdCategoria",
@@ -535,7 +544,7 @@ namespace AppEcommerce.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ItemPedidos");
+                name: "PedidoDetalhes");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims");

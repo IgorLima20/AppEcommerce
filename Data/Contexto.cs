@@ -20,9 +20,11 @@ namespace AppEcommerce.Data
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
-        public DbSet<ItemPedido> ItemPedidos { get; set; }
+        // public DbSet<ItemPedido> ItemPedidos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
 
         // public DbSet<Cart> Tab_Cart { get; set; }
         // public DbSet<Order> Tab_Order { get; set; }
@@ -72,18 +74,18 @@ namespace AppEcommerce.Data
             #endregion
 
             #region ItemPedidos Concat Primary Key and Relationship Many to Many
-            modelBuilder.Entity<ItemPedido>().HasKey(
-                s => new { s.IdPedido, s.IdProduto }
-            );
-            modelBuilder.Entity<ItemPedido>()
-                .HasOne(s => s.Pedido)
-                .WithMany(u => u.ItensPedido)
-                .HasForeignKey(s => s.IdPedido);
+            // modelBuilder.Entity<ItemPedido>().HasKey(
+            //     s => new { s.IdPedido, s.IdProduto }
+            // );
+            // modelBuilder.Entity<ItemPedido>()
+            //     .HasOne(s => s.Pedido)
+            //     .WithMany(u => u.ItensPedido)
+            //     .HasForeignKey(s => s.IdPedido);
 
-            modelBuilder.Entity<ItemPedido>()
-                .HasOne(s => s.Produto)
-                .WithMany(c => c.ProdutosItens)
-                .HasForeignKey(s => s.IdProduto);
+            // modelBuilder.Entity<ItemPedido>()
+            //     .HasOne(s => s.Produto)
+            //     .WithMany(c => c.ProdutosItens)
+            //     .HasForeignKey(s => s.IdProduto);
             #endregion
 
             #region Populate Identity
