@@ -23,8 +23,6 @@ namespace AppEcommerce.Models
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
 
-        public PedidoDetalhe PedidoDetalhe { get; set; }
-
         public static ShoppingCart GetCart(IServiceProvider services)
         {
 
@@ -40,6 +38,7 @@ namespace AppEcommerce.Models
 
         public void AddToCart(Produto produto, int amount)
         {
+
             var shoppingCartItem = 
                 _contexto.ShoppingCartItems.SingleOrDefault(
                     s => s.Produto.Id == produto.Id && s.ShoppingCartId == ShoppingCartId);
@@ -143,41 +142,41 @@ namespace AppEcommerce.Models
             _contexto.SaveChanges();
         }
 
-        public int CreateOrder(Pedido pedido)
-        {
-            decimal orderTotal = 0;
+        // public int CreateOrder(Pedido pedido)
+        // {
+        //     decimal orderTotal = 0;
 
-            var cartItems = GetShoppingCartItems();
+        //     var cartItems = GetShoppingCartItems();
 
-            // Iterate over the items in the cart, adding the order details for each
-            foreach (var item in cartItems)
-            {
-                var pedidoDetalhe = new PedidoDetalhe
-                {
-                    ProdutoId = item.Produto.Id,
-                    PedidoId = pedido.IdPedido,
-                    UnitPrice = item.Produto.Valor,
-                    Quantity = item.Amount
-                };
+        //     // Iterate over the items in the cart, adding the order details for each
+        //     foreach (var item in cartItems)
+        //     {
+        //         var pedidoDetalhe = new PedidoDetalhe
+        //         {
+        //             ProdutoId = item.Produto.Id,
+        //             PedidoId = pedido.IdPedido,
+        //             UnitPrice = item.Produto.Valor,
+        //             Quantity = item.Amount
+        //         };
 
-                // Set the order total of the shopping cart
-                orderTotal += (item.Amount * item.Produto.Valor);
+        //         // Set the order total of the shopping cart
+        //         orderTotal += (item.Amount * item.Produto.Valor);
 
-                _contexto.PedidoDetalhes.Add(pedidoDetalhe);
+        //         _contexto.PedidoDetalhes.Add(pedidoDetalhe);
 
-            }
+        //     }
 
-            // Set the order's total to the orderTotal count
-            pedido.Total = orderTotal;
+        //     // Set the order's total to the orderTotal count
+        //     pedido.Total = orderTotal;
 
-            // Save the order
-            _contexto.SaveChanges();
+        //     // Save the order
+        //     _contexto.SaveChanges();
 
-            // Empty the shopping cart
-            EmptyCart();
+        //     // Empty the shopping cart
+        //     EmptyCart();
 
-            // Return the OrderId as the confirmation number
-            return pedido.IdPedido;
-        }
+        //     // Return the OrderId as the confirmation number
+        //     return pedido.IdPedido;
+        // }
     }
 }

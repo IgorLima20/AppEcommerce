@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AppEcommerce.Data;
+using AppEcommerce.Interfaces;
 using AppEcommerce.Models;
+using AppEcommerce.Repository;
 using AppEcommerce.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +45,7 @@ namespace AppEcommerce
 
             services.AddHttpContextAccessor();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddMvc();
             services.AddDistributedMemoryCache();

@@ -18,12 +18,13 @@
 <a href="/clienteFavoritos.html" class="btn list-group-item list-group-item-action btn-primary">
     <i class="bi-heart fs-6"></i> Favoritos
 </a>
-<a href="/clienteSenha.html" class="btn list-group-item list-group-item-action btn-primary">
-    <i  class="bi-house-door fs-6"></i> Senha
-</a>
-<a href="/Index.html" class="btn list-group-item list-group-item-action btn-primary">
+<a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;"
+    class="btn list-group-item list-group-item-action btn-primary">
     <i class="bi-door-open fs-6"></i> Sair
 </a>
+<form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
+    asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+</form>
 
 
 

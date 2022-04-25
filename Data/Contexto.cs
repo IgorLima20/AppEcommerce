@@ -23,13 +23,8 @@ namespace AppEcommerce.Data
         // public DbSet<ItemPedido> ItemPedidos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-
-        public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
-
-        // public DbSet<Cart> Tab_Cart { get; set; }
-        // public DbSet<Order> Tab_Order { get; set; }
-        // public DbSet<OrderDetail> Tab_OrderDetail { get; set; }
-
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

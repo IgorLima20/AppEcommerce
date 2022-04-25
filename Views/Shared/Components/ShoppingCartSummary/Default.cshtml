@@ -1,0 +1,23 @@
+﻿@model AppEcommerce.ViewModels.ShoppingCartViewModel
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppEcommerce.Models.User> SignInManager
+@inject UserManager<AppEcommerce.Models.User> UserManager
+
+
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
+{
+    <a class="btn px-0 ml-3" asp-action="Index" asp-controller="ShoppingCart">
+        <i class="fas fa-shopping-cart text-primary" style="font-size: 20px;"></i>
+        <span class="badge text-secondary border border-secondary rounded-circle"
+        style="padding-bottom: 2px;">@Model.ShoppingCart.ShoppingCartItems.Count</span>
+    </a>
+}
+else
+{
+    <a class="btn px-0 ml-3" asp-action="Index" asp-controller="ShoppingCart">
+        <i class="fas fa-shopping-cart text-primary" style="font-size: 20px;"></i>
+        <span class="badge text-secondary border border-secondary"
+        style="padding-bottom: 2px;"></span>
+    </a>
+}

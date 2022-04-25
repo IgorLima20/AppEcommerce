@@ -55,6 +55,15 @@ namespace AppEcommerce.Controllers
             return View(filtro);
         }
 
+        public IActionResult Categoria(Guid id, int? pagina)
+        {
+            var pageSize = 9;
+            int pageNumber = pagina ?? 1;
+
+            var categoria = _contexto.Categorias.Where(c => c.Id == id).ToPagedList(pageNumber, pageSize);
+            return View("Filtro", categoria);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

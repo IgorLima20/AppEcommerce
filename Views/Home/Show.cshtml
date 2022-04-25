@@ -117,14 +117,17 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
+                            <input class="form-control bg-secondary border-0 text-center" step="1" max="99" min="1"
+                            value="1" type="number" name="qtd">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <a class="btn btn-primary px-3" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@Model.Id">
+
+                        <a class="btn btn-primary px-3" asp-action="AddToShoppingCart" asp-controller="ShoppingCart"
+                        asp-route-Id="@Model.Id" type="submit">
                             <i class="fa fa-shopping-cart mr-1"></i> Adicionar
                         </a>
                     </div>

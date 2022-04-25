@@ -118,6 +118,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
                     _logger.LogWarning("User confirmation needed");
                     return RedirectToPage("./ResendEmailConfirmation");
                 }
+                TempData["MensagemErro"] = "Usuário e/ou Senha Inválidos.";
                 ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos.");
             }
 
