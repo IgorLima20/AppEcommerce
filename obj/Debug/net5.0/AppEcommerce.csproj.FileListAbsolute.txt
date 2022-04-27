@@ -497,3 +497,4 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\ShoppingCartSummary\Default.cshtml.g.cs
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryHome\Default.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\package-lock.json

@@ -10,15 +10,17 @@ using Microsoft.Extensions.DependencyInjection;
 namespace AppEcommerce.Models
 {
     public class ShoppingCart
-    {   
+    {
         private readonly Contexto _contexto;
 
         private ShoppingCart(Contexto contexto)
         {
             _contexto = contexto;
-        } 
+        }
 
         public string ShoppingCartId { get; set; }
+
+        public string Mensagem { get; set; }
 
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
@@ -38,11 +40,10 @@ namespace AppEcommerce.Models
 
         public void AddToCart(Produto produto, int amount)
         {
-
-            var shoppingCartItem = 
+            var shoppingCartItem =
                 _contexto.ShoppingCartItems.SingleOrDefault(
                     s => s.Produto.Id == produto.Id && s.ShoppingCartId == ShoppingCartId);
-            
+
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem
@@ -52,11 +53,19 @@ namespace AppEcommerce.Models
                     Amount = 1
                 };
                 _contexto.ShoppingCartItems.Add(shoppingCartItem);
-            }  
+            }
             else
             {
-                shoppingCartItem.Amount++;
-            }   
+                if (produto.Estoque > shoppingCartItem.Amount )
+                {
+                    shoppingCartItem.Amount++;
+                }
+                else
+                {
+                    Mensagem = "O limite máximo de quantidade para esse produto é " + shoppingCartItem.Produto.Estoque;
+                }
+                
+            }
             _contexto.SaveChanges();
         }
 
@@ -79,10 +88,10 @@ namespace AppEcommerce.Models
                 {
                     _contexto.ShoppingCartItems.Remove(shoppingCartItem);
                 }
-            }   
+            }
             _contexto.SaveChanges();
 
-            return localAmount;         
+            return localAmount;
         }
 
         public int RemoveProd(Produto produto)
@@ -99,10 +108,10 @@ namespace AppEcommerce.Models
                 {
                     _contexto.ShoppingCartItems.Remove(shoppingCartItem);
                 }
-            }   
+            }
             _contexto.SaveChanges();
 
-            return localAmount;         
+            return localAmount;
         }
 
         public List<ShoppingCartItem> GetShoppingCartItems()
@@ -119,7 +128,7 @@ namespace AppEcommerce.Models
                 .ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId);
 
             _contexto.ShoppingCartItems.RemoveRange(cartItems);
-            _contexto.SaveChanges();    
+            _contexto.SaveChanges();
         }
 
         public decimal GetShoppingCartTotal()

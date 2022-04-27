@@ -1,7 +1,15 @@
 ﻿@model AppEcommerce.ViewModels.ShoppingCartViewModel
 
 
+
 <div class="container-fluid">
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn-close close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
     <div class="row px-xl-5">
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -34,8 +42,8 @@
                                             </button> *@
                                     </div>
                                     <input class="form-control form-control-sm bg-secondary border-0 text-center"
-                                    type="text" step="1" max="99" min="1" value="@item.Amount"
-                                    name="@item.Produto.Id" disabled>
+                                    type="number" step="1" max="@item.Produto.Estoque" min="1" value="@item.Amount"
+                                    name="@item.Produto.Id">
                                     <div class="input-group-btn">
                                         <a class="btn btn-sm btn-primary btn-plus" asp-action="AddToShoppingCart"
                                         asp-controller="ShoppingCart" asp-route-Id="@item.Produto.Id">
@@ -87,7 +95,8 @@
                         <h5>Total:</h5>
                         <h5 id="valorPedido">@Model.ShoppingCartTotal.ToString("C")</h5>
                     </div>
-                    <a class="btn btn-block btn-primary font-weight-bold my-3 py-3" asp-controller="Order" asp-action="Checkout">Fazer Checkout</a>
+                    <a class="btn btn-block btn-primary font-weight-bold my-3 py-3" asp-controller="Order"
+                        asp-action="Checkout">Fazer Checkout</a>
                 </div>
             </div>
         </div>

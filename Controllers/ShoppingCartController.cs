@@ -46,6 +46,7 @@ namespace AppEcommerce.Controllers
             {
                 _shoppingCart.AddToCart(selectedProduto, 1);
             } 
+            TempData["Erro"] = _shoppingCart.Mensagem;
             return RedirectToAction("Index"); 
         }
 

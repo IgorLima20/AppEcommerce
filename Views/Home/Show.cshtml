@@ -110,27 +110,29 @@
                 }
                 else
                 {
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="input-group quantity mr-3" style="width: 130px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input class="form-control bg-secondary border-0 text-center" step="1" max="99" min="1"
-                            value="1" type="number" name="qtd">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
+                    <form method="post" asp-action="AddToShoppingCart" asp-controller="ShoppingCart">
+                        <div class="d-flex align-items-center mb-2">
+                            @* <div class="input-group quantity mr-3" style="width: 130px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary btn-minus" type="button">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input class="form-control bg-secondary border-0 text-center" step="1" max="@Model.Estoque"
+                                min="1" value="1" type="number" name="qtd">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary btn-plus" type="button">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div> *@
+                            <input asp-for="Id" hidden>
+                            <button class="btn btn-primary btn-lg px-3" type="submit">
+                                <i class="fa fa-shopping-cart mr-1"></i> Adicionar
+                            </button>
                         </div>
+                    </form>
 
-                        <a class="btn btn-primary px-3" asp-action="AddToShoppingCart" asp-controller="ShoppingCart"
-                        asp-route-Id="@Model.Id" type="submit">
-                            <i class="fa fa-shopping-cart mr-1"></i> Adicionar
-                        </a>
-                    </div>
                 }
             </div>
         </div>
