@@ -171,10 +171,11 @@
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="@Url.Content(@produto.Imagem)" alt="">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i
-                                        class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@produto.Id"><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    @if (@produto.Estoque >= 1)
+                                    {
+                                        <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@produto.Id"><i class="fa fa-shopping-cart"></i></a>
+                                    }
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produto.Id"
                                     asp-route-IdCategoria="@produto.IdCategoria"><i class="fa fa-search"></i></a>
                                 </div>
