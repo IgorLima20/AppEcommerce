@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj": {}
+    "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj": {
+    "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj",
+        "projectUniqueName": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
         "projectName": "AppEcommerce",
-        "projectPath": "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj",
+        "projectPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
         "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\obj\\",
+        "outputPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\etec\\AppData\\Roaming\\NuGet\\NuGet.Config",

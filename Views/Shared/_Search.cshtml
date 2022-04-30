@@ -1,0 +1,11 @@
+<form asp-action="Filtro">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for products" name="SearchString"
+            value="@ViewData["CurrentFilter"]">
+        <div class="input-group-append">
+            <button class="input-group-text bg-dark text-primary" style="border-color: #3F4147;" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>

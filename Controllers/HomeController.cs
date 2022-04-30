@@ -44,16 +44,66 @@ namespace AppEcommerce.Controllers
             return View(produto);
         }
 
-        public IActionResult Filtro(Guid Id, int? pagina)
+        public async Task<IActionResult> Filtro(Guid Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            var pageSize = 9;
-            int pageNumber = pagina ?? 1;
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["Maior"] = String.IsNullOrEmpty(sortOrder) ? "maior" : "maior";
+            ViewData["Menor"] = String.IsNullOrEmpty(sortOrder) ? "menor" : "menor";
+            ViewData["Todos"] = String.IsNullOrEmpty(sortOrder) ? "todos" : "todos";
 
-            ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
-            var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(pageNumber, pageSize);
-            return View(filtro);
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var prod = from p in _contexto.Produtos
+                       select p;
+
+            if (searchString != null)
+            {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    prod = prod.Where(s => s.Nome.Contains(searchString));
+                }
+            }
+            else
+            {
+                switch (sortOrder)
+                {
+                    case "maior":
+                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
+                        break;
+                    case "menor":
+                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
+                        break;
+                    case "todos":
+                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                        break;
+                    default:
+                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                        break;
+                }
+            }
+            int pageSize = 9;
+            return View(await PaginatedList<Produto>.CreateAsync(prod.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
+
+        // public IActionResult Filtro(Guid Id, int? pagina)
+        // {
+        //     var pageSize = 9;
+        //     int pageNumber = pagina ?? 1;
+
+        //     ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
+        //     ViewData["Categorias"] = _contexto.Categorias.ToList();
+        //     var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(pageNumber, pageSize);
+        //     return View(filtro);
+        // }
 
         public IActionResult Categoria(Guid id, int? pagina)
         {

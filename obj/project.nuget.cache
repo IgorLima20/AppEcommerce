@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/LtXIMuAin+bwn9fYHn45zMc6EzEKRFuDctoAhtPl/2T3baOYArCgJZGpatypR5aGG1AlOODdAP+n9LsHkKPNw==",
+  "dgSpecHash": "1zQlGNL64Hs0AGcnscpGs1AWadSXBmELWWA9hNOn7MbC265T04u8pI7Wa8MqBBzB1s8eTkqTLB6chtM0NwrNhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\etec\\Documents\\GitHub\\AppEcommerce\\AppEcommerce.csproj",
+  "projectFilePath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\etec\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\etec\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

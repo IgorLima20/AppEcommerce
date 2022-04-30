@@ -49,16 +49,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
-          <form action="">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for products">
-              <div class="input-group-append">
-                <span class="input-group-text bg-dark text-primary" style="border-color: #3F4147;">
-                  <i class="fa fa-search"></i>
-                </span>
-              </div>
-            </div>
-          </form>
+          <partial name="_Search"></partial>
         </div>
         <div class="col-lg-4 col-6 text-right ">
           <p class="m-0 text-white">Customer Service</p>
@@ -95,7 +86,7 @@
               <div class="navbar-nav mr-auto py-0">
                 <a class="nav-item nav-link" asp-action="Index" asp-controller="Home">Home</a>
                 @* @await Component.InvokeAsync("CategoryHome") *@
-                
+
                 <a class="nav-item nav-link" asp-action="Produtos" asp-controller="Produto">Shop</a>
                 <a class="nav-item nav-link" asp-action="Index" asp-controller="Produto">Shop Detail</a>
                 <div class="nav-item dropdown">
@@ -116,7 +107,7 @@
                   <span class="badge text-secondary border border-secondary rounded-circle"
                     style="padding-bottom: 2px;">0</span>
                 </a>
-                 @await Component.InvokeAsync("ShoppingCartSummary")
+                @await Component.InvokeAsync("ShoppingCartSummary")
               </div>
             </div>
           </nav>
