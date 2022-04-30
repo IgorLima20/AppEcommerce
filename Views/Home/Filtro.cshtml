@@ -149,11 +149,11 @@
                                     data-toggle="dropdown">Ordenar por</button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" asp-action="Filtro"
-                                        asp-route-sortOrder="@ViewData["Menor"]">Menor preço</a>
+                                        asp-route-sortOrder="@ViewData["Menor"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Menor preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
-                                        asp-route-sortOrder="@ViewData["Maior"]">Maior preço</a>
+                                        asp-route-sortOrder="@ViewData["Maior"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Maior preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
-                                        asp-route-sortOrder="@ViewData["Todos"]">Todos</a>
+                                        asp-route-sortOrder="@ViewData["Todos"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Todos</a>
                                 </div>
                             </div>
                             <div class="btn-group ml-2">
@@ -218,24 +218,6 @@
                     </div>
                     </div> *@
 
-                @* @{
-
-                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-
-                    var nextDisabled = !Model.HasN.extPage ? "disabled" : "";
-                    } *@
-
-                @* <a asp-action="Filtro" asp-route-sortOrder="@ViewData["CurrentSort"]"
-                    asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                    class="btn btn-default @prevDisabled">
-                    Previous
-                    </a>
-                    <a asp-action="Filtro" asp-route-sortOrder="@ViewData["CurrentSort"]"
-                    asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                    class="btn btn-default @nextDisabled">
-                    Next
-                    </a> *@
-
 
                 @{
                     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
@@ -263,7 +245,7 @@
                     </nav>
                 }
 
-                @if (@Model.Count() > 9)
+                @* @if (@Model.Count() > 9)
                 {
                     <div class="col-12 text-center">
                         <nav class="">
@@ -271,7 +253,7 @@
                                 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Filtro", new { pagina = page }),
                             new X.PagedList.Mvc.Common.PagedListRenderOptions
                             {
-                                @* DisplayItemSliceAndTotal = true, *@
+                                DisplayItemSliceAndTotal = true,
                             ContainerDivClasses = new[] { "navigation" },
                             LiElementClasses = new[] { "page-item" },
                             PageClasses = new[] { "page-link" },
@@ -279,7 +261,7 @@
                             </ul>
                         </nav>
                     </div>
-                }
+                } *@
             </div>
         </div>
         <!-- Shop Product End -->

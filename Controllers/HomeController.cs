@@ -69,7 +69,21 @@ namespace AppEcommerce.Controllers
             {
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    prod = prod.Where(s => s.Nome.Contains(searchString));
+                    switch (sortOrder)
+                    {
+                        case "maior":
+                            prod = prod.Where(s => s.Nome.Contains(searchString)).OrderByDescending(m => m.Valor);
+                            break;
+                        case "menor":
+                            prod = prod.Where(s => s.Nome.Contains(searchString)).OrderBy(m => m.Valor);
+                            break;
+                        case "todos":
+                            prod = prod.Where(s => s.Nome.Contains(searchString));
+                            break;
+                        default:
+                            prod = prod.Where(s => s.Nome.Contains(searchString));
+                            break;
+                    }
                 }
             }
             else

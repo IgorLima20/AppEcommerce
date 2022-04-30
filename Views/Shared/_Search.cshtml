@@ -1,7 +1,6 @@
 <form asp-action="Filtro">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for products" name="SearchString"
-            value="@ViewData["CurrentFilter"]">
+        <input type="text" class="form-control" placeholder="Buscar Produtos" name="searchString" value="@ViewData["CurrentFilter"]">
         <div class="input-group-append">
             <button class="input-group-text bg-dark text-primary" style="border-color: #3F4147;" type="submit">
                 <i class="fa fa-search"></i>
@@ -9,3 +8,10 @@
         </div>
     </div>
 </form>
+
+@* <form class="form-inline justify-content-center justify-content-md-start mb-sm-3 mb-md-0" action="/Index" method="get" id="formBusca">
+            <input type="text" name="q" id="q" placeholder="Nome do produto a buscar" class="form-control form-control-sm mr-sm-2" />
+            <input type="hidden" name="o" value="0" id="o" />
+            <input type="hidden" name="p" value="1" id="p" />
+            <button class="btn btn-sm btn-success my-2 my-sm-0 form-control form-control-sm">Buscar</button>
+        </form> *@

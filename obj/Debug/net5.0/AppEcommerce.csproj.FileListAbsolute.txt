@@ -496,7 +496,6 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Order\Checkout.cshtml.g.cs
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\ShoppingCartSummary\Default.cshtml.g.cs
-C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryHome\Default.cshtml.g.cs
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\bin\Debug\net5.0\package-lock.json
 C:\Users\etec\Documents\GitHub\AppEcommerce\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\etec\Documents\GitHub\AppEcommerce\bin\Debug\net5.0\appsettings.json
@@ -1499,3 +1498,5 @@ C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfi
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\ref\AppEcommerce.dll
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_Search.cshtml.g.cs
 C:\Users\etec\Desktop\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\SearchHome\Default.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\Components\SearchHome\Default.cshtml.g.cs
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_Search.cshtml.g.cs
