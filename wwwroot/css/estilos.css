@@ -196,6 +196,17 @@ label .text-dark {
   sup {
     top: -.5em;
   }
+
+  .cinza {
+    color: #6C757D;
+    text-decoration: none;
+    background-color: transparent;
+  } 
+
+  .cinza:hover {
+    color: #6C757D;
+    text-decoration: underline;
+  } 
   
   a {
     color: #56B0F5;

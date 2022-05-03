@@ -115,8 +115,8 @@ namespace AppEcommerce.Data
                     NomeCompleto = "Igor Oliveira de Lima",
                     UserName = "Admin",
                     NormalizedUserName = "ADMIN",
-                    Email = "admin@ecommerce.com.br",
-                    NormalizedEmail = "ADMIN@ECOMMERCE.COM.BR",
+                    Email = "igorsax258@gmail.com",
+                    NormalizedEmail = "IGORSAX258@GMAIL.COM",
                     EmailConfirmed = true,
                     PasswordHash = hash.HashPassword(null, "123456"),
                     SecurityStamp = hash.GetHashCode().ToString()

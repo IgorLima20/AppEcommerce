@@ -66,11 +66,6 @@ namespace AppEcommerce.Controllers
             var prod = from p in _contexto.Produtos
                        select p;
 
-            if (Idmarca != null)
-            {
-                prod = prod.Where(m => m.IdMarca == Idmarca).Include(i => i.Categoria);
-            }
-
             if (searchString != null)
             {
                 if (!String.IsNullOrEmpty(searchString))
@@ -117,21 +112,43 @@ namespace AppEcommerce.Controllers
             }
             else
             {
-                switch (sortOrder)
+                if (Idmarca != null)
                 {
-                    case "maior":
-                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
-                        break;
-                    case "menor":
-                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
-                        break;
-                    case "todos":
-                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
-                        break;
-                    default:
-                        prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
-                        break;
+                    switch (sortOrder)
+                    {
+                        case "maior":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
+                            break;
+                        case "menor":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
+                            break;
+                        case "todos":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                            break;
+                        default:
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                            break;
+                    }
                 }
+                else
+                {
+                     switch (sortOrder)
+                    {
+                        case "maior":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
+                            break;
+                        case "menor":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
+                            break;
+                        case "todos":
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                            break;
+                        default:
+                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                            break;
+                    }
+                }
+
                 ViewData["Marcas"] = prod.Where(c => c.IdCategoria == Id).Include(m => m.Marca).Select(i => i.Marca).Distinct();
             }
             int pageSize = 9;
