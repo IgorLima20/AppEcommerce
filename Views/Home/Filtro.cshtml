@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row px-xl-5">
         <!-- Shop Sidebar Start -->
-        <div class="col-lg-3 col-md-4">
+        <div class="col-lg-2 col-md-4">
             <!-- Price Start -->
             @* <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by
                 price</span></h5>
@@ -67,9 +67,24 @@
                     }
                 </form>
             </div> *@
+            @* <div class="container">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Marca</span></h5>
+                <div class="col-md-4">
+                    <div class="sidebar-widget brands">
+                        <ul>
+                            <li><a href="#">Nulla </a></li>
+                            <li><a href="#">Curabitur </a><span>(34)</span></li>
+                            <li><a href="#">Nunc </a><span>(67)</span></li>
+                            <li><a href="#">Ullamcorper</a><span>(74)</span></li>
+                            <li><a href="#">Fusce </a><span>(89)</span></li>
+                            <li><a href="#">Sagittis</a><span>(28)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> *@
+            
 
-            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por
-                    marca</span></h5>
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Marca</span></h5>
             <div class="bg-light p-4 mb-30">
                     @foreach (var marca in ViewBag.Marcas)
                     {
@@ -138,13 +153,13 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Menor"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]">Menor preço</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Menor preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Maior"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]">Maior preço</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Maior preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Todos"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]">Todos</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Todos</a>
                                 </div>
                             </div>
                             @* <div class="btn-group ml-2">

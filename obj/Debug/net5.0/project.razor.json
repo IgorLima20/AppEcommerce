@@ -15762,6 +15762,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Edit.cshtml",
+      "TargetPath": "Views\\Categoria\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "FileKind": "mvc"
@@ -15774,6 +15779,11 @@
     {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\ShoppingCart\\Index.cshtml",
       "TargetPath": "Views\\ShoppingCart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Admin\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15842,6 +15852,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Details.cshtml",
+      "TargetPath": "Views\\Marca\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
       "FileKind": "mvc"
@@ -15874,6 +15889,11 @@
     {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Produto\\Produtos.cshtml",
       "TargetPath": "Views\\Produto\\Produtos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Index.cshtml",
+      "TargetPath": "Views\\Marca\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15937,6 +15957,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_LayoutAdmin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\ShoppingCart\\CartSumary.cshtml",
       "TargetPath": "Views\\ShoppingCart\\CartSumary.cshtml",
       "FileKind": "mvc"
@@ -15944,6 +15969,16 @@
     {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Edit.cshtml",
+      "TargetPath": "Views\\Marca\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Create.cshtml",
+      "TargetPath": "Views\\Categoria\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15987,6 +16022,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Delete.cshtml",
+      "TargetPath": "Views\\Marca\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "FileKind": "mvc"
@@ -16009,6 +16049,11 @@
     {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Index.cshtml",
+      "TargetPath": "Views\\Categoria\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16049,6 +16094,21 @@
     {
       "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Details.cshtml",
+      "TargetPath": "Views\\Categoria\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Delete.cshtml",
+      "TargetPath": "Views\\Categoria\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Create.cshtml",
+      "TargetPath": "Views\\Marca\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

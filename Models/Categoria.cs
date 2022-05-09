@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Models
 {
@@ -20,5 +21,8 @@ namespace AppEcommerce.Models
 
         [StringLength(200)]
         public string Imagem { get; set; }
+
+        [NotMapped]
+        public IFormFile ImagemFile { get; set; }
     }
 }

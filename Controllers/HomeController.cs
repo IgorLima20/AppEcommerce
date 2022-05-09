@@ -44,7 +44,7 @@ namespace AppEcommerce.Controllers
             return View(produto);
         }
 
-        public async Task<IActionResult> Filtro(Guid Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber, Guid? Idmarca)
+        public async Task<IActionResult> Filtro(Guid Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber, Guid? Idmarca, Guid marca)
         {
 
             ViewData["CurrentSort"] = sortOrder;
@@ -59,7 +59,14 @@ namespace AppEcommerce.Controllers
             else
             {
                 searchString = currentFilter;
+                if (Idmarca == null)
+                {
+                    Idmarca = marca;
+                }
+
             }
+
+
 
             ViewData["CurrentFilter"] = searchString;
 
@@ -72,6 +79,7 @@ namespace AppEcommerce.Controllers
                 {
                     if (Idmarca != null)
                     {
+                        ViewData["MarcaId"] = Idmarca;
                         switch (sortOrder)
                         {
                             case "maior":
