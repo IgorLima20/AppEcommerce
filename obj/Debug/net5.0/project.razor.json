@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\AppEcommerce.csproj",
+  "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15757,387 +15757,397 @@
   "RootNamespace": "AppEcommerce",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_Search.cshtml",
-      "TargetPath": "Views\\Shared\\_Search.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Edit.cshtml",
-      "TargetPath": "Views\\Categoria\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\ShoppingCart\\Index.cshtml",
-      "TargetPath": "Views\\ShoppingCart\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Admin\\Index.cshtml",
-      "TargetPath": "Views\\Admin\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Error.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\Components\\SearchHome\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\SearchHome\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Produto\\Index.cshtml",
-      "TargetPath": "Views\\Produto\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Order\\Checkout.cshtml",
-      "TargetPath": "Views\\Order\\Checkout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_MenuCategorias.cshtml",
-      "TargetPath": "Views\\Shared\\_MenuCategorias.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Details.cshtml",
-      "TargetPath": "Views\\Marca\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Produto\\Index1.cshtml",
-      "TargetPath": "Views\\Produto\\Index1.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Produto\\Produtos.cshtml",
-      "TargetPath": "Views\\Produto\\Produtos.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Index.cshtml",
-      "TargetPath": "Views\\Marca\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Carrinho\\Index.cshtml",
-      "TargetPath": "Views\\Carrinho\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Cliente\\Cadastro.cshtml",
-      "TargetPath": "Views\\Cliente\\Cadastro.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Home\\Contato.cshtml",
-      "TargetPath": "Views\\Home\\Contato.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Home\\Show.cshtml",
-      "TargetPath": "Views\\Home\\Show.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_LayoutAdmin.cshtml",
-      "TargetPath": "Views\\Shared\\_LayoutAdmin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\ShoppingCart\\CartSumary.cshtml",
-      "TargetPath": "Views\\ShoppingCart\\CartSumary.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Edit.cshtml",
-      "TargetPath": "Views\\Marca\\Edit.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Create.cshtml",
-      "TargetPath": "Views\\Categoria\\Create.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Cliente\\Cadastro.cshtml",
+      "TargetPath": "Views\\Cliente\\Cadastro.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\Components\\SearchHome\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\SearchHome\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Delete.cshtml",
-      "TargetPath": "Views\\Marca\\Delete.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_LayoutAdmin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutAdmin.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Error.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Carrinho\\Index2.cshtml",
-      "TargetPath": "Views\\Carrinho\\Index2.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Index.cshtml",
-      "TargetPath": "Views\\Categoria\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Cliente\\Login.cshtml",
-      "TargetPath": "Views\\Cliente\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Home\\Filtro.cshtml",
-      "TargetPath": "Views\\Home\\Filtro.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Details.cshtml",
-      "TargetPath": "Views\\Categoria\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Categoria\\Delete.cshtml",
-      "TargetPath": "Views\\Categoria\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Marca\\Create.cshtml",
-      "TargetPath": "Views\\Marca\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\igors\\Desktop\\Curso\\Projetos\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Admin\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Marca\\Details.cshtml",
+      "TargetPath": "Views\\Marca\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_Search.cshtml",
+      "TargetPath": "Views\\Shared\\_Search.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Produto\\Create.cshtml",
+      "TargetPath": "Views\\Produto\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_MenuCategorias.cshtml",
+      "TargetPath": "Views\\Shared\\_MenuCategorias.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Produto\\Details.cshtml",
+      "TargetPath": "Views\\Produto\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Categoria\\Edit.cshtml",
+      "TargetPath": "Views\\Categoria\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Home\\Filtro.cshtml",
+      "TargetPath": "Views\\Home\\Filtro.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Marca\\Edit.cshtml",
+      "TargetPath": "Views\\Marca\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Produto\\Index.cshtml",
+      "TargetPath": "Views\\Produto\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Order\\Checkout.cshtml",
+      "TargetPath": "Views\\Order\\Checkout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Marca\\Index.cshtml",
+      "TargetPath": "Views\\Marca\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Categoria\\Create.cshtml",
+      "TargetPath": "Views\\Categoria\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Categoria\\Delete.cshtml",
+      "TargetPath": "Views\\Categoria\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Categoria\\Details.cshtml",
+      "TargetPath": "Views\\Categoria\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Produto\\Edit.cshtml",
+      "TargetPath": "Views\\Produto\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Marca\\Delete.cshtml",
+      "TargetPath": "Views\\Marca\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Carrinho\\Index2.cshtml",
+      "TargetPath": "Views\\Carrinho\\Index2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Home\\Show.cshtml",
+      "TargetPath": "Views\\Home\\Show.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\ShoppingCart\\CartSumary.cshtml",
+      "TargetPath": "Views\\ShoppingCart\\CartSumary.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Home\\Contato.cshtml",
+      "TargetPath": "Views\\Home\\Contato.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\ShoppingCart\\Index.cshtml",
+      "TargetPath": "Views\\ShoppingCart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Categoria\\Index.cshtml",
+      "TargetPath": "Views\\Categoria\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Carrinho\\Index.cshtml",
+      "TargetPath": "Views\\Carrinho\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Cliente\\Login.cshtml",
+      "TargetPath": "Views\\Cliente\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Produto\\Delete.cshtml",
+      "TargetPath": "Views\\Produto\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Views\\Marca\\Create.cshtml",
+      "TargetPath": "Views\\Marca\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\etec\\Desktop\\AppEcommerce\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
     }

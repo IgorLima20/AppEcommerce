@@ -33,6 +33,8 @@ namespace AppEcommerce.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Imagem = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -442,23 +444,23 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Imagem", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("aefb144e-362f-4ccb-a525-d61cb0a4a2fc"), "~/img/Produtos/001.png", "Hardware" },
-                    { new Guid("7dbe530c-2fcd-48df-8ffc-659d3f641780"), "~/img/Produtos/002.png", "Celulares" },
-                    { new Guid("38c96576-73f3-482b-84c4-9b63ee79a346"), "~/img/Produtos/003.png", "Periféricos" },
-                    { new Guid("0094edaf-44d0-482e-a08a-94d9e4436166"), "~/img/Produtos/004.png", "Games" },
-                    { new Guid("d3854c99-07ef-4d23-ae6f-245895c45813"), "~/img/Produtos/005.png", "Cadeiras" },
-                    { new Guid("3858c818-0980-4ebf-b393-e486b3f9e1b8"), "~/img/Produtos/006.png", "Conectividade" }
+                    { new Guid("ac673894-52dc-4b60-aef6-411f30852155"), "~/img/Produtos/001.png", "Hardware" },
+                    { new Guid("7b50c839-a64b-43cc-b5f6-8669a3f0679e"), "~/img/Produtos/002.png", "Celulares" },
+                    { new Guid("1c43c922-7d59-4006-9324-ba7765b81244"), "~/img/Produtos/003.png", "Periféricos" },
+                    { new Guid("8e457c0b-f6bb-47f5-b21f-6ed731724d03"), "~/img/Produtos/004.png", "Games" },
+                    { new Guid("d9aa7e1c-bb41-4915-93b3-585d5c06d082"), "~/img/Produtos/005.png", "Cadeiras" },
+                    { new Guid("34d10731-0bd0-4a5b-bb33-5bd9a00dfede"), "~/img/Produtos/006.png", "Conectividade" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Marca",
-                columns: new[] { "Id", "Nome" },
+                columns: new[] { "Id", "Imagem", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("5cccd0d9-47be-4429-aca3-f5d8d94d0435"), "Nvidia" },
-                    { new Guid("38552366-f623-4328-b3c4-7e77f604ac88"), "Logitech" },
-                    { new Guid("33479939-adfd-423d-b033-4bfbb1fb65b8"), "Motorola" },
-                    { new Guid("9bfeab4c-ad56-4f38-91cf-59bcfa18cd61"), "D-Link" }
+                    { new Guid("86540910-0993-49bc-96ea-8ef8b048b73d"), null, "Nvidia" },
+                    { new Guid("9f14acba-b429-4505-b185-bd445113722e"), null, "Logitech" },
+                    { new Guid("a2ff0a68-80db-4843-97a8-9ad276d30ba2"), null, "Motorola" },
+                    { new Guid("596e5e42-d40c-4ec0-b510-0356fb5ed8c9"), null, "D-Link" }
                 });
 
             migrationBuilder.InsertData(
@@ -466,35 +468,35 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "acdb899c-63d4-43aa-ad29-3923c3eba6d7", "71385a02-0c9e-449b-b0a4-2e792b7f4eae", "Administrador", "ADMINISTRADOR" },
-                    { "72c921a4-1454-47fb-bb93-9532f67db469", "ee32ca64-06e9-4797-8a12-7396aa44d4c3", "Moderador", "MODERADOR" },
-                    { "b82120a9-55c4-4887-b6e4-45dfd453d984", "2da88418-d70e-447a-816d-05a2e6608d01", "Usuario", "USUARIO" }
+                    { "1574b510-4dcb-4e30-9e18-01c2c6eb6aaa", "1fa3b2b9-987d-4f79-8ccb-990c46b39280", "Administrador", "ADMINISTRADOR" },
+                    { "4674eb38-8a08-48dd-bc3a-261611da9c28", "8bbcce0c-b780-4b1b-983a-4374be6ad431", "Moderador", "MODERADOR" },
+                    { "cbbea225-25e5-462f-8962-19b5b283860e", "bb057c44-e49d-4c64-91af-42282b620184", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "acdb899c-63d4-43aa-ad29-3923c3eba6d7", 0, "a7cc023a-53cb-46ff-b5cf-047b2b4afe72", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEA4gftfAqcYsdHjVDo7n8A465vYLzlST/OJ/o2qudo+/8EbcPwaz4CUR9Q9WcBSByA==", null, false, "45027976", false, "Admin" });
+                values: new object[] { "1574b510-4dcb-4e30-9e18-01c2c6eb6aaa", 0, "ed6a2a71-7f26-4894-9648-9002ada85cbb", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEOliMdv+iiJZxsxXJs+6CnJwidL+qNzfdzHwH6y8kHkCOFx1/HRhpcHtdROXdEI3Eg==", null, false, "2598608", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
                 columns: new[] { "Id", "Descricao", "Estoque", "IdCategoria", "IdMarca", "Imagem", "Nome", "Valor" },
                 values: new object[,]
                 {
-                    { 1, "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("aefb144e-362f-4ccb-a525-d61cb0a4a2fc"), new Guid("5cccd0d9-47be-4429-aca3-f5d8d94d0435"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223m },
-                    { 2, "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("aefb144e-362f-4ccb-a525-d61cb0a4a2fc"), new Guid("5cccd0d9-47be-4429-aca3-f5d8d94d0435"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
-                    { 6, "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.", 0u, new Guid("aefb144e-362f-4ccb-a525-d61cb0a4a2fc"), new Guid("5cccd0d9-47be-4429-aca3-f5d8d94d0435"), "~/img/Produtos/6.jpg", "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp", 2743m },
-                    { 3, "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("38c96576-73f3-482b-84c4-9b63ee79a346"), new Guid("38552366-f623-4328-b3c4-7e77f604ac88"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
-                    { 4, "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("38c96576-73f3-482b-84c4-9b63ee79a346"), new Guid("38552366-f623-4328-b3c4-7e77f604ac88"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179m },
-                    { 5, "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.", 1u, new Guid("38c96576-73f3-482b-84c4-9b63ee79a346"), new Guid("38552366-f623-4328-b3c4-7e77f604ac88"), "~/img/Produtos/5.jpg", "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290", 349m },
-                    { 7, "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.", 20u, new Guid("7dbe530c-2fcd-48df-8ffc-659d3f641780"), new Guid("33479939-adfd-423d-b033-4bfbb1fb65b8"), "~/img/Produtos/7.jpg", "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR", 892m },
-                    { 8, "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ", 10u, new Guid("3858c818-0980-4ebf-b393-e486b3f9e1b8"), new Guid("9bfeab4c-ad56-4f38-91cf-59bcfa18cd61"), "~/img/Produtos/8.jpg", "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842", 164m }
+                    { 1, "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.", 8u, new Guid("ac673894-52dc-4b60-aef6-411f30852155"), new Guid("86540910-0993-49bc-96ea-8ef8b048b73d"), "~/img/Produtos/1.jpg", "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb", 1223m },
+                    { 2, "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.", 10u, new Guid("ac673894-52dc-4b60-aef6-411f30852155"), new Guid("86540910-0993-49bc-96ea-8ef8b048b73d"), "~/img/Produtos/2.jpg", "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG", 7936m },
+                    { 6, "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.", 0u, new Guid("ac673894-52dc-4b60-aef6-411f30852155"), new Guid("86540910-0993-49bc-96ea-8ef8b048b73d"), "~/img/Produtos/6.jpg", "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp", 2743m },
+                    { 3, "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.", 16u, new Guid("1c43c922-7d59-4006-9324-ba7765b81244"), new Guid("9f14acba-b429-4505-b185-bd445113722e"), "~/img/Produtos/3.jpg", "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631", 209m },
+                    { 4, "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.", 20u, new Guid("1c43c922-7d59-4006-9324-ba7765b81244"), new Guid("9f14acba-b429-4505-b185-bd445113722e"), "~/img/Produtos/4.jpg", "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014", 179m },
+                    { 5, "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.", 1u, new Guid("1c43c922-7d59-4006-9324-ba7765b81244"), new Guid("9f14acba-b429-4505-b185-bd445113722e"), "~/img/Produtos/5.jpg", "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290", 349m },
+                    { 7, "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.", 20u, new Guid("7b50c839-a64b-43cc-b5f6-8669a3f0679e"), new Guid("a2ff0a68-80db-4843-97a8-9ad276d30ba2"), "~/img/Produtos/7.jpg", "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR", 892m },
+                    { 8, "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ", 10u, new Guid("34d10731-0bd0-4a5b-bb33-5bd9a00dfede"), new Guid("596e5e42-d40c-4ec0-b510-0356fb5ed8c9"), "~/img/Produtos/8.jpg", "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842", 164m }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "acdb899c-63d4-43aa-ad29-3923c3eba6d7", "acdb899c-63d4-43aa-ad29-3923c3eba6d7" });
+                values: new object[] { "1574b510-4dcb-4e30-9e18-01c2c6eb6aaa", "1574b510-4dcb-4e30-9e18-01c2c6eb6aaa" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",

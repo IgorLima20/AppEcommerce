@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Models
 {
@@ -27,7 +28,6 @@ namespace AppEcommerce.Models
         [Required]
         public Guid IdMarca { get; set; }
 
-        [Required]
         [ForeignKey("IdMarca")]
         public Marca Marca { get; set; }
 
@@ -37,10 +37,12 @@ namespace AppEcommerce.Models
         [StringLength(200)]
         public string Imagem { get; set; }
 
+        [NotMapped]
+        public IFormFile ImagemFile { get; set; }
+
         [Required]
         public Guid IdCategoria { get; set; }
 
-        [Required]
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }
 
