@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row px-xl-5">
         <!-- Shop Sidebar Start -->
-        <div class="col-lg-2 col-md-4">
+        <div class="col-lg-3 col-md-4">
             <!-- Price Start -->
             @* <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by
                 price</span></h5>
@@ -54,7 +54,7 @@
             <!-- Price End -->
 
             <!-- Color Start -->
-            @* <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por
                     marca</span></h5>
             <div class="bg-light p-4 mb-30">
                 <form method="post" asp-action="Filtro">
@@ -66,33 +66,36 @@
                         </div>
                     }
                 </form>
-            </div> *@
-            @* <div class="container">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Marca</span></h5>
-                <div class="col-md-4">
-                    <div class="sidebar-widget brands">
-                        <ul>
-                            <li><a href="#">Nulla </a></li>
-                            <li><a href="#">Curabitur </a><span>(34)</span></li>
-                            <li><a href="#">Nunc </a><span>(67)</span></li>
-                            <li><a href="#">Ullamcorper</a><span>(74)</span></li>
-                            <li><a href="#">Fusce </a><span>(89)</span></li>
-                            <li><a href="#">Sagittis</a><span>(28)</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> *@
-            
-
-            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Marca</span></h5>
-            <div class="bg-light p-4 mb-30">
-                    @foreach (var marca in ViewBag.Marcas)
-                    {
-                        <div class="custom-control d-flex align-items-center justify-content-between mb-3">
-                            <a asp-action="Filtro" asp-route-Idmarca="@marca.Id" class="cinza" asp-route-currentFilter="@ViewData["CurrentFilter"]">@marca.Nome</a>
-                        </div>
-                    }
             </div>
+            @* <div class="container">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary
+                pr-3">Marca</span></h5>
+                <div class="col-md-4">
+                <div class="sidebar-widget brands">
+                <ul>
+                <li><a href="#">Nulla </a></li>
+                <li><a href="#">Curabitur </a><span>(34)</span></li>
+                <li><a href="#">Nunc </a><span>(67)</span></li>
+                <li><a href="#">Ullamcorper</a><span>(74)</span></li>
+                <li><a href="#">Fusce </a><span>(89)</span></li>
+                <li><a href="#">Sagittis</a><span>(28)</span></li>
+                </ul>
+                </div>
+                </div>
+                </div> *@
+
+
+            @* <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary
+                pr-3">Marca</span></h5>
+                <div class="bg-light p-4 mb-30">
+                @foreach (var marca in ViewBag.Marcas)
+                {
+                <div class="custom-control d-flex align-items-center justify-content-between mb-3">
+                <a asp-action="Filtro" asp-route-Idmarca="@marca.Id" class="cinza"
+                asp-route-currentFilter="@ViewData["CurrentFilter"]">@marca.Nome</a>
+                </div>
+                }
+                </div> *@
             <!-- Color End -->
 
             <!-- Size Start -->
@@ -153,24 +156,27 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Menor"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Menor preço</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-marca="@ViewData["MarcaId"]">Menor preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Maior"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Maior preço</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-marca="@ViewData["MarcaId"]">Maior preço</a>
                                     <a class="dropdown-item" asp-action="Filtro"
                                         asp-route-sortOrder="@ViewData["Todos"]"
-                                        asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-marca="@ViewData["MarcaId"]">Todos</a>
+                                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                        asp-route-marca="@ViewData["MarcaId"]">Todos</a>
                                 </div>
                             </div>
                             @* <div class="btn-group ml-2">
                                 <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                                    data-toggle="dropdown">Showing</button>
+                                data-toggle="dropdown">Showing</button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">10</a>
-                                    <a class="dropdown-item" href="#">20</a>
-                                    <a class="dropdown-item" href="#">30</a>
+                                <a class="dropdown-item" href="#">10</a>
+                                <a class="dropdown-item" href="#">20</a>
+                                <a class="dropdown-item" href="#">30</a>
                                 </div>
-                            </div> *@
+                                </div> *@
                         </div>
                     </div>
                 </div>
@@ -179,7 +185,8 @@
                     <div class="card-group col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="@Url.Content(@produto.Imagem)" alt="">
+                                <img class="img-fluid w-100" src="@("~/img/"+produto.Imagem)" asp-append-version="true"
+                                alt="">
                                 <div class="product-action">
                                     @if (@produto.Estoque >= 1)
                                     {
@@ -194,7 +201,8 @@
                             </div>
                             <div class="text-center py-4">
                                 <p class="card-text truncar-3l">
-                                    <a class="h5 text-decoration-none" href="">@produto.Nome</a>
+                                    <a class="h5 text-decoration-none" asp-action="Show" asp-route-id="@produto.Id"
+                                    asp-route-IdCategoria="@produto.IdCategoria">@produto.Nome</a>
                                 </p>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
                                     <h5>R$ @produto.Valor.ToString("F2")</h5>

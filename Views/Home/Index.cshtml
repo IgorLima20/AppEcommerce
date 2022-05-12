@@ -149,7 +149,7 @@
                     @* <p class="text-right">@categoria.Id.Count() Produtos</p> *@
                     <a asp-action="Filtro" asp-route-id="@categoria.Id"
                     class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="@Url.Content(@categoria.Imagem)" alt="">
+                        <img class="img-fluid" src="@("~/img/"+categoria.Imagem)" asp-append-version="true">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">@categoria.Nome</h5>
                 </div>
@@ -195,20 +195,24 @@
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
                         <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                        <img class="img-fluid w-100" src="@Url.Content(produtos.Imagem)" alt="">
+                        <img class="img-fluid w-100" src="@("~/img/"+produtos.Imagem)" asp-append-version="true">
                         <div class="product-action">
                             @if (@produtos.Estoque >= 1)
                             {
-                                <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart"
+                            asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i
+                                class="fa fa-shopping-cart"></i></a>
                             }
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id" asp-route-IdCategoria="@produtos.IdCategoria"><i
-                                class="fa fa-search"></i></a>
+                            <a class="btn btn-outline-dark btn-square"><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
+                            asp-route-IdCategoria="@produtos.IdCategoria"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
                         <p class="card-text truncar-3l">
-                            <a class="h5 text-decoration-none" href="">@produtos.Nome</a </p>
+                            <a class="h5 text-decoration-none" asp-action="Show" asp-route-id="@produtos.Id"
+                            asp-route-IdCategoria="@produtos.IdCategoria">@produtos.Nome</a>
+                        </p>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>R$ @produtos.Valor.ToString("F2")</h5>
                         </div>

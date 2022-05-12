@@ -10,7 +10,7 @@
             <div id="product-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner bg-light">
                     <div class="carousel-item active">
-                        <img class="w-100 h-100" src="@Url.Content(@Model.Imagem)" alt="Image">
+                        <img class="w-100 h-100" src="@("~/img/"+Model.Imagem)" asp-append-version="true" alt="Image">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -258,7 +258,7 @@
                     <div class="product-item bg-light mb-4">
                         <div class="product-img position-relative overflow-hidden">
                             <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                            <img class="img-fluid w-100" src="@Url.Content(produtos.Imagem)" alt="">
+                            <img class="img-fluid w-100" src="@("~/img/"+produtos.Imagem)" asp-append-version="true" alt="">
                             <div class="product-action">
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
@@ -268,7 +268,9 @@
                         </div>
                         <div class="text-center py-4">
                             <p class="card-text truncar-3l">
-                                <a class="h5 text-decoration-none" href="">@produtos.Nome</a </p>
+                                <a class="h5 text-decoration-none"  asp-action="Show" asp-route-id="@produtos.Id"
+                            asp-route-IdCategoria="@produtos.IdCategoria">@produtos.Nome</a>
+                            </p>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <h5>@produtos.Valor.ToString("C")</h5>
                             </div>

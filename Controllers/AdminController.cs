@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace AppEcommerce.Controllers
 {
+    // [Authorize(Roles = "Administrador, Moderador")]
     public class AdminController : Controller
     {
         private readonly ILogger<AdminController> _logger;

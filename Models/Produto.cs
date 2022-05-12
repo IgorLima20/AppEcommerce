@@ -26,22 +26,18 @@ namespace AppEcommerce.Models
         public uint Estoque { get; set; }
        
         [Required]
-        public Guid IdMarca { get; set; }
+        public int IdMarca { get; set; }
 
         [ForeignKey("IdMarca")]
         public Marca Marca { get; set; }
 
         [StringLength(800)]
         public string Descricao { get; set; }
-
-        [StringLength(200)]
-        public string Imagem { get; set; }
-
-        [NotMapped]
-        public IFormFile ImagemFile { get; set; }
+        
+        public ICollection<Imagem> Imagem { get; set; } 
 
         [Required]
-        public Guid IdCategoria { get; set; }
+        public int IdCategoria { get; set; }
 
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }

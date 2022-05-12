@@ -39,7 +39,7 @@ namespace AppEcommerce.Models
         public Cliente? Cliente { get; set; }
         public decimal Total { get; set; }
         
-        public Guid? IdEndereco { get; set; }
+        public int? IdEndereco { get; set; }
 
         [ForeignKey("IdEndereco")]
         public Endereco? EnderecoEntrega { get; set; }

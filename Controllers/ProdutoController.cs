@@ -9,6 +9,7 @@ using AppEcommerce.Data;
 using AppEcommerce.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Controllers
 {
@@ -23,6 +24,7 @@ namespace AppEcommerce.Controllers
             _context = context;
             _hostEnvironment = hostEnvironment;
         }
+
 
         // GET: Produto
         public async Task<IActionResult> Index()
@@ -64,19 +66,11 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPatch = _hostEnvironment.WebRootPath;
-                string filename = Path.GetFileNameWithoutExtension(produto.ImagemFile.FileName);
-                string extension = Path.GetExtension(produto.ImagemFile.FileName);
-                produto.Imagem = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    await produto.ImagemFile.CopyToAsync(fileStream);
-                }
+
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -84,6 +78,23 @@ namespace AppEcommerce.Controllers
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nome", produto.IdCategoria);
             ViewData["IdMarca"] = new SelectList(_context.Marcas, "Id", "Nome", produto.IdMarca);
             return View(produto);
+        }
+
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            var fileDic = "Files";
+            string filePath = Path.Combine(_hostEnvironment.WebRootPath, fileDic);
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+            var fileName = file.FileName;
+            filePath = Path.Combine(filePath, fileName);
+            using (FileStream fs = System.IO.File.Create(filePath))
+            {
+                file.CopyTo(fs);
+            }
+            return View();
         }
 
         // GET: Produto/Edit/5
@@ -167,11 +178,6 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var produto = await _context.Produtos.FindAsync(id);
-            var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", produto.Imagem);
-            if (System.IO.File.Exists(imagemPath))
-            {
-                System.IO.File.Delete(imagemPath);
-            }
             _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

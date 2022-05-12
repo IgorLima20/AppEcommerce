@@ -23,7 +23,6 @@ namespace AppEcommerce.Controllers
             _context = context;
             _hostEnvironment = hostEnvironment;
         }
-
         // GET: Marca
         public async Task<IActionResult> Index()
         {
@@ -31,7 +30,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Marca/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -76,7 +75,6 @@ namespace AppEcommerce.Controllers
                     }
                 }
 
-                marca.Id = Guid.NewGuid();
                 _context.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,7 +83,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Marca/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -105,7 +103,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Imagem")] Marca marca)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Marca marca)
         {
             if (id != marca.Id)
             {
@@ -136,7 +134,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Marca/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -156,10 +154,10 @@ namespace AppEcommerce.Controllers
         // POST: Marca/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var marca = await _context.Marcas.FindAsync(id);
-            var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", marca.Imagem);
+             var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", marca.Imagem);
             if (System.IO.File.Exists(imagemPath))
             {
                 System.IO.File.Delete(imagemPath);
@@ -169,7 +167,7 @@ namespace AppEcommerce.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarcaExists(Guid id)
+        private bool MarcaExists(int id)
         {
             return _context.Marcas.Any(e => e.Id == id);
         }

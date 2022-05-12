@@ -31,7 +31,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Categoria/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -72,7 +72,7 @@ namespace AppEcommerce.Controllers
                 {
                     await categoria.ImagemFile.CopyToAsync(fileStream);
                 }
-                categoria.Id = Guid.NewGuid();
+
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -81,7 +81,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Categoria/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -101,7 +101,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Imagem")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Categoria categoria)
         {
             if (id != categoria.Id)
             {
@@ -132,7 +132,7 @@ namespace AppEcommerce.Controllers
         }
 
         // GET: Categoria/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -152,7 +152,7 @@ namespace AppEcommerce.Controllers
         // POST: Categoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var categoria = await _context.Categorias.FindAsync(id);
             var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", categoria.Imagem);
@@ -165,7 +165,7 @@ namespace AppEcommerce.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoriaExists(Guid id)
+        private bool CategoriaExists(int id)
         {
             return _context.Categorias.Any(e => e.Id == id);
         }

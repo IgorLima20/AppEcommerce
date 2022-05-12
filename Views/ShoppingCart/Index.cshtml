@@ -26,9 +26,9 @@
                     @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
                     {
                         <tr item-id="@item.Produto.Id">
-                            <td class="align-middle"><img src="@Url.Content(@item.Produto.Imagem)" alt=""
+                            @* <td class="align-middle"><img src="@Url.Content(@item.Produto.Imagem)" alt=""
                                 style="width: 50px;"> Product Name
-                            </td>
+                            </td> *@
                             <td class="align-middle">@item.Produto.Valor.ToString("C")</td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;" name="@item.Produto.Id">

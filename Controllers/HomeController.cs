@@ -34,7 +34,7 @@ namespace AppEcommerce.Controllers
             return View(produtos);
         }
 
-        public IActionResult Show(int Id, Guid IdCategoria)
+        public IActionResult Show(int Id, int IdCategoria)
         {
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.ToList();
@@ -44,7 +44,7 @@ namespace AppEcommerce.Controllers
             return View(produto);
         }
 
-        public async Task<IActionResult> Filtro(Guid Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber, Guid? Idmarca, Guid marca)
+        public async Task<IActionResult> Filtro(int Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber, int? Idmarca, int marca)
         {
 
             ViewData["CurrentSort"] = sortOrder;
@@ -61,7 +61,10 @@ namespace AppEcommerce.Controllers
                 searchString = currentFilter;
                 if (Idmarca == null)
                 {
-                    Idmarca = marca;
+                    if (marca != 0)
+                    {
+                        Idmarca = marca;
+                    }
                 }
 
             }
@@ -174,7 +177,7 @@ namespace AppEcommerce.Controllers
         //     return View(filtro);
         // }
 
-        public IActionResult Categoria(Guid id, int? pagina)
+        public IActionResult Categoria(int id, int? pagina)
         {
             var pageSize = 9;
             int pageNumber = pagina ?? 1;

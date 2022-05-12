@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="~/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="~/assets/images/favicon.png" />
+
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    
   </head>
   <body>
     <div class="container-scroller">
@@ -385,5 +388,8 @@
     <!-- Custom js for this page -->
     <script src="~/assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+    @RenderSectionAsync("Scripts", required : false)
   </body>
 </html>

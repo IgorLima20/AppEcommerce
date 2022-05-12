@@ -25,6 +25,8 @@ namespace AppEcommerce.Data
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Imagem> Imagem { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -66,6 +68,12 @@ namespace AppEcommerce.Data
             {
                 entity.ToTable(name: "RoleClaims");
             });
+            modelBuilder.Entity<Produto>()
+                .OwnsMany(c => c.Imagem, e => 
+                {
+                    e.WithOwner().HasForeignKey("Id");
+                    e.HasKey("Id", "IdImagem");
+                });
             #endregion
 
             #region ItemPedidos Concat Primary Key and Relationship Many to Many
@@ -132,161 +140,156 @@ namespace AppEcommerce.Data
             #endregion
 
             #region Populate Categoria
-            Guid[] guid = new Guid[6];
-            for (int i = 0; i < 6; i++) guid[i] = Guid.NewGuid();
-            modelBuilder.Entity<Categoria>().HasData(
-                new Categoria()
-                {
-                    Id = guid[0],
+            var categoria = new List<Categoria>(){
+                new Categoria(){
+                    Id = 1,
                     Nome = "Hardware",
-                    Imagem = "~/img/Produtos/001.png"
+                    Imagem = "001.png"
                 },
-                new Categoria()
-                {
-                    Id = guid[1],
+                new Categoria(){
+                    Id = 2,
                     Nome = "Celulares",
-                    Imagem = "~/img/Produtos/002.png"
+                    Imagem = "002.png"
                 },
                 new Categoria()
                 {
-                    Id = guid[2],
+                    Id = 3,
                     Nome = "Periféricos",
-                    Imagem = "~/img/Produtos/003.png"
+                    Imagem = "003.png"
                 },
                 new Categoria()
                 {
-                    Id = guid[3],
+                    Id = 4,
                     Nome = "Games",
-                    Imagem = "~/img/Produtos/004.png"
+                    Imagem = "004.png"
                 },
                 new Categoria()
                 {
-                    Id = guid[4],
+                    Id = 5,
                     Nome = "Cadeiras",
-                    Imagem = "~/img/Produtos/005.png"
+                    Imagem = "005.png"
                 },
                 new Categoria()
                 {
-                    Id = guid[5],
+                    Id = 6,
                     Nome = "Conectividade",
-                    Imagem = "~/img/Produtos/006.png"
+                    Imagem = "006.png"
                 }
-
-            );
+            };
+            modelBuilder.Entity<Categoria>().HasData(categoria);
             #endregion
 
             #region Populate Marca
-            Guid[] gui = new Guid[4];
-            for (int i = 0; i < 4; i++) gui[i] = Guid.NewGuid();
-            modelBuilder.Entity<Marca>().HasData(
-                new Marca()
+            var marca = new List<Marca>(){
+               new Marca()
                 {
-                    Id = gui[0],
+                    Id = 1,
                     Nome = "Nvidia"
                 },
                  new Marca()
                  {
-                     Id = gui[1],
-                     Nome = "Logitech"
+                    Id = 2,
+                    Nome = "Logitech"
                  },
                  new Marca()
                  {
-                     Id = gui[2],
-                     Nome = "Motorola"
+                    Id = 3,
+                    Nome = "Motorola"
                  },
                  new Marca()
                  {
-                     Id = gui[3],
-                     Nome = "D-Link"
+                    Id = 4,
+                    Nome = "D-Link"
                  }
-            );
+            };
+            modelBuilder.Entity<Marca>().HasData(marca);
             #endregion
 
-            #region Populate Produtos
-            var produtos = new List<Produto>(){
-                new Produto(){
-                    Id = 1,
-                    Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
-                    Valor = 1223,
-                    Estoque = 8,
-                    IdMarca = gui[0],
-                    Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
-                    Imagem = "~/img/Produtos/1.jpg",
-                    IdCategoria = guid[0]
-                },
-                new Produto(){
-                    Id = 2,
-                    Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
-                    Valor = 7936,
-                    Estoque = 10,
-                    IdMarca = gui[0],
-                    Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
-                    Imagem = "~/img/Produtos/2.jpg",
-                    IdCategoria = guid[0]
-                },
-                new Produto(){
-                    Id = 3,
-                    Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
-                    Valor = 209,
-                    Estoque = 16,
-                    IdMarca = gui[1],
-                    Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
-                    Imagem = "~/img/Produtos/3.jpg",
-                    IdCategoria = guid[2]
-                },
-                new Produto(){
-                    Id = 4,
-                    Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
-                    Valor = 179,
-                    Estoque = 20,
-                    IdMarca = gui[1],
-                    Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
-                    Imagem = "~/img/Produtos/4.jpg",
-                    IdCategoria = guid[2]
-                },
-                new Produto(){
-                    Id = 5,
-                    Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
-                    Valor = 349,
-                    Estoque = 1,
-                    IdMarca = gui[1],
-                    Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
-                    Imagem = "~/img/Produtos/5.jpg",
-                    IdCategoria = guid[2]
-                },
-                new Produto(){
-                    Id = 6,
-                    Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
-                    Valor = 2743,
-                    Estoque = 0,
-                    IdMarca = gui[0],
-                    Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
-                    Imagem = "~/img/Produtos/6.jpg",
-                    IdCategoria = guid[0]
-                },
-                new Produto(){
-                    Id = 7,
-                    Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
-                    Valor = 892,
-                    Estoque = 20,
-                    IdMarca = gui[2],
-                    Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
-                    Imagem = "~/img/Produtos/7.jpg",
-                    IdCategoria = guid[1]
-                },
-                new Produto(){
-                    Id = 8,
-                    Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
-                    Valor = 164,
-                    Estoque = 10,
-                    IdMarca = gui[3],
-                    Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
-                    Imagem = "~/img/Produtos/8.jpg",
-                    IdCategoria = guid[5]
-                },
-            };
-            modelBuilder.Entity<Produto>().HasData(produtos);
-            #endregion
+            // #region Populate Produtos
+            // var produtos = new List<Produto>(){
+            //     new Produto(){
+            //         Id = 1,
+            //         Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
+            //         Valor = 1223,
+            //         Estoque = 8,
+            //         IdMarca = 1,
+            //         Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
+            //         Imagem = "1.jpg",
+            //         IdCategoria = 1
+            //     },
+            //     new Produto(){
+            //         Id = 2,
+            //         Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
+            //         Valor = 7936,
+            //         Estoque = 10,
+            //         IdMarca = 1,
+            //         Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
+            //         Imagem = "2.jpg",
+            //         IdCategoria = 1
+            //     },
+            //     new Produto(){
+            //         Id = 3,
+            //         Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
+            //         Valor = 209,
+            //         Estoque = 16,
+            //         IdMarca = 2,
+            //         Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
+            //         Imagem = "3.jpg",
+            //         IdCategoria = 3
+            //     },
+            //     new Produto(){
+            //         Id = 4,
+            //         Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
+            //         Valor = 179,
+            //         Estoque = 20,
+            //         IdMarca = 2,
+            //         Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
+            //         Imagem = "4.jpg",
+            //         IdCategoria = 3
+            //     },
+            //     new Produto(){
+            //         Id = 5,
+            //         Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
+            //         Valor = 349,
+            //         Estoque = 1,
+            //         IdMarca = 2,
+            //         Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
+            //         Imagem = "5.jpg",
+            //         IdCategoria = 3
+            //     },
+            //     new Produto(){
+            //         Id = 6,
+            //         Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
+            //         Valor = 2743,
+            //         Estoque = 0,
+            //         IdMarca = 1,
+            //         Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
+            //         Imagem = "6.jpg",
+            //         IdCategoria = 1
+            //     },
+            //     new Produto(){
+            //         Id = 7,
+            //         Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
+            //         Valor = 892,
+            //         Estoque = 20,
+            //         IdMarca = 3,
+            //         Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
+            //         Imagem = "7.jpg",
+            //         IdCategoria = 2
+            //     },
+            //     new Produto(){
+            //         Id = 8,
+            //         Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
+            //         Valor = 164,
+            //         Estoque = 10,
+            //         IdMarca = 4,
+            //         Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
+            //         Imagem = "8.jpg",
+            //         IdCategoria = 6
+            //     },
+            // };
+            // modelBuilder.Entity<Produto>().HasData(produtos);
+            // #endregion
 
         }
 

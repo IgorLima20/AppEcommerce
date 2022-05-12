@@ -11,7 +11,7 @@ namespace AppEcommerce.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid IdEndereco { get; set; }
+        public int IdEndereco { get; set; }
 
         [Required]
         [StringLength(100)]
