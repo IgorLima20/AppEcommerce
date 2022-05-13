@@ -195,7 +195,7 @@
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
                         <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                        <img class="img-fluid w-100" src="@("~/img/"+produtos.Imagem)" asp-append-version="true">
+                        <img class="img-fluid w-100" src="@("~/img/"+produtos.ImagemPrincipal)" asp-append-version="true">
                         <div class="product-action">
                             @if (@produtos.Estoque >= 1)
                             {

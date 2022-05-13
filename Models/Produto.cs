@@ -25,16 +25,10 @@ namespace AppEcommerce.Models
         [Required]
         public uint Estoque { get; set; }
        
-        [Required]
-        public int IdMarca { get; set; }
-
-        [ForeignKey("IdMarca")]
-        public Marca Marca { get; set; }
 
         [StringLength(800)]
         public string Descricao { get; set; }
         
-        public ICollection<Imagem> Imagem { get; set; } 
 
         [Required]
         public int IdCategoria { get; set; }
@@ -42,6 +36,18 @@ namespace AppEcommerce.Models
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }
 
-        // public  ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
+        [Required]
+        public int IdMarca { get; set; }
+
+        [ForeignKey("IdMarca")]
+        public Marca Marca { get; set; }
+
+        public string ImagemPrincipal { get; set; }
+
+        [NotMapped]
+        public IFormFile ImagemFile { get; set; }
+
+        public ICollection<Imagem> Imagem { get; set; } 
+
     }
 }

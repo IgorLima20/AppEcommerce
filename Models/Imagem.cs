@@ -18,5 +18,12 @@ namespace AppEcommerce.Models
 
         [NotMapped]
         public IFormFile ImagemFile { get; set; }
+
+        [Required]
+        public int IdProduto { get; set; }
+
+        [ForeignKey("IdProduto")]
+        public Produto Produto { get; set; }  
+
     }
 }

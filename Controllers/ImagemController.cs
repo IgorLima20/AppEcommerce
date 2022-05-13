@@ -48,8 +48,9 @@ namespace AppEcommerce.Controllers
                 return NotFound();
             }
 
-            var imagem = await _context.Imagem
+                var imagem = await _context.Imagens.Where(p => p.IdProduto == cid)
                 .FirstOrDefaultAsync(m => m.IdImagem == id);
+                // .FirstOrDefaultAsync(m => m.IdImagem == id);
             if (imagem == null)
             {
                 return NotFound();
@@ -71,7 +72,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ImagemFile")] Imagem imagem, [FromForm] int? idProduto)
+        public async Task<IActionResult> Create([Bind("Id,ImagemFile,IdProduto")] Imagem imagem, [FromForm] int? idProduto)
         {
             if (idProduto.HasValue)
             {
@@ -88,9 +89,9 @@ namespace AppEcommerce.Controllers
                 {
                     await imagem.ImagemFile.CopyToAsync(fileStream);
                 }
-                var idImagem = produto.Imagem.Count() > 0 ? produto.Imagem.Max(e => e.IdImagem) + 1 : 1;
-                imagem.IdImagem = idImagem;
-                _context.Produtos.FirstOrDefault(c => c.Id == idProduto).Imagem.Add(imagem);
+                // var idImagem = produto.Imagem.Count() > 0 ? imagem.IdProduto.Where(e => e.IdImagem) + 1 : 1;
+                // imagem.IdImagem = idImagem;
+                _context.Imagens.Add(imagem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Imagem");
 
@@ -132,7 +133,7 @@ namespace AppEcommerce.Controllers
                 return NotFound();
             }
 
-            var imagem = await _context.Imagem.FindAsync(id);
+            var imagem = await _context.Imagens.FindAsync(id);
             if (imagem == null)
             {
                 return NotFound();
@@ -183,7 +184,7 @@ namespace AppEcommerce.Controllers
                 return NotFound();
             }
 
-            var imagem = await _context.Imagem
+            var imagem = await _context.Imagens
                 .FirstOrDefaultAsync(m => m.IdImagem == id);
             if (imagem == null)
             {
@@ -198,15 +199,15 @@ namespace AppEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var imagem = await _context.Imagem.FindAsync(id);
-            _context.Imagem.Remove(imagem);
+            var imagem = await _context.Imagens.FindAsync(id);
+            _context.Imagens.Remove(imagem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ImagemExists(int id)
         {
-            return _context.Imagem.Any(e => e.IdImagem == id);
+            return _context.Imagens.Any(e => e.IdImagem == id);
         }
     }
 }

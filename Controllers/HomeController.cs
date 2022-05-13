@@ -40,7 +40,7 @@ namespace AppEcommerce.Controllers
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             ViewData["Marca"] = _contexto.Marcas.ToList();
             ViewData["Produtos"] = _contexto.Produtos.Where(c => c.IdCategoria == IdCategoria).Where(s => s.Id != Id).Include(i => i.Categoria).Take(4).ToList();
-            var produto = _contexto.Produtos.Where(v => v.Id == Id).Include(m => m.Categoria).SingleOrDefault();
+            var produto = _contexto.Produtos.Where(v => v.Id == Id).Include(m => m.Categoria).Include(i => i.Imagem).SingleOrDefault();
             return View(produto);
         }
 

@@ -15,9 +15,11 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Img)
+                Caminho
             </th>
-            <th></th>
+            <th>
+                Imagem
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +27,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                <img src="@("~/img/"+item.Img)" asp-append-version="true">
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdImagem" asp-route-cid="@produto.Id">Edit</a> |

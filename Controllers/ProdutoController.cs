@@ -66,10 +66,19 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPatch = _hostEnvironment.WebRootPath;
+                string filename = Path.GetFileNameWithoutExtension(produto.ImagemFile.FileName);
+                string extension = Path.GetExtension(produto.ImagemFile.FileName);
+                produto.ImagemPrincipal = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPatch + "/img/", filename);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await produto.ImagemFile.CopyToAsync(fileStream);
+                }
 
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
@@ -80,22 +89,22 @@ namespace AppEcommerce.Controllers
             return View(produto);
         }
 
-        public async Task<IActionResult> Upload(IFormFile file)
-        {
-            var fileDic = "Files";
-            string filePath = Path.Combine(_hostEnvironment.WebRootPath, fileDic);
-            if (!Directory.Exists(filePath))
-            {
-                Directory.CreateDirectory(filePath);
-            }
-            var fileName = file.FileName;
-            filePath = Path.Combine(filePath, fileName);
-            using (FileStream fs = System.IO.File.Create(filePath))
-            {
-                file.CopyTo(fs);
-            }
-            return View();
-        }
+        // public async Task<IActionResult> Upload(IFormFile file)
+        // {
+        //     var fileDic = "Files";
+        //     string filePath = Path.Combine(_hostEnvironment.WebRootPath, fileDic);
+        //     if (!Directory.Exists(filePath))
+        //     {
+        //         Directory.CreateDirectory(filePath);
+        //     }
+        //     var fileName = file.FileName;
+        //     filePath = Path.Combine(filePath, fileName);
+        //     using (FileStream fs = System.IO.File.Create(filePath))
+        //     {
+        //         file.CopyTo(fs);
+        //     }
+        //     return View();
+        // }
 
         // GET: Produto/Edit/5
         public async Task<IActionResult> Edit(int? id)
