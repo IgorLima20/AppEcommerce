@@ -73,19 +73,7 @@ namespace AppEcommerce
             services.AddRazorPages().AddRazorRuntimeCompilation().AddCookieTempDataProvider(options =>
             {
                 options.Cookie.IsEssential = true;
-            }); ;
-
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-                options.LoginPath = "/Login";
-                options.AccessDeniedPath = "/Login";
-                options.SlidingExpiration = true;
-            });
-
-
+            }); 
             services.AddTransient<IEmailSender, EmailSender>();
         }
 

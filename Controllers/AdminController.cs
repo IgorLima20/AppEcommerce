@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AppEcommerce.Controllers
 {
-    // [Authorize(Roles = "Administrador, Moderador")]
+    [Authorize(Roles = "Administrador, Moderador")]
     public class AdminController : Controller
     {
         private readonly ILogger<AdminController> _logger;
