@@ -2001,7 +2001,7 @@ legend {
 progress {
   vertical-align: baseline; }
 
-[type="number"]::-webkit-inner-spin-button,
+/* [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
@@ -2014,7 +2014,7 @@ progress {
 
 ::-webkit-file-upload-button {
   font: inherit;
-  -webkit-appearance: button; }
+  -webkit-appearance: button; } */
 
 output {
   display: inline-block; }
@@ -14288,4 +14288,40 @@ dl {
     margin: auto 0;
     color: #b1b1b1; }
 
+
+  /* .upload-box {
+    font-size: 16px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px black;
+    width: 350px;
+    outline: none;
+
+  }
+
+  @media(max-width:1200px){
+    .upload-box {
+      font-size: 16px;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 5px 5px 10px black;
+      width: 350px;
+      outline: none;
+  
+    }
+  }
+
+  ::-webkit-file-upload-button {
+    color: white;
+    background:#206a5d;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px 1px #6b4559;
+    outline: none;
+  }
+
+  ::-webkit-file-upload-button:hover {
+    background: #438a5e;
+  } */
 /*# sourceMappingURL=style.css.map */
