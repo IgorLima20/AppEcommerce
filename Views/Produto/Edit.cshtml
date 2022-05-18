@@ -5,57 +5,73 @@
     Layout = "_LayoutAdmin";
 }
 
-<h1>Edit</h1>
-
-<h4>Produto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Alterar Produto</h4>
+                <p class="card-description"> Informe as alterações para edição </p>
+                <form class="forms-sample" asp-action="Edit" id="form" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label class="control-label">Nome do Produto</label>
+                        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome..." />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Preço</label>
+                        <input asp-for="Valor" type="text" class="form-control" placeholder="Preço..." />
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Estoque" class="control-label"></label>
+                        <input asp-for="Estoque" class="form-control" placeholder="Estoque..." />
+                        <span asp-validation-for="Estoque" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Marca</label>
+                        <select asp-for="IdMarca" class="form-control" asp-items="ViewBag.IdMarca"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Descrição do Produto</label>
+                        <input asp-for="Descricao" class="form-control" placeholder="Descrição..." />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Categoria</label>
+                        <select asp-for="IdCategoria" class="form-control" asp-items="ViewBag.IdCategoria"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Enviar Imagem</label>
+                        <input type="text" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <label for="arquivo" class="form-control file-upload-info text"
+                                placeholder="Upload Image"></label>
+                            <span class="input-group-append">
+                                <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
+                                    type="button">Enviar</button>
+                                <input id="arquivo" style="display:none" asp-for="ImagemFile" accept="imagem/*"
+                                    type="file" />
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" value="Create" class="btn btn-primary mr-2">Cadastrar</button>
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
-                <span asp-validation-for="Valor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estoque" class="control-label"></label>
-                <input asp-for="Estoque" class="form-control" />
-                <span asp-validation-for="Estoque" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdMarca" class="control-label"></label>
-                <select asp-for="IdMarca" class="form-control" asp-items="ViewBag.IdMarca"></select>
-                <span asp-validation-for="IdMarca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdCategoria" class="control-label"></label>
-                <select asp-for="IdCategoria" class="form-control" asp-items="ViewBag.IdCategoria"></select>
-                <span asp-validation-for="IdCategoria" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Imagem Principal</label>
-                <input asp-for="ImagemFile" accept="imagem/*" type="file"/>
-                @* <span asp-validation-for="Imagem" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script type="text/javascript">
+    function escolherArquivo() {
+        // vamos obter uma referência ao elemento file
+        var arquivo = document.getElementById("arquivo");
+        // vamos disparar seu evento onclick()
+        arquivo.click();
+    }
+
+    document.querySelector('#arquivo').addEventListener('change', function () {
+        document.querySelector('.text').textContent = this.files[0].name;
+    })
+</script>

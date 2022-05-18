@@ -48,9 +48,9 @@ namespace AppEcommerce.Controllers
                 return NotFound();
             }
 
-                var imagem = await _context.Imagens.Where(p => p.IdProduto == cid)
-                .FirstOrDefaultAsync(m => m.IdImagem == id);
-                // .FirstOrDefaultAsync(m => m.IdImagem == id);
+            var imagem = await _context.Imagens.Where(p => p.IdProduto == cid)
+            .FirstOrDefaultAsync(m => m.IdImagem == id);
+            // .FirstOrDefaultAsync(m => m.IdImagem == id);
             if (imagem == null)
             {
                 return NotFound();
@@ -126,13 +126,14 @@ namespace AppEcommerce.Controllers
         // }
 
         // GET: Imagem/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? cid)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
+            var produto = await _context.Produtos.FindAsync(cid);
+            ViewBag.Produto = produto;
             var imagem = await _context.Imagens.FindAsync(id);
             if (imagem == null)
             {
@@ -146,19 +147,35 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Img")] Imagem imagem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ImagemFile,IdProduto")] Imagem imagem, [FromForm] int? idProduto)
         {
-            if (id != imagem.IdImagem)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
+
                 try
                 {
-                    _context.Update(imagem);
+                    var produto = await _context.Produtos.FindAsync(idProduto);
+                    ViewBag.Produto = produto;
+
+                    var imgP = await _context.Imagens.FindAsync(id);
+
+
+                    string wwwRootPatch = _hostEnvironment.WebRootPath;
+                    string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
+                    string extension = Path.GetExtension(imagem.ImagemFile.FileName);
+                    imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPatch + "/img/", filename);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await imagem.ImagemFile.CopyToAsync(fileStream);
+                    }
+                    // var idImagem = produto.Imagem.Count() > 0 ? imagem.IdProduto.Where(e => e.IdImagem) + 1 : 1;
+                    // imagem.IdImagem = idImagem;
+
+                    imgP = imagem;
+                    _context.Update(imgP);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Imagem");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -200,7 +217,7 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var imagem = await _context.Imagens.FindAsync(id);
-            _context.Imagens.Remove(imagem);
+            _context.Remove(imagem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

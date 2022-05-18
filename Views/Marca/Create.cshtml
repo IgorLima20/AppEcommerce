@@ -5,31 +5,50 @@
     Layout = "_LayoutAdmin";
 }
 
-<h1>Create</h1>
-
-<h4>Marca</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Alterar Marca</h4>
+                <p class="card-description"> Informe as alterações para cadastro </p>
+                <form class="forms-sample" asp-action="Create" id="form" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label class="control-label">Marca</label>
+                        <input asp-for="Nome" class="form-control" placeholder="Marca..."  />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="text" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <label for="arquivo" class="form-control file-upload-info text"
+                                placeholder="Upload Image"></label>
+                            <span class="input-group-append">
+                                <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
+                                    type="button">Upload</button>
+                                <input id="arquivo" style="display:none" asp-for="ImagemFile" accept="imagem/*"
+                                    type="file" />
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" value="Create" class="btn btn-primary mr-2">Cadastrar</button>
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Imagem" class="control-label"></label>
-                <input asp-for="ImagemFile" accept="imagem/*" type="file"/>
-                @* <span asp-validation-for="Imagem" class="text-danger"></span> *@
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script type="text/javascript">
+    function escolherArquivo() {
+        // vamos obter uma referência ao elemento file
+        var arquivo = document.getElementById("arquivo");
+        // vamos disparar seu evento onclick()
+        arquivo.click();
+    }
+
+    document.querySelector('#arquivo').addEventListener('change', function () {
+        document.querySelector('.text').textContent = this.files[0].name;
+    })
+</script>

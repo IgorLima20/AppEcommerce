@@ -47,9 +47,18 @@
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Imagem" class="control-label"></label>
-                        <input asp-for="ImagemFile" accept="imagem/*" type="file" />
-                        @* <span asp-validation-for="Imagem" class="text-danger"></span> *@
+                        <label>File upload</label>
+                        <input type="text" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <label for="arquivo" class="form-control file-upload-info text"
+                                placeholder="Upload Image"></label>
+                            <span class="input-group-append">
+                                <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
+                                    type="button">Upload</button>
+                                <input id="arquivo" style="display:none" asp-for="ImagemFile" accept="imagem/*"
+                                    type="file" />
+                            </span>
+                        </div>
                     </div>
                     <button type="submit" value="Create" class="btn btn-primary mr-2">Cadastrar</button>
                     <a asp-action="Index" class="btn btn-light">Cancelar</a>
@@ -58,3 +67,17 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    function escolherArquivo() {
+        // vamos obter uma referência ao elemento file
+        var arquivo = document.getElementById("arquivo");
+        // vamos disparar seu evento onclick()
+        arquivo.click();
+    }
+
+    document.querySelector('#arquivo').addEventListener('change', function () {
+        document.querySelector('.text').textContent = this.files[0].name;
+    })
+</script>

@@ -129,7 +129,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,Imagem,IdCategoria")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto)
         {
             if (id != produto.Id)
             {
@@ -140,6 +140,15 @@ namespace AppEcommerce.Controllers
             {
                 try
                 {
+                    string wwwRootPatch = _hostEnvironment.WebRootPath;
+                    string filename = Path.GetFileNameWithoutExtension(produto.ImagemFile.FileName);
+                    string extension = Path.GetExtension(produto.ImagemFile.FileName);
+                    produto.ImagemPrincipal = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPatch + "/img/", filename);
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await produto.ImagemFile.CopyToAsync(fileStream);
+                    }
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
                 }
