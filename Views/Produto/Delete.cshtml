@@ -5,7 +5,7 @@
     Layout = "_LayoutAdmin";
 }
 
-<h1>Delete</h1>
+@* <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -61,4 +61,21 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
+</div> *@
+
+<div class="row justify-content-center">
+    <div class="card text-center">
+        <div class="card-header">
+            Excluir
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Deseja Realmente Excluir esse Produto ?</h5>
+            <p class="card-text">Confirme a Exclusão desse Produto!!</p>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Excluir" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-light">Cancelar</a>
+            </form>
+        </div>
+    </div>
 </div>

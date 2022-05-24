@@ -51,24 +51,25 @@
                 </div>
             </div>
             </p>
-            <table class="table table-striped">
+            <table class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th> Caminho </th>
                         <th> Imagem </th>
+                        <th> Ações </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="py-1">
+                            <td class="py-1" style="width:60%">
                                 @Html.DisplayFor(modelItem => item.Img)
                             </td>
-                            <td>
+                            <td style="width:20%">
                                 <img src="@("~/img/"+item.Img)" asp-append-version="true">
                             </td>
-                            <td>
+                            <td style="width:20%">
                                 <a asp-action="Edit" asp-route-id="@item.IdImagem" asp-route-cid="@produto.Id" class="btn btn-sm btn-primary">
                                     <i class="mdi mdi-pencil" style="font-size: 14px;"></i>
                                 </a>

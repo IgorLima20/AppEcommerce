@@ -5,7 +5,7 @@
     Layout = "_LayoutAdmin";
 }
 
-<h1>Detalhes</h1>
+@* <h1>Detalhes</h1>
 
 <div>
     <h4>Categoria</h4>
@@ -31,4 +31,26 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div> *@
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detalhes</h4>
+                <p class="card-description"> Detalhes sobre a Categoria </p>
+                <form class="forms-sample" asp-action="Create" id="form" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <label> Descrição da Categoria</label>
+                        <input type="text" asp-for="Nome" class="form-control" placeholder="Categoria..." readonly>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Editar</a>
+                    <a asp-action="Index" class="btn btn-light">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

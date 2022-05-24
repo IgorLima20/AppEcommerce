@@ -26,9 +26,9 @@
                     @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
                     {
                         <tr item-id="@item.Produto.Id">
-                            @* <td class="align-middle"><img src="@Url.Content(@item.Produto.Imagem)" alt=""
+                            <td class="align-middle"><img src="@("~/img/"+item.Produto.ImagemPrincipal)" asp-append-version="true" alt=""
                                 style="width: 50px;"> Product Name
-                            </td> *@
+                            </td>
                             <td class="align-middle">@item.Produto.Valor.ToString("C")</td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;" name="@item.Produto.Id">
@@ -39,15 +39,16 @@
                                         </a>
                                     </div>
                                     <input class="form-control form-control-sm bg-secondary border-0 text-center"
-                                    type="number" step="1" max="@item.Produto.Estoque" min="1" value="@item.Amount" name="@item.Produto.Id" disabled>
+                                    type="number" step="1" max="@item.Produto.Estoque" min="1" value="@item.Amount"
+                                    name="@item.Produto.Id" disabled>
                                     <div class="input-group-btn">
                                         @* <button class="btn btn-sm btn-primary btn-plus" onclick="clickIncremento(this)">
                                             <i class="fa fa-plus"></i>
-                                        </button> *@
+                                            </button> *@
                                         <a class="btn btn-sm btn-primary btn-plus" asp-action="AddToShoppingCart"
-                                            asp-controller="ShoppingCart" asp-route-Id="@item.Produto.Id">
+                                        asp-controller="ShoppingCart" asp-route-Id="@item.Produto.Id">
                                             <i class="fa fa-plus"></i>
-                                            </a>
+                                        </a>
                                     </div>
                                 </div>
                             </td>
@@ -101,10 +102,10 @@
 
 
 @* @section Scripts
-{
+    {
     <script src="~/js/carrinho.js">
     </script>
-} *@
+    } *@
 
 
 
