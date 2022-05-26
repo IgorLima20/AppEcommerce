@@ -13,7 +13,7 @@
                 <p class="card-description"> Escolha o arquivo da imagem para cadastro </p>
                 <form class="forms-sample" asp-action="Edit" enctype="multipart/form-data" method="post">
                     <input type="hidden" value="@produto.Id" name="IdProduto" id="IdProduto">
-                    <input type="hidden" asp-for="IdImagem" />
+                    <input asp-for="IdImagem" hidden> 
                     <div class="form-group">
                         <label>File upload</label>
                         <input type="text" name="img[]" class="file-upload-default">
@@ -23,8 +23,9 @@
                             <span class="input-group-append">
                                 <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
                                     type="button">Upload</button>
-                                <input id="arquivo" style="display:none" asp-for="ImagemFile" accept="imagem/*"
-                                    type="file" />
+                                <input id="arquivo" style="display:none" asp-for="Img" accept="imagem/*"
+                                    type="file" name="file" />
+                                <input asp-for="Img" hidden> 
                             </span>
                         </div>
                     </div>

@@ -66,20 +66,22 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria")] Produto produto, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPatch = _hostEnvironment.WebRootPath;
-                string filename = Path.GetFileNameWithoutExtension(produto.ImagemFile.FileName);
-                string extension = Path.GetExtension(produto.ImagemFile.FileName);
-                produto.ImagemPrincipal = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
                 {
-                    await produto.ImagemFile.CopyToAsync(fileStream);
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"img\produtos");
+                    var extension = Path.GetExtension(file.FileName);
+                    using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    produto.ImagemPrincipal = @"\img\produtos\" + fileName + extension;
                 }
-
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -129,7 +131,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemFile,IdCategoria")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria")] Produto produto, IFormFile file)
         {
             if (id != produto.Id)
             {
@@ -140,14 +142,27 @@ namespace AppEcommerce.Controllers
             {
                 try
                 {
-                    string wwwRootPatch = _hostEnvironment.WebRootPath;
-                    string filename = Path.GetFileNameWithoutExtension(produto.ImagemFile.FileName);
-                    string extension = Path.GetExtension(produto.ImagemFile.FileName);
-                    produto.ImagemPrincipal = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    String wwwRootPath = _hostEnvironment.WebRootPath;
+                    if (file != null)
                     {
-                        await produto.ImagemFile.CopyToAsync(fileStream);
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(wwwRootPath, @"img\produtos");
+                        var extension = Path.GetExtension(file.FileName);
+                        
+                        if (produto.ImagemPrincipal != null)
+                        {
+                            var oldImage = Path.Combine(wwwRootPath, produto.ImagemPrincipal.TrimStart('\\'));
+                            if (System.IO.File.Exists(oldImage))
+                            {
+                                System.IO.File.Delete(oldImage);
+                            }
+                        }
+                        
+                        using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                        }
+                        produto.ImagemPrincipal = @"\img\produtos\" + fileName + extension;
                     }
                     _context.Update(produto);
                     await _context.SaveChangesAsync();

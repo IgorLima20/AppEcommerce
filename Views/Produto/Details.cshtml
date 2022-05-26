@@ -72,34 +72,34 @@
                 <form class="forms-sample" asp-action="Create" id="form" enctype="multipart/form-data" method="post">
                     <div class="form-group">
                         <label class="control-label">Nome do Produto</label>
-                        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome..." readonly/>
+                        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome..." disabled/>
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Preço</label>
-                        <input asp-for="Valor" type="text" class="form-control" placeholder="Preço..." readonly/>
+                        <input asp-for="Valor" type="text" class="form-control" placeholder="Preço..." disabled/>
                         <span asp-validation-for="Valor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Estoque" class="control-label"></label>
-                        <input asp-for="Estoque" class="form-control" placeholder="Estoque..." readonly/>
+                        <input asp-for="Estoque" class="form-control" placeholder="Estoque..." disabled/>
                         <span asp-validation-for="Estoque" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Marca</label>
-                        <select asp-for="IdMarca" class="form-control" asp-items="ViewBag.IdMarca" disabled></select>
+                        <input asp-for="Marca.Nome" class="form-control" disabled>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Descrição do Produto</label>
-                        <input asp-for="Descricao" class="form-control" placeholder="Descrição..." readonly/>
+                        <input asp-for="Descricao" class="form-control" placeholder="Descrição..." disabled/>
                         <span asp-validation-for="Descricao" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Categoria</label>
-                        <select asp-for="IdCategoria" class="form-control" asp-items="ViewBag.IdCategoria" disabled></select>
+                        <input asp-for="Categoria.Nome" class="form-control" disabled>
                     </div>
                     <div class="form-group">
-
+                        <img src="@Model.ImagemPrincipal" asp-append-version="true" width="350px" height="350">
                     </div>
                     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Editar</a>
                     <a asp-action="Index" class="btn btn-light">Voltar</a>

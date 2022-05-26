@@ -67,7 +67,7 @@
                                 @Html.DisplayFor(modelItem => item.Img)
                             </td>
                             <td style="width:20%">
-                                <img src="@("~/img/"+item.Img)" asp-append-version="true">
+                                <img src="@item.Img" asp-append-version="true">
                             </td>
                             <td style="width:20%">
                                 <a asp-action="Edit" asp-route-id="@item.IdImagem" asp-route-cid="@produto.Id" class="btn btn-sm btn-primary">

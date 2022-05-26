@@ -9,6 +9,7 @@ using AppEcommerce.Data;
 using AppEcommerce.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Controllers
 {
@@ -72,23 +73,35 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ImagemFile,IdProduto")] Imagem imagem, [FromForm] int? idProduto)
+        public async Task<IActionResult> Create([Bind("Id,Img,IdProduto")] Imagem imagem, int? idProduto, IFormFile file)
         {
             if (idProduto.HasValue)
             {
                 var produto = await _context.Produtos.FindAsync(idProduto);
                 ViewBag.Produto = produto;
 
-
-                string wwwRootPatch = _hostEnvironment.WebRootPath;
-                string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
-                string extension = Path.GetExtension(imagem.ImagemFile.FileName);
-                imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
                 {
-                    await imagem.ImagemFile.CopyToAsync(fileStream);
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"img\produtos");
+                    var extension = Path.GetExtension(file.FileName);
+                    using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    imagem.Img = @"\img\produtos\" + fileName + extension;
                 }
+
+                // string wwwRootPatch = _hostEnvironment.WebRootPath;
+                // string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
+                // string extension = Path.GetExtension(imagem.ImagemFile.FileName);
+                // imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff");
+                // string path = Path.Combine(wwwRootPatch + "/img/", filename);
+                // using (var fileStream = new FileStream(path, FileMode.Create))
+                // {
+                //     await imagem.ImagemFile.CopyToAsync(fileStream);
+                // }
                 // var idImagem = produto.Imagem.Count() > 0 ? imagem.IdProduto.Where(e => e.IdImagem) + 1 : 1;
                 // imagem.IdImagem = idImagem;
                 _context.Imagens.Add(imagem);
@@ -134,6 +147,7 @@ namespace AppEcommerce.Controllers
             }
             var produto = await _context.Produtos.FindAsync(cid);
             ViewBag.Produto = produto;
+
             var imagem = await _context.Imagens.FindAsync(id);
             if (imagem == null)
             {
@@ -147,35 +161,66 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ImagemFile,IdProduto")] Imagem imagem, [FromForm] int? idProduto)
+        public async Task<IActionResult> Edit(int id, [Bind("IdImagem,Img,IdProduto")] Imagem imagem,  IFormFile file, int? idProduto)
         {
+            if (id != imagem.IdImagem)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
 
                 try
-                {
-                    var produto = await _context.Produtos.FindAsync(idProduto);
-                    ViewBag.Produto = produto;
-
-                    var imgP = await _context.Imagens.FindAsync(id);
-
-
-                    string wwwRootPatch = _hostEnvironment.WebRootPath;
-                    string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
-                    string extension = Path.GetExtension(imagem.ImagemFile.FileName);
-                    imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                {   
+                    String wwwRootPath = _hostEnvironment.WebRootPath;
+                    if (file != null)
                     {
-                        await imagem.ImagemFile.CopyToAsync(fileStream);
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(wwwRootPath, @"img\produtos");
+                        var extension = Path.GetExtension(file.FileName);
+                        
+                        if (imagem.Img != null)
+                        {
+                            var oldImage = Path.Combine(wwwRootPath, imagem.Img.TrimStart('\\'));
+                            if (System.IO.File.Exists(oldImage))
+                            {
+                                System.IO.File.Delete(oldImage);
+                            }
+                        }
+                        
+                        using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                        }
+                        imagem.Img = @"\img\produtos\" + fileName + extension;
                     }
+                    _context.Update(imagem);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Imagem");
+
+                    // var produto = await _context.Produtos.FindAsync(idProduto);
+                    // ViewBag.Produto = produto;
+
+                    // var imgP = await _context.Imagens.FindAsync(id);
+
+
+                    // string wwwRootPatch = _hostEnvironment.WebRootPath;
+                    // string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
+                    // string extension = Path.GetExtension(imagem.ImagemFile.FileName);
+                    // imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    // string path = Path.Combine(wwwRootPatch + "/img/", filename);
+                    // using (var fileStream = new FileStream(path, FileMode.Create))
+                    // {
+                    //     await imagem.ImagemFile.CopyToAsync(fileStream);
+                    // }
                     // var idImagem = produto.Imagem.Count() > 0 ? imagem.IdProduto.Where(e => e.IdImagem) + 1 : 1;
                     // imagem.IdImagem = idImagem;
 
-                    imgP = imagem;
-                    _context.Update(imgP);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Imagem");
+                    // imgP = imagem;
+                    // _context.Update(imgP);
+                    // await _context.SaveChangesAsync();
+                   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -217,6 +262,16 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var imagem = await _context.Imagens.FindAsync(id);
+            String wwwRootPath = _hostEnvironment.WebRootPath;
+
+            if (imagem.Img != null)
+            {
+                var oldImage = Path.Combine(wwwRootPath, imagem.Img.TrimStart('\\'));
+                if (System.IO.File.Exists(oldImage))
+                {
+                    System.IO.File.Delete(oldImage);
+                }
+            }
             _context.Remove(imagem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
