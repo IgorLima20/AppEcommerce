@@ -149,7 +149,7 @@
                     @* <p class="text-right">@categoria.Id.Count() Produtos</p> *@
                     <a asp-action="Filtro" asp-route-id="@categoria.Id"
                     class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="@("~/img/"+categoria.Imagem)" asp-append-version="true">
+                        <img class="img-fluid" src="@categoria.Imagem" asp-append-version="true">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">@categoria.Nome</h5>
                 </div>
@@ -195,7 +195,7 @@
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
                         <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                        <img class="img-fluid w-100" src="@("~/img/"+produtos.ImagemPrincipal)" asp-append-version="true">
+                        <img class="img-fluid w-100" src="@produtos.ImagemPrincipal" asp-append-version="true">
                         <div class="product-action">
                             @if (@produtos.Estoque >= 1)
                             {

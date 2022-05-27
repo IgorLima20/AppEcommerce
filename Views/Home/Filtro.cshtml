@@ -61,7 +61,7 @@
                     @foreach (var marca in ViewBag.Marcas)
                     {
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="submit" class="custom-control-input" id="color-1">
+                            <input type="checkbox" class="custom-control-input" id="color-1">
                             <label class="custom-control-label" for="color-1">@marca.Nome</label>
                         </div>
                     }
@@ -185,7 +185,7 @@
                     <div class="card-group col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="@("~/img/"+produto.ImagemPrincipal)" asp-append-version="true"
+                                <img class="img-fluid w-100" src="@produto.ImagemPrincipal" asp-append-version="true"
                                 alt="">
                                 <div class="product-action">
                                     @if (@produto.Estoque >= 1)

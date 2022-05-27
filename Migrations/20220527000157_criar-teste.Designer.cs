@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220513045137_criar-banco")]
-    partial class criarbanco
+    [Migration("20220527000157_criar-teste")]
+    partial class criarteste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,37 +42,37 @@ namespace AppEcommerce.Migrations
                         new
                         {
                             Id = 1,
-                            Imagem = "001.png",
+                            Imagem = "\\img\\categorias\\001.png",
                             Nome = "Hardware"
                         },
                         new
                         {
                             Id = 2,
-                            Imagem = "002.png",
+                            Imagem = "\\img\\categorias\\002.png",
                             Nome = "Celulares"
                         },
                         new
                         {
                             Id = 3,
-                            Imagem = "003.png",
+                            Imagem = "\\img\\categorias\\003.png",
                             Nome = "Periféricos"
                         },
                         new
                         {
                             Id = 4,
-                            Imagem = "004.png",
+                            Imagem = "\\img\\categorias\\004.png",
                             Nome = "Games"
                         },
                         new
                         {
                             Id = 5,
-                            Imagem = "005.png",
+                            Imagem = "\\img\\categorias\\005.png",
                             Nome = "Cadeiras"
                         },
                         new
                         {
                             Id = 6,
-                            Imagem = "006.png",
+                            Imagem = "\\img\\categorias\\006.png",
                             Nome = "Conectividade"
                         });
                 });
@@ -345,7 +345,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 8u,
                             IdCategoria = 1,
                             IdMarca = 1,
-                            ImagemPrincipal = "1.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\1.jpg",
                             Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
                             Valor = 1223m
                         },
@@ -356,7 +356,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 10u,
                             IdCategoria = 1,
                             IdMarca = 1,
-                            ImagemPrincipal = "2.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\2.jpg",
                             Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
                             Valor = 7936m
                         },
@@ -367,7 +367,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 16u,
                             IdCategoria = 3,
                             IdMarca = 2,
-                            ImagemPrincipal = "3.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\3.jpg",
                             Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
                             Valor = 209m
                         },
@@ -378,7 +378,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 20u,
                             IdCategoria = 3,
                             IdMarca = 2,
-                            ImagemPrincipal = "4.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\4.jpg",
                             Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
                             Valor = 179m
                         },
@@ -389,7 +389,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 1u,
                             IdCategoria = 3,
                             IdMarca = 2,
-                            ImagemPrincipal = "5.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\5.jpg",
                             Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
                             Valor = 349m
                         },
@@ -400,7 +400,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 0u,
                             IdCategoria = 1,
                             IdMarca = 1,
-                            ImagemPrincipal = "6.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\6.jpg",
                             Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
                             Valor = 2743m
                         },
@@ -411,7 +411,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 20u,
                             IdCategoria = 2,
                             IdMarca = 3,
-                            ImagemPrincipal = "7.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\7.jpg",
                             Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
                             Valor = 892m
                         },
@@ -422,7 +422,7 @@ namespace AppEcommerce.Migrations
                             Estoque = 10u,
                             IdCategoria = 6,
                             IdMarca = 4,
-                            ImagemPrincipal = "8.jpg",
+                            ImagemPrincipal = "\\img\\produtos\\8.jpg",
                             Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
                             Valor = 164m
                         });
@@ -520,16 +520,16 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2f4e425b-4767-4dcb-925c-3ff4aada074e",
+                            Id = "2e4d8458-f07d-4484-b870-6923f34a5e6b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "11017c65-a152-4c4d-932e-5a1440207f42",
+                            ConcurrencyStamp = "cde78ccc-187b-484f-8e1f-084b03e7577d",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH2bC2LCZQD8waR37/NWvEMhKechmz3Li5+2ZgUoARVWEqLq68toyThWeCdaAXQ4KA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBXWvgJr8odGpNkruf1Lf6nf7b4gri11i+LL1+WqeQEOHflMlGvvW+oZ7cjq3tE+TA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "55725192",
                             TwoFactorEnabled = false,
@@ -565,22 +565,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2f4e425b-4767-4dcb-925c-3ff4aada074e",
-                            ConcurrencyStamp = "4aa37652-1578-474a-8fc7-830df9325020",
+                            Id = "2e4d8458-f07d-4484-b870-6923f34a5e6b",
+                            ConcurrencyStamp = "58313c12-3e3e-4c5d-918d-721ba5a2b62a",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "6326099e-9be5-479d-b554-6dd24c95ade8",
-                            ConcurrencyStamp = "e8e2b237-2276-4870-9034-f835dcfc5a3b",
+                            Id = "38e17626-c8c5-4bfb-a0c2-defa1167b414",
+                            ConcurrencyStamp = "c8438410-6e92-4f7c-b86e-50ea03f34b5e",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "9ba7cf3d-037d-42fc-8d80-484a9da94983",
-                            ConcurrencyStamp = "d855c060-6c43-449f-8097-26cc493cb53c",
+                            Id = "95df373f-ca2b-42e3-b3f1-f528ae920672",
+                            ConcurrencyStamp = "90665963-6b25-4c53-b665-5017d309bb52",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -671,8 +671,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2f4e425b-4767-4dcb-925c-3ff4aada074e",
-                            RoleId = "2f4e425b-4767-4dcb-925c-3ff4aada074e"
+                            UserId = "2e4d8458-f07d-4484-b870-6923f34a5e6b",
+                            RoleId = "2e4d8458-f07d-4484-b870-6923f34a5e6b"
                         });
                 });
 
