@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppEcommerce.Migrations
 {
-    public partial class criarteste : Migration
+    public partial class criarbanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -493,15 +493,15 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2e4d8458-f07d-4484-b870-6923f34a5e6b", "58313c12-3e3e-4c5d-918d-721ba5a2b62a", "Administrador", "ADMINISTRADOR" },
-                    { "38e17626-c8c5-4bfb-a0c2-defa1167b414", "c8438410-6e92-4f7c-b86e-50ea03f34b5e", "Moderador", "MODERADOR" },
-                    { "95df373f-ca2b-42e3-b3f1-f528ae920672", "90665963-6b25-4c53-b665-5017d309bb52", "Usuario", "USUARIO" }
+                    { "71642413-8723-4b7a-96bf-f3f862119ba6", "6fb56690-c431-40e5-9236-d30f009f08e4", "Administrador", "ADMINISTRADOR" },
+                    { "cb935633-f67e-4b90-870f-e915eda8c4d1", "1577f6f9-aac8-4fc7-bf89-406a5e74dfb7", "Moderador", "MODERADOR" },
+                    { "5259d819-d72e-4040-b1f7-de10484b8824", "f2226e47-1cf4-4e5f-a861-89613aec386f", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2e4d8458-f07d-4484-b870-6923f34a5e6b", 0, "cde78ccc-187b-484f-8e1f-084b03e7577d", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEBXWvgJr8odGpNkruf1Lf6nf7b4gri11i+LL1+WqeQEOHflMlGvvW+oZ7cjq3tE+TA==", null, false, "55725192", false, "Admin" });
+                values: new object[] { "71642413-8723-4b7a-96bf-f3f862119ba6", 0, "cb491853-a487-44cc-8dc1-cfc7c3e880ee", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEMhR8Nw07gcNbeJ5I+nrN51Yqj7CZ4rh/5iSpqbRljfshBycoem+xNfJh6wknAplEw==", null, false, "55725192", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
@@ -521,7 +521,7 @@ namespace AppEcommerce.Migrations
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2e4d8458-f07d-4484-b870-6923f34a5e6b", "2e4d8458-f07d-4484-b870-6923f34a5e6b" });
+                values: new object[] { "71642413-8723-4b7a-96bf-f3f862119ba6", "71642413-8723-4b7a-96bf-f3f862119ba6" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",

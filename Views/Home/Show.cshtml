@@ -268,7 +268,7 @@
                     <div class="product-item bg-light mb-4">
                         <div class="product-img position-relative overflow-hidden">
                             <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                            <img class="img-fluid w-100" src="@("~/img/"+produtos.ImagemPrincipal)" asp-append-version="true" alt="">
+                            <img class="img-fluid w-100" src="@produtos.ImagemPrincipal" asp-append-version="true" alt="">
                             <div class="product-action">
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
