@@ -84,7 +84,16 @@ namespace AppEcommerce.Controllers
                 }
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (await _context.SaveChangesAsync() > 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Produto Cadastrado com sucesso");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Erro ao Cadastrar os Produtos");  
+                }
+                ViewBag.Concluido = "OK";
+                return View(produto);
             }
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nome", produto.IdCategoria);
             ViewData["IdMarca"] = new SelectList(_context.Marcas, "Id", "Nome", produto.IdMarca);
@@ -148,7 +157,7 @@ namespace AppEcommerce.Controllers
                         string fileName = Guid.NewGuid().ToString();
                         var uploads = Path.Combine(wwwRootPath, @"img\produtos");
                         var extension = Path.GetExtension(file.FileName);
-                        
+
                         if (produto.ImagemPrincipal != null)
                         {
                             var oldImage = Path.Combine(wwwRootPath, produto.ImagemPrincipal.TrimStart('\\'));
@@ -157,7 +166,7 @@ namespace AppEcommerce.Controllers
                                 System.IO.File.Delete(oldImage);
                             }
                         }
-                        
+
                         using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                         {
                             file.CopyTo(stream);

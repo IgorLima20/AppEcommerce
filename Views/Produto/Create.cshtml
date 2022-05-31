@@ -112,6 +112,7 @@
     </div>
 </div>
 
+@section Scripts {
 <script type="text/javascript">
     function escolherArquivo() {
         // vamos obter uma referência ao elemento file
@@ -122,5 +123,27 @@
 
     document.querySelector('#arquivo').addEventListener('change', function () {
         document.querySelector('.text').textContent = this.files[0].name;
-    })
+    });
+
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK')
+    {
+            swal({
+            title: "Cadastrado com Sucesso",
+            type: "success",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes",
+            closeOnConfirm: true,
+        },
+        function() {
+            window.location.href = '@Url.Action("Index", "Produto")';
+        });
+      /*  swal.fire(
+            'Cadastrado com Sucesso',
+            'Redirecionado a lista de Produtos',
+            'success'
+        );
+        window.location.href = '@Url.Action("Index", "Produto")';*/
+    }
 </script>
+}

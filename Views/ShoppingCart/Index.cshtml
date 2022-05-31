@@ -26,7 +26,7 @@
                     @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
                     {
                         <tr item-id="@item.Produto.Id">
-                            <td class="align-middle"><img src="@("~/img/"+item.Produto.ImagemPrincipal)" asp-append-version="true" alt=""
+                            <td class="align-middle"><img src="@item.Produto.ImagemPrincipal" asp-append-version="true" alt=""
                                 style="width: 50px;"> Product Name
                             </td>
                             <td class="align-middle">@item.Produto.Valor.ToString("C")</td>

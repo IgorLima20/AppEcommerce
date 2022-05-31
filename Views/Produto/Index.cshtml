@@ -11,7 +11,7 @@
     <p>
     <a asp-action="Create">Create New</a>
     </p>
-    <table class="table"  id="table-produto">
+    <table class="table" id="table-produto">
     <thead>
     <tr>
     <th>
@@ -52,7 +52,7 @@
 
 
 <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card" >
+    <div class="card">
         <div class="card-body">
             <h4 class="card-title">Listagem de Produtos</h4>
             <div class="d-flex justify-content-between align-items-center">
@@ -62,6 +62,7 @@
             </div>
             </p>
             <table class="table table-striped" id="table-produto" style="width:100%">
+                <div asp-validation-summary="All" class="text-danger" hidden></div>
                 <thead>
                     <tr>
                         <th> Produto </th>
@@ -101,7 +102,7 @@
                                     <i class="bi bi-pen-fill" title="Alterar Categoria"></i>
                                 </a>
                                 @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
                             </td>
                         </tr>
                     }
@@ -110,3 +111,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    let mensagemErro = '';
+    $(".validation-summary-errors ul li").each(function () {
+        mensagemErro += $(this).text() + '<br/>';
+        $("#Input_Email").focus();
+    });
+    if (mensagemErro != '')
+        
+        swal.fire(
+            'Acesso Negado',
+            mensagemErro,
+            'error'
+        );
+</script>
