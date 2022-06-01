@@ -9,10 +9,9 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Alterar Marca</h4>
+                <h4 class="card-title">Cadastrar Marca</h4>
                 <p class="card-description"> Informe as alterações para cadastro </p>
                 <form class="forms-sample" asp-action="Create" id="form" enctype="multipart/form-data" method="post">
-                    <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <label class="control-label">Marca</label>
                         <input asp-for="Nome" class="form-control" placeholder="Marca..."  />
@@ -28,8 +27,13 @@
                                 <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
                                     type="button">Upload</button>
                                 <input id="arquivo" style="display:none" asp-for="ImagemFile" accept="imagem/*"
-                                    type="file" />
+                                    type="file"  name="file"/>
                             </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 mt-2 text-center">
+                            <img src="" class="img-fluid" id="PreviewImage" />
                         </div>
                     </div>
                     <button type="submit" value="Create" class="btn btn-primary mr-2">Cadastrar</button>
@@ -40,6 +44,7 @@
     </div>
 </div>
 
+@section Scripts {
 <script type="text/javascript">
     function escolherArquivo() {
         // vamos obter uma referência ao elemento file
@@ -50,5 +55,33 @@
 
     document.querySelector('#arquivo').addEventListener('change', function () {
         document.querySelector('.text').textContent = this.files[0].name;
+    });
+
+    window.addEventListener('load', function () {
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                var img = document.getElementById('PreviewImage');
+                img.src = URL.createObjectURL(this.files[0]);
+            }
+        })
+    });
+
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK')
+    {
+        Swal.fire({
+            icon: "success",
+            title: "Marca Cadastrada com Sucesso!!",
+            type: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '@Url.Action("Index", "Marca")';
+        }
     })
+    }
 </script>
+}

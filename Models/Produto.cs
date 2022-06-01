@@ -16,8 +16,11 @@ namespace AppEcommerce.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(400)]
+        [StringLength(60)]
         public string Nome { get; set; }
+
+        [StringLength(400)]
+        public string NomeDescricao { get; set; }
 
         [Column(TypeName = "decimal(10, 2)")]
         public decimal Valor { get; set; }
@@ -49,5 +52,7 @@ namespace AppEcommerce.Models
 
         public ICollection<Imagem> Imagem { get; set; } 
 
+        [Display(Name = "Destaques")]
+        public bool ExibirHome { get; set; }
     }
 }

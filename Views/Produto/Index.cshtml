@@ -61,53 +61,55 @@
                 </div>
             </div>
             </p>
-            <table class="table table-striped" id="table-produto" style="width:100%">
-                <div asp-validation-summary="All" class="text-danger" hidden></div>
-                <thead>
-                    <tr>
-                        <th> Produto </th>
-                        <th> Preço </th>
-                        <th> Estoque </th>
-                        <th> Ações </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+            <div class="table-responsive">
+                <table class="table table-striped" id="table-produto" style="width:100%">
+                    <div asp-validation-summary="All" class="text-danger" hidden></div>
+                    <thead>
                         <tr>
-                            <td class="d-inline-block text-truncate" style="max-width: 400px;">
-                                @item.Nome
-                            </td>
-                            <td style="width:20%">
-                                @item.Valor
-                            </td>
-                            <td style="width:20%">
-                                @item.Estoque
-                            </td>
-                            <td style="width:20%">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
-                                    <i class="mdi mdi-pencil" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Index" asp-controller="Imagem" asp-route-cid="@item.Id"
-                                class="btn btn-sm btn-success">
-                                    <i class="mdi mdi-folder-multiple-image" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
-                                    <i class="mdi mdi-format-list-bulleted" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
-                                    <i class="mdi mdi-delete" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm">
-                                    <i class="bi bi-pen-fill" title="Alterar Categoria"></i>
-                                </a>
-                                @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-                            </td>
+                            <th> Produto </th>
+                            <th> Preço </th>
+                            <th> Estoque </th>
+                            <th> Ações </th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="width:40%">
+                                    @item.Nome
+                                </td>
+                                <td style="width:20%">
+                                    @item.Valor
+                                </td>
+                                <td style="width:20%">
+                                    @item.Estoque
+                                </td>
+                                <td style="width:20%">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                        <i class="mdi mdi-pencil" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Index" asp-controller="Imagem" asp-route-cid="@item.Id"
+                                    class="btn btn-sm btn-success">
+                                        <i class="mdi mdi-folder-multiple-image" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
+                                        <i class="mdi mdi-format-list-bulleted" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                        <i class="mdi mdi-delete" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm">
+                                        <i class="bi bi-pen-fill" title="Alterar Categoria"></i>
+                                    </a>
+                                    @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -119,7 +121,7 @@
         $("#Input_Email").focus();
     });
     if (mensagemErro != '')
-        
+
         swal.fire(
             'Acesso Negado',
             mensagemErro,

@@ -9,6 +9,7 @@ using AppEcommerce.Data;
 using AppEcommerce.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Controllers
 {
@@ -59,23 +60,27 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,ImagemFile")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Imagem")] Categoria categoria, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPatch = _hostEnvironment.WebRootPath;
-                string filename = Path.GetFileNameWithoutExtension(categoria.ImagemFile.FileName);
-                string extension = Path.GetExtension(categoria.ImagemFile.FileName);
-                categoria.Imagem = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
                 {
-                    await categoria.ImagemFile.CopyToAsync(fileStream);
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"img\categorias");
+                    var extension = Path.GetExtension(file.FileName);
+                    using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    categoria.Imagem = @"\img\categorias\" + fileName + extension;
                 }
 
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Concluido = "OK";
+                return View(categoria);
             }
             return View(categoria);
         }
@@ -101,7 +106,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Categoria categoria, IFormFile file)
         {
             if (id != categoria.Id)
             {
@@ -112,8 +117,32 @@ namespace AppEcommerce.Controllers
             {
                 try
                 {
+                    string wwwRootPath = _hostEnvironment.WebRootPath;
+                    if (file != null)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(wwwRootPath, @"img\categorias");
+                        var extension = Path.GetExtension(file.FileName);
+
+                        if (categoria.Imagem != null)
+                        {
+                            var oldImage = Path.Combine(wwwRootPath, categoria.Imagem.TrimStart('\\'));
+                            if (System.IO.File.Exists(oldImage))
+                            {
+                                System.IO.File.Delete(oldImage);
+                            }
+                        }
+
+                        using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                        }
+                        categoria.Imagem = @"\img\categorias\" + fileName + extension;
+                    }
                     _context.Update(categoria);
                     await _context.SaveChangesAsync();
+                    ViewBag.Concluido = "OK";
+                    return View(categoria);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,7 +155,6 @@ namespace AppEcommerce.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(categoria);
         }
@@ -155,14 +183,18 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var categoria = await _context.Categorias.FindAsync(id);
-            var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", categoria.Imagem);
-            if (System.IO.File.Exists(imagemPath))
+            if (categoria.Imagem != null)
             {
-                System.IO.File.Delete(imagemPath);
+                var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img\\categorias", categoria.Imagem);
+                if (System.IO.File.Exists(imagemPath))
+                {
+                    System.IO.File.Delete(imagemPath);
+                }
             }
-            _context.Categorias.Remove(categoria);
+            _context.Remove(categoria);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Concluido = "OK";
+            return View(categoria);
         }
 
         private bool CategoriaExists(int id)

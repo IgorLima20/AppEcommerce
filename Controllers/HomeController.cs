@@ -29,8 +29,8 @@ namespace AppEcommerce.Controllers
         public IActionResult Index()
         {
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
-            ViewData["Categorias"] = _contexto.Categorias.Take(6);
-            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
+            ViewData["Categorias"] = _contexto.Categorias.Take(12);
+            var produtos = _contexto.Produtos.Where(e => e.ExibirHome).OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }
 
@@ -86,16 +86,16 @@ namespace AppEcommerce.Controllers
                         switch (sortOrder)
                         {
                             case "maior":
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).Where(m => m.IdMarca == Idmarca).OrderByDescending(m => m.Valor);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).Where(m => m.IdMarca == Idmarca).OrderByDescending(m => m.Valor);
                                 break;
                             case "menor":
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).Where(m => m.IdMarca == Idmarca).OrderBy(m => m.Valor);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).Where(m => m.IdMarca == Idmarca).OrderBy(m => m.Valor);
                                 break;
                             case "todos":
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).Where(m => m.IdMarca == Idmarca);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).Where(m => m.IdMarca == Idmarca);
                                 break;
                             default:
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).Where(m => m.IdMarca == Idmarca);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).Where(m => m.IdMarca == Idmarca);
                                 break;
                         }
                     }
@@ -104,21 +104,21 @@ namespace AppEcommerce.Controllers
                         switch (sortOrder)
                         {
                             case "maior":
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).OrderByDescending(m => m.Valor);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).OrderByDescending(m => m.Valor);
                                 break;
                             case "menor":
-                                prod = prod.Where(s => s.Nome.Contains(searchString)).OrderBy(m => m.Valor);
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString)).OrderBy(m => m.Valor);
                                 break;
                             case "todos":
-                                prod = prod.Where(s => s.Nome.Contains(searchString));
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString));
                                 break;
                             default:
-                                prod = prod.Where(s => s.Nome.Contains(searchString));
+                                prod = prod.Where(s => s.NomeDescricao.Contains(searchString));
                                 break;
                         }
                     }
 
-                    ViewData["Marcas"] = prod.Where(s => s.Nome.Contains(searchString)).Include(m => m.Marca).Select(i => i.Marca).Distinct();
+                    ViewData["Marcas"] = prod.Where(s => s.NomeDescricao.Contains(searchString)).Include(m => m.Marca).Select(i => i.Marca).Distinct();
                 }
             }
             else
@@ -166,16 +166,6 @@ namespace AppEcommerce.Controllers
             return View(await PaginatedList<Produto>.CreateAsync(prod.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
-        // public IActionResult Filtro(Guid Id, int? pagina)
-        // {
-        //     var pageSize = 9;
-        //     int pageNumber = pagina ?? 1;
-
-        //     ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
-        //     ViewData["Categorias"] = _contexto.Categorias.ToList();
-        //     var filtro = _contexto.Produtos.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).ToPagedList(pageNumber, pageSize);
-        //     return View(filtro);
-        // }
 
         public IActionResult Categoria(int id, int? pagina)
         {

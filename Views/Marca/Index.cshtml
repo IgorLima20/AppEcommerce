@@ -7,39 +7,39 @@
 
 @* <h1>Index</h1>
 
-<p>
+    <p>
     <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+    </p>
+    <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagem)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => model.Nome)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.Imagem)
+    </th>
+    <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagem)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+    @foreach (var item in Model) {
+    <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.Imagem)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+    </tr>
+    }
     </tbody>
-</table> *@
+    </table> *@
 
 
 <div class="col-lg-12 grid-margin stretch-card">
@@ -52,44 +52,46 @@
                 </div>
             </div>
             </p>
-            <table class="table table-striped" id="table-produto" style="width:100%">
-                <thead>
-                    <tr>
-                        <th> Marca </th>
-                        <th> Imagem </th>
-                        <th> Ações </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+            <div class="table-responsive">
+                <table class="table table-striped" id="table-produto" style="width:100%">
+                    <thead>
                         <tr>
-                            <td class="py-1" style="width:60%">
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td style="width:20%">
-                                @Html.DisplayFor(modelItem => item.Imagem)
-                            </td>
-                            <td style="width:20%">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
-                                    <i class="mdi mdi-pencil" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
-                                    <i class="mdi mdi-format-list-bulleted" style="font-size: 14px;"></i>
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
-                                    <i class="mdi mdi-delete" style="font-size: 14px;"></i>
-                                </a>
-                                @* <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm">
-                                    <i class="bi bi-pen-fill" title="Alterar Categoria"></i>
-                                    </a>
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-                            </td>
+                            <th> Marca </th>
+                            <th> Imagem </th>
+                            <th> Ações </th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-1" style="width:60%">
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td style="width:20%">
+                                    @Html.DisplayFor(modelItem => item.Imagem)
+                                </td>
+                                <td style="width:20%">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                        <i class="mdi mdi-pencil" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
+                                        <i class="mdi mdi-format-list-bulleted" style="font-size: 14px;"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                        <i class="mdi mdi-delete" style="font-size: 14px;"></i>
+                                    </a>
+                                    @* <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm">
+                                        <i class="bi bi-pen-fill" title="Alterar Categoria"></i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

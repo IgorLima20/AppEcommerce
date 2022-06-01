@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AppEcommerce.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace AppEcommerce.Controllers
@@ -14,14 +16,19 @@ namespace AppEcommerce.Controllers
     {
         private readonly ILogger<AdminController> _logger;
 
-        public AdminController(ILogger<AdminController> logger)
+        private readonly Contexto _contexto;
+
+        public AdminController(ILogger<AdminController> logger, Contexto contexto)
         {
             _logger = logger;
+            _contexto = contexto;
         }
 
         public IActionResult Index()
         {
-            return View();
+            ViewData["Categorias"] = _contexto.Categorias.Take(6);
+            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
+            return View(produtos);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

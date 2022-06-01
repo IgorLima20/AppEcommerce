@@ -208,7 +208,8 @@ namespace AppEcommerce.Data
             var produtos = new List<Produto>(){
                 new Produto(){
                     Id = 1,
-                    Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
+                    Nome = "Placa Gráfica Nvidia Quadro P400",
+                    NomeDescricao = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
                     Valor = 1223,
                     Estoque = 8,
                     IdMarca = 1,
@@ -218,7 +219,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 2,
-                    Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
+                    Nome = "Placa De Vídeo Galax GeForce RTX 3070",
+                    NomeDescricao = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
                     Valor = 7936,
                     Estoque = 10,
                     IdMarca = 1,
@@ -228,7 +230,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 3,
-                    Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
+                    Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC",
+                    NomeDescricao = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
                     Valor = 209,
                     Estoque = 16,
                     IdMarca = 2,
@@ -238,7 +241,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 4,
-                    Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
+                    Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro",
+                    NomeDescricao = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
                     Valor = 179,
                     Estoque = 20,
                     IdMarca = 2,
@@ -248,7 +252,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 5,
-                    Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
+                    Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI",
+                    NomeDescricao = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
                     Valor = 349,
                     Estoque = 1,
                     IdMarca = 2,
@@ -258,7 +263,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 6,
-                    Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
+                    Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb",
+                    NomeDescricao = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
                     Valor = 2743,
                     Estoque = 0,
                     IdMarca = 1,
@@ -268,7 +274,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 7,
-                    Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
+                    Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB",
+                    NomeDescricao = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
                     Valor = 892,
                     Estoque = 20,
                     IdMarca = 3,
@@ -278,7 +285,8 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 8,
-                    Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
+                    Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps",
+                    NomeDescricao = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
                     Valor = 164,
                     Estoque = 10,
                     IdMarca = 4,

@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Details";
     Layout = "_LayoutAdmin";
+    var produto = ViewBag.Produto as Produto;
 }
-
+@* 
 <h1>Details</h1>
 
 <div>
@@ -22,4 +23,25 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.IdImagem">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div> *@
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detalhes</h4>
+                <p class="card-description"> Imagem do Produto </p>
+                <form class="forms-sample" asp-action="Create" id="form" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <div class="col-12 mt-2 text-center">
+                            <img src="@Model.Img" class="img-fluid" id="PreviewImage" />
+                        </div>
+                    </div>
+                    <a asp-action="Edit" asp-route-id="@Model.IdImagem" class="btn btn-primary mr-2">Editar</a>
+                    <a asp-action="Index" asp-route-cid="@produto.Id" class="btn btn-light">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

@@ -310,6 +310,9 @@ namespace AppEcommerce.Migrations
                     b.Property<uint>("Estoque")
                         .HasColumnType("int unsigned");
 
+                    b.Property<bool>("ExibirHome")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int>("IdCategoria")
                         .HasColumnType("int");
 
@@ -321,6 +324,10 @@ namespace AppEcommerce.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("NomeDescricao")
                         .HasMaxLength(400)
                         .HasColumnType("varchar(400)");
 
@@ -341,10 +348,12 @@ namespace AppEcommerce.Migrations
                             Id = 1,
                             Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
                             Estoque = 8u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\1.jpg",
-                            Nome = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
+                            Nome = "Placa Gráfica Nvidia Quadro P400",
+                            NomeDescricao = "Placa Gráfica Nvidia Quadro P400 2gb Gddr5 64bits - Pny Vcqp400v2-pb",
                             Valor = 1223m
                         },
                         new
@@ -352,10 +361,12 @@ namespace AppEcommerce.Migrations
                             Id = 2,
                             Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
                             Estoque = 10u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\2.jpg",
-                            Nome = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
+                            Nome = "Placa De Vídeo Galax GeForce RTX 3070",
+                            NomeDescricao = "Placa De Vídeo Galax GeForce RTX 3070 Ti SG 1-Click 8gb GDRR6X 256bits 37ISM6MD4BSG",
                             Valor = 7936m
                         },
                         new
@@ -363,10 +374,12 @@ namespace AppEcommerce.Migrations
                             Id = 3,
                             Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
                             Estoque = 16u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\3.jpg",
-                            Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
+                            Nome = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC",
+                            NomeDescricao = "Mouse Gamer Logitech G403 HERO com RGB LIGHTSYNC, 6 Botões Programáveis, Ajuste de Peso e Sensor HERO 25K - 910-005631",
                             Valor = 209m
                         },
                         new
@@ -374,10 +387,12 @@ namespace AppEcommerce.Migrations
                             Id = 4,
                             Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
                             Estoque = 20u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\4.jpg",
-                            Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
+                            Nome = "Headset com fio USB Logitech H390 com Almofadas em Couro",
+                            NomeDescricao = "Headset com fio USB Logitech H390 com Almofadas em Couro, Controles de Áudio Integrado e Microfone com Redução de Ruído - 981-000014",
                             Valor = 179m
                         },
                         new
@@ -385,10 +400,12 @@ namespace AppEcommerce.Migrations
                             Id = 5,
                             Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
                             Estoque = 1u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\5.jpg",
-                            Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
+                            Nome = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI",
+                            NomeDescricao = "Mouse Gamer Sem Fio Logitech G305 Lightspeed, 12.000 DPI, 6 Botões Programáveis, Branco - 910-005290",
                             Valor = 349m
                         },
                         new
@@ -396,10 +413,12 @@ namespace AppEcommerce.Migrations
                             Id = 6,
                             Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
                             Estoque = 0u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\6.jpg",
-                            Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
+                            Nome = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb",
+                            NomeDescricao = "Pny Quadro Workstation Server Placa De Video Pny Vcnt1000-pb T1000 4GB DDR6 128bit Dp",
                             Valor = 2743m
                         },
                         new
@@ -407,10 +426,12 @@ namespace AppEcommerce.Migrations
                             Id = 7,
                             Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
                             Estoque = 20u,
+                            ExibirHome = false,
                             IdCategoria = 2,
                             IdMarca = 3,
                             ImagemPrincipal = "\\img\\produtos\\7.jpg",
-                            Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
+                            Nome = "Smartphone Motorola Moto E7, 64GB, RAM 4GB",
+                            NomeDescricao = "Smartphone Motorola Moto E7, 64GB, RAM 4GB, Octa-Core, Câmera 48MP, 4000mAh, Cinza Metálico - PALV0031BR",
                             Valor = 892m
                         },
                         new
@@ -418,10 +439,12 @@ namespace AppEcommerce.Migrations
                             Id = 8,
                             Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
                             Estoque = 10u,
+                            ExibirHome = false,
                             IdCategoria = 6,
                             IdMarca = 4,
                             ImagemPrincipal = "\\img\\produtos\\8.jpg",
-                            Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
+                            Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps",
+                            NomeDescricao = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
                             Valor = 164m
                         });
                 });
@@ -518,18 +541,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "71642413-8723-4b7a-96bf-f3f862119ba6",
+                            Id = "90f97045-6579-4896-853a-0dcf8fd5a39d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cb491853-a487-44cc-8dc1-cfc7c3e880ee",
+                            ConcurrencyStamp = "9c4f4760-dad8-452a-afe4-ddc3cc759825",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMhR8Nw07gcNbeJ5I+nrN51Yqj7CZ4rh/5iSpqbRljfshBycoem+xNfJh6wknAplEw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEArEG0l+byQn1s+5oxobueMCzl1To0ars8aTHG0eLRP8veUBygB81FW9zZWXCiCCsA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55725192",
+                            SecurityStamp = "31764686",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -563,22 +586,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "71642413-8723-4b7a-96bf-f3f862119ba6",
-                            ConcurrencyStamp = "6fb56690-c431-40e5-9236-d30f009f08e4",
+                            Id = "90f97045-6579-4896-853a-0dcf8fd5a39d",
+                            ConcurrencyStamp = "2cee90d8-b300-48ef-8db0-65f2269b6ca1",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "cb935633-f67e-4b90-870f-e915eda8c4d1",
-                            ConcurrencyStamp = "1577f6f9-aac8-4fc7-bf89-406a5e74dfb7",
+                            Id = "3170be19-6424-4b3d-b884-bdad31e0a7ab",
+                            ConcurrencyStamp = "e5c74cdb-2260-4254-b547-cbf451b6b4c3",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "5259d819-d72e-4040-b1f7-de10484b8824",
-                            ConcurrencyStamp = "f2226e47-1cf4-4e5f-a861-89613aec386f",
+                            Id = "3b35eabf-fcce-43dc-9145-ece642b59c33",
+                            ConcurrencyStamp = "0e700103-b689-49b5-b237-7eac80e5b3fc",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -669,8 +692,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "71642413-8723-4b7a-96bf-f3f862119ba6",
-                            RoleId = "71642413-8723-4b7a-96bf-f3f862119ba6"
+                            UserId = "90f97045-6579-4896-853a-0dcf8fd5a39d",
+                            RoleId = "90f97045-6579-4896-853a-0dcf8fd5a39d"
                         });
                 });
 

@@ -38,7 +38,7 @@ namespace AppEcommerce.Controllers
                     return View(produto.Imagem);
                 }
             }
-            return RedirectToAction("Index", "Produto");
+            return RedirectToAction("Index", "Imagem");
         }
 
         // GET: Imagem/Details/5
@@ -48,7 +48,8 @@ namespace AppEcommerce.Controllers
             {
                 return NotFound();
             }
-
+            var produto = await _context.Produtos.FindAsync(cid);
+            ViewBag.Produto = produto;
             var imagem = await _context.Imagens.Where(p => p.IdProduto == cid)
             .FirstOrDefaultAsync(m => m.IdImagem == id);
             // .FirstOrDefaultAsync(m => m.IdImagem == id);
@@ -92,26 +93,15 @@ namespace AppEcommerce.Controllers
                     }
                     imagem.Img = @"\img\produtos\" + fileName + extension;
                 }
-
-                // string wwwRootPatch = _hostEnvironment.WebRootPath;
-                // string filename = Path.GetFileNameWithoutExtension(imagem.ImagemFile.FileName);
-                // string extension = Path.GetExtension(imagem.ImagemFile.FileName);
-                // imagem.Img = filename = filename + DateTime.Now.ToString("yymmssfff");
-                // string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                // using (var fileStream = new FileStream(path, FileMode.Create))
-                // {
-                //     await imagem.ImagemFile.CopyToAsync(fileStream);
-                // }
-                // var idImagem = produto.Imagem.Count() > 0 ? imagem.IdProduto.Where(e => e.IdImagem) + 1 : 1;
-                // imagem.IdImagem = idImagem;
                 _context.Imagens.Add(imagem);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Imagem");
+                ViewBag.Concluido = "OK";
+                return View(imagem);
 
             }
             else
             {
-                return RedirectToAction("Index", "Produto");
+                return RedirectToAction("Index", "Imagem");
             }
         }
 
@@ -163,10 +153,13 @@ namespace AppEcommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdImagem,Img,IdProduto")] Imagem imagem,  IFormFile file, int? idProduto)
         {
-            if (id != imagem.IdImagem)
+          if (id != imagem.IdImagem)
             {
                 return NotFound();
             }
+
+            var produto = await _context.Produtos.FindAsync(idProduto);
+            ViewBag.Produto = produto;
 
             if (ModelState.IsValid)
             {
@@ -197,7 +190,8 @@ namespace AppEcommerce.Controllers
                     }
                     _context.Update(imagem);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Imagem");
+                    ViewBag.Concluido = "OK";
+                    return View(imagem);
 
                     // var produto = await _context.Produtos.FindAsync(idProduto);
                     // ViewBag.Produto = produto;
@@ -233,19 +227,20 @@ namespace AppEcommerce.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(imagem);
         }
 
         // GET: Imagem/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? cid)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            var produto = await _context.Produtos.FindAsync(cid);
+            ViewBag.Produto = produto;
             var imagem = await _context.Imagens
                 .FirstOrDefaultAsync(m => m.IdImagem == id);
             if (imagem == null)
@@ -259,8 +254,10 @@ namespace AppEcommerce.Controllers
         // POST: Imagem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int cid)
         {
+            var produto = await _context.Produtos.FindAsync(cid);
+            ViewBag.Produto = produto;
             var imagem = await _context.Imagens.FindAsync(id);
             String wwwRootPath = _hostEnvironment.WebRootPath;
 
@@ -274,7 +271,8 @@ namespace AppEcommerce.Controllers
             }
             _context.Remove(imagem);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Concluido = "OK";
+            return View(imagem);
         }
 
         private bool ImagemExists(int id)

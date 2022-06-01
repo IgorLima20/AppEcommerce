@@ -79,3 +79,25 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK')
+    {
+        Swal.fire({
+            icon: "success",
+            title: "Produto Excluído com Sucesso!!",
+            type: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '@Url.Action("Index", "Produto")';
+        }
+    })
+    }
+</script>
+}

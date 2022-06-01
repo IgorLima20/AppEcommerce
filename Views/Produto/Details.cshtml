@@ -76,6 +76,11 @@
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">Nome secundário</label>
+                        <input type="text" asp-for="NomeDescricao" class="form-control" placeholder="Nome..." disabled/>
+                        <span asp-validation-for="NomeDescricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Preço</label>
                         <input asp-for="Valor" type="text" class="form-control" placeholder="Preço..." disabled/>
                         <span asp-validation-for="Valor" class="text-danger"></span>
@@ -98,8 +103,15 @@
                         <label class="control-label">Categoria</label>
                         <input asp-for="Categoria.Nome" class="form-control" disabled>
                     </div>
+                    <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="ExibirHome" class="form-check-input" disabled> Produto em Destaque
+                        </label>
+                    </div>
                     <div class="form-group">
-                        <img src="@Model.ImagemPrincipal" asp-append-version="true" width="350px" height="350">
+                        <div class="col-12 mt-2 text-center">
+                            <img src="@Model.ImagemPrincipal" class="img-fluid" id="PreviewImage" />
+                        </div>
                     </div>
                     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Editar</a>
                     <a asp-action="Index" class="btn btn-light">Voltar</a>

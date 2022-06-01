@@ -9,6 +9,7 @@ using AppEcommerce.Data;
 using AppEcommerce.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace AppEcommerce.Controllers
 {
@@ -58,26 +59,27 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,ImagemFile")] Marca marca)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Imagem")] Marca marca, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                if (marca.ImagemFile != null)
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
                 {
-                    string wwwRootPatch = _hostEnvironment.WebRootPath;
-                    string filename = Path.GetFileNameWithoutExtension(marca.ImagemFile.FileName);
-                    string extension = Path.GetExtension(marca.ImagemFile.FileName);
-                    marca.Imagem = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPatch + "/img/", filename);
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"img\marcas");
+                    var extension = Path.GetExtension(file.FileName);
+                    using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
-                        await marca.ImagemFile.CopyToAsync(fileStream);
+                        file.CopyTo(stream);
                     }
+                    marca.Imagem = @"\img\marcas\" + fileName + extension;
                 }
 
-                _context.Add(marca);
+                _context.Update(marca);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Concluido = "OK";
+                return View(marca);
             }
             return View(marca);
         }
@@ -103,7 +105,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Marca marca)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Marca marca, IFormFile file)
         {
             if (id != marca.Id)
             {
@@ -114,8 +116,32 @@ namespace AppEcommerce.Controllers
             {
                 try
                 {
+                    string wwwRootPath = _hostEnvironment.WebRootPath;
+                    if (file != null)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(wwwRootPath, @"img\marcas");
+                        var extension = Path.GetExtension(file.FileName);
+
+                        if (marca.Imagem != null)
+                        {
+                            var oldImage = Path.Combine(wwwRootPath, marca.Imagem.TrimStart('\\'));
+                            if (System.IO.File.Exists(oldImage))
+                            {
+                                System.IO.File.Delete(oldImage);
+                            }
+                        }
+
+                        using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+                        }
+                        marca.Imagem = @"\img\marcas\" + fileName + extension;
+                    }
                     _context.Update(marca);
                     await _context.SaveChangesAsync();
+                    ViewBag.Concluido = "OK";
+                    return View(marca);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -128,7 +154,6 @@ namespace AppEcommerce.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(marca);
         }
@@ -157,14 +182,18 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var marca = await _context.Marcas.FindAsync(id);
-             var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img", marca.Imagem);
-            if (System.IO.File.Exists(imagemPath))
+            if (marca.Imagem != null)
             {
-                System.IO.File.Delete(imagemPath);
+                var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img\\marcas", marca.Imagem);
+                if (System.IO.File.Exists(imagemPath))
+                {
+                    System.IO.File.Delete(imagemPath);
+                }
             }
             _context.Marcas.Remove(marca);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Concluido = "OK";
+            return View(marca);
         }
 
         private bool MarcaExists(int id)

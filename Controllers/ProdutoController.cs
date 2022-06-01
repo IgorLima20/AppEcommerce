@@ -58,6 +58,7 @@ namespace AppEcommerce.Controllers
         {
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nome");
             ViewData["IdMarca"] = new SelectList(_context.Marcas, "Id", "Nome");
+            
             return View();
         }
 
@@ -66,7 +67,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria")] Produto produto, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Nome,NomeDescricao,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria,ExibirHome")] Produto produto, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -84,14 +85,6 @@ namespace AppEcommerce.Controllers
                 }
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
-                if (await _context.SaveChangesAsync() > 0)
-                {
-                    ModelState.AddModelError(string.Empty, "Produto Cadastrado com sucesso");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Erro ao Cadastrar os Produtos");  
-                }
                 ViewBag.Concluido = "OK";
                 return View(produto);
             }
@@ -140,7 +133,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria")] Produto produto, IFormFile file)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,NomeDescricao,Valor,Estoque,IdMarca,Descricao,ImagemPrincipal,IdCategoria,ExibirHome")] Produto produto, IFormFile file)
         {
             if (id != produto.Id)
             {
@@ -175,6 +168,7 @@ namespace AppEcommerce.Controllers
                     }
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
+                    ViewBag.Concluido = "OK";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -187,7 +181,7 @@ namespace AppEcommerce.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View(produto);
             }
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nome", produto.IdCategoria);
             ViewData["IdMarca"] = new SelectList(_context.Marcas, "Id", "Nome", produto.IdMarca);
@@ -220,9 +214,18 @@ namespace AppEcommerce.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var produto = await _context.Produtos.FindAsync(id);
+            if (produto.ImagemPrincipal != null)
+            {
+                var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img\\produtos", produto.ImagemPrincipal);
+                if (System.IO.File.Exists(imagemPath))
+                {
+                    System.IO.File.Delete(imagemPath);
+                }
+            }
             _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Concluido = "OK";
+            return View(produto);
         }
 
         private bool ProdutoExists(int id)
