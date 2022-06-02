@@ -8,11 +8,11 @@
   <meta content="Free HTML Templates" name="keywords">
   <meta content="Free HTML Templates" name="description">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="~/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="~/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="~/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon/favicon-16x16.png">
   <link rel="manifest" href="/img/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
@@ -26,7 +26,7 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
   <!-- Favicon -->
-  <link href="/img/favicon.ico" rel="icon">
+  <link href="~/img/favicon.ico" rel="icon">
 
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,8 +36,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  <link href="/lib/animate/animate.min.css" rel="stylesheet">
-  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <title>@ViewBag.Subtitulo</title>
 </head>
 
@@ -101,7 +101,7 @@
                     <a class="dropdown-item" asp-action="Cadastro" asp-controller="Cliente">Cadastrar</a>
                   </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a asp-action="Contato" asp-controller="Home" class="nav-item nav-link">Contato</a>
               </div>
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                 <partial name="_LoginPartial"></partial>
@@ -242,17 +242,17 @@
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="/lib/easing/easing.min.js"></script>
-  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="~/lib/easing/easing.min.js"></script>
+  <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Contact Javascript File -->
-  <script src="/mail/jqBootstrapValidation.min.js"></script>
-  <script src="/mail/contact.js"></script>
+  <script src="~/mail/jqBootstrapValidation.min.js"></script>
+  <script src="~/mail/contact.js"></script>
 
   <!-- Template Javascript -->
-  <script src="/js/main.js"></script>
-  <script src="/js/site.js"></script>
+  <script src="~/js/main.js"></script>
+  <script src="~/js/site.js"></script>
   @RenderSectionAsync("Scripts", required : false)
 </body>
 

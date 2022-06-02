@@ -1,36 +1,58 @@
+@model AppEcommerce.Models.Contato
+
 @{
     ViewBag.Subtitulo = "InfoTech";
 }
 
-<div class="row justify-content-center">
-    <form class="col-sm-10 col-md-8 col-lg-6">
-        <h2>Entre em contato</h2>
 
-        <div class="form-floating mb-3">
-            <input type="text" id="txtNomeCompleto" class="form-control" placeholder=" " autofocus>
-            <label for="txtNomeCompleto">Nome Completo</label>
+<!-- Contact Start -->
+<div class="container-fluid">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+            class="bg-secondary pr-3">Contatos</span></h2>
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5">
+            <div class="contact-form bg-light p-30">
+                <form asp-action="ContatoCadastrado">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="control-group">
+                        <input asp-for="Nome" type="text" class="form-control" placeholder="Nome"/>
+                         <span asp-validation-for="Nome" class="text-danger"></span>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input asp-for="Email" type="email" class="form-control" placeholder="E-mail"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input asp-for="Assunto" type="text" class="form-control" placeholder="Assunto"/>
+                        <span asp-validation-for="Assunto" class="text-danger"></span>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <textarea asp-for="Mensagem" class="form-control" rows="8" placeholder="Mensagem"></textarea>
+                        <span asp-validation-for="Mensagem" class="text-danger"></span>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                        <button type="submit" value="Create" class="btn btn-primary py-2 px-4">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="form-floating mb-3">
-            <input type="email" id="txtEmail" class="form-control" placeholder=" " autofocus>
-            <label for="txtEmail">E-mail</label>
+        <div class="col-lg-5 mb-5">
+            <div class="bg-light p-30 mb-30">
+                <iframe style="width: 100%; height: 250px;"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.3974091497603!2d-48.548360284893775!3d-22.48926802875988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c7459baabaa92b%3A0xd1b954a115160672!2sEtec%20Comendador%20Jo%C3%A3o%20Rays!5e0!3m2!1spt-BR!2sbr!4v1654128381233!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="bg-light p-30 mb-3">
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+            </div>
         </div>
-
-        <div class="form-floating mb-3">
-            <textarea id="txtMensagem" class="form-control" placeholder="" style="height: 200px"></textarea>
-            <label for="txtMensagem">Mensagem</label>
-        </div>
-
-        <button type="button" onclick="window.location.href='/confirmacontato.html'"
-            class="btn btn-md btn-danger">Enviar Mensagem</button>
-
-        <p class="mt-3">
-            Faremos nosso melhor para responder sua mensagem em até 2 dias úteis.
-        </p>
-
-        <p class="mt-3">
-            Atenciosamente,<br>
-            Central de Relacionamento <b>InfoTech</b>
-        </p>
-    </form>
+    </div>
 </div>
+<!-- Contact End -->

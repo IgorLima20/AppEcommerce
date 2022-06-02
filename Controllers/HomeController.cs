@@ -143,7 +143,7 @@ namespace AppEcommerce.Controllers
                 }
                 else
                 {
-                     switch (sortOrder)
+                    switch (sortOrder)
                     {
                         case "maior":
                             prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
@@ -174,6 +174,26 @@ namespace AppEcommerce.Controllers
 
             var categoria = _contexto.Categorias.Where(c => c.Id == id).ToPagedList(pageNumber, pageSize);
             return View("Filtro", categoria);
+        }
+
+
+        public IActionResult Contato()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ContatoCadastrado(Contato form)
+        {
+            if (ModelState.IsValid)
+            {
+                _contexto.Add(form);
+                await _contexto.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(form);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220601013059_criar-banco")]
+    [Migration("20220601222900_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -312,6 +312,9 @@ namespace AppEcommerce.Migrations
                     b.Property<uint>("Estoque")
                         .HasColumnType("int unsigned");
 
+                    b.Property<bool>("ExibirHome")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int>("IdCategoria")
                         .HasColumnType("int");
 
@@ -347,6 +350,7 @@ namespace AppEcommerce.Migrations
                             Id = 1,
                             Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
                             Estoque = 8u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\1.jpg",
@@ -359,6 +363,7 @@ namespace AppEcommerce.Migrations
                             Id = 2,
                             Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
                             Estoque = 10u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\2.jpg",
@@ -371,6 +376,7 @@ namespace AppEcommerce.Migrations
                             Id = 3,
                             Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
                             Estoque = 16u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\3.jpg",
@@ -383,6 +389,7 @@ namespace AppEcommerce.Migrations
                             Id = 4,
                             Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
                             Estoque = 20u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\4.jpg",
@@ -395,6 +402,7 @@ namespace AppEcommerce.Migrations
                             Id = 5,
                             Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
                             Estoque = 1u,
+                            ExibirHome = false,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\5.jpg",
@@ -407,6 +415,7 @@ namespace AppEcommerce.Migrations
                             Id = 6,
                             Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
                             Estoque = 0u,
+                            ExibirHome = false,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\6.jpg",
@@ -419,6 +428,7 @@ namespace AppEcommerce.Migrations
                             Id = 7,
                             Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
                             Estoque = 20u,
+                            ExibirHome = false,
                             IdCategoria = 2,
                             IdMarca = 3,
                             ImagemPrincipal = "\\img\\produtos\\7.jpg",
@@ -431,6 +441,7 @@ namespace AppEcommerce.Migrations
                             Id = 8,
                             Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
                             Estoque = 10u,
+                            ExibirHome = false,
                             IdCategoria = 6,
                             IdMarca = 4,
                             ImagemPrincipal = "\\img\\produtos\\8.jpg",
@@ -532,16 +543,16 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "43c853b0-eaf6-42d2-b649-080b0f40189f",
+                            Id = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8269a02-b53d-4f1a-a2b8-f87e78556759",
+                            ConcurrencyStamp = "4761a36a-8b0a-4c31-81fe-fd2e81dd4522",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKtZqeScOVI/vSdDZjPj/abW7HMaAjpOpEt4mYanZ4PJZdTwptxaj2SG3KOxLWzEMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKOUYInMk/IEUJee+bx4dmOKrXG/Nq5R/kSx2/M9t83NAI1wUjspte8TBko/3mX0tA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "55725192",
                             TwoFactorEnabled = false,
@@ -577,22 +588,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "43c853b0-eaf6-42d2-b649-080b0f40189f",
-                            ConcurrencyStamp = "e688735d-a70d-45c9-8b5f-4f99ae10d031",
+                            Id = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
+                            ConcurrencyStamp = "2b81f948-7ccc-4ee3-a374-d23c878ab7fe",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "6e935498-e017-4358-afd1-e06389fd53d1",
-                            ConcurrencyStamp = "238db4f0-1282-4dba-8d7f-492e3bbf8623",
+                            Id = "9d542f4d-9c19-4fb9-be12-47880e76e346",
+                            ConcurrencyStamp = "4307930a-153f-4d43-8447-3ae379369f5c",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "c5b48e46-6447-4513-89ba-1a8d4ee98ca3",
-                            ConcurrencyStamp = "0cc6688d-4df4-4dc5-b4e0-3d6c76211aa8",
+                            Id = "151f6288-5a24-4dc5-98a1-6b67e2c970f5",
+                            ConcurrencyStamp = "f8019cb6-82e3-40d3-870a-07af246a920a",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -683,8 +694,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "43c853b0-eaf6-42d2-b649-080b0f40189f",
-                            RoleId = "43c853b0-eaf6-42d2-b649-080b0f40189f"
+                            UserId = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
+                            RoleId = "ace5218a-9ac7-4788-8d1b-22116a89d4bb"
                         });
                 });
 
