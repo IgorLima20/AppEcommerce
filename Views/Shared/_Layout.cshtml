@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/estilos.css">
 
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
+
   <!-- Favicon -->
   <link href="~/img/favicon.ico" rel="icon">
 
@@ -46,17 +46,19 @@
     <div class="container-fluid">
       <div class="row align-items-center bg-dark py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
-          <a href="" class="text-decoration-none">
-            <span class="h1 text-uppercase text-primary bg-dark px-2">BUY</span>
-            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SELL</span>
+          <a href="/" class="text-decoration-none">
+            <span class="h1 text-uppercase text-primary bg-dark">BUY</span>
+            <span class="h1 text-uppercase text-dark bg-primary">SELL</span>
+            <span class="h5 text-uppercase text-dark bg-primary ml-n2">Tecnologia</span>
           </a>
         </div>
+
         <div class="col-lg-4 col-6 text-left">
           <partial name="_Search"></partial>
         </div>
         <div class="col-lg-4 col-6 text-right ">
-          <p class="m-0 text-white">Customer Service</p>
-          <h5 class="m-0 text-white">+012 345 6789</h5>
+          <p class="m-0 text-white">Contato</p>
+          <h5 class="m-0 text-white">(14) 3343-5332</h5>
         </div>
       </div>
     </div>
@@ -90,17 +92,6 @@
                 <a class="nav-item nav-link" asp-action="Index" asp-controller="Home">Home</a>
                 @* @await Component.InvokeAsync("CategoryHome") *@
 
-                <a class="nav-item nav-link" asp-action="Produtos" asp-controller="Produto">Shop</a>
-                <a class="nav-item nav-link" asp-action="Index" asp-controller="Produto">Shop Detail</a>
-                <div class="nav-item dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i
-                      class="fa fa-angle-down mt-1"></i></a>
-                  <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                    <a class="dropdown-item" asp-action="Index" asp-controller="Carrinho">Shopping Cart</a>
-                    <a class="dropdown-item" asp-action="Login" asp-controller="Cliente">Checkout</a>
-                    <a class="dropdown-item" asp-action="Cadastro" asp-controller="Cliente">Cadastrar</a>
-                  </div>
-                </div>
                 <a asp-action="Contato" asp-controller="Home" class="nav-item nav-link">Contato</a>
               </div>
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
@@ -129,54 +120,46 @@
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
       <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-          <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-          <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum
-            tempor no vero est magna amet no</p>
-          <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-          <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-          <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+          <h5 class="text-secondary text-uppercase mb-4">Entre em contato</h5>
+          <p class="mb-4">A Byu Sell Tecnologia é uma loja voltada para a área de produtos tecnológicos, criada em 2022, sendo uma loja 100% online</p>
+          <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Rua Sebastião Antônio do Amaral, Bauru, São Paulo</p>
+          <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@buyselltecnologia.com</p>
+          <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>(14) 3343-5332</p>
         </div>
         <div class="col-lg-8 col-md-12">
           <div class="row">
             <div class="col-md-4 mb-5">
               <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                <a class="text-secondary mb-2" asp-action="Index" asp-controller="Home"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                <a asp-action="Contato" asp-controller="Home" class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contato</a>
               </div>
             </div>
             <div class="col-md-4 mb-5">
-              <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+              <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                <a class="text-secondary mb-2" asp-action="Index" asp-controller="Home"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Carrinho de compra</a>
+                <a asp-action="Contato" asp-controller="Home" class="text-secondary"><i class="fa fa-angle-right mr-2"></i>Contato</a>
               </div>
             </div>
             <div class="col-md-4 mb-5">
               <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
-              <p>Duo stet tempor ipsum sit amet magna ipsum tempor est</p>
+              <p>Cadastre seu e-mail para receber promoções dos nossos produtos</p>
               <form action="">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Your Email Address">
+                  <input type="text" class="form-control" placeholder="Informe seu e-mail">
                   <div class="input-group-append">
-                    <button class="btn btn-primary">Sign Up</button>
+                    <button class="btn btn-primary">Cadastrar</button>
                   </div>
                 </div>
               </form>
-              <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
+              <h6 class="text-secondary text-uppercase mt-4 mb-3">Siga-nos</h6>
               <div class="d-flex">
-                <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-primary btn-square mr-2" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-primary btn-square mr-2" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-primary btn-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-primary btn-square" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
