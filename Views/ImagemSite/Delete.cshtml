@@ -1,0 +1,44 @@
+@model AppEcommerce.Models.ImagemSite
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="row justify-content-center">
+    <div class="card text-center">
+        <div class="card-header">
+            Excluir
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Deseja Realmente Excluir essa Imagem ?</h5>
+            <p class="card-text">Confirme a Exclusão da Imagem !!</p>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Excluir" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-light">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK') {
+        Swal.fire({
+            icon: "success",
+            title: "Imagem Excluída com Sucesso!!",
+            type: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("Index", "ImagemSite")';
+            }
+        })
+    }
+</script>
+}

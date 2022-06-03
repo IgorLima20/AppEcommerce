@@ -182,6 +182,26 @@ namespace AppEcommerce.Migrations
                     b.ToTable("Imagens");
                 });
 
+            modelBuilder.Entity("AppEcommerce.Models.ImagemSite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Carrosel")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Secundaria")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ImagensSite");
+                });
+
             modelBuilder.Entity("AppEcommerce.Models.Marca", b =>
                 {
                     b.Property<int>("Id")
@@ -572,18 +592,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6d3baa71-5074-4b21-baac-cdfbce276910",
+                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "45fe43df-b011-4479-bf0f-524a401e5c00",
+                            ConcurrencyStamp = "fba32819-e480-4eb8-b4ee-d81d0ade75ce",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKCszmnb0m5Xdtfms5hP0We+KpZdGzv9d1NP6uNOUfL21wLK5nuk2OEFBusMARzVPg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKpHT3diRoOl/wEEqmK+pm37lO3GhFilnbjCBi3vM9hgkRMDKql4q+1qjI57yImXVQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "10736577",
+                            SecurityStamp = "60482217",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -617,22 +637,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6d3baa71-5074-4b21-baac-cdfbce276910",
-                            ConcurrencyStamp = "8be49294-a65d-44a1-a437-e641e9c33e57",
+                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
+                            ConcurrencyStamp = "1cc62182-4de3-4122-b39d-880cff92a090",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "74d51b1d-5384-44ed-a35a-e85e01be3f65",
-                            ConcurrencyStamp = "7fa68a9d-d331-4ca7-99d1-caa8967f187d",
+                            Id = "0b22f597-0cea-43ee-8c0f-16ad6094cf5f",
+                            ConcurrencyStamp = "790bc68d-c0d0-45a4-99ae-c475bb617fc3",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "1519828e-07ae-4884-b528-78536296cb68",
-                            ConcurrencyStamp = "c151af29-daea-45ad-a891-c77c50c5a603",
+                            Id = "e7f97be3-000a-45cd-9800-5c6205dd35ff",
+                            ConcurrencyStamp = "b7f9937b-a55e-46cc-8225-31b265fc188a",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -723,8 +743,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "6d3baa71-5074-4b21-baac-cdfbce276910",
-                            RoleId = "6d3baa71-5074-4b21-baac-cdfbce276910"
+                            UserId = "da719410-a66a-4953-a1be-35a7efe6b7e1",
+                            RoleId = "da719410-a66a-4953-a1be-35a7efe6b7e1"
                         });
                 });
 

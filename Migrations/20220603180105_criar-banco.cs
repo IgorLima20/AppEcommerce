@@ -29,6 +29,44 @@ namespace AppEcommerce.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Contato",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Assunto = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Mensagem = table.Column<string>(type: "varchar(600)", maxLength: 600, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contato", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "ImagensSite",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Img = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Carrosel = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Secundaria = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImagensSite", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Marca",
                 columns: table => new
                 {
@@ -496,15 +534,15 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ace5218a-9ac7-4788-8d1b-22116a89d4bb", "2b81f948-7ccc-4ee3-a374-d23c878ab7fe", "Administrador", "ADMINISTRADOR" },
-                    { "9d542f4d-9c19-4fb9-be12-47880e76e346", "4307930a-153f-4d43-8447-3ae379369f5c", "Moderador", "MODERADOR" },
-                    { "151f6288-5a24-4dc5-98a1-6b67e2c970f5", "f8019cb6-82e3-40d3-870a-07af246a920a", "Usuario", "USUARIO" }
+                    { "da719410-a66a-4953-a1be-35a7efe6b7e1", "1cc62182-4de3-4122-b39d-880cff92a090", "Administrador", "ADMINISTRADOR" },
+                    { "0b22f597-0cea-43ee-8c0f-16ad6094cf5f", "790bc68d-c0d0-45a4-99ae-c475bb617fc3", "Moderador", "MODERADOR" },
+                    { "e7f97be3-000a-45cd-9800-5c6205dd35ff", "b7f9937b-a55e-46cc-8225-31b265fc188a", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "ace5218a-9ac7-4788-8d1b-22116a89d4bb", 0, "4761a36a-8b0a-4c31-81fe-fd2e81dd4522", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKOUYInMk/IEUJee+bx4dmOKrXG/Nq5R/kSx2/M9t83NAI1wUjspte8TBko/3mX0tA==", null, false, "55725192", false, "Admin" });
+                values: new object[] { "da719410-a66a-4953-a1be-35a7efe6b7e1", 0, "fba32819-e480-4eb8-b4ee-d81d0ade75ce", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKpHT3diRoOl/wEEqmK+pm37lO3GhFilnbjCBi3vM9hgkRMDKql4q+1qjI57yImXVQ==", null, false, "60482217", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
@@ -524,7 +562,7 @@ namespace AppEcommerce.Migrations
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "ace5218a-9ac7-4788-8d1b-22116a89d4bb", "ace5218a-9ac7-4788-8d1b-22116a89d4bb" });
+                values: new object[] { "da719410-a66a-4953-a1be-35a7efe6b7e1", "da719410-a66a-4953-a1be-35a7efe6b7e1" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",
@@ -612,7 +650,13 @@ namespace AppEcommerce.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Contato");
+
+            migrationBuilder.DropTable(
                 name: "Imagens");
+
+            migrationBuilder.DropTable(
+                name: "ImagensSite");
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");

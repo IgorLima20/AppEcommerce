@@ -26,6 +26,7 @@ namespace AppEcommerce.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Imagem> Imagens { get; set; }
+        public DbSet<ImagemSite> ImagensSite { get; set; }
         public DbSet<Contato> Contatos { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

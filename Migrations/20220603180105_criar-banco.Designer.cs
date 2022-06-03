@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220601222900_criar-banco")]
+    [Migration("20220603180105_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,6 +75,37 @@ namespace AppEcommerce.Migrations
                             Imagem = "\\img\\categorias\\006.png",
                             Nome = "Conectividade"
                         });
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.Contato", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Assunto")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasMaxLength(600)
+                        .HasColumnType("varchar(600)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contato");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Endereco", b =>
@@ -151,6 +182,26 @@ namespace AppEcommerce.Migrations
                     b.HasIndex("IdProduto");
 
                     b.ToTable("Imagens");
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.ImagemSite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Carrosel")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Secundaria")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ImagensSite");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Marca", b =>
@@ -543,18 +594,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
+                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4761a36a-8b0a-4c31-81fe-fd2e81dd4522",
+                            ConcurrencyStamp = "fba32819-e480-4eb8-b4ee-d81d0ade75ce",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKOUYInMk/IEUJee+bx4dmOKrXG/Nq5R/kSx2/M9t83NAI1wUjspte8TBko/3mX0tA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKpHT3diRoOl/wEEqmK+pm37lO3GhFilnbjCBi3vM9hgkRMDKql4q+1qjI57yImXVQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55725192",
+                            SecurityStamp = "60482217",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -588,22 +639,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
-                            ConcurrencyStamp = "2b81f948-7ccc-4ee3-a374-d23c878ab7fe",
+                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
+                            ConcurrencyStamp = "1cc62182-4de3-4122-b39d-880cff92a090",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "9d542f4d-9c19-4fb9-be12-47880e76e346",
-                            ConcurrencyStamp = "4307930a-153f-4d43-8447-3ae379369f5c",
+                            Id = "0b22f597-0cea-43ee-8c0f-16ad6094cf5f",
+                            ConcurrencyStamp = "790bc68d-c0d0-45a4-99ae-c475bb617fc3",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "151f6288-5a24-4dc5-98a1-6b67e2c970f5",
-                            ConcurrencyStamp = "f8019cb6-82e3-40d3-870a-07af246a920a",
+                            Id = "e7f97be3-000a-45cd-9800-5c6205dd35ff",
+                            ConcurrencyStamp = "b7f9937b-a55e-46cc-8225-31b265fc188a",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -694,8 +745,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "ace5218a-9ac7-4788-8d1b-22116a89d4bb",
-                            RoleId = "ace5218a-9ac7-4788-8d1b-22116a89d4bb"
+                            UserId = "da719410-a66a-4953-a1be-35a7efe6b7e1",
+                            RoleId = "da719410-a66a-4953-a1be-35a7efe6b7e1"
                         });
                 });
 
