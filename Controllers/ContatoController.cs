@@ -142,7 +142,8 @@ namespace AppEcommerce.Controllers
             var contato = await _context.Contatos.FindAsync(id);
             _context.Contatos.Remove(contato);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.Concluido = "OK";
+            return View(contato);
         }
 
         private bool ContatoExists(int id)

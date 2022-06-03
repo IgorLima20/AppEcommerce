@@ -12,7 +12,7 @@
     <div class="row px-xl-5">
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
-                <form asp-action="ContatoCadastrado">
+                <form asp-action="Contato" id="contatoFormulario">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="control-group">
                         <input asp-for="Nome" type="text" class="form-control" placeholder="Nome"/>
@@ -56,3 +56,42 @@
     </div>
 </div>
 <!-- Contact End -->
+
+
+@section Scripts {
+<script type="text/javascript">
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK')
+    {
+        Swal.fire({
+            icon: "success",
+            title: "Mensagem Enviada com Sucesso!!",
+            type: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '@Url.Action("Index", "Home")';
+        }
+    })
+    }
+    if (ok == 'ERRO')
+    {
+        Swal.fire({
+            icon: "error",
+            title: "Erro ao Enviar Mensagem!!",
+            type: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '@Url.Action("Contato", "Home")';
+        }
+    })
+    }
+</script>
+}

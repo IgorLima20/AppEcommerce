@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AppEcommerce.Models;
 using AppEcommerce.Data;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
+using AppEcommerce.Models;
 
 namespace AppEcommerce.Controllers
 {
@@ -30,6 +30,7 @@ namespace AppEcommerce.Controllers
         {
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.Take(12);
+            ViewData["Produtos"] = _contexto.Produtos.Include(c => c.Categoria).Take(12).ToList();
             var produtos = _contexto.Produtos.Where(e => e.ExibirHome).OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }
@@ -182,19 +183,30 @@ namespace AppEcommerce.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ContatoCadastrado(Contato form)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contato(Contato contato)
         {
-            if (ModelState.IsValid)
+           if (ModelState.IsValid)
             {
-                _contexto.Add(form);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction("Index");
+                _contexto.Add(contato);
+                if (await _contexto.SaveChangesAsync() > 0)
+                {
+                    ViewBag.Concluido = "OK";
+                    return View(contato);
+                }
+                else
+                {
+                    ViewBag.Concluido = "ERRO";
+                    return View(contato);
+                }
             }
             else
             {
-                return View(form);
+                return View(contato);
             }
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
