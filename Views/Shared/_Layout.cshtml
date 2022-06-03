@@ -91,7 +91,8 @@
               <div class="navbar-nav mr-auto py-0">
                 <a class="nav-item nav-link" asp-action="Index" asp-controller="Home">Home</a>
                 @* @await Component.InvokeAsync("CategoryHome") *@
-
+                <a asp-action="Filtro" asp-controller="Home" class="nav-item nav-link">Produtos</a>
+                <a asp-action="Contato" asp-controller="Home" class="nav-item nav-link">Categorias</a>
                 <a asp-action="Contato" asp-controller="Home" class="nav-item nav-link">Contato</a>
               </div>
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">

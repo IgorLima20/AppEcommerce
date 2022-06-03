@@ -146,21 +146,43 @@ namespace AppEcommerce.Controllers
                 }
                 else
                 {
-                    switch (sortOrder)
+                    if (Id > 0 )
                     {
-                        case "maior":
-                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
-                            break;
-                        case "menor":
-                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
-                            break;
-                        case "todos":
-                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
-                            break;
-                        default:
-                            prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
-                            break;
+                        switch (sortOrder)
+                        {
+                            case "maior":
+                                prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderByDescending(m => m.Valor);
+                                break;
+                            case "menor":
+                                prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria).OrderBy(m => m.Valor);
+                                break;
+                            case "todos":
+                                prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                                break;
+                            default:
+                                prod = prod.Where(c => c.IdCategoria == Id).Include(i => i.Categoria);
+                                break;
+                        }
                     }
+                    else
+                    {
+                         switch (sortOrder)
+                        {
+                            case "maior":
+                                prod = prod.Include(i => i.Categoria).OrderByDescending(m => m.Valor);
+                                break;
+                            case "menor":
+                                prod = prod.Include(i => i.Categoria).OrderBy(m => m.Valor);
+                                break;
+                            case "todos":
+                                prod = prod.Include(i => i.Categoria);
+                                break;
+                            default:
+                                prod = prod.Include(i => i.Categoria);
+                                break;
+                        }
+                    }
+                   
                 }
 
                 ViewData["Marcas"] = prod.Where(c => c.IdCategoria == Id).Include(m => m.Marca).Select(i => i.Marca).Distinct();
@@ -208,6 +230,8 @@ namespace AppEcommerce.Controllers
                 return View(contato);
             }
         }
+
+        
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
