@@ -17,7 +17,7 @@ namespace AppEcommerce.Components
 
         public IViewComponentResult Invoke()
         {
-            var categorias = _contexto.Categorias.OrderBy(p => p.Nome);
+            var categorias = _contexto.Categorias.OrderBy(p => p.Nome).Take(12);
             return View(categorias);
         }
 

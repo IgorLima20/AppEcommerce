@@ -31,8 +31,8 @@ namespace AppEcommerce.Controllers
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.Take(12);
             ViewData["Produtos"] = _contexto.Produtos.Include(c => c.Categoria).Take(12).ToList();
-            ViewData["ImagensCarrosel"] = _contexto.ImagensSite.Where(i => i.Carrosel).OrderBy(p => p.Id).ToList();
-            ViewData["ImagenSenc"] = _contexto.ImagensSite.Where(i => i.Secundaria).OrderBy(p => p.Id).Take(2).ToList();
+            ViewData["ImagensCarrosel"] = _contexto.ImagensSite.Where(i => i.Carrosel).OrderBy(p => p.Ordem).ToList();
+            ViewData["ImagenSenc"] = _contexto.ImagensSite.Where(i => i.Secundaria).OrderBy(p => p.Ordem).Take(2).ToList();
             var produtos = _contexto.Produtos.Where(e => e.ExibirHome).OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }
@@ -231,7 +231,12 @@ namespace AppEcommerce.Controllers
             }
         }
 
-        
+        public async Task<IActionResult> Category(int? pagina, string searchString, int? pageNumber)
+        {
+            var categoria = _contexto.Categorias.OrderBy(p => p.Id);
+            int pageSize = 9;
+            return View(await PaginatedList<Categoria>.CreateAsync(categoria.AsNoTracking(), pageNumber ?? 1, pageSize));
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

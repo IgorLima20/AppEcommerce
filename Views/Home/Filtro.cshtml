@@ -220,25 +220,13 @@
                         </div>
                     </div>
                 }
-                @* <div class="row">
-                    <div class="col-md-8">
-
-                    </div>
-                    <div class="col-md-4">
-                    <span class="pull-right">
-                    Listando registros de @Model.FirstItemOnPage a @Model.LastItemOnPage de um Total de
-                    @Model.TotalItemCount
-                    </span>
-                    </div>
-                    </div> *@
-
-
+        
                 @{
                     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
                     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
 
-                @if (@Model.Count >= 9)
+                @if (@Model.Count > 9 || Model.TotalPages > 1)
                 {
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
@@ -247,9 +235,17 @@
                                 asp-route-pageNumber="@(Model.PageIndex - 1)"
                                 asp-route-currentFilter="@ViewData["CurrentFilter"]">Anterior</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                @if (i == Model.PageIndex)
+                                {
+                                    <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link" asp-action="Filtro" asp-route-pageNumber="@i">@i</a></li>
+                                }
+                            }
                             <li class="page-item @nextDisabled">
                                 <a class="page-link" asp-action="Filtro" asp-route-sortOrder="@ViewData["CurrentSort"]"
                                 asp-route-pageNumber="@(Model.PageIndex + 1)"
@@ -285,27 +281,8 @@
 
 @section Scripts{
 <script>
-    // Workaround to fix style of text for showing items .. through ..
-    // Problem related to Boostrap 4 according to issue in link below
-    // https://github.com/dncuug/X.PagedList/issues/127
     $(document).ready(function () {
         $('ul.pagination > li.disabled > a').addClass('page-link');
     });
 </script>
 }
-
-@* string sortOrder, string currentFilter, string searchString, int? pageNumber
-
-    ViewData["CurrentSort"] = sortOrder;
-    ViewData["Categorias"] = _contexto.Categorias.ToList();
-    if (searchString != null)
-    {
-    pageNumber = 1;
-    }
-    else
-    {
-    searchString = currentFilter;
-    }
-
-    int pageSize = 9;
-    return View(await PaginatedList<Produto>.CreateAsync(filtro.AsNoTracking(), pageNumber ?? 1, pageSize)); *@

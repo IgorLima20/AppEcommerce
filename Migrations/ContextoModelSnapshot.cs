@@ -194,6 +194,9 @@ namespace AppEcommerce.Migrations
                     b.Property<string>("Img")
                         .HasColumnType("longtext");
 
+                    b.Property<uint>("Ordem")
+                        .HasColumnType("int unsigned");
+
                     b.Property<bool>("Secundaria")
                         .HasColumnType("tinyint(1)");
 
@@ -592,18 +595,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
+                            Id = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fba32819-e480-4eb8-b4ee-d81d0ade75ce",
+                            ConcurrencyStamp = "e30220be-95a2-4495-89cf-f27539fe4d25",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKpHT3diRoOl/wEEqmK+pm37lO3GhFilnbjCBi3vM9hgkRMDKql4q+1qjI57yImXVQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEaDkkKLorYUneBvY0xqWPUaeTz8B1FG+BLOfvSR+ymsnRn/Zc8QNDCXALJa1s6ChQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "60482217",
+                            SecurityStamp = "7469042",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -637,22 +640,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "da719410-a66a-4953-a1be-35a7efe6b7e1",
-                            ConcurrencyStamp = "1cc62182-4de3-4122-b39d-880cff92a090",
+                            Id = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
+                            ConcurrencyStamp = "4ad37f3d-e794-43f4-aa79-19f501d1cf0b",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "0b22f597-0cea-43ee-8c0f-16ad6094cf5f",
-                            ConcurrencyStamp = "790bc68d-c0d0-45a4-99ae-c475bb617fc3",
+                            Id = "3e376325-cae1-4371-bd7c-508b4ee03c41",
+                            ConcurrencyStamp = "2be9dfce-e0ba-4702-844d-115c24c0e517",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "e7f97be3-000a-45cd-9800-5c6205dd35ff",
-                            ConcurrencyStamp = "b7f9937b-a55e-46cc-8225-31b265fc188a",
+                            Id = "5707e1dc-2cc4-4e49-9547-e2ed0c90ea78",
+                            ConcurrencyStamp = "31980db3-540f-49c7-964e-d9a738db5707",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -743,8 +746,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "da719410-a66a-4953-a1be-35a7efe6b7e1",
-                            RoleId = "da719410-a66a-4953-a1be-35a7efe6b7e1"
+                            UserId = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
+                            RoleId = "25470220-cb82-4592-9ebb-f1a7f62a3b13"
                         });
                 });
 

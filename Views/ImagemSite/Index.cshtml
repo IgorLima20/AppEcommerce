@@ -16,10 +16,13 @@
             </div>
             </p>
             <div class="table-responsive">
-                <table class="table table-striped" style="width:100%">
+                <table class="table table-striped" id="table-produto" style="width:100%">
                     <thead>
                         <tr>
                             <th> Imagem </th>
+                            <th> Ordem da Imagem</th>
+                            <th> Carrosel </th>
+                            <th> Secundária </th>
                             <th> Ações </th>
                         </tr>
                     </thead>
@@ -27,8 +30,38 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td style="width:80%">
-                                    <img src="@item.Img" asp-append-version="true">
+                                <td style="width:50%">
+                                    <img src="@item.Img">
+                                </td>
+                                <td style="width:10%">
+                                    @if (@item.Ordem != 0)
+                                    {
+                                        @item.Ordem
+                                    }
+                                    else 
+                                    {
+
+                                    }
+                                </td>
+                                <td style="width:10%">
+                                    @if (@item.Carrosel == true)
+                                    {
+                                        <b>@item.Carrosel</b>
+                                    }
+                                    else
+                                    {
+                                        @item.Carrosel 
+                                    }
+                                </td>
+                                <td style="width:10%">
+                                    @if (@item.Secundaria == true)
+                                    {
+                                        <b>@item.Secundaria</b>
+                                    }
+                                    else 
+                                    {
+                                        @item.Secundaria
+                                    }
                                 </td>
                                 <td style="width:20%">
                                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
