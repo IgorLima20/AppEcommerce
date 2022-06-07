@@ -94,16 +94,16 @@
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
             class="bg-secondary pr-3">Categories</span></h2>
     <div class="row px-xl-5 pb-3">
-        @foreach (var categoria in ViewBag.Produtos)
+        @foreach (var categoria in ViewBag.Categorias)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" asp-action="Filtro" asp-route-id="@categoria.Id">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="@categoria.Categoria.Imagem" alt="">
+                            <img class="img-fluid" src="@categoria.Imagem" alt="">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>@categoria.Categoria.Nome</h6>
+                            <h6>@categoria.Nome</h6>
                             <small class="text-body">10 Produtos</small>
                         </div>
                     </div>

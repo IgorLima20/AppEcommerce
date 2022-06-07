@@ -102,3 +102,6 @@
     
 })(jQuery);
 
+$('.close').click(function () {
+    $('.alert').hide('hide');
+});
