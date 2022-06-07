@@ -55,6 +55,7 @@ namespace AppEcommerce.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Ordem = table.Column<uint>(type: "int unsigned", nullable: false),
                     Img = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Carrosel = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -534,15 +535,15 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "da719410-a66a-4953-a1be-35a7efe6b7e1", "1cc62182-4de3-4122-b39d-880cff92a090", "Administrador", "ADMINISTRADOR" },
-                    { "0b22f597-0cea-43ee-8c0f-16ad6094cf5f", "790bc68d-c0d0-45a4-99ae-c475bb617fc3", "Moderador", "MODERADOR" },
-                    { "e7f97be3-000a-45cd-9800-5c6205dd35ff", "b7f9937b-a55e-46cc-8225-31b265fc188a", "Usuario", "USUARIO" }
+                    { "61839451-5109-41cd-9eb0-cde30a171126", "1bd9d130-b64a-44c9-aed1-f53d1658783d", "Administrador", "ADMINISTRADOR" },
+                    { "580fbc3f-f37b-4171-8a83-6d8f885089b5", "2f6af4ef-5821-447d-83a4-30e3418e28a7", "Moderador", "MODERADOR" },
+                    { "e1266175-b075-4daa-ab2d-69f89782da73", "54a9d830-16d5-4339-a487-63af971bcdb0", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "da719410-a66a-4953-a1be-35a7efe6b7e1", 0, "fba32819-e480-4eb8-b4ee-d81d0ade75ce", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKpHT3diRoOl/wEEqmK+pm37lO3GhFilnbjCBi3vM9hgkRMDKql4q+1qjI57yImXVQ==", null, false, "60482217", false, "Admin" });
+                values: new object[] { "61839451-5109-41cd-9eb0-cde30a171126", 0, "30b03973-0a5f-4abd-9009-a5c29f7f7fe9", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKVlZYVe9HeplzPnfroa6RLKh/GYUNRQXwMO978dEzbnD4x4tEdCS3iL0sm9z6ooTg==", null, false, "60482217", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
@@ -562,7 +563,7 @@ namespace AppEcommerce.Migrations
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "da719410-a66a-4953-a1be-35a7efe6b7e1", "da719410-a66a-4953-a1be-35a7efe6b7e1" });
+                values: new object[] { "61839451-5109-41cd-9eb0-cde30a171126", "61839451-5109-41cd-9eb0-cde30a171126" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",

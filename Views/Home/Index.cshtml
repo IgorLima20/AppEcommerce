@@ -4,6 +4,8 @@
     bool First = true;
     bool One = true;
     int rota = 3;
+    string texto = "Periféricos";
+    string segundo = "Periféricos";
 }
 
 <div class="container-fluid mb-3">
@@ -42,10 +44,13 @@
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="@item.Img" alt="">
                     <div class="offer-text">
-                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" asp-action="Filtro" asp-controller="Home" asp-route-id="@(rota)">Confira
+                        <h3 class="text-white mb-3">@(texto)</h3>
+                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                        asp-action="Filtro" asp-controller="Home" asp-route-id="@(rota)">Confira
                             Aqui</a>
                     </div>
                 </div>
+                texto = "Monitores";
                 rota = 1;
             }
         </div>
@@ -89,17 +94,17 @@
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
             class="bg-secondary pr-3">Categories</span></h2>
     <div class="row px-xl-5 pb-3">
-        @foreach (var categoria in ViewBag.Categorias)
+        @foreach (var categoria in ViewBag.Produtos)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" asp-action="Filtro" asp-route-id="@categoria.Id">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="@categoria.Imagem" alt="">
+                            <img class="img-fluid" src="@categoria.Categoria.Imagem" alt="">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>@categoria.Nome</h6>
-                            <small class="text-body"></small>
+                            <h6>@categoria.Categoria.Nome</h6>
+                            <small class="text-body">10 Produtos</small>
                         </div>
                     </div>
                 </a>
@@ -211,12 +216,15 @@
                 <div class="product-offer mb-30" style="height: 300px;">
                     <img class="img-fluid" src="@item.Img" alt="">
                     <div class="offer-text">
-                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" asp-action="Filtro" asp-controller="Home" asp-route-id="@(primeiro)">Confira
+                        <h3 class="text-white mb-3">@(segundo)</h3>
+                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                        asp-action="Filtro" asp-controller="Home" asp-route-id="@(rota)">Confira
                             Aqui</a>
                     </div>
                 </div>
             </div>
-            primeiro = 1;
+            rota = 1;
+            segundo = "Monitores";
         }
     </div>
 </div>

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220606141459_criar-banco2")]
-    partial class criarbanco2
+    [Migration("20220607000725_criar-banco")]
+    partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -597,18 +597,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
+                            Id = "61839451-5109-41cd-9eb0-cde30a171126",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e30220be-95a2-4495-89cf-f27539fe4d25",
+                            ConcurrencyStamp = "30b03973-0a5f-4abd-9009-a5c29f7f7fe9",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEaDkkKLorYUneBvY0xqWPUaeTz8B1FG+BLOfvSR+ymsnRn/Zc8QNDCXALJa1s6ChQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKVlZYVe9HeplzPnfroa6RLKh/GYUNRQXwMO978dEzbnD4x4tEdCS3iL0sm9z6ooTg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7469042",
+                            SecurityStamp = "60482217",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -642,22 +642,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
-                            ConcurrencyStamp = "4ad37f3d-e794-43f4-aa79-19f501d1cf0b",
+                            Id = "61839451-5109-41cd-9eb0-cde30a171126",
+                            ConcurrencyStamp = "1bd9d130-b64a-44c9-aed1-f53d1658783d",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "3e376325-cae1-4371-bd7c-508b4ee03c41",
-                            ConcurrencyStamp = "2be9dfce-e0ba-4702-844d-115c24c0e517",
+                            Id = "580fbc3f-f37b-4171-8a83-6d8f885089b5",
+                            ConcurrencyStamp = "2f6af4ef-5821-447d-83a4-30e3418e28a7",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "5707e1dc-2cc4-4e49-9547-e2ed0c90ea78",
-                            ConcurrencyStamp = "31980db3-540f-49c7-964e-d9a738db5707",
+                            Id = "e1266175-b075-4daa-ab2d-69f89782da73",
+                            ConcurrencyStamp = "54a9d830-16d5-4339-a487-63af971bcdb0",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -748,8 +748,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "25470220-cb82-4592-9ebb-f1a7f62a3b13",
-                            RoleId = "25470220-cb82-4592-9ebb-f1a7f62a3b13"
+                            UserId = "61839451-5109-41cd-9eb0-cde30a171126",
+                            RoleId = "61839451-5109-41cd-9eb0-cde30a171126"
                         });
                 });
 
