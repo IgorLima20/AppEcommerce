@@ -1,0 +1,41 @@
+@model AppEcommerce.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Alterar Usuário</h4>
+                <p class="card-description"> Informe as alterações para edição </p>
+                <form class="forms-sample" asp-action="Edit" method="post">
+                    <div class="form-group">
+                        <label class="control-label">Nome do Usuário</label>
+                        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome..." disabled/>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Usuário</label>
+                        <input type="text" asp-for="use" class="form-control" placeholder="Usuário..." disabled/>
+                        <span asp-validation-for="use" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">E-mail</label>
+                        <input type="email" asp-for="Email" class="form-control" placeholder="E-mail..." disabled/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Perfis</label>
+                        <select asp-for="Perfil" class="form-control" asp-items="ViewBag.Perfis" disabled></select>
+                        <span asp-validation-for="Perfil" class="text-danger"></span>
+                    </div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Editar</a>
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

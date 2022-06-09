@@ -15,6 +15,10 @@ namespace AppEcommerce.Models
         [StringLength(100)]
         public string NomeCompleto { get; set; }
 
+        [NotMapped]
+        [Display(Name = "Perfil")]
+        public string Perfis { get; set; }
+
         public DateTime DataCadastro { get; } = DateTime.Now;
     }
 }

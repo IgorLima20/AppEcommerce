@@ -42,6 +42,7 @@ namespace AppEcommerce
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
 
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddHttpContextAccessor();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
@@ -62,10 +63,10 @@ namespace AppEcommerce
             services.Configure<IdentityOptions>(options =>
             {
                 // Default Password setting
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 0;
                 options.Password.RequiredLength = 6;
             });

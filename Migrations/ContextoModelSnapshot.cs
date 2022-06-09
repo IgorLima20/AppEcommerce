@@ -402,7 +402,7 @@ namespace AppEcommerce.Migrations
                             Id = 1,
                             Descricao = "A Placa Gráfica Nvidia Quadro P400 combina a mais recente arquitetura NVIDIA Quadro Pascal GPU com 2GB de ultra-rápido de memória on-board para entregar ótimo desempenho para uma gama de aplicações profissionais. Um fator de forma de baixo perfil e slot único torna-o compatível até com o chassi com mais espaço e com menor consumo de energia. O suporte para três monitores 4K (4096 x 2160 a 60Hz) com cores HDR oferece um amplo espaço de trabalho visual para visualizar seu trabalho em resolução extremamente alta.",
                             Estoque = 8u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\1.jpg",
@@ -415,7 +415,7 @@ namespace AppEcommerce.Migrations
                             Id = 2,
                             Descricao = "O novíssimo GALAX Serious Gaming Edition está equipado com 1-Clip Booster, que pode ser instalado na placa traseira e é a precisão e qualidade que ganham. Quando o ventilador está na parte de trás, a placa de circuito impresso é na verdade muito mais curta do que o cooler e a chave é permitir que o ar flua o mais facilmente possível, portanto, o GALAX construiu orifícios maiores que permitem que o ar flua para cumprir o primeiro requisito. Além disso, a vantagem de adicionar uma ventoinha na placa traseira, o design da ventoinha auxiliar de 1 clipe suga o ar em vez de soprar o ar para dentro, criando efeitos de resfriamento push-pull tecnicamente corretos. Quando esta ventoinha adicional é usada, ela pode obter um melhor desempenho como se uma GPU funcionasse com uma placa traseira normal.",
                             Estoque = 10u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\2.jpg",
@@ -428,7 +428,7 @@ namespace AppEcommerce.Migrations
                             Id = 3,
                             Descricao = "O G403 HERO tem a versatilidade e o desempenho para atender todos os tipos de jogos e jogadores. Um mouse gamer leve, ergonômico e totalmente projetado para oferecer a precisão que você exige para jogar em alto nível, agora com o SENSOR HERO 25K de última geração.",
                             Estoque = 16u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\3.jpg",
@@ -441,7 +441,7 @@ namespace AppEcommerce.Migrations
                             Id = 4,
                             Descricao = "xperimente chamadas de voz, Skype, webinars e muito mais com clareza usando uma conexão USB plug-and-play simples com o headset H390. O microfone rígido do lado esquerdo pode ser colocado na posição mais adequada para capturar melhor sua voz e é móvel podendo ser recolhido para não atrapalhar quando não estiver sendo usado. Os controles integrados no fio do headset permitem controlar o volume ou colocar chamadas em silêncio com facilidade. O arco de cabeça ajustável com fones acolchoados giratórios de couro sintético oferece horas de conforto. E também é fácil de limpar.",
                             Estoque = 20u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\4.jpg",
@@ -454,7 +454,7 @@ namespace AppEcommerce.Migrations
                             Id = 5,
                             Descricao = "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição. A tecnologia sem fio LIGHTSPEED oferece desempenho super rápido de 1ms. Com incrível eficiência de energia, o G305 permanece ligado e pronto para jogar por até 250 horas com uma única pilha AA inclusa.",
                             Estoque = 1u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 3,
                             IdMarca = 2,
                             ImagemPrincipal = "\\img\\produtos\\5.jpg",
@@ -467,7 +467,7 @@ namespace AppEcommerce.Migrations
                             Id = 6,
                             Descricao = "Potência e desempenho em uma Solução Compacta. A NVIDIA T1000, desenvolvida com base na arquitetura de GPU NVIDIA Turing, é uma solução poderosa e discreta que oferece excelentes recursos e desempenho exigidos por intensos aplicativos profissionais em uma placa gráfica de formato compacto. Com 896 CUDA Cores e 4 GB de memória GDDR6, a T1000 permite que os profissionais lidem com vários fluxos de trabalho, desde a modelagem 3D até a edição de vídeo.",
                             Estoque = 0u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 1,
                             IdMarca = 1,
                             ImagemPrincipal = "\\img\\produtos\\6.jpg",
@@ -480,7 +480,7 @@ namespace AppEcommerce.Migrations
                             Id = 7,
                             Descricao = "O Smartphone Moto E7 conta com sensor de câmera de 48MP que deixam as fotos sempre claras e nítidas, em qualquer iluminação. A tecnologia que o acompanha, Quad Pixel, proporciona 4 vezes mais sensibilidade a luz, para que os resultados fiquem ótimos em qualquer ambiente.",
                             Estoque = 20u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 2,
                             IdMarca = 3,
                             ImagemPrincipal = "\\img\\produtos\\7.jpg",
@@ -493,7 +493,7 @@ namespace AppEcommerce.Migrations
                             Id = 8,
                             Descricao = "Com recursos de ponta como TR-069 e interface web amigável que possibilita a criação de uma firmware personalizável, o DIR-842 é perfeito para provedores de internet que desejam implementar uma solução Wi-Fi de alta qualidade com a possibilidade de personalizar diversos dispositivos ao mesmo tempo. ",
                             Estoque = 10u,
-                            ExibirHome = false,
+                            ExibirHome = true,
                             IdCategoria = 6,
                             IdMarca = 4,
                             ImagemPrincipal = "\\img\\produtos\\8.jpg",
@@ -595,16 +595,16 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "61839451-5109-41cd-9eb0-cde30a171126",
+                            Id = "d438ac53-b178-4460-bd78-e3bf7db03f47",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "30b03973-0a5f-4abd-9009-a5c29f7f7fe9",
+                            ConcurrencyStamp = "094d0361-bbc9-41e6-b626-6a351852dc14",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKVlZYVe9HeplzPnfroa6RLKh/GYUNRQXwMO978dEzbnD4x4tEdCS3iL0sm9z6ooTg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBBZlh7zSSlIa59sLqfgjSNLlmyxOYaiHtWzDEuTaZGxwbOX3SpPjlwrWL/bR7TuVg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "60482217",
                             TwoFactorEnabled = false,
@@ -640,22 +640,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "61839451-5109-41cd-9eb0-cde30a171126",
-                            ConcurrencyStamp = "1bd9d130-b64a-44c9-aed1-f53d1658783d",
+                            Id = "d438ac53-b178-4460-bd78-e3bf7db03f47",
+                            ConcurrencyStamp = "74942def-105e-438b-92a2-716d649ce04f",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "580fbc3f-f37b-4171-8a83-6d8f885089b5",
-                            ConcurrencyStamp = "2f6af4ef-5821-447d-83a4-30e3418e28a7",
+                            Id = "08d9dee5-c338-4cf7-ba9a-cbf81ac1c5e0",
+                            ConcurrencyStamp = "070f3b83-7c56-404b-8602-358770916674",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "e1266175-b075-4daa-ab2d-69f89782da73",
-                            ConcurrencyStamp = "54a9d830-16d5-4339-a487-63af971bcdb0",
+                            Id = "0f31ce60-0ef7-444d-8d50-cc0c31050fb8",
+                            ConcurrencyStamp = "32611717-d588-4eec-a63d-98ea8f26e1e6",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -746,8 +746,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "61839451-5109-41cd-9eb0-cde30a171126",
-                            RoleId = "61839451-5109-41cd-9eb0-cde30a171126"
+                            UserId = "d438ac53-b178-4460-bd78-e3bf7db03f47",
+                            RoleId = "d438ac53-b178-4460-bd78-e3bf7db03f47"
                         });
                 });
 

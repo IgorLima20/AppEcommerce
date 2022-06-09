@@ -1,0 +1,65 @@
+﻿@model AppEcommerce.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Alterar Usuário</h4>
+                <p class="card-description"> Informe as alterações para edição </p>
+                <form class="forms-sample" asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label class="control-label">Nome do Usuário</label>
+                        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome..." />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Usuário</label>
+                        <input type="text" asp-for="use" class="form-control" placeholder="Usuário..." />
+                        <span asp-validation-for="use" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">E-mail</label>
+                        <input type="email" asp-for="Email" class="form-control" placeholder="E-mail..." />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Perfis</label>
+                        <select asp-for="Perfil" class="form-control" asp-items="ViewBag.Perfis"></select>
+                        <span asp-validation-for="Perfil" class="text-danger"></span>
+                    </div>
+                    <button type="submit" value="Salvar" class="btn btn-primary mr-2">Cadastrar</button>
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    let ok = '@Html.Raw(ViewBag.Concluido)';
+    if (ok == 'OK') {
+        Swal.fire({
+            icon: "success",
+            title: "Usuário Alterado com Sucesso!!",
+            type: "success",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            closeOnConfirm: true,
+            allowOutsideClick: false,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("Index", "Account")';
+            }
+        })
+    }
+</script>
+}
