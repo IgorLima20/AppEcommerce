@@ -10332,26 +10332,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\etec\\.nuget\\packages\\": {}
+    "C:\\Users\\devbe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
+      "projectUniqueName": "C:\\Users\\devbe\\AppEcommerce\\AppEcommerce.csproj",
       "projectName": "AppEcommerce",
-      "projectPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\AppEcommerce.csproj",
-      "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\etec\\Desktop\\AppEcommerce\\obj\\",
+      "projectPath": "C:\\Users\\devbe\\AppEcommerce\\AppEcommerce.csproj",
+      "packagesPath": "C:\\Users\\devbe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\devbe\\AppEcommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\etec\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\devbe\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10439,7 +10437,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

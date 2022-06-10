@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Connect Plus</title>
+  <title>Buy Sell Tecnologia</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="~/assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -344,8 +344,11 @@
           </li>
           <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu">
-              <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
-                <span class="menu-title">Log Out</span></a>
+              <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+              <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
+              asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+              </form>
+              <span class="menu-title">Sair</span></a>
             </div>
           </li>
         </ul>
