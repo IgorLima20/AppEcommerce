@@ -12,7 +12,17 @@
             </h5>
             <div asp-validation-summary="All" hidden></div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" placeholder=" " autofocus />
+                <input asp-for="Input.Nome" class="form-control" placeholder=" " autofocus />
+                <label asp-for="Input.Nome">Nome Completo</label>
+                <span asp-validation-for="Input.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.UserName" class="form-control" placeholder=" "/>
+                <label asp-for="Input.UserName">Username</label>
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" placeholder=" " />
                 <label asp-for="Input.Email">E-mail</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>

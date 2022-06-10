@@ -55,7 +55,7 @@ namespace AppEcommerce
             // services.AddScoped<IShoppingCart, ShoppingCart>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => options.LoginPath = "/Identity/Account/Login");
             services.AddIdentity<User, IdentityRole>(
-                options => options.SignIn.RequireConfirmedAccount = true
+                options => options.SignIn.RequireConfirmedAccount = false
             )
                 .AddEntityFrameworkStores<Contexto>()
                 .AddDefaultUI()

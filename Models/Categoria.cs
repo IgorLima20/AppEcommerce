@@ -24,5 +24,8 @@ namespace AppEcommerce.Models
 
         [NotMapped]
         public IFormFile ImagemFile { get; set; }
+
+        public ICollection<Produto> Produtos { get; set; }
+
     }
 }

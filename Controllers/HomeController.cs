@@ -29,8 +29,7 @@ namespace AppEcommerce.Controllers
         public IActionResult Index()
         {
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
-            ViewData["Categorias"] = _contexto.Categorias.Take(12);
-            ViewData["Produtos"] = _contexto.Produtos.Include(c => c.Categoria).Take(12).Distinct().ToList();
+            ViewData["Categorias"] = _contexto.Categorias.Include(c => c.Produtos).Take(12);
             ViewData["ImagensCarrosel"] = _contexto.ImagensSite.Where(i => i.Carrosel).OrderBy(p => p.Ordem).ToList();
             ViewData["ImagenSenc"] = _contexto.ImagensSite.Where(i => i.Secundaria).OrderBy(p => p.Ordem).Take(2).ToList();
             var produtos = _contexto.Produtos.Where(e => e.ExibirHome).OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
@@ -187,7 +186,7 @@ namespace AppEcommerce.Controllers
 
                 ViewData["Marcas"] = prod.Where(c => c.IdCategoria == Id).Include(m => m.Marca).Select(i => i.Marca).Distinct();
             }
-            int pageSize = 9;
+            int pageSize = 8;
             return View(await PaginatedList<Produto>.CreateAsync(prod.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
