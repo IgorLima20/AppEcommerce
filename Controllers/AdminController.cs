@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AppEcommerce.Data;
+using AppEcommerce.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -18,16 +20,21 @@ namespace AppEcommerce.Controllers
 
         private readonly Contexto _contexto;
 
-        public AdminController(ILogger<AdminController> logger, Contexto contexto)
+        private readonly UserManager<User> userManager;
+
+        public AdminController(ILogger<AdminController> logger, Contexto contexto, UserManager<User> user)
         {
+            userManager = user;
             _logger = logger;
             _contexto = contexto;
         }
 
         public IActionResult Index()
         {
-            ViewData["Categorias"] = _contexto.Categorias.Take(6);
-            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
+            ViewData["Marcas"] = _contexto.Marcas.ToList();
+            ViewData["User"] =  userManager.Users.ToList();
+            var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).ToList();
             return View(produtos);
         }
 

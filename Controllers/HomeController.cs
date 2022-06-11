@@ -9,6 +9,7 @@ using AppEcommerce.Data;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 using AppEcommerce.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AppEcommerce.Controllers
 {
@@ -18,10 +19,13 @@ namespace AppEcommerce.Controllers
 
         private readonly Contexto _contexto;
 
+        private readonly UserManager<User> userManager;
+
         // private ShoppingCart _shoppingCart;
 
-        public HomeController(ILogger<HomeController> logger, Contexto contexto)
+        public HomeController(ILogger<HomeController> logger, Contexto contexto, UserManager<User> user)
         {
+            userManager = user;
             _logger = logger;
             _contexto = contexto;
         }

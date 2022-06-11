@@ -21,11 +21,14 @@
   <link rel="stylesheet" href="~/assets/css/style.css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="~/assets/images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon/icone-32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="~/img/favicon/icone-96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon/icone-16.png">
   @* <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.css">
 
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> *@
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> *@
   <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
 
 </head>
@@ -35,60 +38,21 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" asp-controller="Admin" asp-action="Index"><img src="~/assets/images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" asp-controller="Admin" asp-action="Index"><img src="~/assets/images/logo-mini.svg"
-            alt="logo" /></a>
+        <a class="navbar-brand brand-logo menu-title " asp-controller="Admin" asp-action="Index">Buy Sell Tecnologia</a>
+        <a class="navbar-brand brand-logo-mini" asp-controller="Admin" asp-action="Index"><img
+            src="~/img/favicon/icone-16.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-menu"></span>
         </button>
-        <div class="search-field d-none d-xl-block">
-          <form class="d-flex align-items-center h-100" action="#">
-            <div class="input-group">
-              <div class="input-group-prepend bg-transparent">
-                <i class="input-group-text border-0 mdi mdi-magnify"></i>
-              </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
-            </div>
-          </form>
+        <div class="nav-profile-text">
+          <p class="mb-4 text-black ">
+            <partial name="_AdminPartial"></partial>
+          </p>
         </div>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item  dropdown d-none d-md-block">
-            <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false"> Reports </a>
-            <div class="dropdown-menu navbar-dropdown" aria-labelledby="reportDropdown">
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-file-pdf mr-2"></i>PDF </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-file-excel mr-2"></i>Excel </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-file-word mr-2"></i>doc </a>
-            </div>
-          </li>
-          <li class="nav-item  dropdown d-none d-md-block">
-            <a class="nav-link dropdown-toggle" id="projectDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false"> Projects </a>
-            <div class="dropdown-menu navbar-dropdown" aria-labelledby="projectDropdown">
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-eye-outline mr-2"></i>View Project </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-pencil-outline mr-2"></i>Edit Project </a>
-            </div>
-          </li>
           <li class="nav-item nav-language dropdown d-none d-md-block">
-            <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false">
-              <div class="nav-language-icon">
-                <i class="flag-icon flag-icon-us" title="us" id="us"></i>
-              </div>
-              <div class="nav-language-text">
-                <p class="mb-1 text-black">English</p>
-              </div>
-            </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
               <a class="dropdown-item" href="#">
                 <div class="nav-language-icon mr-2">
@@ -109,14 +73,13 @@
               </a>
             </div>
           </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false">
-              <div class="nav-profile-img">
-                <img src="~/assets/images/faces/face28.png" alt="image">
-              </div>
+          <li>
+          </li>
+          <li class="nav-item nav-profile">
+            <a class="nav-link ">
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">Henry Klein</p>
+                <p class="mb-1 text-black mdi mdi-calendar mr-1">@DateTime.Now.ToLongDateString() -
+                  @DateTime.Now.ToLongTimeString() </p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
@@ -156,98 +119,6 @@
                   <i class="mdi mdi-logout ml-1"></i>
                 </a>
               </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false">
-              <i class="mdi mdi-email-outline"></i>
-              <span class="count-symbol bg-success"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-              aria-labelledby="messageDropdown">
-              <h6 class="p-3 mb-0 bg-primary text-white py-4">Messages</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="~/assets/images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                  <p class="text-gray mb-0"> 1 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="~/assets/images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                  <p class="text-gray mb-0"> 15 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="~/assets/images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                  <p class="text-gray mb-0"> 18 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-              data-toggle="dropdown">
-              <i class="mdi mdi-bell-outline"></i>
-              <span class="count-symbol bg-danger"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-              aria-labelledby="notificationDropdown">
-              <h6 class="p-3 mb-0 bg-primary text-white py-4">Notifications</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="mdi mdi-calendar"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                  <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="mdi mdi-settings"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                  <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="mdi mdi-link-variant"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                  <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <h6 class="p-3 mb-0 text-center">See all notifications</h6>
             </div>
           </li>
         </ul>
@@ -302,53 +173,16 @@
               <span class="menu-title">Contatos</span>
             </a>
           </li>
-          <li class="nav-item documentation-link">
-            <a class="nav-link"
-              href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html"
-              target="_blank">
-              <span class="icon-bg">
-                <i class="mdi mdi-file-document-box menu-icon"></i>
-              </span>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+
           <li class="nav-item sidebar-user-actions">
-            <div class="user-details">
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <div class="d-flex align-items-center">
-                    <div class="sidebar-profile-img">
-                      <img src="~/assets/images/faces/face28.png" alt="image">
-                    </div>
-                    <div class="sidebar-profile-text">
-                      <p class="mb-1">Henry Klein</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="badge badge-danger">3</div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item sidebar-user-actions">
-            <div class="sidebar-user-menu">
-              <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
-                <span class="menu-title">Settings</span>
+            <div class="sidebar-user-menu user-details">
+              <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;"
+                class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                </form>
+                <span class="menu-title">Sair</span>
               </a>
-            </div>
-          </li>
-          <li class="nav-item sidebar-user-actions">
-            <div class="sidebar-user-menu">
-              <a href="#" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
-                <span class="menu-title">Take Tour</span></a>
-            </div>
-          </li>
-          <li class="nav-item sidebar-user-actions">
-            <div class="sidebar-user-menu">
-              <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
-              <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
-              asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-              </form>
-              <span class="menu-title">Sair</span></a>
             </div>
           </li>
         </ul>
@@ -394,9 +228,11 @@
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="~/assets/js/dashboard.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- End custom js for this page -->
   <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="~/assets/js/saudacao.js"></script>
 
   @RenderSectionAsync("Scripts", required : false)
 </body>
