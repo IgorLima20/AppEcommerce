@@ -1606,3 +1606,4 @@ C:\Users\devbe\AppEcommerce\obj\Debug\net5.0\AppEcommerce.RazorTargetAssemblyInf
 C:\Users\devbe\AppEcommerce\obj\Debug\net5.0\AppEcommerce.Views.pdb
 C:\Users\devbe\AppEcommerce\obj\Debug\net5.0\AppEcommerce.csproj.CopyComplete
 C:\Users\devbe\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfig.cache
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_AdminPartial.cshtml.g.cs

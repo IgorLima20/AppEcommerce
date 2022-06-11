@@ -2,6 +2,8 @@
 @inject SignInManager<AppEcommerce.Models.User> SignInManager
 @inject UserManager<AppEcommerce.Models.User> UserManager
 
-<p>
-    Olá @UserManager.GetUserAsync(User).Result.UserName
-</p>
+<div>
+    <h2 class="text-dark font-weight-bold mb-2 text-uppercase"><label class="titulo"></label> <b
+            class="text-dark font-weight-bold mb-2"> @UserManager.GetUserAsync(User).Result.UserName</b> !!</h2>
+
+</div>

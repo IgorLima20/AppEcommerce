@@ -17,7 +17,7 @@
 		}
 		if ($(".dashboard-progress-1-dark").length) {
 			$('.dashboard-progress-1-dark').circleProgress({
-				value: 0.70,
+				value: 0.90,
 				size: 125,
 				thickness: 7,
 				startAngle: 10,

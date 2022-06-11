@@ -19,11 +19,11 @@ namespace AppEcommerce.Models
         [StringLength(100)]
         public string Nome { get; set; }
 
-        [StringLength(200)]
-        public string Imagem { get; set; }
-
         [NotMapped]
         public IFormFile ImagemFile { get; set; }
+
+        [StringLength(200)]
+        public string Imagem { get; set; }
 
     }
 }

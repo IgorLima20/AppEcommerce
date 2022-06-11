@@ -38,19 +38,20 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo menu-title " asp-controller="Admin" asp-action="Index">Buy Sell Tecnologia</a>
+        <a class="navbar-brand brand-logo menu-title " asp-controller="Admin" asp-action="Index"><img
+            src="~/img/favicon/icone-96.png" alt="logo" /> Buy Sell</a>
         <a class="navbar-brand brand-logo-mini" asp-controller="Admin" asp-action="Index"><img
-            src="~/img/favicon/icone-16.png" alt="logo" /></a>
+            src="~/img/favicon/icone-96.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-menu"></span>
         </button>
-        <div class="nav-profile-text">
+        @* <div class="nav-profile-text">
           <p class="mb-4 text-black ">
-            <partial name="_AdminPartial"></partial>
+          <partial name="_AdminPartial"></partial>
           </p>
-        </div>
+          </div> *@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-language dropdown d-none d-md-block">
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
@@ -78,8 +79,8 @@
           <li class="nav-item nav-profile">
             <a class="nav-link ">
               <div class="nav-profile-text">
-                <p class="mb-1 text-black mdi mdi-calendar mr-1">@DateTime.Now.ToLongDateString() -
-                  @DateTime.Now.ToLongTimeString() </p>
+                <p class="mb-1 text-black mdi mdi-calendar mr-1">@DateTime.Now.ToLongDateString() - <label
+                    id="time"></label> </p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
@@ -170,7 +171,9 @@
           <li class="nav-item">
             <a class="nav-link" asp-action="Index" asp-controller="Contato">
               <span class="icon-bg"><i class="mdi mdi-message-processing menu-icon"></i></span>
+              
               <span class="menu-title">Contatos</span>
+              
             </a>
           </li>
 
@@ -194,17 +197,6 @@
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="footer-inner-wraper">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com
-                2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                  href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from
-                Bootstrapdash.com</span>
-            </div>
-          </div>
-        </footer>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

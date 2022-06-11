@@ -33,7 +33,8 @@ namespace AppEcommerce.Controllers
         {
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             ViewData["Marcas"] = _contexto.Marcas.ToList();
-            ViewData["User"] =  userManager.Users.ToList();
+            ViewData["Usuarios"] =  userManager.Users.ToList();
+            ViewData["User"] = userManager.GetUserAsync(User).Result.UserName;
             var produtos = _contexto.Produtos.OrderBy(p => p.Id).Include(c => c.Categoria).ToList();
             return View(produtos);
         }
