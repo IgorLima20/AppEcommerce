@@ -10005,7 +10005,8 @@ button.bg-dark:focus {
   font-style: italic !important; }
 
 .text-white, .navbar.navbar-primary .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-secondary .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-success .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-info .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-warning .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-danger .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-light .navbar-menu-wrapper .nav-profile-text p, .navbar.navbar-dark .navbar-menu-wrapper .nav-profile-text p {
-  color: #ffffff !important; }
+  color: #ffffff !important;
+}
 
 .text-primary {
   color: #0062ff !important; }
@@ -13117,7 +13118,7 @@ dl {
     -webkit-transition: width 0.25s ease;
     -moz-transition: width 0.25s ease;
     -ms-transition: width 0.25s ease;
-    color: #111111;
+    color: #181824;
     padding-left: 24px;
     padding-right: 24px;
     width: calc(100% - 258px);
@@ -14307,7 +14308,7 @@ dl {
       box-shadow: 5px 5px 10px black;
       width: 350px;
       outline: none;
-  
+
     }
   }
 

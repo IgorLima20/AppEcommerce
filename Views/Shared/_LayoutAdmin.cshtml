@@ -43,7 +43,7 @@
         <a class="navbar-brand brand-logo-mini" asp-controller="Admin" asp-action="Index"><img
             src="~/img/favicon/icone-96.png" alt="logo" /></a>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <div class="navbar-menu-wrapper d-flex align-items-stretch color-gray">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-menu"></span>
         </button>
@@ -171,14 +171,18 @@
           <li class="nav-item">
             <a class="nav-link" asp-action="Index" asp-controller="Contato">
               <span class="icon-bg"><i class="mdi mdi-message-processing menu-icon"></i></span>
-              
+
               <span class="menu-title">Contatos</span>
-              
+
             </a>
           </li>
 
           <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu user-details">
+              <a class="nav-link" asp-action="Index" asp-controller="Home"> <!-- link para voltar da area administrativa para a página home -->
+                <span class=""><i class="mdi mdi-home menu-icon"></i></span>
+                <span class="menu-title">Home</span>
+              </a>
               <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;"
                 class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
                 <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"

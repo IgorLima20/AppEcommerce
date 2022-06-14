@@ -12,6 +12,7 @@
             </span>
         </a>
         <div class="dropdown-content">
+            <a asp-controller="Admin" asp-action="Index">Área administrativa</a>  <!-- Link para area administrativa -->
             <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
             <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
             <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
