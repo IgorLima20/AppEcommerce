@@ -49,12 +49,13 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "Informe um Username!!")]
+            [Required(ErrorMessage = "Informe seu nome!!")]
             [Display(Name = "Username", Prompt = "Username")]
             public string Nome { get; set; }
 
 
             [Required(ErrorMessage = "Informe um Username!!")]
+            [StringLength(8)]
             [Display(Name = "Username", Prompt = "Username")]
             public string UserName { get; set; }
 
