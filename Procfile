@@ -1,1 +1,2 @@
-web cd $HOME/heroku_output && ./AppEcommerce
+export ASPNETCORE_URLS="http://+:$PORT"
+export IS_HEROKU=true
