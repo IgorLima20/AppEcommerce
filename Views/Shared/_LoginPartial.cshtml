@@ -4,7 +4,27 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="dropdown">
+    <div class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+            <i class="bi bi-person-circle text-primary" style="font-size: 20px"></i>
+            <span class="badge text-secondary border-secondary" style="padding-bottom: 2px; font-size: 14px">
+                Seja Bem-vindo <b class="text-primary">@UserManager.GetUserAsync(User).Result.UserName</b>
+            </span>
+        </a>
+        <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+            @if (User.IsInRole("Administrador"))
+            {
+                <a class="dropdown-item" asp-controller="Admin" asp-action="Index">Área administrativa</a>
+            }
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta" class="dropdown-item">Gerencie sua Conta</a>
+            <a class="dropdown-item" href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
+            <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
+            asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            </form>
+        </div>
+    </div>
+
+    @* <div class="dropdown">
         <a href="">
             <i class="bi bi-person-circle text-primary" style="font-size: 20px"></i>
             <span class="badge text-secondary border-secondary" style="padding-bottom: 2px; font-size: 14px">
@@ -12,14 +32,14 @@
             </span>
         </a>
         <div class="dropdown-content">
-            <a asp-controller="Admin" asp-action="Index">Área administrativa</a>  <!-- Link para area administrativa -->
-            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
+            <a asp-controller="Admin" asp-action="Index">Área administrativa</a> <!-- Link para area administrativa -->
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
             <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
             <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
             asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             </form>
         </div>
-    </div>
+    </div> *@
 }
 else
 {
@@ -34,32 +54,5 @@ else
         display: inline-flex;
         position: relative;
 
-    }
-
-    .dropdown-content {
-        border-radius: 5px;
-        padding: 5px;
-        margin-left: -143px;
-        display: none;
-        position: absolute;
-        width: 200px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        background-color: #ffffff;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .dropdown-content a {
-        display: block;
-        color: #000000;
-        padding: 5px;
-        text-decoration: none;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #d4d4d4;
     }
 </style>
