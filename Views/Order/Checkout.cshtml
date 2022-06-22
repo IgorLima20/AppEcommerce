@@ -5,17 +5,17 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Billing Address</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Endereço de cobrança</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label asp-for="FirstName">First Name</label>
-                            <input asp-for="FirstName" class="form-control" type="text" placeholder="John">
+                            <label asp-for="FirstName">Nome</label>
+                            <input asp-for="FirstName" class="form-control" type="text" placeholder="João">
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label asp-for="LastName">Last Name</label>
-                            <input  asp-for="LastName" class="form-control" type="text" placeholder="Doe">
+                            <label asp-for="LastName">Sobrenome</label>
+                            <input  asp-for="LastName" class="form-control" type="text" placeholder="Silva">
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
@@ -24,32 +24,32 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label asp-for="Phone">Mobile No</label>
-                            <input asp-for="Phone" class="form-control" type="text" placeholder="+123 456 789">
+                            <label asp-for="Phone">Telefone</label>
+                            <input asp-for="Phone" class="form-control" type="text" placeholder="+55 (14) 3343-5332">
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label asp-for="Address">Address</label>
-                            <input asp-for="Address" class="form-control" type="text" placeholder="123 Street">
+                            <label asp-for="Address">Endereço</label>
+                            <input asp-for="Address" class="form-control" type="text" placeholder="Rua Sebastião Antônio do Amaral 123">
                             <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label  asp-for="Country">Country</label>
+                            <label  asp-for="Country">País</label>
                             <select class="custom-select">
-                                <option selected>United States</option>
-                                <option>Afghanistan</option>
-                                <option>Albania</option>
-                                <option>Algeria</option>
+                                <option selected>Brasil</option>
+                                <option>Estados Unidos</option>
+                                <option>Espanha</option>
+                                <option>China</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label asp-for="City">City</label>
-                            <input asp-for="City" class="form-control" type="text" placeholder="New York">
+                            <label asp-for="City">Cidade</label>
+                            <input asp-for="City" class="form-control" type="text" placeholder="Bauru">
                             <span asp-validation-for="City" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label asp-for="State">State</label>
-                            <input asp-for="State" class="form-control" type="text" placeholder="New York">
+                            <label asp-for="State">Estado</label>
+                            <input asp-for="State" class="form-control" type="text" placeholder="São Paulo">
                             <span asp-validation-for="State" class="text-danger"></span>
                         </div>
                     </div>
@@ -108,10 +108,10 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Order Total</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Total de Produtos</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom">
-                        <h6 class="mb-3">Products</h6>
+                        <h6 class="mb-3">Produtos</h6>
                         <div class="d-flex justify-content-between">
                             <p>Product Name 1</p>
                             <p>$150</p>
@@ -167,7 +167,7 @@
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label asp-for="Address" class="col-md-2 control-label"></label>
             <div class="col-md-5">
