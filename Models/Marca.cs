@@ -15,14 +15,10 @@ namespace AppEcommerce.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Por favor, informe o Nome da Marca")]
+        [StringLength(100, ErrorMessage = "O Nome da Marca deve possuir no máximo 100 caracteres")]
         public string Nome { get; set; }
-
-        [NotMapped]
-        public IFormFile ImagemFile { get; set; }
-
-        [StringLength(200)]
+        
         public string Imagem { get; set; }
 
     }

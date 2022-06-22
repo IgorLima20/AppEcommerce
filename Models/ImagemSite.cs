@@ -13,7 +13,7 @@ namespace AppEcommerce.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor, informe a ordem que a Imagem será exibida")]
         public uint Ordem { get; set; }
 
         public string Img { get; set; }

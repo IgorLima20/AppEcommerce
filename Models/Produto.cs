@@ -15,40 +15,38 @@ namespace AppEcommerce.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(60)]
+        [Required(ErrorMessage = "Por favor, informe o Nome do Produto")]
+        [StringLength(100, ErrorMessage = "O Nome do Produto deve possuir no máximo 60 caracteres")]
         public string Nome { get; set; }
 
-        [StringLength(400)]
+        [Required(ErrorMessage = "Por favor, informe o Nome Descrição do Produto")]
+        [StringLength(400, ErrorMessage = "O Nome Descrição do Produto deve possuir no máximo 400 caracteres")]
         public string NomeDescricao { get; set; }
 
+        [Required(ErrorMessage = "Por favor, informe o Preço do Produto")]
         [Column(TypeName = "decimal(10, 2)")]
         public decimal Valor { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor, informe a quantidade em estoque do Produto")]
         public uint Estoque { get; set; }
        
-
-        [StringLength(800)]
+        [Required(ErrorMessage = "Por favor, informe a Descrição do Produto")]
+        [StringLength(800, ErrorMessage = "A Descrição do Produto deve possuir no máximo 800 caracteres")]
         public string Descricao { get; set; }
         
-
-        [Required]
+        [Required(ErrorMessage = "Por favor, informe a Categoria do Produto")]
         public int IdCategoria { get; set; }
 
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor, informe a Marca do Produto")]
         public int IdMarca { get; set; }
 
         [ForeignKey("IdMarca")]
         public Marca Marca { get; set; }
 
         public string ImagemPrincipal { get; set; }
-
-        [NotMapped]
-        public IFormFile ImagemFile { get; set; }
 
         public ICollection<Imagem> Imagem { get; set; } 
 

@@ -24,8 +24,7 @@ namespace AppEcommerce.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Imagem")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -72,6 +71,42 @@ namespace AppEcommerce.Migrations
                             Id = 6,
                             Imagem = "\\img\\categorias\\006.png",
                             Nome = "Conectividade"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Imagem = "\\img\\categorias\\007.png",
+                            Nome = "TV"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Imagem = "\\img\\categorias\\008.png",
+                            Nome = "Áudio"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Imagem = "\\img\\categorias\\009.png",
+                            Nome = "Segurança"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Imagem = "\\img\\categorias\\010.png",
+                            Nome = "Câmeras Digitais"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Imagem = "\\img\\categorias\\011.png",
+                            Nome = "Serviços Digitais e Softwares"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Imagem = "\\img\\categorias\\012.png",
+                            Nome = "Automotivo"
                         });
                 });
 
@@ -83,18 +118,21 @@ namespace AppEcommerce.Migrations
 
                     b.Property<string>("Assunto")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<DateTimeOffset>("DataEnviada")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(160)
+                        .HasColumnType("varchar(160)");
+
                     b.Property<string>("Mensagem")
                         .IsRequired()
-                        .HasMaxLength(600)
-                        .HasColumnType("varchar(600)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -173,6 +211,7 @@ namespace AppEcommerce.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Img")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("IdImagem");
@@ -203,6 +242,40 @@ namespace AppEcommerce.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ImagensSite");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Carrosel = true,
+                            Img = "\\img\\carrosel\\01.jpg",
+                            Ordem = 1u,
+                            Secundaria = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Carrosel = true,
+                            Img = "\\img\\carrosel\\02.jpg",
+                            Ordem = 2u,
+                            Secundaria = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Carrosel = false,
+                            Img = "\\img\\carrosel\\04.png",
+                            Ordem = 2u,
+                            Secundaria = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Carrosel = false,
+                            Img = "\\img\\carrosel\\05.png",
+                            Ordem = 2u,
+                            Secundaria = true
+                        });
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Marca", b =>
@@ -212,8 +285,7 @@ namespace AppEcommerce.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Imagem")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -244,6 +316,26 @@ namespace AppEcommerce.Migrations
                         {
                             Id = 4,
                             Nome = "D-Link"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nome = "Asus"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nome = "Acer"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nome = "Razer"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nome = "Apple"
                         });
                 });
 
@@ -358,6 +450,7 @@ namespace AppEcommerce.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasMaxLength(800)
                         .HasColumnType("varchar(800)");
 
@@ -378,10 +471,11 @@ namespace AppEcommerce.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("NomeDescricao")
+                        .IsRequired()
                         .HasMaxLength(400)
                         .HasColumnType("varchar(400)");
 
@@ -500,6 +594,149 @@ namespace AppEcommerce.Migrations
                             Nome = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps",
                             NomeDescricao = "Roteador Wireless D-Link Gigabit-Ethernet AC 1200Mbps, Dual Band, 4 Antenas - DIR-842",
                             Valor = 164m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Descricao = "ROG Strix Go é um headset para jogos USB-C que suporta todas as suas plataformas de jogos favoritas - PC, Mac, telefones celulares, PlayStation 4 e Nintendo Switch. Equipado com drivers ASUS Essence exclusivos e câmaras herméticas, o Strix Go oferece um som incrivelmente rico e puro com graves profundos otimizados para experiências de áudio envolventes. Ele também se beneficia de um microfone com cancelamento de ruído AI líder da indústria que fornece comunicação de voz nítida no jogo, mesmo em ambientes externos barulhentos. Com um design ergonômico e leve para um conforto excelente e uma mecânica articulada para uma portabilidade rápida e fácil, o Strix Go garante que você pode jogar sem se cansar.",
+                            Estoque = 12u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 5,
+                            ImagemPrincipal = "\\img\\produtos\\9.jpg",
+                            Nome = "Headset Gamer Asus ROG Strix GO, Drivers 40mm",
+                            NomeDescricao = "Headset Gamer Asus ROG Strix GO, Drivers 40mm - 90YH02Q1-B2UA00",
+                            Valor = 499m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Descricao = "Desfrute de streaming de vídeo mais nítido e suave e áudio cristalino com ASUS Webcam. Fornecendo vídeo FHD (1920 x 1080) nítido e detalhado em um formato widescreen, a ASUS Webcam pode ser conectada via USB e colocada em qualquer lugar em sua mesa ou em cima de seu monitor. Um mecanismo de rotação de 360 ??° garante flexibilidade para qualquer ângulo de câmera, e uma matriz de microfone beamforming integrado garante áudio alto e claro. Desfrute de chamadas de vídeo de alta resolução 1080p e streams em 30 quadros por segundo suaves. A lente grande angular captura mais, tornando a ASUS Webcam perfeita para conferências, teletrabalho ou bate-papos com duas ou mais pessoas sentadas lado a lado.",
+                            Estoque = 6u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 5,
+                            ImagemPrincipal = "\\img\\produtos\\10.jpg",
+                            Nome = "WebCam Asus C3, Full HD 1080p, 30fps",
+                            NomeDescricao = "WebCam Asus C3, Full HD 1080p, 30fps, Rotação 360 Graus - 90YH0340-B2UA00",
+                            Valor = 229m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Descricao = "Cada recurso foi projetado conscientemente com o usuário em mente para maximizar a utilidade, flexibilidade e conectividade. O design de inclinação de 11 ° patenteado fornece fluxo de ar otimizado e dissipação de calor para criar uma solução inovadora que maximiza o desempenho térmico com hardware exigente - como uma fonte de alimentação ATX ou uma placa de vídeo de 3 slots sem um cabo riser. Para ventiladores de refrigeração a água, o Z11 oferece amplo espaço e a opção de um circuito de refrigeração líquido personalizado.",
+                            Estoque = 1u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 5,
+                            ImagemPrincipal = "\\img\\produtos\\11.jpg",
+                            Nome = "Gabinete Gamer Asus GR101, Mini Tower",
+                            NomeDescricao = "Gabinete Gamer Asus GR101, Mini Tower, Lateral e Frente em Vidro Temperado, Preto - ROG Z11 CASE/BLK",
+                            Valor = 2199m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Descricao = "Fones de ouvido intra-auriculares para jogos ROG Cetra II Core com drivers de borracha de silicone líquido (LSR) e um conector de 3,5 mm compatível com PCs, laptops, telefones celulares, ROG Phone 5, PlayStation 5, Xbox Series X / S e Nintendo Switch. Drivers inovadores de borracha de silicone líquido (LSR) fornecem desempenho de alto-falante estável, graves incrivelmente fortes e áudio de jogo otimizado. O conector de cabo de 90 ° oferece maior conforto para jogos portáteis. A carcaça de metal leve oferece uma aparência marcante e resistência a arranhões, elevando a estética e a durabilidade do exterior. O design ergonômico com pontas e barbatanas LSR ultrasoft proporcionam um ajuste perfeitamente confortável.",
+                            Estoque = 8u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 5,
+                            ImagemPrincipal = "\\img\\produtos\\12.jpg",
+                            Nome = "Fone de Ouvido Gamer Asus ROG Cetra II Core Compativel com PCs",
+                            NomeDescricao = "Fone de Ouvido Gamer Asus ROG Cetra II Core Compativel com PCs, Mobile, PlayStation 5, Xbox Series X/S e Nintendo Switch - 90YH02V0-B2UA00",
+                            Valor = 359m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Descricao = "O Teclado Nitro TKL te dá espaço suficiente para se movimentar durante os jogos. Bater a mão no teclado nunca mais. MOVIMENTE-SE o Nitro TKL tem menos bordas, o que significa mais espaço na mesa. Faça movimentos bruscos com o mouse sem bater no teclado. E, ainda: aproveite o design compacto para levá-lo para onde quiser. LUZ, CÂMERA, AÇÃO com LED retroiluminado de 3 zonas, quatro níveis de brilho e três modos de iluminação predefinidos, este teclado permite que o player adicione mais luzes e cores para a arena.",
+                            Estoque = 4u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 6,
+                            ImagemPrincipal = "\\img\\produtos\\13.jpg",
+                            Nome = "Teclado Gamer Acer Nitro Tkl Rgb Membrana",
+                            NomeDescricao = "Teclado Gamer Acer Nitro Tkl Rgb Membrana Abnt2 Usb - Nkw120",
+                            Valor = 155m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Descricao = "O tecido do Razer Goliathus V2 Speed Edition é esticado para criar uma superfície lisa e uniforme, permitindo que o seu mouse de jogo deslize rapidamente e sem dificuldade. O tecido também proporciona uma sensação confortável para o pulso e a mão, minimizando a fadiga durante partidas prolongadas.",
+                            Estoque = 20u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 7,
+                            ImagemPrincipal = "\\img\\produtos\\14.jpg",
+                            Nome = "Mousepad Gamer Razer Goliathus Terra",
+                            NomeDescricao = "Mousepad Gamer Razer Goliathus Terra, Speed, Médio (355x254mm) - RZ02-01070200-R3M2",
+                            Valor = 249m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Descricao = "Quem se importa com o que os outros dizem? Defenda seu próprio estilo de jogo com o Razer Basilisk V2. Ajuste, alterne e afine seu desempenho com este mouse gamer altamente personalizável, para criar seu próprio modo de domínio e deixar sua marca no campo de batalha. 11 BOTÕES PROGRAMÁVEIS: Tenha um maior arsenal de comandos na ponta dos seus dedos mapeando suas macros e funções secundárias favoritas com o Razer Synapse 3. Como seu predecessor, o Razer Basilisk V2 inclui a característica palheta multifuncional. RAZER HYPERSHIFT: Extraia o máximo deste mouse programável mapeando seus 11 botões com o Razer Hypershift, um recurso avançado do Razer Synapse 3 que efetivamente duplica os comandos do seu mouse.",
+                            Estoque = 6u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 7,
+                            ImagemPrincipal = "\\img\\produtos\\15.jpg",
+                            Nome = "Mouse Gamer Razer Basilisk V2",
+                            NomeDescricao = "Mouse Gamer Razer Basilisk V2, Chroma, Optical Switch, 11 Botões, 20000DPI - RZ01-03160100-R3U1",
+                            Valor = 399m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Descricao = "Um grande som pode estar contido em uma pequena embalagem. Conheça o Razer Seiren Mini, um microfone condensador ultracompacto perfeito para um áudio de nível profissional com qualquer setup de videochamada ou transmissão. Como este microfone condensador compacto está afinado com um ângulo de captação mais estreito, ele pode focar na sua voz e apresentar uma melhor redução de ruído ambiente, assegurando que os sons de fundo, como o barulho das teclas ou os cliques do mouse, sejam minimizados.",
+                            Estoque = 2u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 7,
+                            ImagemPrincipal = "\\img\\produtos\\16.jpg",
+                            Nome = "Microfone Razer Seiren Mini",
+                            NomeDescricao = "Microfone Razer Seiren Mini, USB, Black - RZ19-03450100-R3U1",
+                            Valor = 399m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Descricao = "Estes fones intra-auriculares sem fio têm uma latência de entrada extremamente baixa de 60 ms, o que significa que o áudio permanece sincronizado com seu dispositivo sem nunca falhar, oferecendo uma vantagem competitiva de jogo e uma experiência mais imersiva para vídeos e música. A verdadeira liberdade sem fio Ouça sem limites e leve os seus lugares de áudio a novos patamares com Razer Hammerhead True Wireless Earbuds e seu desempenho de som perfeito que você pode curtir em qualquer qualidade.",
+                            Estoque = 5u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 7,
+                            ImagemPrincipal = "\\img\\produtos\\17.jpg",
+                            Nome = "Fone de Ouvido Bluetooth Razer Hammerhead True Wireless",
+                            NomeDescricao = "Fone de Ouvido Bluetooth Razer Hammerhead True Wireless, Recarregável, Resistente a Água - RZ12-02970100-R3U1",
+                            Valor = 749m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Descricao = "Agora disponível em cinza-espacial. O Magic Mouse 2 pode ser recarregado e dispensa o uso de pilhas. Ele está mais leve e tem menos peças móveis, graças à bateria interna. A parte inferior com design otimizado e em peça única facilita o controle e os movimentos pela mesa. Além disso, a superfície Multi-Touch permite que você faça movimentos simples como deslizar pelas páginas da web e percorrer documentos. O Magic Mouse 2 já vem pronto para usar e é emparelhado automaticamente com seu Mac.",
+                            Estoque = 1u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 8,
+                            ImagemPrincipal = "\\img\\produtos\\18.jpg",
+                            Nome = "Mouse Apple Magic 2 Space Gray",
+                            NomeDescricao = "Mouse Apple Magic 2 Space Gray -mrme2ll/a",
+                            Valor = 1233m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Descricao = "Cabo Apple Lightning para USB 2M Descrição do Produto: O Cabo Apple Lightning serve para conectar seu iPhone, iPad ou iPod com conector Lightning à porta USB do seu computador. Com ele você sincroniza o dispositivo e carrega a bateria.",
+                            Estoque = 10u,
+                            ExibirHome = false,
+                            IdCategoria = 3,
+                            IdMarca = 8,
+                            ImagemPrincipal = "\\img\\produtos\\19.jpg",
+                            Nome = "Cabo Apple Lightning",
+                            NomeDescricao = "Cabo Apple Lightning Para Usb 2m",
+                            Valor = 339m
                         });
                 });
 
@@ -595,18 +832,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d438ac53-b178-4460-bd78-e3bf7db03f47",
+                            Id = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "094d0361-bbc9-41e6-b626-6a351852dc14",
+                            ConcurrencyStamp = "541a2186-3011-4aa1-9a4d-4c54e4e2dbdf",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBBZlh7zSSlIa59sLqfgjSNLlmyxOYaiHtWzDEuTaZGxwbOX3SpPjlwrWL/bR7TuVg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH5Ec7rN18zoKOvnyTT01j7/wwbL3TU/QxbUtbvOA0Ppl4yfLnHVW7+2511ZcDfQoA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "60482217",
+                            SecurityStamp = "6965",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -640,22 +877,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d438ac53-b178-4460-bd78-e3bf7db03f47",
-                            ConcurrencyStamp = "74942def-105e-438b-92a2-716d649ce04f",
+                            Id = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
+                            ConcurrencyStamp = "c490332c-3fe7-454f-9ea9-6acf7739c96b",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "08d9dee5-c338-4cf7-ba9a-cbf81ac1c5e0",
-                            ConcurrencyStamp = "070f3b83-7c56-404b-8602-358770916674",
+                            Id = "d4d659a6-3250-4f6d-81b7-f2b35a47bacd",
+                            ConcurrencyStamp = "017d42b1-81d2-4796-a11c-1f4407e2ec40",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "0f31ce60-0ef7-444d-8d50-cc0c31050fb8",
-                            ConcurrencyStamp = "32611717-d588-4eec-a63d-98ea8f26e1e6",
+                            Id = "fe24c2ca-871f-40fa-8eb9-c0c4c3e6dc44",
+                            ConcurrencyStamp = "cf1340cd-3242-4c3d-a193-66994af9e7be",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -746,8 +983,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d438ac53-b178-4460-bd78-e3bf7db03f47",
-                            RoleId = "d438ac53-b178-4460-bd78-e3bf7db03f47"
+                            UserId = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
+                            RoleId = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8"
                         });
                 });
 
@@ -845,7 +1082,7 @@ namespace AppEcommerce.Migrations
             modelBuilder.Entity("AppEcommerce.Models.Produto", b =>
                 {
                     b.HasOne("AppEcommerce.Models.Categoria", "Categoria")
-                        .WithMany()
+                        .WithMany("Produtos")
                         .HasForeignKey("IdCategoria")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -928,6 +1165,11 @@ namespace AppEcommerce.Migrations
                         .HasForeignKey("AppEcommerce.Models.Cliente", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.Categoria", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Order", b =>

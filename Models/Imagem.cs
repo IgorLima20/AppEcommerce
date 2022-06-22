@@ -14,10 +14,8 @@ namespace AppEcommerce.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdImagem { get; set; }
 
+        [Required(ErrorMessage = "Por favor, informe uma Imagem para o Cadastro")]
         public string Img { get; set; }
-
-        [NotMapped]
-        public IFormFile ImagemFile { get; set; }
 
         [Required]
         public int IdProduto { get; set; }
