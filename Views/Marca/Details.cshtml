@@ -18,6 +18,11 @@
                         <input asp-for="Nome" class="form-control" placeholder="Marca..."  readonly/>
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
+                    <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="ExibirHome" class="form-check-input" readonly> Produto em Destaque
+                        </label>
+                    </div>
                     <div class="form-group">
                         <div class="col-12 mt-2 text-center">
                             <img src="@Model.Imagem" class="img-fluid" id="PreviewImage" />

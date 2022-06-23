@@ -36,6 +36,7 @@ namespace AppEcommerce.Controllers
             ViewData["Categorias"] = _contexto.Categorias.Include(c => c.Produtos).Take(12);
             ViewData["ImagensCarrosel"] = _contexto.ImagensSite.Where(i => i.Carrosel).OrderBy(p => p.Ordem).ToList();
             ViewData["ImagenSenc"] = _contexto.ImagensSite.Where(i => i.Secundaria).OrderBy(p => p.Ordem).Take(2).ToList();
+            ViewData["Marcas"] = _contexto.Marcas.Where(f => f.ExibirHome).ToList();
             var produtos = _contexto.Produtos.Where(e => e.ExibirHome).OrderBy(p => p.Id).Include(c => c.Categoria).Take(8);
             return View(produtos);
         }

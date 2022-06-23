@@ -241,12 +241,16 @@ namespace AppEcommerce.Data
                  new Marca()
                  {
                     Id = 5,
-                    Nome = "Asus"
+                    Nome = "Asus",
+                    Imagem = "\\img\\marcas\\asus.png",
+                    ExibirHome = true
                  },
                  new Marca()
                  {
                     Id = 6,
-                    Nome = "Acer"
+                    Nome = "Acer",
+                    Imagem = "\\img\\marcas\\acer.png",
+                    ExibirHome = true
                  },
                  new Marca()
                  {
@@ -256,7 +260,51 @@ namespace AppEcommerce.Data
                  new Marca()
                  {
                     Id = 8,
-                    Nome = "Apple"
+                    Nome = "Apple",
+                    Imagem = "\\img\\marcas\\apple.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 9,
+                    Nome = "Dell",
+                    Imagem = "\\img\\marcas\\dell.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 10,
+                    Nome = "Hp",
+                    Imagem = "\\img\\marcas\\hp.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 11,
+                    Nome = "Multilaser",
+                    Imagem = "\\img\\marcas\\multilaser.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 12,
+                    Nome = "Lenovo",
+                    Imagem = "\\img\\marcas\\lenovo.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 13,
+                    Nome = "Positivo",
+                    Imagem = "\\img\\marcas\\positivo.png",
+                    ExibirHome = true
+                 },
+                 new Marca()
+                 {
+                    Id = 14,
+                    Nome = "Sony",
+                    Imagem = "\\img\\marcas\\sony.png",
+                    ExibirHome = true
                  },
             };
             modelBuilder.Entity<Marca>().HasData(marca);

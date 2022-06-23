@@ -201,6 +201,25 @@ namespace AppEcommerce.Migrations
                     b.ToTable("Endereco");
                 });
 
+            modelBuilder.Entity("AppEcommerce.Models.FavoritoItem", b =>
+                {
+                    b.Property<int>("FavoritoItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("FavoritoFavId")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FavoritoItemId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("FavoritoItems");
+                });
+
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>
                 {
                     b.Property<int>("IdImagem")
@@ -327,13 +346,15 @@ namespace AppEcommerce.Migrations
                         new
                         {
                             Id = 5,
-                            ExibirHome = false,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\asus.png",
                             Nome = "Asus"
                         },
                         new
                         {
                             Id = 6,
-                            ExibirHome = false,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\acer.png",
                             Nome = "Acer"
                         },
                         new
@@ -345,8 +366,51 @@ namespace AppEcommerce.Migrations
                         new
                         {
                             Id = 8,
-                            ExibirHome = false,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\apple.png",
                             Nome = "Apple"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\dell.png",
+                            Nome = "Dell"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\hp.png",
+                            Nome = "Hp"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\multilaser.png",
+                            Nome = "Multilaser"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\lenovo.png",
+                            Nome = "Lenovo"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\positivo.png",
+                            Nome = "Positivo"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ExibirHome = true,
+                            Imagem = "\\img\\marcas\\sony.png",
+                            Nome = "Sony"
                         });
                 });
 
@@ -843,18 +907,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
+                            Id = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d394ff53-ba15-47b6-89e1-18a9147dab81",
+                            ConcurrencyStamp = "2a5084b0-91a0-4fb7-bd2f-1c7cd1981e93",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDK4HSl5f2NcYRg8cqYjqgqwL3m0tsfGQHKCCgigH3efMqN60YSWjbIfBJ/njM/irA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFVfqyfTaf86PJfvJ+mlbWmEIMEYZrxg3tYveCCqowTJjjftYrZhk1us2J6rSiSSIg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6965",
+                            SecurityStamp = "59325057",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -888,22 +952,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
-                            ConcurrencyStamp = "ea05bc95-0fb3-443d-97a4-7b38aac88db0",
+                            Id = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
+                            ConcurrencyStamp = "331bb92b-324f-4245-a6ba-29c032d83f77",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "ac8bb551-d99a-43ad-a594-29f33520c88a",
-                            ConcurrencyStamp = "75ac3c92-5b00-4284-806a-52154d15fb2d",
+                            Id = "97dd5d32-b918-4e46-bebe-da02e3fbd7d7",
+                            ConcurrencyStamp = "8e6b1575-17dc-4c16-8372-416513c5a8a1",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "1f19b8d9-e72b-46e8-8412-753ca9e6c06a",
-                            ConcurrencyStamp = "5ef7d050-6a0d-4ed9-9a02-640b751085b7",
+                            Id = "c51dc8e7-c1e4-4585-97f4-bc29d917b963",
+                            ConcurrencyStamp = "9c3b5a13-abb3-42b2-ae61-044332c6a6f4",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -994,8 +1058,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
-                            RoleId = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09"
+                            UserId = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
+                            RoleId = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd"
                         });
                 });
 
@@ -1043,6 +1107,15 @@ namespace AppEcommerce.Migrations
                     b.HasOne("AppEcommerce.Models.Cliente", null)
                         .WithMany("Endereco")
                         .HasForeignKey("ClienteId");
+                });
+
+            modelBuilder.Entity("AppEcommerce.Models.FavoritoItem", b =>
+                {
+                    b.HasOne("AppEcommerce.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>

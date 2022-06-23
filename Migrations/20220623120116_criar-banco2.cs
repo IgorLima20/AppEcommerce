@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppEcommerce.Migrations
 {
-    public partial class criarbanco : Migration
+    public partial class criarbanco2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -365,6 +365,28 @@ namespace AppEcommerce.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "FavoritoItems",
+                columns: table => new
+                {
+                    FavoritoItemId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ProdutoId = table.Column<int>(type: "int", nullable: true),
+                    FavoritoFavId = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FavoritoItems", x => x.FavoritoItemId);
+                    table.ForeignKey(
+                        name: "FK_FavoritoItems_Produto_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Imagens",
                 columns: table => new
                 {
@@ -514,17 +536,17 @@ namespace AppEcommerce.Migrations
                 values: new object[,]
                 {
                     { 1, "\\img\\categorias\\001.png", "Hardware" },
-                    { 2, "\\img\\categorias\\002.png", "Celulares" },
-                    { 3, "\\img\\categorias\\003.png", "Periféricos" },
-                    { 4, "\\img\\categorias\\004.png", "Games" },
-                    { 5, "\\img\\categorias\\005.png", "Cadeiras" },
-                    { 6, "\\img\\categorias\\006.png", "Conectividade" },
-                    { 7, "\\img\\categorias\\007.png", "TV" },
-                    { 8, "\\img\\categorias\\008.png", "Áudio" },
-                    { 9, "\\img\\categorias\\009.png", "Segurança" },
-                    { 10, "\\img\\categorias\\010.png", "Câmeras Digitais" },
                     { 11, "\\img\\categorias\\011.png", "Serviços Digitais e Softwares" },
-                    { 12, "\\img\\categorias\\012.png", "Automotivo" }
+                    { 10, "\\img\\categorias\\010.png", "Câmeras Digitais" },
+                    { 9, "\\img\\categorias\\009.png", "Segurança" },
+                    { 8, "\\img\\categorias\\008.png", "Áudio" },
+                    { 7, "\\img\\categorias\\007.png", "TV" },
+                    { 12, "\\img\\categorias\\012.png", "Automotivo" },
+                    { 5, "\\img\\categorias\\005.png", "Cadeiras" },
+                    { 4, "\\img\\categorias\\004.png", "Games" },
+                    { 3, "\\img\\categorias\\003.png", "Periféricos" },
+                    { 2, "\\img\\categorias\\002.png", "Celulares" },
+                    { 6, "\\img\\categorias\\006.png", "Conectividade" }
                 });
 
             migrationBuilder.InsertData(
@@ -532,10 +554,10 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "Carrosel", "Img", "Ordem", "Secundaria" },
                 values: new object[,]
                 {
-                    { 4, false, "\\img\\carrosel\\05.png", 2u, true },
-                    { 3, false, "\\img\\carrosel\\04.png", 2u, true },
+                    { 1, true, "\\img\\carrosel\\01.jpg", 1u, false },
                     { 2, true, "\\img\\carrosel\\02.jpg", 2u, false },
-                    { 1, true, "\\img\\carrosel\\01.jpg", 1u, false }
+                    { 3, false, "\\img\\carrosel\\04.png", 2u, true },
+                    { 4, false, "\\img\\carrosel\\05.png", 2u, true }
                 });
 
             migrationBuilder.InsertData(
@@ -543,14 +565,20 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ExibirHome", "Imagem", "Nome" },
                 values: new object[,]
                 {
+                    { 9, true, "\\img\\marcas\\dell.png", "Dell" },
+                    { 14, true, "\\img\\marcas\\sony.png", "Sony" },
+                    { 13, true, "\\img\\marcas\\positivo.png", "Positivo" },
+                    { 12, true, "\\img\\marcas\\lenovo.png", "Lenovo" },
+                    { 11, true, "\\img\\marcas\\multilaser.png", "Multilaser" },
+                    { 10, true, "\\img\\marcas\\hp.png", "Hp" },
+                    { 8, true, "\\img\\marcas\\apple.png", "Apple" },
                     { 1, false, null, "Nvidia" },
-                    { 2, false, null, "Logitech" },
-                    { 3, false, null, "Motorola" },
+                    { 6, true, "\\img\\marcas\\acer.png", "Acer" },
+                    { 5, true, "\\img\\marcas\\asus.png", "Asus" },
                     { 4, false, null, "D-Link" },
-                    { 5, false, null, "Asus" },
-                    { 6, false, null, "Acer" },
-                    { 7, false, null, "Razer" },
-                    { 8, false, null, "Apple" }
+                    { 3, false, null, "Motorola" },
+                    { 2, false, null, "Logitech" },
+                    { 7, false, null, "Razer" }
                 });
 
             migrationBuilder.InsertData(
@@ -558,15 +586,15 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", "ea05bc95-0fb3-443d-97a4-7b38aac88db0", "Administrador", "ADMINISTRADOR" },
-                    { "ac8bb551-d99a-43ad-a594-29f33520c88a", "75ac3c92-5b00-4284-806a-52154d15fb2d", "Moderador", "MODERADOR" },
-                    { "1f19b8d9-e72b-46e8-8412-753ca9e6c06a", "5ef7d050-6a0d-4ed9-9a02-640b751085b7", "Usuario", "USUARIO" }
+                    { "97dd5d32-b918-4e46-bebe-da02e3fbd7d7", "8e6b1575-17dc-4c16-8372-416513c5a8a1", "Moderador", "MODERADOR" },
+                    { "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd", "331bb92b-324f-4245-a6ba-29c032d83f77", "Administrador", "ADMINISTRADOR" },
+                    { "c51dc8e7-c1e4-4585-97f4-bc29d917b963", "9c3b5a13-abb3-42b2-ae61-044332c6a6f4", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", 0, "d394ff53-ba15-47b6-89e1-18a9147dab81", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEDK4HSl5f2NcYRg8cqYjqgqwL3m0tsfGQHKCCgigH3efMqN60YSWjbIfBJ/njM/irA==", null, false, "6965", false, "Admin" });
+                values: new object[] { "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd", 0, "2a5084b0-91a0-4fb7-bd2f-1c7cd1981e93", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEFVfqyfTaf86PJfvJ+mlbWmEIMEYZrxg3tYveCCqowTJjjftYrZhk1us2J6rSiSSIg==", null, false, "59325057", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
@@ -597,12 +625,17 @@ namespace AppEcommerce.Migrations
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", "4c52e44a-6a4d-4b94-a14c-6f5919b0de09" });
+                values: new object[] { "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd", "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",
                 table: "Endereco",
                 column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FavoritoItems_ProdutoId",
+                table: "FavoritoItems",
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Imagens_IdProduto",
@@ -686,6 +719,9 @@ namespace AppEcommerce.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Contato");
+
+            migrationBuilder.DropTable(
+                name: "FavoritoItems");
 
             migrationBuilder.DropTable(
                 name: "Imagens");

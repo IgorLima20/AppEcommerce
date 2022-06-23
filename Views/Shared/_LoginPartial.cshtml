@@ -24,22 +24,7 @@
         </div>
     </div>
 
-    @* <div class="dropdown">
-        <a href="">
-            <i class="bi bi-person-circle text-primary" style="font-size: 20px"></i>
-            <span class="badge text-secondary border-secondary" style="padding-bottom: 2px; font-size: 14px">
-                Seja Bem-vindo <b class="text-primary">@UserManager.GetUserAsync(User).Result.UserName</b>
-            </span>
-        </a>
-        <div class="dropdown-content">
-            <a asp-controller="Admin" asp-action="Index">Área administrativa</a> <!-- Link para area administrativa -->
-        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Gerenciar Conta">Gerencie sua Conta</a>
-            <a href="javascript:{}" onclick="document.getElementById('formLogout').submit(); return false;">Sair</a>
-            <form id="formLogout" hidden asp-area="Identity" asp-page="/Account/Logout"
-            asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            </form>
-        </div>
-    </div> *@
+
 }
 else
 {

@@ -18,16 +18,8 @@
                         <li data-target="#header-carousel" data-slide-to="@i" class="@(One ? "active" : "")"></li>
                         One = false;
                     }
-                    @* <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#header-carousel" data-slide-to="1"></li>
-                        <li data-target="#header-carousel" data-slide-to="2"></li>
-                        <li data-target="#header-carousel" data-slide-to="3"></li> *@
                 </ol>
                 <div class="carousel-inner">
-                    @*<div class="carousel-item position-relative active" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="/img/promocoes/banner-notebook.jpg"
-                        style="object-fit: cover;">
-                        </div>*@
                     @foreach (var carrosel in ViewBag.ImagensCarrosel)
                     {
                         <div class="carousel-item position-relative @(First ? "active" : "")" style="height: 430px;">
@@ -162,7 +154,7 @@
 <!-- Products Start -->
 <div class="container-fluid pt-5 pb-3">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
-            class="bg-secondary pr-3">Produtos</span></h2>
+            class="bg-secondary pr-3">Produtos em Destaque</span></h2>
     <div class="row px-xl-5">
         @foreach (var produtos in Model)
         {
@@ -178,8 +170,8 @@
                             asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i
                                 class="fa fa-shopping-cart"></i></a>
                             }
-                            <!--<a class="btn btn-outline-dark btn-square"><i class="far fa-heart"></i></a>-->
-                            <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
+                        @* <a asp-area="Identity" asp-page="/Account/Manage/Favorito" class="btn btn-outline-dark btn-square"><i class="far fa-heart"></i></a> *@
+                        <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
                             asp-route-IdCategoria="@produtos.IdCategoria"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
@@ -235,47 +227,17 @@
     <div class="row px-xl-5">
         <div class="col">
             <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4">
-                    <img src="img/marcas/acer.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/apple.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/asus.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/dell.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/hp.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/multilaser.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/lenovo.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/lg.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/positivo.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/sansung.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/marcas/sony.png" alt="">
-                </div>
+                @foreach (var marcas in ViewBag.Marcas)
+                {
+                    <div class="bg-light p-4">
+                        <img src="@marcas.Imagem" alt="Foto Marca">
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
 <!-- Vendor End -->
-
-
-
 
 
 @* <hr class="mt-3"> *@
