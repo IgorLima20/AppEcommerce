@@ -59,7 +59,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Imagem")] Marca marca, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Imagem,ExibirHome")] Marca marca, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace AppEcommerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem")] Marca marca, IFormFile file)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Imagem,ExibirHome")] Marca marca, IFormFile file)
         {
             if (id != marca.Id)
             {

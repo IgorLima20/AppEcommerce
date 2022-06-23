@@ -284,6 +284,9 @@ namespace AppEcommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<bool>("ExibirHome")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Imagem")
                         .HasColumnType("longtext");
 
@@ -300,41 +303,49 @@ namespace AppEcommerce.Migrations
                         new
                         {
                             Id = 1,
+                            ExibirHome = false,
                             Nome = "Nvidia"
                         },
                         new
                         {
                             Id = 2,
+                            ExibirHome = false,
                             Nome = "Logitech"
                         },
                         new
                         {
                             Id = 3,
+                            ExibirHome = false,
                             Nome = "Motorola"
                         },
                         new
                         {
                             Id = 4,
+                            ExibirHome = false,
                             Nome = "D-Link"
                         },
                         new
                         {
                             Id = 5,
+                            ExibirHome = false,
                             Nome = "Asus"
                         },
                         new
                         {
                             Id = 6,
+                            ExibirHome = false,
                             Nome = "Acer"
                         },
                         new
                         {
                             Id = 7,
+                            ExibirHome = false,
                             Nome = "Razer"
                         },
                         new
                         {
                             Id = 8,
+                            ExibirHome = false,
                             Nome = "Apple"
                         });
                 });
@@ -832,16 +843,16 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
+                            Id = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "541a2186-3011-4aa1-9a4d-4c54e4e2dbdf",
+                            ConcurrencyStamp = "d394ff53-ba15-47b6-89e1-18a9147dab81",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH5Ec7rN18zoKOvnyTT01j7/wwbL3TU/QxbUtbvOA0Ppl4yfLnHVW7+2511ZcDfQoA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDK4HSl5f2NcYRg8cqYjqgqwL3m0tsfGQHKCCgigH3efMqN60YSWjbIfBJ/njM/irA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "6965",
                             TwoFactorEnabled = false,
@@ -877,22 +888,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
-                            ConcurrencyStamp = "c490332c-3fe7-454f-9ea9-6acf7739c96b",
+                            Id = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
+                            ConcurrencyStamp = "ea05bc95-0fb3-443d-97a4-7b38aac88db0",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "d4d659a6-3250-4f6d-81b7-f2b35a47bacd",
-                            ConcurrencyStamp = "017d42b1-81d2-4796-a11c-1f4407e2ec40",
+                            Id = "ac8bb551-d99a-43ad-a594-29f33520c88a",
+                            ConcurrencyStamp = "75ac3c92-5b00-4284-806a-52154d15fb2d",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "fe24c2ca-871f-40fa-8eb9-c0c4c3e6dc44",
-                            ConcurrencyStamp = "cf1340cd-3242-4c3d-a193-66994af9e7be",
+                            Id = "1f19b8d9-e72b-46e8-8412-753ca9e6c06a",
+                            ConcurrencyStamp = "5ef7d050-6a0d-4ed9-9a02-640b751085b7",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -983,8 +994,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8",
-                            RoleId = "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8"
+                            UserId = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09",
+                            RoleId = "4c52e44a-6a4d-4b94-a14c-6f5919b0de09"
                         });
                 });
 

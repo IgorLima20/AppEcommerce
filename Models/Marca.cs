@@ -21,5 +21,8 @@ namespace AppEcommerce.Models
         
         public string Imagem { get; set; }
 
+        [Display(Name = "Destaques")]
+        public bool ExibirHome { get; set; }
+
     }
 }

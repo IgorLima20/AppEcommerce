@@ -77,7 +77,8 @@ namespace AppEcommerce.Migrations
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Imagem = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ExibirHome = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -539,17 +540,17 @@ namespace AppEcommerce.Migrations
 
             migrationBuilder.InsertData(
                 table: "Marca",
-                columns: new[] { "Id", "Imagem", "Nome" },
+                columns: new[] { "Id", "ExibirHome", "Imagem", "Nome" },
                 values: new object[,]
                 {
-                    { 1, null, "Nvidia" },
-                    { 2, null, "Logitech" },
-                    { 3, null, "Motorola" },
-                    { 4, null, "D-Link" },
-                    { 5, null, "Asus" },
-                    { 6, null, "Acer" },
-                    { 7, null, "Razer" },
-                    { 8, null, "Apple" }
+                    { 1, false, null, "Nvidia" },
+                    { 2, false, null, "Logitech" },
+                    { 3, false, null, "Motorola" },
+                    { 4, false, null, "D-Link" },
+                    { 5, false, null, "Asus" },
+                    { 6, false, null, "Acer" },
+                    { 7, false, null, "Razer" },
+                    { 8, false, null, "Apple" }
                 });
 
             migrationBuilder.InsertData(
@@ -557,15 +558,15 @@ namespace AppEcommerce.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8", "c490332c-3fe7-454f-9ea9-6acf7739c96b", "Administrador", "ADMINISTRADOR" },
-                    { "d4d659a6-3250-4f6d-81b7-f2b35a47bacd", "017d42b1-81d2-4796-a11c-1f4407e2ec40", "Moderador", "MODERADOR" },
-                    { "fe24c2ca-871f-40fa-8eb9-c0c4c3e6dc44", "cf1340cd-3242-4c3d-a193-66994af9e7be", "Usuario", "USUARIO" }
+                    { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", "ea05bc95-0fb3-443d-97a4-7b38aac88db0", "Administrador", "ADMINISTRADOR" },
+                    { "ac8bb551-d99a-43ad-a594-29f33520c88a", "75ac3c92-5b00-4284-806a-52154d15fb2d", "Moderador", "MODERADOR" },
+                    { "1f19b8d9-e72b-46e8-8412-753ca9e6c06a", "5ef7d050-6a0d-4ed9-9a02-640b751085b7", "Usuario", "USUARIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NomeCompleto", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8", 0, "541a2186-3011-4aa1-9a4d-4c54e4e2dbdf", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEH5Ec7rN18zoKOvnyTT01j7/wwbL3TU/QxbUtbvOA0Ppl4yfLnHVW7+2511ZcDfQoA==", null, false, "6965", false, "Admin" });
+                values: new object[] { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", 0, "d394ff53-ba15-47b6-89e1-18a9147dab81", "igorsax258@gmail.com", true, false, null, "Igor Oliveira de Lima", "IGORSAX258@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEDK4HSl5f2NcYRg8cqYjqgqwL3m0tsfGQHKCCgigH3efMqN60YSWjbIfBJ/njM/irA==", null, false, "6965", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Produto",
@@ -596,7 +597,7 @@ namespace AppEcommerce.Migrations
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8", "2eaa8551-33b7-4b3f-81f6-b9d72ef78ad8" });
+                values: new object[] { "4c52e44a-6a4d-4b94-a14c-6f5919b0de09", "4c52e44a-6a4d-4b94-a14c-6f5919b0de09" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Endereco_ClienteId",
