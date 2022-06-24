@@ -19,10 +19,6 @@ namespace AppEcommerce.Data
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
-        public DbSet<Pedido> Pedidos { get; set; }
-        // public DbSet<ItemPedido> ItemPedidos { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Imagem> Imagens { get; set; }
@@ -306,6 +302,16 @@ namespace AppEcommerce.Data
                     Imagem = "\\img\\marcas\\sony.png",
                     ExibirHome = true
                  },
+                 new Marca()
+                 {
+                    Id = 15,
+                    Nome = "K-WHEEL"
+                 },
+                  new Marca()
+                 {
+                    Id = 16,
+                    Nome = "LG"
+                 },
             };
             modelBuilder.Entity<Marca>().HasData(marca);
             #endregion
@@ -528,7 +534,102 @@ namespace AppEcommerce.Data
                     IdCategoria = 3,
                     ExibirHome = false
                 },
-                
+                new Produto(){
+                    Id = 19,
+                    Nome = "iPhone 11 64GB Preto, 4G, Tela de 6.1",
+                    NomeDescricao = "iPhone 11 64GB Preto, 4G, Tela de 6.1, Câmera Dupla 12MP + Selfie 12MP - MHDA3BR/A",
+                    Valor =  3989,
+                    Estoque = 4,
+                    IdMarca = 8,
+                    Descricao = "IPhone 11 Apple Tudo na medida certa. Novo sistema de câmera dupla. Bateria que dura o dia todo'. O vidro mais resistente em um smartphone. E o chip mais rápido da Apple. Grave vídeos 4K, faça belos retratos e capture paisagens inteiras com o novo sistema de câmera dupla. Deixe seu dia mais bonito. Impressionante tela Liquid Retina LCD de 6,1 polegadas sem bordas. Bateria para o dia todo. Chip A13 Bionic, o mais rápido em um smartphone. E recarga rápida com carregador de 18W.",
+                    ImagemPrincipal = "\\img\\produtos\\20.jpg",
+                    IdCategoria = 2,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 20,
+                    Nome = "iPhone 13 Pro 128GB Dourado, 5G, Tela de 6.1",
+                    NomeDescricao = "iPhone 13 Pro 128GB Dourado, 5G, Tela de 6.1, Câmera Tripla 12MP - MLVC3BZ/A",
+                    Valor =  7499,
+                    Estoque = 1,
+                    IdMarca = 8,
+                    Descricao = "O iPhone 13 Pro foi feito para pouca luz. A câmera Wide adiciona uma abertura mais ampla e nosso maior sensor - e aproveita o Scanner LiDAR para retratos no modo Noturno, além da telefoto também capturar imagens com baixa insidencia de luz e contar com zoom ótico 3x ótimo para retratos clássicos ou tirar fotos e vídeos mais nítidos de longe. Ultra Wide obtém uma abertura mais ampla, um sensor mais rápido e um foco automático totalmente novo, ela captura 92% mais luz para melhores fotos e vídeos. .",
+                    ImagemPrincipal = "\\img\\produtos\\21.jpg",
+                    IdCategoria = 2,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 21,
+                    Nome = "Smartphone Positivo Twist 3 Pro S533",
+                    NomeDescricao = "Smartphone Positivo Twist 3 Pro S533, 64GB, Grafite, 3G, Quad-Core, 1GB RAM, 5.7?, Câm. 8MP + Selfie 8MP",
+                    Valor =   699,
+                    Estoque = 12,
+                    IdMarca = 13,
+                    Descricao = "Tenha um smartphone diferenciado em suas mãos! O Positivo Twist 3 Pro S533 produz fotos com ótima qualidade, pois oferece uma câmera de 8MP na traseira, permitindo que você capte as melhores fotografias. Faça fotos criativas e compartilhe nas redes sociais, através da câmera de selfie de 8MP com flash LED. Sua tela de 5,7 IPS e resolução HD+ oferecem a melhor experiência para você ver seus conteúdos de maneira mais imersiva e com visual impressionante. Com 64GB de armazenamento interno, ele é ideal para guardar suas fotos, músicas ou vídeos!",
+                    ImagemPrincipal = "\\img\\produtos\\22.jpg",
+                    IdCategoria = 2,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 22,
+                    Nome = "Roteador Wireless D-Link WiFi 6 EXO AX1800",
+                    NomeDescricao = "Roteador Wireless D-Link WiFi 6 EXO AX1800, 2.4Ghz/5Ghz, Suporte a Google Assistant e Alexa, Preto - DIR-X1860",
+                    Valor =   494,
+                    Estoque = 6,
+                    IdMarca = 4,
+                    Descricao = "O Wi-Fi 6 traz a tecnologia Wi-Fi de última geração para sua casa, oferecendo o salto quântico em capacidade, velocidade e alcance necessários para lidar com todas as suas demandas de Wi-Fi. Perfeito para casas inteligentes de alto desempenho e densas para dispositivos. Experimente velocidades de até AX1800, enquanto o 1024-QAM aumenta a taxa de transferência para dispositivos em até 25% e a largura de canal contígua de 80 MHz fornece ainda mais largura de banda. Até 4 fluxos simultâneos permitem que você desfrute de streaming 4K mais rápido e agradável, jogos on-line e muito mais, e se precisar deles - 4 portas LAN Gigabit e 1 porta WAN Gigabit oferecem conectividade com fio mais rápida sempre que desejar.",
+                    ImagemPrincipal = "\\img\\produtos\\23.jpg",
+                    IdCategoria = 6,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 23,
+                    Nome = "Volante de Jogos NOX Krom K-Wheel",
+                    NomeDescricao = "Volante de Jogos NOX Krom K-Wheel para PS4, PS3, Xbox One, PC - NXKROMKWHL",
+                    Valor =   349,
+                    Estoque = 2,
+                    IdMarca = 15,
+                    Descricao = "K-Wheel é um volante e conjunto de pedais otimizado para todos os tipos de jogos de corrida, que surgiu para oferecer-lhe máxima segurança e controlo, mesmo nas manobras mais extremas. Experimente a adrenalina dos pilotos de corrida a partir do seu ecrã graças a esta configuração de condução completa.",
+                    ImagemPrincipal = "\\img\\produtos\\24.jpg",
+                    IdCategoria = 4,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 24,
+                    Nome = "Câmbio Logitech G Driving Force",
+                    NomeDescricao = "Câmbio Logitech G Driving Force, Compatível com Volantes Logitech G923, G29 e G920 para PS5, PS4, Xbox Series X|S, Xbox One, PC - 941-000119",
+                    Valor =   389,
+                    Estoque = 3,
+                    IdMarca = 15,
+                    Descricao = "Otimize a sua experiência de corrida com uma ação de mudança de marcha realista. O câmbio Driving Force da Logitech é o melhor câmbio de simulação do mercado, projetado para os volantes de corrida Driving Force G29, G920 e G923. Com sólidos eixos de engrenagem de aço e couro costurado à mão de alta qualidade, o Driving Force foi construído para corridas de precisão e confiabilidade duradoura.",
+                    ImagemPrincipal = "\\img\\produtos\\25.jpg",
+                    IdCategoria = 4,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 25,
+                    Nome = "Smart TV LG 43 4K UHD 43UP7500",
+                    NomeDescricao = "Smart TV LG 43 4K UHD 43UP7500, com WiFi e Bluetooth, HDR, ThinQAI Compatível com Inteligência Artificial - 43UP7500PSF",
+                    Valor =   2149,
+                    Estoque = 1,
+                    IdMarca = 16,
+                    Descricao = "Real TV LG 4K UHD Imersão Surreal A Smart TVs LG UHD sempre superam as expectativas. Experimente qualidade de imagem realista e cores vivas com quatro vezes mais precisão de pixels do que em Full HD. Desempenho arrasador garantido. Leve o cinema para casa. FILMMAKER MODE, HDR proporcionam uma experiência de visualização mais imersiva. Fique conectado com sua plataforma de streaming preferida para acessar o conteúdo que você adora. Todos os seus apps favoritos em um só lugar Acesse Netflix, Disney+, aplicativo Apple TV e Amazon prime video. Escolha entre os mais recentes filmes, programas de TV, documentários e esportes ao vivo e encontre todos eles em um só lugar, na sua Smart TV LG.",
+                    ImagemPrincipal = "\\img\\produtos\\26.jpg",
+                    IdCategoria = 7,
+                    ExibirHome = false
+                },
+                new Produto(){
+                    Id = 26,
+                    Nome = "Smart TV LED 43 Full HD Sony",
+                    NomeDescricao = "Smart TV LG 43 4K UHD 43UP7500, com WiFi e Bluetooth, HDR, ThinQAI Compatível com Inteligência Artificial - 43UP7500PSF",
+                    Valor =   2800,
+                    Estoque = 2,
+                    IdMarca = 14,
+                    Descricao = "Conheça a linha de TVs Smart e Durável da Sony! A KDL-43W665F foi cuidadosamente desenvolvida para oferecer maior segurança e durabilidade. Graças à tecnologia X-Protection PRO sua TV traz mais proteção contra poeira, umidade, raios e surtos de tensão. Com a função SmartTV você tem acesso aos melhores conteúdos da Internet, e o melhor, você decide quando quer assistir.",
+                    ImagemPrincipal = "\\img\\produtos\\27.jpg",
+                    IdCategoria = 7,
+                    ExibirHome = false
+                }
             };
             modelBuilder.Entity<Produto>().HasData(produtos);
             #endregion

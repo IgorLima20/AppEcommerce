@@ -3,7 +3,6 @@
 @inject UserManager<AppEcommerce.Models.User> UserManager
 
 <div>
-    <h2 class="text-dark font-weight-bold mb-2 text-uppercase"><label class="titulo"></label> <b
-            class="text-dark font-weight-bold mb-2"> @UserManager.GetUserAsync(User).Result.UserName</b> !!</h2>
-
+    <h2 class="text-dark font-weight-bold mb-2 text-uppercase"><label class="titulo"></label>
+        @UserManager.GetUserAsync(User).Result.UserName !!</h2>
 </div>

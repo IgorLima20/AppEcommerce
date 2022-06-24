@@ -100,8 +100,8 @@
               @* <a href="" class="btn px-0 ml-3">
                 <i class="fas fa-heart text-primary" style="font-size: 20px;"></i>
                 <span class="badge text-secondary border border-secondary rounded-circle"
-                  style="padding-bottom: 2px;">0</span>
-              </a> *@
+                style="padding-bottom: 2px;">0</span>
+                </a> *@
               @await Component.InvokeAsync("ShoppingCartSummary")
             </div>
           </div>
@@ -109,10 +109,7 @@
       </div>
     </div>
   </div>
-
   @RenderBody()
-
-
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
     <div class="row px-xl-5 pt-5">
@@ -120,7 +117,8 @@
         <h5 class="text-secondary text-uppercase mb-4">Entre em contato</h5>
         <p class="mb-4">A Buy Sell Tecnologia é uma loja voltada à área de produtos tecnológicos, criada em 2022
           sendo uma loja 100% online.</p>
-        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Rua Antônio do Amaral, 4589 - Centro Barra Bonita/SP - CEP: 17340-000</p>
+        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Rua Antônio do Amaral, 4589 - Centro Barra
+          Bonita/SP - CEP: 17340-000</p>
         <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@buyselltecnologia.com</p>
         <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>(14) 3343-5332</p>
       </div>
@@ -132,11 +130,11 @@
               <a class="text-secondary mb-2" asp-action="Index" asp-controller="Home"><i
                   class="fa fa-angle-right mr-2"></i>Home</a>
               <a asp-action="Filtro" asp-controller="Home" class="text-secondary"><i
-                class="fa fa-angle-right mr-2"></i>Produto</a>
+                  class="fa fa-angle-right mr-2"></i>Produto</a>
               <a asp-action="Category" asp-controller="Home" class="text-secondary"><i
-                class="fa fa-angle-right mr-2"></i>Categoria</a>
+                  class="fa fa-angle-right mr-2"></i>Categoria</a>
               <a asp-action="Contato" asp-controller="Home" class="text-secondary"><i
-                class="fa fa-angle-right mr-2"></i>Contato</a>
+                  class="fa fa-angle-right mr-2"></i>Contato</a>
             </div>
           </div>
           <div class="col-md-4 mb-5">
@@ -144,7 +142,8 @@
             <div class="d-flex flex-column justify-content-start">
               <a class="text-secondary mb-2" asp-area="Identity" asp-page="/Account/Manage/Index"><i
                   class="fa fa-angle-right mr-2"></i>Dados Pessoais</a>
-              <a class="text-secondary mb-2" asp-area="Identity" asp-page="/Account/Manage/Email"><i class="fa fa-angle-right mr-2"></i>E-mail</a>
+              <a class="text-secondary mb-2" asp-area="Identity" asp-page="/Account/Manage/Email"><i
+                  class="fa fa-angle-right mr-2"></i>E-mail</a>
               <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="text-secondary"><i
                   class="fa fa-angle-right mr-2"></i>Senha</a>
               <a asp-action="Index" asp-controller="ShoppingCart" class="text-secondary"><i
@@ -179,61 +178,23 @@
   </div>
   <!-- Footer End -->
 
-
-  @* <footer class="border-top text-muted bg-light">
-    <div class="container">
-    <div class="row py-3">
-    <div class="col-12 col-md-4 text-center">
-    &copf; 2022 - Info Tech Online LTDA ME<br>
-    Rua Geraldo Salvi, 388, Sonho Nosso 1<br>
-    CNPJ 99.999.999/0001-99
-    </div>
-    <div class="col-12 col-md-4 text-center">
-    <a href="/privacidade.html" class="text-decoration-none text-dark">
-    Política de Privacidade
-    </a><br>
-    <a href="/privacidade.html" class="text-decoration-none text-dark">
-    Termos de Uso
-    </a><br>
-    <a href="/privacidade.html" class="text-decoration-none text-dark">
-    Quem Somos
-    </a><br>
-    <a href="/privacidade.html" class="text-decoration-none text-dark">
-    Trocas e Devoluções
-    </a><br>
-    </div>
-    <div class="col-12 col-md-4 text-center">
-    <a href="/contato.html" class="text-decoration-none text-dark">
-    Contato pelo Site
-    </a><br>
-    E-mail: <a href="igorsax258@gmail.com" class="text-decoration-none text-dark">
-    email@dominio.com
-    </a><br>
-    Telefone: <a href="phone:14991011502" class="text-decoration-none text-dark">
-    (14)991011502
-    </a>
-    </div>
-    </div>
-    </div>
-    </footer> *@
-  <!-- Back to Top -->
   <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="~/lib/easing/easing.min.js"></script>
-  <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="~/lib/easing/easing.min.js"></script>
+  <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
   <!-- Contact Javascript File -->
   <script src="~/mail/jqBootstrapValidation.min.js"></script>
   <script src="~/mail/contact.js"></script>
 
   <!-- Template Javascript -->
   <script src="~/js/main.js"></script>
-  @RenderSectionAsync("Scripts", required : false)
+  @RenderSection("Scripts", required : false)
 </body>
 
 </html>

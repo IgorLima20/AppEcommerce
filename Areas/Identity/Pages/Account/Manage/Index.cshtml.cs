@@ -94,7 +94,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Seu perfil foi atualizado com Sucesso!!";
             return RedirectToPage();
         }
     }

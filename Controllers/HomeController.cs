@@ -53,7 +53,7 @@ namespace AppEcommerce.Controllers
 
         public async Task<IActionResult> Filtro(int Id, int? pagina, string sortOrder, string currentFilter, string searchString, int? pageNumber, int? Idmarca, int marca)
         {
-
+            ViewData["Categoria"] = _contexto.Categorias.Where(c => c.Id == Id).SingleOrDefault();
             ViewData["CurrentSort"] = sortOrder;
             ViewData["Maior"] = String.IsNullOrEmpty(sortOrder) ? "maior" : "maior";
             ViewData["Menor"] = String.IsNullOrEmpty(sortOrder) ? "menor" : "menor";

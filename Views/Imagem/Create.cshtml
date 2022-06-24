@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <button type="submit" value="Create" class="btn btn-primary mr-2">Cadastrar</button>
-                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                    <a asp-action="Index" asp-route-cid="@produto.Id" class="btn btn-light">Cancelar</a>
                 </form>
             </div>
         </div>

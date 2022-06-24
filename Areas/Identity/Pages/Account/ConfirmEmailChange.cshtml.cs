@@ -57,7 +57,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Thank you for confirming your email change.";
+            StatusMessage = "Obrigado por confirmar seu e-mail.";
             return Page();
         }
     }

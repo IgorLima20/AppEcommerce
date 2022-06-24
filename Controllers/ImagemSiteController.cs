@@ -10,9 +10,11 @@ using AppEcommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppEcommerce.Controllers
 {
+    [Authorize(Roles = "Administrador, Moderador")]
     public class ImagemSiteController : Controller
     {
         private readonly Contexto _context;

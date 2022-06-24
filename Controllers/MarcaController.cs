@@ -10,9 +10,11 @@ using AppEcommerce.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppEcommerce.Controllers
 {
+    [Authorize(Roles = "Administrador, Moderador")]
     public class MarcaController : Controller
     {
         private readonly Contexto _context;

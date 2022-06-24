@@ -144,63 +144,6 @@ namespace AppEcommerce.Migrations
                     b.ToTable("Contato");
                 });
 
-            modelBuilder.Entity("AppEcommerce.Models.Endereco", b =>
-                {
-                    b.Property<int>("IdEndereco")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Bairro")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
-
-                    b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("varchar(9)");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
-
-                    b.Property<string>("ClienteId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Complemento")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("varchar(2)");
-
-                    b.Property<string>("Logradouro")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Numero")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Referencia")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("Selecionado")
-                        .HasColumnType("tinyint(1)");
-
-                    b.HasKey("IdEndereco");
-
-                    b.HasIndex("ClienteId");
-
-                    b.ToTable("Endereco");
-                });
-
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>
                 {
                     b.Property<int>("IdImagem")
@@ -392,6 +335,18 @@ namespace AppEcommerce.Migrations
                             ExibirHome = true,
                             Imagem = "\\img\\marcas\\sony.png",
                             Nome = "Sony"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ExibirHome = false,
+                            Nome = "K-WHEEL"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ExibirHome = false,
+                            Nome = "LG"
                         });
                 });
 
@@ -464,39 +419,6 @@ namespace AppEcommerce.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.Pedido", b =>
-                {
-                    b.Property<int>("IdPedido")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DataEntrega")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DataPedido")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("IdCliente")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int?>("IdEndereco")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<decimal>("ValorTotal")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.HasKey("IdPedido");
-
-                    b.HasIndex("IdCliente");
-
-                    b.HasIndex("IdEndereco");
-
-                    b.ToTable("Pedido");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Produto", b =>
@@ -780,6 +702,110 @@ namespace AppEcommerce.Migrations
                             Nome = "Cabo Apple Lightning",
                             NomeDescricao = "Cabo Apple Lightning Para Usb 2m",
                             Valor = 339m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Descricao = "IPhone 11 Apple Tudo na medida certa. Novo sistema de câmera dupla. Bateria que dura o dia todo'. O vidro mais resistente em um smartphone. E o chip mais rápido da Apple. Grave vídeos 4K, faça belos retratos e capture paisagens inteiras com o novo sistema de câmera dupla. Deixe seu dia mais bonito. Impressionante tela Liquid Retina LCD de 6,1 polegadas sem bordas. Bateria para o dia todo. Chip A13 Bionic, o mais rápido em um smartphone. E recarga rápida com carregador de 18W.",
+                            Estoque = 4u,
+                            ExibirHome = false,
+                            IdCategoria = 2,
+                            IdMarca = 8,
+                            ImagemPrincipal = "\\img\\produtos\\20.jpg",
+                            Nome = "iPhone 11 64GB Preto, 4G, Tela de 6.1",
+                            NomeDescricao = "iPhone 11 64GB Preto, 4G, Tela de 6.1, Câmera Dupla 12MP + Selfie 12MP - MHDA3BR/A",
+                            Valor = 3989m
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Descricao = "O iPhone 13 Pro foi feito para pouca luz. A câmera Wide adiciona uma abertura mais ampla e nosso maior sensor - e aproveita o Scanner LiDAR para retratos no modo Noturno, além da telefoto também capturar imagens com baixa insidencia de luz e contar com zoom ótico 3x ótimo para retratos clássicos ou tirar fotos e vídeos mais nítidos de longe. Ultra Wide obtém uma abertura mais ampla, um sensor mais rápido e um foco automático totalmente novo, ela captura 92% mais luz para melhores fotos e vídeos. .",
+                            Estoque = 1u,
+                            ExibirHome = false,
+                            IdCategoria = 2,
+                            IdMarca = 8,
+                            ImagemPrincipal = "\\img\\produtos\\21.jpg",
+                            Nome = "iPhone 13 Pro 128GB Dourado, 5G, Tela de 6.1",
+                            NomeDescricao = "iPhone 13 Pro 128GB Dourado, 5G, Tela de 6.1, Câmera Tripla 12MP - MLVC3BZ/A",
+                            Valor = 7499m
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Descricao = "Tenha um smartphone diferenciado em suas mãos! O Positivo Twist 3 Pro S533 produz fotos com ótima qualidade, pois oferece uma câmera de 8MP na traseira, permitindo que você capte as melhores fotografias. Faça fotos criativas e compartilhe nas redes sociais, através da câmera de selfie de 8MP com flash LED. Sua tela de 5,7 IPS e resolução HD+ oferecem a melhor experiência para você ver seus conteúdos de maneira mais imersiva e com visual impressionante. Com 64GB de armazenamento interno, ele é ideal para guardar suas fotos, músicas ou vídeos!",
+                            Estoque = 12u,
+                            ExibirHome = false,
+                            IdCategoria = 2,
+                            IdMarca = 13,
+                            ImagemPrincipal = "\\img\\produtos\\22.jpg",
+                            Nome = "Smartphone Positivo Twist 3 Pro S533",
+                            NomeDescricao = "Smartphone Positivo Twist 3 Pro S533, 64GB, Grafite, 3G, Quad-Core, 1GB RAM, 5.7?, Câm. 8MP + Selfie 8MP",
+                            Valor = 699m
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Descricao = "O Wi-Fi 6 traz a tecnologia Wi-Fi de última geração para sua casa, oferecendo o salto quântico em capacidade, velocidade e alcance necessários para lidar com todas as suas demandas de Wi-Fi. Perfeito para casas inteligentes de alto desempenho e densas para dispositivos. Experimente velocidades de até AX1800, enquanto o 1024-QAM aumenta a taxa de transferência para dispositivos em até 25% e a largura de canal contígua de 80 MHz fornece ainda mais largura de banda. Até 4 fluxos simultâneos permitem que você desfrute de streaming 4K mais rápido e agradável, jogos on-line e muito mais, e se precisar deles - 4 portas LAN Gigabit e 1 porta WAN Gigabit oferecem conectividade com fio mais rápida sempre que desejar.",
+                            Estoque = 6u,
+                            ExibirHome = false,
+                            IdCategoria = 6,
+                            IdMarca = 4,
+                            ImagemPrincipal = "\\img\\produtos\\23.jpg",
+                            Nome = "Roteador Wireless D-Link WiFi 6 EXO AX1800",
+                            NomeDescricao = "Roteador Wireless D-Link WiFi 6 EXO AX1800, 2.4Ghz/5Ghz, Suporte a Google Assistant e Alexa, Preto - DIR-X1860",
+                            Valor = 494m
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Descricao = "K-Wheel é um volante e conjunto de pedais otimizado para todos os tipos de jogos de corrida, que surgiu para oferecer-lhe máxima segurança e controlo, mesmo nas manobras mais extremas. Experimente a adrenalina dos pilotos de corrida a partir do seu ecrã graças a esta configuração de condução completa.",
+                            Estoque = 2u,
+                            ExibirHome = false,
+                            IdCategoria = 4,
+                            IdMarca = 15,
+                            ImagemPrincipal = "\\img\\produtos\\24.jpg",
+                            Nome = "Volante de Jogos NOX Krom K-Wheel",
+                            NomeDescricao = "Volante de Jogos NOX Krom K-Wheel para PS4, PS3, Xbox One, PC - NXKROMKWHL",
+                            Valor = 349m
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Descricao = "Otimize a sua experiência de corrida com uma ação de mudança de marcha realista. O câmbio Driving Force da Logitech é o melhor câmbio de simulação do mercado, projetado para os volantes de corrida Driving Force G29, G920 e G923. Com sólidos eixos de engrenagem de aço e couro costurado à mão de alta qualidade, o Driving Force foi construído para corridas de precisão e confiabilidade duradoura.",
+                            Estoque = 3u,
+                            ExibirHome = false,
+                            IdCategoria = 4,
+                            IdMarca = 15,
+                            ImagemPrincipal = "\\img\\produtos\\25.jpg",
+                            Nome = "Câmbio Logitech G Driving Force",
+                            NomeDescricao = "Câmbio Logitech G Driving Force, Compatível com Volantes Logitech G923, G29 e G920 para PS5, PS4, Xbox Series X|S, Xbox One, PC - 941-000119",
+                            Valor = 389m
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Descricao = "Real TV LG 4K UHD Imersão Surreal A Smart TVs LG UHD sempre superam as expectativas. Experimente qualidade de imagem realista e cores vivas com quatro vezes mais precisão de pixels do que em Full HD. Desempenho arrasador garantido. Leve o cinema para casa. FILMMAKER MODE, HDR proporcionam uma experiência de visualização mais imersiva. Fique conectado com sua plataforma de streaming preferida para acessar o conteúdo que você adora. Todos os seus apps favoritos em um só lugar Acesse Netflix, Disney+, aplicativo Apple TV e Amazon prime video. Escolha entre os mais recentes filmes, programas de TV, documentários e esportes ao vivo e encontre todos eles em um só lugar, na sua Smart TV LG.",
+                            Estoque = 1u,
+                            ExibirHome = false,
+                            IdCategoria = 7,
+                            IdMarca = 16,
+                            ImagemPrincipal = "\\img\\produtos\\26.jpg",
+                            Nome = "Smart TV LG 43 4K UHD 43UP7500",
+                            NomeDescricao = "Smart TV LG 43 4K UHD 43UP7500, com WiFi e Bluetooth, HDR, ThinQAI Compatível com Inteligência Artificial - 43UP7500PSF",
+                            Valor = 2149m
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Descricao = "Conheça a linha de TVs Smart e Durável da Sony! A KDL-43W665F foi cuidadosamente desenvolvida para oferecer maior segurança e durabilidade. Graças à tecnologia X-Protection PRO sua TV traz mais proteção contra poeira, umidade, raios e surtos de tensão. Com a função SmartTV você tem acesso aos melhores conteúdos da Internet, e o melhor, você decide quando quer assistir.",
+                            Estoque = 2u,
+                            ExibirHome = false,
+                            IdCategoria = 7,
+                            IdMarca = 14,
+                            ImagemPrincipal = "\\img\\produtos\\27.jpg",
+                            Nome = "Smart TV LED 43 Full HD Sony",
+                            NomeDescricao = "Smart TV LG 43 4K UHD 43UP7500, com WiFi e Bluetooth, HDR, ThinQAI Compatível com Inteligência Artificial - 43UP7500PSF",
+                            Valor = 2800m
                         });
                 });
 
@@ -875,18 +901,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "51373fa6-7848-4c29-a3da-d3431e927c14",
+                            Id = "e8404eb5-efdc-4fcf-a078-d1e58813cef1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9b5c52a0-1ba9-4051-85c9-94aea0cbd197",
+                            ConcurrencyStamp = "ddf1e5f5-18f0-418e-af22-41f51e412eaf",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF9/M0ZuVAmdUZJrrWZ5dp3ub5FZD9kgfjAMBOQ0jznPeO3rhHtnem5+mo8w6bZL4Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ8jZwf/7/N8s5O98wz9Sq8zKYVMrVLU1Q/ZMn+EqwIWXmpuGKKJqislZOD5Wq6msw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6965",
+                            SecurityStamp = "24757801",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -920,22 +946,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "51373fa6-7848-4c29-a3da-d3431e927c14",
-                            ConcurrencyStamp = "2c438210-ecdc-40f1-927b-2eaf50dcc512",
+                            Id = "e8404eb5-efdc-4fcf-a078-d1e58813cef1",
+                            ConcurrencyStamp = "6723ac03-00ef-4270-af57-4594b3463140",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "bfe37b7b-cc15-4506-8abc-2062c1837f74",
-                            ConcurrencyStamp = "2f1582b7-2b5a-4e65-be7d-978ecc91a1e0",
+                            Id = "ccf1de4f-faf2-4780-b185-fc1654df652d",
+                            ConcurrencyStamp = "48963720-2b13-4308-a206-810df12d7716",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "f853bba5-da14-46d6-84e5-c04879ef42c7",
-                            ConcurrencyStamp = "a4b47b79-5697-473b-98c1-a59301d9c402",
+                            Id = "de1f1438-21c9-411c-86c5-58e71a31b1dd",
+                            ConcurrencyStamp = "3cb3a025-81fc-4041-8d31-f87e25e57191",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -1026,8 +1052,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "51373fa6-7848-4c29-a3da-d3431e927c14",
-                            RoleId = "51373fa6-7848-4c29-a3da-d3431e927c14"
+                            UserId = "e8404eb5-efdc-4fcf-a078-d1e58813cef1",
+                            RoleId = "e8404eb5-efdc-4fcf-a078-d1e58813cef1"
                         });
                 });
 
@@ -1048,33 +1074,6 @@ namespace AppEcommerce.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.Cliente", b =>
-                {
-                    b.HasBaseType("AppEcommerce.Models.User");
-
-                    b.Property<string>("CPF")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("varchar(11)");
-
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("RG")
-                        .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("varchar(9)");
-
-                    b.ToTable("Cliente");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.Endereco", b =>
-                {
-                    b.HasOne("AppEcommerce.Models.Cliente", null)
-                        .WithMany("Endereco")
-                        .HasForeignKey("ClienteId");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>
@@ -1105,21 +1104,6 @@ namespace AppEcommerce.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.Pedido", b =>
-                {
-                    b.HasOne("AppEcommerce.Models.Cliente", "Cliente")
-                        .WithMany("Pedido")
-                        .HasForeignKey("IdCliente");
-
-                    b.HasOne("AppEcommerce.Models.Endereco", "EnderecoEntrega")
-                        .WithMany()
-                        .HasForeignKey("IdEndereco");
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("EnderecoEntrega");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Produto", b =>
@@ -1201,15 +1185,6 @@ namespace AppEcommerce.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AppEcommerce.Models.Cliente", b =>
-                {
-                    b.HasOne("AppEcommerce.Models.User", null)
-                        .WithOne()
-                        .HasForeignKey("AppEcommerce.Models.Cliente", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AppEcommerce.Models.Categoria", b =>
                 {
                     b.Navigation("Produtos");
@@ -1223,13 +1198,6 @@ namespace AppEcommerce.Migrations
             modelBuilder.Entity("AppEcommerce.Models.Produto", b =>
                 {
                     b.Navigation("Imagem");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.Cliente", b =>
-                {
-                    b.Navigation("Endereco");
-
-                    b.Navigation("Pedido");
                 });
 #pragma warning restore 612, 618
         }

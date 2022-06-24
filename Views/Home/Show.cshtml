@@ -254,9 +254,8 @@
 <!-- Shop Detail End -->
 
 
-
 <!-- Products Start -->
-@if (@ViewBag.Produtos.Count > 1)
+@if (@ViewBag.Produtos.Count >= 1)
 {
     @if (@ViewBag.Produtos.Count >= 4)
     {
@@ -272,8 +271,12 @@
                                 <div class="product-img position-relative overflow-hidden">
                                     <img class="img-fluid w-100" src="@produtos.ImagemPrincipal" alt="">
                                     <div class="product-action">
-                                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                        @if (@produtos.Estoque >= 1)
+                                        {
+                                            <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart"
+                                asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i
+                                    class="fa fa-shopping-cart"></i></a>
+                                        }
                                         <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
                                 asp-route-IdCategoria="@produtos.IdCategoria"><i class="fa fa-search"></i></a>
                                     </div>
@@ -318,8 +321,7 @@
                             asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i
                                 class="fa fa-shopping-cart"></i></a>
                                     }
-                                    <!--<a class="btn btn-outline-dark btn-square"><i class="far fa-heart"></i></a> -->
-                        <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
+                                    <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
                             asp-route-IdCategoria="@produtos.IdCategoria"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
@@ -332,11 +334,6 @@
                                     <h5>R$ @produtos.Valor.ToString("F2")</h5>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
-                                    @* <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>*@
                                     <small>@produtos.Estoque em Estoque</small>
                                 </div>
                             </div>

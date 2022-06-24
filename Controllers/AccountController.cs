@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AppEcommerce.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class AccountController : Controller
     {
         private readonly IMapper mapper;
@@ -262,8 +263,12 @@ namespace AppEcommerce.Controllers
         [Authorize(Roles = "Administrador")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(string id, UserViewModel userModel)
         {
+            if (id != userModel.Id)
+            {
+                return NotFound();
+            }
             var user = userManager.Users.Where(u => u.Id == id).SingleOrDefault();
             try
             {
@@ -274,7 +279,7 @@ namespace AppEcommerce.Controllers
             {
                 throw;
             }
-            return View(user);
+            return View(userModel);
         }
 
 

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppEcommerce.Data;
 using AppEcommerce.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppEcommerce.Controllers
 {
+    [Authorize(Roles = "Administrador, Moderador")]
     public class ContatoController : Controller
     {
         private readonly Contexto _context;
