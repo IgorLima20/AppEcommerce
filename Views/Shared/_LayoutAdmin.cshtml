@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -141,7 +141,7 @@
               <span class="menu-title">Principal</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
               <span class="menu-title">Cadastros Básicos</span>
@@ -149,26 +149,27 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" asp-action="Index" asp-controller="Produto">Produtos</a></li>
-                <li class="nav-item"> <a class="nav-link" asp-action="Index" asp-controller="Categoria">Categorias</a>
-                </li>
-                <li class="nav-item"> <a class="nav-link" asp-action="Index" asp-controller="Marca">Marcas</a></li>
+                <li class="nav-item @(ViewBag.Title == "Produtos" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Produto">Produtos</a></li>
+                <li class="nav-item @(ViewBag.Title == "Categorias" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Categoria">Categorias</a></li>
+                <li class="nav-item @(ViewBag.Title == "Marcas" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Marca">Marcas</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item @(ViewBag.Title == "Usuarios" ? "active" : "")">
             <a class="nav-link" asp-action="Index" asp-controller="Account">
               <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
               <span class="menu-title">Usuários</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item @(ViewBag.Title == "Carrosel" ? "active" : "")">
             <a class="nav-link" asp-action="Index" asp-controller="ImagemSite">
-              <span class="icon-bg"><i class="mdi mdi-image menu-icon"></i></span>
-              <span class="menu-title">Imagens</span>
+              <span class="icon-bg"><i class="mdi mdi-message-processing menu-icon"></i></span>
+
+              <span class="menu-title">Carrosel</span>
+
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item @(ViewBag.Title == "Contatos" ? "active" : "")">
             <a class="nav-link" asp-action="Index" asp-controller="Contato">
               <span class="icon-bg"><i class="mdi mdi-message-processing menu-icon"></i></span>
 
@@ -229,7 +230,7 @@
   <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
-  @RenderSectionAsync("Scripts", required : false)
+  @RenderSection("Scripts", required : false)
 </body>
 
 </html>
