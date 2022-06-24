@@ -410,18 +410,6 @@ namespace AppEcommerce.Data
                 },
                 new Produto(){
                     Id = 9,
-                    Nome = "Headset Gamer Asus ROG Strix GO, Drivers 40mm",
-                    NomeDescricao = "Headset Gamer Asus ROG Strix GO, Drivers 40mm - 90YH02Q1-B2UA00",
-                    Valor = 499,
-                    Estoque = 12,
-                    IdMarca = 5,
-                    Descricao = "ROG Strix Go é um headset para jogos USB-C que suporta todas as suas plataformas de jogos favoritas - PC, Mac, telefones celulares, PlayStation 4 e Nintendo Switch. Equipado com drivers ASUS Essence exclusivos e câmaras herméticas, o Strix Go oferece um som incrivelmente rico e puro com graves profundos otimizados para experiências de áudio envolventes. Ele também se beneficia de um microfone com cancelamento de ruído AI líder da indústria que fornece comunicação de voz nítida no jogo, mesmo em ambientes externos barulhentos. Com um design ergonômico e leve para um conforto excelente e uma mecânica articulada para uma portabilidade rápida e fácil, o Strix Go garante que você pode jogar sem se cansar.",
-                    ImagemPrincipal = "\\img\\produtos\\9.jpg",
-                    IdCategoria = 3,
-                    ExibirHome = false
-                },
-                new Produto(){
-                    Id = 10,
                     Nome = "WebCam Asus C3, Full HD 1080p, 30fps",
                     NomeDescricao = "WebCam Asus C3, Full HD 1080p, 30fps, Rotação 360 Graus - 90YH0340-B2UA00",
                     Valor =  229,
@@ -433,7 +421,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 11,
+                    Id = 10,
                     Nome = "Gabinete Gamer Asus GR101, Mini Tower",
                     NomeDescricao = "Gabinete Gamer Asus GR101, Mini Tower, Lateral e Frente em Vidro Temperado, Preto - ROG Z11 CASE/BLK",
                     Valor =  2199,
@@ -445,7 +433,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 12,
+                    Id = 11,
                     Nome = "Fone de Ouvido Gamer Asus ROG Cetra II Core Compativel com PCs",
                     NomeDescricao = "Fone de Ouvido Gamer Asus ROG Cetra II Core Compativel com PCs, Mobile, PlayStation 5, Xbox Series X/S e Nintendo Switch - 90YH02V0-B2UA00",
                     Valor =  359,
@@ -457,7 +445,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 13,
+                    Id = 12,
                     Nome = "Teclado Gamer Acer Nitro Tkl Rgb Membrana",
                     NomeDescricao = "Teclado Gamer Acer Nitro Tkl Rgb Membrana Abnt2 Usb - Nkw120",
                     Valor =  155,
@@ -469,7 +457,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 14,
+                    Id = 13,
                     Nome = "Mousepad Gamer Razer Goliathus Terra",
                     NomeDescricao = "Mousepad Gamer Razer Goliathus Terra, Speed, Médio (355x254mm) - RZ02-01070200-R3M2",
                     Valor =  249,
@@ -481,7 +469,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 15,
+                    Id = 14,
                     Nome = "Mouse Gamer Razer Basilisk V2",
                     NomeDescricao = "Mouse Gamer Razer Basilisk V2, Chroma, Optical Switch, 11 Botões, 20000DPI - RZ01-03160100-R3U1",
                     Valor =  399,
@@ -493,7 +481,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 16,
+                    Id = 15,
                     Nome = "Microfone Razer Seiren Mini",
                     NomeDescricao = "Microfone Razer Seiren Mini, USB, Black - RZ19-03450100-R3U1",
                     Valor =  399,
@@ -505,7 +493,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 17,
+                    Id = 16,
                     Nome = "Fone de Ouvido Bluetooth Razer Hammerhead True Wireless",
                     NomeDescricao = "Fone de Ouvido Bluetooth Razer Hammerhead True Wireless, Recarregável, Resistente a Água - RZ12-02970100-R3U1",
                     Valor =  749,
@@ -517,7 +505,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 18,
+                    Id = 17,
                     Nome = "Mouse Apple Magic 2 Space Gray",
                     NomeDescricao = "Mouse Apple Magic 2 Space Gray -mrme2ll/a",
                     Valor =  1233,
@@ -529,7 +517,7 @@ namespace AppEcommerce.Data
                     ExibirHome = false
                 },
                 new Produto(){
-                    Id = 19,
+                    Id = 18,
                     Nome = "Cabo Apple Lightning",
                     NomeDescricao = "Cabo Apple Lightning Para Usb 2m",
                     Valor =  339,

@@ -299,7 +299,7 @@
     }
     else
     {
-        <div class="container-fluid pt-5 pb-3">
+        <div class="container-fluid pb-3">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Produtos
                     Relacionados</span></h2>
             <div class="row px-xl-5">
@@ -310,21 +310,26 @@
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
                                 <a asp-action="Produtos" asp-controller="Produto" asp-route-id="@produtos.Id"></a>
-                                <img class="img-fluid w-100" src="@produtos.ImagemPrincipal" asp-append-version="true" alt="">
+                                <img class="img-fluid w-100" src="@produtos.ImagemPrincipal" asp-append-version="true">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
+                                    @if (@produtos.Estoque >= 1)
+                                    {
+                                        <a class="btn btn-outline-dark btn-square" asp-action="AddToShoppingCart"
+                            asp-controller="ShoppingCart" asp-route-Id="@produtos.Id"><i
+                                class="fa fa-shopping-cart"></i></a>
+                                    }
+                                    <!--<a class="btn btn-outline-dark btn-square"><i class="far fa-heart"></i></a> -->
+                        <a class="btn btn-outline-dark btn-square" asp-action="Show" asp-route-id="@produtos.Id"
                             asp-route-IdCategoria="@produtos.IdCategoria"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                             <div class="text-center py-4">
                                 <p class="card-text truncar-3l">
                                     <a class="h5 text-decoration-none" asp-action="Show" asp-route-id="@produtos.Id"
-                            asp-route-IdCategoria="@produtos.IdCategoria">@produtos.Nome</a>
+                            asp-route-IdCategoria="@produtos.IdCategoria">@produtos.NomeDescricao</a>
                                 </p>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>@produtos.Valor.ToString("C")</h5>
+                                    <h5>R$ @produtos.Valor.ToString("F2")</h5>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
                                     @* <small class="fa fa-star text-primary mr-1"></small>

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppEcommerce.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220623120116_criar-banco2")]
-    partial class criarbanco2
+    [Migration("20220624001937_criar-banco")]
+    partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -201,25 +201,6 @@ namespace AppEcommerce.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Endereco");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.FavoritoItem", b =>
-                {
-                    b.Property<int>("FavoritoItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("FavoritoFavId")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("ProdutoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FavoritoItemId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("FavoritoItems");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>
@@ -675,19 +656,6 @@ namespace AppEcommerce.Migrations
                         new
                         {
                             Id = 9,
-                            Descricao = "ROG Strix Go é um headset para jogos USB-C que suporta todas as suas plataformas de jogos favoritas - PC, Mac, telefones celulares, PlayStation 4 e Nintendo Switch. Equipado com drivers ASUS Essence exclusivos e câmaras herméticas, o Strix Go oferece um som incrivelmente rico e puro com graves profundos otimizados para experiências de áudio envolventes. Ele também se beneficia de um microfone com cancelamento de ruído AI líder da indústria que fornece comunicação de voz nítida no jogo, mesmo em ambientes externos barulhentos. Com um design ergonômico e leve para um conforto excelente e uma mecânica articulada para uma portabilidade rápida e fácil, o Strix Go garante que você pode jogar sem se cansar.",
-                            Estoque = 12u,
-                            ExibirHome = false,
-                            IdCategoria = 3,
-                            IdMarca = 5,
-                            ImagemPrincipal = "\\img\\produtos\\9.jpg",
-                            Nome = "Headset Gamer Asus ROG Strix GO, Drivers 40mm",
-                            NomeDescricao = "Headset Gamer Asus ROG Strix GO, Drivers 40mm - 90YH02Q1-B2UA00",
-                            Valor = 499m
-                        },
-                        new
-                        {
-                            Id = 10,
                             Descricao = "Desfrute de streaming de vídeo mais nítido e suave e áudio cristalino com ASUS Webcam. Fornecendo vídeo FHD (1920 x 1080) nítido e detalhado em um formato widescreen, a ASUS Webcam pode ser conectada via USB e colocada em qualquer lugar em sua mesa ou em cima de seu monitor. Um mecanismo de rotação de 360 ??° garante flexibilidade para qualquer ângulo de câmera, e uma matriz de microfone beamforming integrado garante áudio alto e claro. Desfrute de chamadas de vídeo de alta resolução 1080p e streams em 30 quadros por segundo suaves. A lente grande angular captura mais, tornando a ASUS Webcam perfeita para conferências, teletrabalho ou bate-papos com duas ou mais pessoas sentadas lado a lado.",
                             Estoque = 6u,
                             ExibirHome = false,
@@ -700,7 +668,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 11,
+                            Id = 10,
                             Descricao = "Cada recurso foi projetado conscientemente com o usuário em mente para maximizar a utilidade, flexibilidade e conectividade. O design de inclinação de 11 ° patenteado fornece fluxo de ar otimizado e dissipação de calor para criar uma solução inovadora que maximiza o desempenho térmico com hardware exigente - como uma fonte de alimentação ATX ou uma placa de vídeo de 3 slots sem um cabo riser. Para ventiladores de refrigeração a água, o Z11 oferece amplo espaço e a opção de um circuito de refrigeração líquido personalizado.",
                             Estoque = 1u,
                             ExibirHome = false,
@@ -713,7 +681,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 12,
+                            Id = 11,
                             Descricao = "Fones de ouvido intra-auriculares para jogos ROG Cetra II Core com drivers de borracha de silicone líquido (LSR) e um conector de 3,5 mm compatível com PCs, laptops, telefones celulares, ROG Phone 5, PlayStation 5, Xbox Series X / S e Nintendo Switch. Drivers inovadores de borracha de silicone líquido (LSR) fornecem desempenho de alto-falante estável, graves incrivelmente fortes e áudio de jogo otimizado. O conector de cabo de 90 ° oferece maior conforto para jogos portáteis. A carcaça de metal leve oferece uma aparência marcante e resistência a arranhões, elevando a estética e a durabilidade do exterior. O design ergonômico com pontas e barbatanas LSR ultrasoft proporcionam um ajuste perfeitamente confortável.",
                             Estoque = 8u,
                             ExibirHome = false,
@@ -726,7 +694,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 12,
                             Descricao = "O Teclado Nitro TKL te dá espaço suficiente para se movimentar durante os jogos. Bater a mão no teclado nunca mais. MOVIMENTE-SE o Nitro TKL tem menos bordas, o que significa mais espaço na mesa. Faça movimentos bruscos com o mouse sem bater no teclado. E, ainda: aproveite o design compacto para levá-lo para onde quiser. LUZ, CÂMERA, AÇÃO com LED retroiluminado de 3 zonas, quatro níveis de brilho e três modos de iluminação predefinidos, este teclado permite que o player adicione mais luzes e cores para a arena.",
                             Estoque = 4u,
                             ExibirHome = false,
@@ -739,7 +707,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 13,
                             Descricao = "O tecido do Razer Goliathus V2 Speed Edition é esticado para criar uma superfície lisa e uniforme, permitindo que o seu mouse de jogo deslize rapidamente e sem dificuldade. O tecido também proporciona uma sensação confortável para o pulso e a mão, minimizando a fadiga durante partidas prolongadas.",
                             Estoque = 20u,
                             ExibirHome = false,
@@ -752,7 +720,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 15,
+                            Id = 14,
                             Descricao = "Quem se importa com o que os outros dizem? Defenda seu próprio estilo de jogo com o Razer Basilisk V2. Ajuste, alterne e afine seu desempenho com este mouse gamer altamente personalizável, para criar seu próprio modo de domínio e deixar sua marca no campo de batalha. 11 BOTÕES PROGRAMÁVEIS: Tenha um maior arsenal de comandos na ponta dos seus dedos mapeando suas macros e funções secundárias favoritas com o Razer Synapse 3. Como seu predecessor, o Razer Basilisk V2 inclui a característica palheta multifuncional. RAZER HYPERSHIFT: Extraia o máximo deste mouse programável mapeando seus 11 botões com o Razer Hypershift, um recurso avançado do Razer Synapse 3 que efetivamente duplica os comandos do seu mouse.",
                             Estoque = 6u,
                             ExibirHome = false,
@@ -765,7 +733,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 16,
+                            Id = 15,
                             Descricao = "Um grande som pode estar contido em uma pequena embalagem. Conheça o Razer Seiren Mini, um microfone condensador ultracompacto perfeito para um áudio de nível profissional com qualquer setup de videochamada ou transmissão. Como este microfone condensador compacto está afinado com um ângulo de captação mais estreito, ele pode focar na sua voz e apresentar uma melhor redução de ruído ambiente, assegurando que os sons de fundo, como o barulho das teclas ou os cliques do mouse, sejam minimizados.",
                             Estoque = 2u,
                             ExibirHome = false,
@@ -778,7 +746,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 17,
+                            Id = 16,
                             Descricao = "Estes fones intra-auriculares sem fio têm uma latência de entrada extremamente baixa de 60 ms, o que significa que o áudio permanece sincronizado com seu dispositivo sem nunca falhar, oferecendo uma vantagem competitiva de jogo e uma experiência mais imersiva para vídeos e música. A verdadeira liberdade sem fio Ouça sem limites e leve os seus lugares de áudio a novos patamares com Razer Hammerhead True Wireless Earbuds e seu desempenho de som perfeito que você pode curtir em qualquer qualidade.",
                             Estoque = 5u,
                             ExibirHome = false,
@@ -791,7 +759,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 18,
+                            Id = 17,
                             Descricao = "Agora disponível em cinza-espacial. O Magic Mouse 2 pode ser recarregado e dispensa o uso de pilhas. Ele está mais leve e tem menos peças móveis, graças à bateria interna. A parte inferior com design otimizado e em peça única facilita o controle e os movimentos pela mesa. Além disso, a superfície Multi-Touch permite que você faça movimentos simples como deslizar pelas páginas da web e percorrer documentos. O Magic Mouse 2 já vem pronto para usar e é emparelhado automaticamente com seu Mac.",
                             Estoque = 1u,
                             ExibirHome = false,
@@ -804,7 +772,7 @@ namespace AppEcommerce.Migrations
                         },
                         new
                         {
-                            Id = 19,
+                            Id = 18,
                             Descricao = "Cabo Apple Lightning para USB 2M Descrição do Produto: O Cabo Apple Lightning serve para conectar seu iPhone, iPad ou iPod com conector Lightning à porta USB do seu computador. Com ele você sincroniza o dispositivo e carrega a bateria.",
                             Estoque = 10u,
                             ExibirHome = false,
@@ -909,18 +877,18 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
+                            Id = "51373fa6-7848-4c29-a3da-d3431e927c14",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a5084b0-91a0-4fb7-bd2f-1c7cd1981e93",
+                            ConcurrencyStamp = "9b5c52a0-1ba9-4051-85c9-94aea0cbd197",
                             Email = "igorsax258@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NomeCompleto = "Igor Oliveira de Lima",
                             NormalizedEmail = "IGORSAX258@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFVfqyfTaf86PJfvJ+mlbWmEIMEYZrxg3tYveCCqowTJjjftYrZhk1us2J6rSiSSIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF9/M0ZuVAmdUZJrrWZ5dp3ub5FZD9kgfjAMBOQ0jznPeO3rhHtnem5+mo8w6bZL4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "59325057",
+                            SecurityStamp = "6965",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -954,22 +922,22 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
-                            ConcurrencyStamp = "331bb92b-324f-4245-a6ba-29c032d83f77",
+                            Id = "51373fa6-7848-4c29-a3da-d3431e927c14",
+                            ConcurrencyStamp = "2c438210-ecdc-40f1-927b-2eaf50dcc512",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "97dd5d32-b918-4e46-bebe-da02e3fbd7d7",
-                            ConcurrencyStamp = "8e6b1575-17dc-4c16-8372-416513c5a8a1",
+                            Id = "bfe37b7b-cc15-4506-8abc-2062c1837f74",
+                            ConcurrencyStamp = "2f1582b7-2b5a-4e65-be7d-978ecc91a1e0",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "c51dc8e7-c1e4-4585-97f4-bc29d917b963",
-                            ConcurrencyStamp = "9c3b5a13-abb3-42b2-ae61-044332c6a6f4",
+                            Id = "f853bba5-da14-46d6-84e5-c04879ef42c7",
+                            ConcurrencyStamp = "a4b47b79-5697-473b-98c1-a59301d9c402",
                             Name = "Usuario",
                             NormalizedName = "USUARIO"
                         });
@@ -1060,8 +1028,8 @@ namespace AppEcommerce.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd",
-                            RoleId = "bbccda4b-a7ae-4ed6-b872-c7f73328c3dd"
+                            UserId = "51373fa6-7848-4c29-a3da-d3431e927c14",
+                            RoleId = "51373fa6-7848-4c29-a3da-d3431e927c14"
                         });
                 });
 
@@ -1109,15 +1077,6 @@ namespace AppEcommerce.Migrations
                     b.HasOne("AppEcommerce.Models.Cliente", null)
                         .WithMany("Endereco")
                         .HasForeignKey("ClienteId");
-                });
-
-            modelBuilder.Entity("AppEcommerce.Models.FavoritoItem", b =>
-                {
-                    b.HasOne("AppEcommerce.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoId");
-
-                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("AppEcommerce.Models.Imagem", b =>

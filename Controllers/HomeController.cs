@@ -33,7 +33,7 @@ namespace AppEcommerce.Controllers
         public IActionResult Index()
         {
             ViewData["ShoppingCartId"] = _contexto.ShoppingCartItems;
-            ViewData["Categorias"] = _contexto.Categorias.Include(c => c.Produtos).Take(12);
+            ViewData["Categorias"] = _contexto.Categorias.Include(c => c.Produtos).OrderByDescending(q => q.Produtos.Count).Take(12);
             ViewData["ImagensCarrosel"] = _contexto.ImagensSite.Where(i => i.Carrosel).OrderBy(p => p.Ordem).ToList();
             ViewData["ImagenSenc"] = _contexto.ImagensSite.Where(i => i.Secundaria).OrderBy(p => p.Ordem).Take(2).ToList();
             ViewData["Marcas"] = _contexto.Marcas.Where(f => f.ExibirHome).ToList();

@@ -132,7 +132,7 @@ namespace AppEcommerce.Models
         }
 
         public decimal GetShoppingCartTotal()
-        {
+        {   
             var total = _contexto.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
                 .Select(c => c.Produto.Valor * c.Amount).Sum();
             return total;
