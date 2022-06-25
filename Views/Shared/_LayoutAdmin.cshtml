@@ -33,7 +33,7 @@
 
 </head>
 
-<body>
+<body class="">
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -79,7 +79,7 @@
           <li class="nav-item nav-profile">
             <a class="nav-link ">
               <div class="nav-profile-text">
-                <p class="mb-1 text-black mdi mdi-calendar mr-1">@DateTime.Now.ToLongDateString() - <label
+                <p class="mb-1 text-black mdi mdi-calendar mr-1"> @DateTime.Now.ToLongDateString() - <label
                     id="time"></label> </p>
               </div>
             </a>
@@ -141,17 +141,17 @@
               <span class="menu-title">Principal</span>
             </a>
           </li>
-          <li class="nav-item @(ViewBag.Title == "Cadastro" ? "active" : "")" >
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <li class="nav-item @(ViewBag.TitlePrime == "Cadastro" ? "active" : "")" >
+            <a class="nav-link active" data-toggle="collapse" href="#ui-basic" aria-expanded="@(ViewBag.TitlePrime == "Cadastro" ? "show" : "")" aria-controls="ui-basic">
               <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
               <span class="menu-title">Cadastros Básicos</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse @(ViewBag.TitlePrime == "Cadastro" ? "show" : "")" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item @(ViewBag.Title == "Produto" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Produto">Produtos</a></li>
-                <li class="nav-item @(ViewBag.Title == "Categoria" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Categoria">Categorias</a></li>
-                <li class="nav-item @(ViewBag.Title == "Marca" ? "active" : "")"> <a class="nav-link" asp-action="Index" asp-controller="Marca">Marcas</a></li>
+                <li class="nav-item"><a class="nav-link @(ViewBag.Title == "Produto" ? "active" : "")" asp-action="Index" asp-controller="Produto">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link @(ViewBag.Title == "Categoria" ? "active" : "")" asp-action="Index" asp-controller="Categoria">Categorias</a></li>
+                <li class="nav-item"><a class="nav-link @(ViewBag.Title == "Marca" ? "active" : "")" asp-action="Index" asp-controller="Marca">Marcas</a></li>
               </ul>
             </div>
           </li>

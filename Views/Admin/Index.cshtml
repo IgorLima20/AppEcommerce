@@ -6,87 +6,82 @@
 
 @* <div class="row" id="proBanner">
     <div class="col-12">
-        <span class="d-flex align-items-center purchase-popup" id="bannerClose">
+    <span class="d-flex align-items-center purchase-popup" id="bannerClose">
 
-            Olá
-        </span>
+    Olá
+    </span>
     </div>
-</div>  *@
-<div class="d-xl-flex justify-content-between align-items-start"  id="bannerClose">
+    </div> *@
+<div class="d-xl-flex justify-content-between align-items-start" id="bannerClose">
     <partial name="_AdminPartial"></partial>
     <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
         <div class="ml-0 ml-md-4 mt-2 mt-lg-0">
             @*<p class="btn bg-white p-3 d-flex align-items-center"
-                 aria-expanded="false"> <i
-                    class="mdi mdi-calendar mr-1"></i>@DateTime.Now.ToLongDateString()</p>*@
+                aria-expanded="false"> <i
+                class="mdi mdi-calendar mr-1"></i>@DateTime.Now.ToLongDateString()</p>*@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="tab-content tab-transparent-content">
-            <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="mb-2 text-dark font-weight-normal">Produtos</h5>
-                                <h2 class="mb-4 text-dark font-weight-bold">@Model.Count()</h2>
-                                <div
-                                    class="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent">
-                                    <i class="mdi mdi-cube icon-md absolute-center text-dark"></i>
-                                </div>
-                                <p class="mt-4 mb-0 text-white">Decreased since yesterday</p>
-                                <h3 class="mb-0 font-weight-bold mt-2 text-white">25%</h3>
-                            </div>
-                        </div>
+<div class="row mb-3">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-black-50 font-weight-bold text-uppercase mb-1">Produtos </div>
+                        <div class="mb-2 text-dark font-weight-bold">@Model.Count()</div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="mb-2 text-dark font-weight-normal">Usuários</h5>
-                                <h2 class="mb-4 text-dark font-weight-bold">@ViewBag.Usuarios.Count</h2>
-                                <div
-                                    class="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent">
-                                    <i class="mdi mdi-account-circle icon-md absolute-center text-dark"></i>
-                                </div>
-                                <p class="mt-4 mb-0 text-white">Decreased since yesterday</p>
-                                <h3 class="mb-0 font-weight-bold mt-2 text-white">25%</h3>
-                            </div>
-                        </div>
+                    <div class="col-auto">
+                        <i class="mdi mdi-cube icon-md absolute-center text-dark"></i>
                     </div>
-                    <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="mb-2 text-dark font-weight-normal">Categorias</h5>
-                                <h2 class="mb-4 text-dark font-weight-bold">@ViewBag.Categorias.Count</h2>
-                                <div
-                                    class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent">
-                                    <i class="mdi mdi-format-list-bulleted icon-md absolute-center text-dark"></i>
-                                </div>
-                                <p class="mt-4 mb-0 text-white">Decreased since yesterday</p>
-                                <h3 class="mb-0 font-weight-bold mt-2 text-white">25%</h3>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-black-50 font-weight-bold text-uppercase mb-1">Usuários </div>
+                        <div class="mb-2 text-dark font-weight-bold">@ViewBag.Usuarios.Count</div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="mb-2 text-dark font-weight-normal">Marcas</h5>
-                                <h2 class="mb-4 text-dark font-weight-bold">@ViewBag.Marcas.Count</h2>
-                                <div
-                                    class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent">
-                                    <i class="mdi mdi-tag-multiple icon-md absolute-center text-dark"></i>
-                                </div>
-                                <p class="mt-4 mb-0 text-white">Decreased since yesterday</p>
-                                <h3 class="mb-0 font-weight-bold mt-2 text-white">25%</h3>
-                            </div>
-                        </div>
+                    <div class="col-auto">
+                        <i class="mdi mdi-account-circle icon-md absolute-center text-dark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-black-50 font-weight-bold text-uppercase mb-1">Categorias</div>
+                        <div class="mb-2 text-dark font-weight-bold">@ViewBag.Categorias.Count</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="mdi mdi-format-list-bulleted icon-md absolute-center text-dark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-black-50 font-weight-bold text-uppercase mb-1">Marcas </div>
+                        <div class="mb-2 text-dark font-weight-bold">@ViewBag.Marcas.Count</div>
+                        
+                    </div>
+                    <div class="col-auto">
+                        <i class="mdi mdi-tag-multiple icon-md absolute-center text-dark"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-

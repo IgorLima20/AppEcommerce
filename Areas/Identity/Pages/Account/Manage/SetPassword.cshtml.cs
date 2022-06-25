@@ -37,8 +37,8 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
             public string NewPassword { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm new password")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Display(Name = "Confirme sua senha")]
+            [Compare("NewPassword", ErrorMessage = "A nova senha e a senha de confirmação não coincidem.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -84,7 +84,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your password has been set.";
+            StatusMessage = "Sua senha foi definida.";
 
             return RedirectToPage();
         }

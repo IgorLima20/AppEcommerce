@@ -12,7 +12,7 @@
             </span>
         </a>
         <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-            @if (User.IsInRole("Administrador"))
+            @if (User.IsInRole("Administrador") || User.IsInRole("Moderador"))
             {
                 <a class="dropdown-item" asp-controller="Admin" asp-action="Index">Área administrativa</a>
             }

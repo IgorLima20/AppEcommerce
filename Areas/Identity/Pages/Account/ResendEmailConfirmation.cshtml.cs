@@ -57,7 +57,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-            ModelState.AddModelError(string.Empty, "NotFound");
+            ModelState.AddModelError(string.Empty, "E-mail não encontrado.");
                 return Page();
             }
 

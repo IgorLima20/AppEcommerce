@@ -1,7 +1,8 @@
 @model AppEcommerce.Models.Marca
 
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Marca";
+    ViewData["TitlePrime"] = "Cadastro";
     Layout = "_LayoutAdmin";
 }
 
@@ -20,14 +21,14 @@
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label>File upload</label>
+                        <label>Enviar Imagem</label>
                         <input type="text" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
                             <label for="arquivo" class="form-control file-upload-info text"
                                 placeholder="Upload Image"></label>
                             <span class="input-group-append">
                                 <button onclick="escolherArquivo()" class="file-upload-browse btn btn-primary"
-                                    type="button">Upload</button>
+                                    type="button">Enviar</button>
                                 <input id="arquivo" style="display:none" asp-for="Imagem" accept="imagem/*"
                                     type="file" name="file"/>
                                 <input asp-for="Imagem" hidden>

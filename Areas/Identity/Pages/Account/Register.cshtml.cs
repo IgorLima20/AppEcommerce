@@ -54,7 +54,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account
             public string Nome { get; set; }
 
 
-            [Required(ErrorMessage = "Informe um Username!!")]
+            [Required(ErrorMessage = "Informe um Nick!!")]
             [StringLength(8)]
             [Display(Name = "Username", Prompt = "Username")]
             public string UserName { get; set; }

@@ -5,13 +5,12 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Linq;
 using System.Threading.Tasks;
+using AppEcommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using AppEcommerce.Models;
-using AppEcommerce.Data;
 
 namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
 {
@@ -20,17 +19,15 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
-        private readonly Contexto _contexto;
 
         public EmailModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IEmailSender emailSender, Contexto contexto)
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
-            _contexto = contexto;
         }
 
         public string Username { get; set; }
@@ -55,7 +52,6 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
 
         private async Task LoadAsync(User user)
         {
-            ViewData["Categorias"] = _contexto.Categorias.ToList();
             var email = await _userManager.GetEmailAsync(user);
             Email = email;
 
@@ -109,11 +105,11 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
                     "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Link de confirmação para alterar o e-mail enviado. Por favor verifique seu email.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Seu e-mail não mudou.";
             return RedirectToPage();
         }
 
@@ -145,7 +141,7 @@ namespace AppEcommerce.Areas.Identity.Pages.Account.Manage
                 "Confirm your email",
                 $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "E-mail de verificação enviado. Por favor verifique seu email.";
             return RedirectToPage();
         }
     }
