@@ -536,3 +536,4 @@ C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\ref\AppEcommerce.dll
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.pdb
 C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\AppEcommerce.genruntimeconfig.cache
+C:\Users\igors\Desktop\Curso\Projetos\AppEcommerce\obj\Debug\net5.0\Razor\Views\Shared\_LayoutAcesso.cshtml.g.cs

@@ -2,19 +2,35 @@
 @model AccessDeniedModel
 @{
     ViewData["Title"] = "Access denied";
+    Layout = "_LayoutAcesso";
 }
 
-<div class="container pt-2">
-    <div class="row justify-content-center">
-        <form class="col-sm-8 col-md-6 col-lg-4" method="post">
-            <div class="text-center mb-4">
-                <h1 class="display-5 my-3 text-danger">Acesso Restrito</h1>
+
+<div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center text-center error-page bg-primary">
+        <div class="row flex-grow">
+            <div class="col-lg-7 mx-auto text-white">
+                <div class="row align-items-center d-flex flex-row">
+                    <div class="col-lg-6 text-lg-right pr-lg-4">
+                        <h1 class="display-1 mb-0">Ops!</h1>
+                    </div>
+                    <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
+                        <h2> Acesso Restrito</h2>
+                        <h3 class="font-weight-light">Apenas pessoas autorizadas tem acesso a essa página.</h3>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 text-center mt-xl-2">
+                        <a class="text-white font-weight-medium" href='javascript:window.history.back()'>Voltar para página anterior</a>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 mt-xl-2">
+                        <p class="text-white font-weight-medium text-center">Buy Sell &copy; @DateTime.Now.Year.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p class="text-center">Apenas pessoas autorizadas tem acesso a essa página.</p>
-            @* <p class="text-center mt-2"><a class="btn btn-block btn-primary font-weight-bold py-3" asp-area="Identity"
-                    asp-page="Login"><i class="bi bi-door-open-fill"></i> Fazer
-                    Login</a></p> *@
-            <p class="mt-3 mb-2 text-muted text-center">&copy; @DateTime.Now.Year</p>
-        </form>
+        </div>
     </div>
 </div>

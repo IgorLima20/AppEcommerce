@@ -90,18 +90,12 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
               <a class="nav-item nav-link" asp-action="Index" asp-controller="Home">Home</a>
-              @* @await Component.InvokeAsync("CategoryHome") *@
               <a asp-action="Filtro" asp-controller="Home" asp-route-id="0" class="nav-item nav-link">Produtos</a>
               <a asp-action="Category" asp-controller="Home" class="nav-item nav-link">Categorias</a>
               <a asp-action="Contato" asp-controller="Home" class="nav-item nav-link">Contato</a>
             </div>
             <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
               <partial name="_LoginPartial"></partial>
-              @* <a href="" class="btn px-0 ml-3">
-                <i class="fas fa-heart text-primary" style="font-size: 20px;"></i>
-                <span class="badge text-secondary border border-secondary rounded-circle"
-                style="padding-bottom: 2px;">0</span>
-                </a> *@
               @await Component.InvokeAsync("ShoppingCartSummary")
             </div>
           </div>
@@ -127,27 +121,27 @@
           <div class="col-md-4 mb-5">
             <h5 class="text-secondary text-uppercase mb-4">Compra Rápida</h5>
             <div class="d-flex flex-column justify-content-start">
-              <a class="text-secondary mb-2" asp-action="Index" asp-controller="Home"><i
-                  class="fa fa-angle-right mr-2"></i>Home</a>
+              <a class="text-secondary mr-3" asp-action="Index" asp-controller="Home"><i
+                  class="fa fa-angle-right mr-3"></i>Home</a>
               <a asp-action="Filtro" asp-controller="Home" class="text-secondary"><i
-                  class="fa fa-angle-right mr-2"></i>Produto</a>
+                  class="fa fa-angle-right mr-3"></i>Produto</a>
               <a asp-action="Category" asp-controller="Home" class="text-secondary"><i
-                  class="fa fa-angle-right mr-2"></i>Categoria</a>
+                  class="fa fa-angle-right mr-3"></i>Categoria</a>
               <a asp-action="Contato" asp-controller="Home" class="text-secondary"><i
-                  class="fa fa-angle-right mr-2"></i>Contato</a>
+                  class="fa fa-angle-right mr-3"></i>Contato</a>
             </div>
           </div>
           <div class="col-md-4 mb-5">
             <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
             <div class="d-flex flex-column justify-content-start">
-              <a class="text-secondary mb-2" asp-area="Identity" asp-page="/Account/Manage/Index"><i
-                  class="fa fa-angle-right mr-2"></i>Dados Pessoais</a>
-              <a class="text-secondary mb-2" asp-area="Identity" asp-page="/Account/Manage/Email"><i
-                  class="fa fa-angle-right mr-2"></i>E-mail</a>
+              <a class="text-secondary mr-3" asp-area="Identity" asp-page="/Account/Manage/Index"><i
+                  class="fa fa-angle-right mr-3"></i>Dados Pessoais</a>
+              <a class="text-secondary mr-3" asp-area="Identity" asp-page="/Account/Manage/Email"><i
+                  class="fa fa-angle-right mr-3"></i>E-mail</a>
               <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="text-secondary"><i
-                  class="fa fa-angle-right mr-2"></i>Senha</a>
+                  class="fa fa-angle-right mr-3"></i>Senha</a>
               <a asp-action="Index" asp-controller="ShoppingCart" class="text-secondary"><i
-                  class="fa fa-angle-right mr-2"></i>Carrinho de Compras</a>
+                  class="fa fa-angle-right mr-3"></i>Carrinho de Compras</a>
             </div>
           </div>
           <div class="col-md-4 mb-5">

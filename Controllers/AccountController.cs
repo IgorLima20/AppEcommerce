@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AppEcommerce.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class AccountController : Controller
     {
         private readonly IMapper mapper;
@@ -33,99 +32,7 @@ namespace AppEcommerce.Controllers
             emailSender = email;
         }
 
-        // public IActionResult Login()
-        // {
-        //     return View();
-        // }
-
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Login(UserLoginModel user)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         return View(user);
-        //     }
-
-        //     var result = await signInManager.PasswordSignInAsync(user.Email, user.Password, true, lockoutOnFailure: true);
-        //     if (result.Succeeded)
-        //     {
-        //         var u = await userManager.FindByEmailAsync(user.Email);
-        //         var r = await userManager.GetRolesAsync(u);
-        //         if (r[0] == "Administrador")
-        //             return RedirectToAction("Index", "Admin");
-        //         else
-        //             return RedirectToAction("Index", "Home");
-        //     }
-
-        //     if (result.IsLockedOut)
-        //     {
-        //         ModelState.AddModelError("", "Usuário Bloqueado, aguarde alguns minutos e tente novamente");
-        //         return View();
-        //     }
-        //     else
-        //     {
-        //         ModelState.AddModelError("", "E-mail de Acesso e/ou Senhas Inválidos!!!");
-        //         return View();
-        //     }
-        // }
-
-
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Logout()
-        // {
-        //     await signInManager.SignOutAsync();
-        //     return RedirectToAction("Index", "Home");
-        // }
-
-        
-        // [Authorize(Roles = "Administrador")]
-        // [HttpGet]
-        // public IActionResult Register()
-        // {
-        //     var perfis = roleManager.Roles;
-        //     ViewData["Perfis"] = new SelectList(perfis, "NormalizedName", "Name");
-        //     return View();
-        // }
-
-
-        // [HttpPost]
-        // public async Task<IActionResult> Register(UserRegistrationModel userModel)
-        // {
-        //     var perfis = roleManager.Roles;
-        //     ViewData["Perfis"] = new SelectList(perfis, "NormalizedName", "Name");
-
-        //     if (!ModelState.IsValid)
-        //     {
-        //         return View(userModel);
-        //     }
-
-        //     var user = mapper.Map<Usuario>(userModel);
-
-        //     var result = await userManager.CreateAsync(user, userModel.Password);
-
-        //     if (!result.Succeeded)
-        //     {
-        //         foreach (var error in result.Errors)
-        //         {
-        //             ModelState.TryAddModelError(error.Code, error.Description);
-        //         }
-        //         return View(userModel);
-        //     }
-
-        //     await userManager.AddToRoleAsync(user, userModel.Perfis);
-
-        //     return RedirectToAction("Index");
-        // }
-
-        // [AllowAnonymous]
-        // public IActionResult AccessDenied()
-        // {
-        //     return View();
-        // }
-
-
+        [Authorize(Roles = "Administrador, Moderador")]
         public async Task<IActionResult> Index()
         {
             var users = await userManager.Users.ToListAsync();
@@ -137,6 +44,7 @@ namespace AppEcommerce.Controllers
             return View(users);
         }
 
+        [Authorize(Roles = "Administrador, Moderador")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -165,6 +73,7 @@ namespace AppEcommerce.Controllers
             return View(usuario);
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
@@ -194,6 +103,7 @@ namespace AppEcommerce.Controllers
             return View(usuario);
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, UserViewModel userModel)
@@ -281,86 +191,5 @@ namespace AppEcommerce.Controllers
             }
             return View(userModel);
         }
-
-
-        // [HttpGet]
-        // [AllowAnonymous]
-        // public IActionResult ForgotPassword()
-        // {
-        //     return View();
-        // }
-
-        // [HttpPost]
-        // [AllowAnonymous]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> ForgotPassword(ForgotPasswordModel forgotPassword)
-        // {
-        //     if (!ModelState.IsValid)
-        //         return View(forgotPassword);
-
-        //     var user = await userManager.FindByEmailAsync(forgotPassword.Email);
-        //     if (user == null)
-        //         return RedirectToAction("ForgotPasswordConfirmation");
-
-        //     var token = await userManager.GeneratePasswordResetTokenAsync(user);
-        //     var callback = Url.Action("ResetPassword", "Account", new { token, email = user.Email }, Request.Scheme);
-
-        //     var message = new Message(new string[] { forgotPassword.Email }, "Recuperar Senha", callback, null);
-        //     await emailSender.SendEmailAsync(message);
-
-        //     return RedirectToAction("ForgotPasswordConfirmation");
-            
-        // }
-
-        // [HttpGet]
-        // [AllowAnonymous]
-        // public IActionResult ForgotPasswordConfirmation()
-        // {
-        //     return View();
-        // }
-
-        // [HttpGet]
-        // [AllowAnonymous]
-        // public IActionResult ResetPassword(string token, string email)
-        // {
-        //     var model = new ResetPasswordModel { Token = token, Email = email };
-        //     return View(model);
-        // }
-
-
-        // [HttpPost]
-        // [AllowAnonymous]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPassword)
-        // {
-        //     if (!ModelState.IsValid)
-        //         return View(resetPassword);
-
-        //     var user = await userManager.FindByEmailAsync(resetPassword.Email);
-        //     if (user == null)
-        //         RedirectToAction("ResetPasswordConfirmation");  // Criar uma view de email não encontrado
-
-        //     var reset = await userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.Password);
-        //     if (!reset.Succeeded)
-        //     {
-        //         foreach (var error in reset.Errors)
-        //         {
-        //             ModelState.TryAddModelError(error.Code, error.Description);
-        //         }
-
-        //         return View();
-        //     }
-
-        //     return RedirectToAction("ResetPasswordConfirmation");
-        // }
-
-
-        // [HttpGet]
-        // [AllowAnonymous]
-        // public IActionResult ResetPasswordConfirmation()
-        // {
-        //     return View();
-        // }
-
     }
 }

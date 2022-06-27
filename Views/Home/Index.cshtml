@@ -4,8 +4,9 @@
     bool First = true;
     bool One = true;
     int rota = 3;
+    int rotaSegundo = 3;
     string texto = "Periféricos";
-    string segundo = "Periféricos";
+    string textoSegundo = "Periféricos";
 }
 
 <div class="container-fluid mb-3">
@@ -156,15 +157,15 @@
                 <div class="product-offer mb-30" style="height: 300px;">
                     <img class="img-fluid" src="@item.Img" alt="">
                     <div class="offer-text">
-                        <h3 class="text-white mb-3">@(segundo)</h3>
+                        <h3 class="text-white mb-3">@(textoSegundo)</h3>
                         <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                        asp-action="Filtro" asp-controller="Home" asp-route-id="@(rota)">Confira
+                        asp-action="Filtro" asp-controller="Home" asp-route-id="@(rotaSegundo)">Confira
                             Aqui</a>
                     </div>
                 </div>
             </div>
-            rota = 1;
-            segundo = "Monitores";
+            textoSegundo = "Monitores";
+            rotaSegundo = 1;
         }
     </div>
 </div>

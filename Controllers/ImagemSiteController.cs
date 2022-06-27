@@ -70,13 +70,13 @@ namespace AppEcommerce.Controllers
                 if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString();
-                    var uploads = Path.Combine(wwwRootPath, @"img\promocoes");
+                    var uploads = Path.Combine(wwwRootPath, @"img\carrosel");
                     var extension = Path.GetExtension(file.FileName);
                     using (var stream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
-                    imagemSite.Img = @"\img\promocoes\" + fileName + extension;
+                    imagemSite.Img = @"\img\carrosel\" + fileName + extension;
                 }
                 _context.Add(imagemSite);
                 await _context.SaveChangesAsync();
@@ -122,7 +122,7 @@ namespace AppEcommerce.Controllers
                     if (file != null)
                     {
                         string fileName = Guid.NewGuid().ToString();
-                        var uploads = Path.Combine(wwwRootPath, @"img\promocoes");
+                        var uploads = Path.Combine(wwwRootPath, @"img\carrosel");
                         var extension = Path.GetExtension(file.FileName);
 
                         if (imagemSite.Img != null)
@@ -138,7 +138,7 @@ namespace AppEcommerce.Controllers
                         {
                             file.CopyTo(stream);
                         }
-                        imagemSite.Img = @"\img\promocoes\" + fileName + extension;
+                        imagemSite.Img = @"\img\carrosel\" + fileName + extension;
                     }
 
                     _context.Update(imagemSite);
@@ -187,7 +187,7 @@ namespace AppEcommerce.Controllers
             var imagemSite = await _context.ImagensSite.FindAsync(id);
             if (imagemSite.Img != null)
             {
-                var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img\\promocoes", imagemSite.Img);
+                var imagemPath = Path.Combine(_hostEnvironment.WebRootPath, "img\\carrosel", imagemSite.Img);
                 if (System.IO.File.Exists(imagemPath))
                 {
                     System.IO.File.Delete(imagemPath);

@@ -1,7 +1,7 @@
 @model AppEcommerce.Models.Contato
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Contato";
     Layout = "_LayoutAdmin";
 }
 <div class="row justify-content-center">
@@ -31,7 +31,6 @@
                         <textarea class="form-control" asp-for="Mensagem" rows="10" readonly></textarea >
                         <span asp-validation-for="Mensagem" class="text-danger"></span>
                       </div>
-                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Editar</a>
                     <a asp-action="Index" class="btn btn-light">Voltar</a>
                 </form>
             </div>

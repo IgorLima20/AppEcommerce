@@ -105,7 +105,7 @@
                         else
                         {
                             <li class="page-item"><a class="page-link" asp-action="Filtro" asp-route-pageNumber="@i"
-                        asp-route-sortOrder="@ViewData["CurrentSort"]">@i</a></li>
+                        asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@i</a></li>
                         }
                     }
                     <li class="page-item @nextDisabled">
