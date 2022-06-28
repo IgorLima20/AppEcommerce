@@ -7,7 +7,7 @@
 
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mb-4">
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating mb-3">
@@ -29,46 +29,3 @@
 <partial name="_ValidationScriptsPartial" />
 }
 
-@* <form action="">
-    <div class="form-floating mb-3">
-    <input class="form-control" type="text" id="txtNome" placeholder=" " autofocus />
-    <label for="txtNome">Nome</label>
-    </div>
-    <div class="form-floating mb-3 col-md-6 col-xl-4">
-    <input class="form-control" type="text" id="txtCPF" placeholder=" " />
-    <label for="txtNome">CPF</label>
-    </div>
-    <div class="form-floating mb-3 col-md-6 col-xl-4">
-    <input class="form-control" type="date" id="txtDataNascimento" placeholder=" " />
-    <label for="txtDataNascimento">Data de Nascimento</label>
-    </div>
-    </form> *@
-
-
-
-
-
-
-@* <form id="profile-form" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-floating mb-3">
-    <input asp-for="Username" disabled class="form-control" type="text" placeholder=" " />
-    <label asp-for="Username" for="txtNome">Nome</label>
-    </div>
-    <div class="form-floating mb-3 col-md-6 col-xl-4">
-    <input asp-for="Input.PhoneNumber" class="form-control" type="text" placeholder=" " />
-    <label asp-for="Input.PhoneNumber">Telefone</label>
-    </div>
-    <div class="form-floating mb-3 col-md-6 col-xl-4">
-    <input class="form-control" type="date" id="txtDataNascimento" placeholder=" " />
-    <label for="txtDataNascimento">Data de Nascimento</label>
-    </div>
-    <button id="update-profile-button" type="submit" class="btn btn-primary">Salvar</button>
-    </form> *@
-
-
-
-
-
-
-@* <h4>@ViewData["Title"]</h4> *@
