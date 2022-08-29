@@ -14,8 +14,8 @@ namespace AppEcommerce.Services
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            string fromMail = "igorsax258@gmail.com";
-            string fromPassword = "dgtrfptbtuqwcxsm";
+            string fromMail = "igor.lima2582004@gmail.com";
+            string fromPassword = "gmxixoijffnqmmcp";
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
             message.Subject = subject;
