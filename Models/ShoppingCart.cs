@@ -38,7 +38,7 @@ namespace AppEcommerce.Models
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddToCart(Produto produto, int amount)
+        public int AddToCart(Produto produto)
         {
             var shoppingCartItem =
                 _contexto.ShoppingCartItems.SingleOrDefault(
@@ -66,7 +66,10 @@ namespace AppEcommerce.Models
                 }
                 
             }
+
+            var Quantidade = shoppingCartItem.Amount; 
             _contexto.SaveChanges();
+            return Quantidade;
         }
 
         public int RemoveFromCart(Produto produto)
@@ -75,23 +78,22 @@ namespace AppEcommerce.Models
                     _contexto.ShoppingCartItems.SingleOrDefault(
                         s => s.Produto.Id == produto.Id && s.ShoppingCartId == ShoppingCartId);
 
-            var localAmount = 0;
 
             if (shoppingCartItem != null)
             {
                 if (shoppingCartItem.Amount > 1)
                 {
                     shoppingCartItem.Amount--;
-                    localAmount = shoppingCartItem.Amount;
                 }
                 else
                 {
                     _contexto.ShoppingCartItems.Remove(shoppingCartItem);
                 }
             }
+            var Quantidade = shoppingCartItem.Amount; 
             _contexto.SaveChanges();
 
-            return localAmount;
+            return Quantidade;
         }
 
         public int RemoveProd(Produto produto)

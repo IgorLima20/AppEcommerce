@@ -1,66 +1,79 @@
-﻿class Carrinho {
-    clickIncremento(button) {
-        let data = this.getData(button);
-        data.Amount++;
-        this.postQuantidade(data);
-    }
+﻿$('#janela_transportadoras tr td a.excluir').click(function (e) {
+    e.preventDefault();
+    var elemento = $(this).parent().parent();
+    var Id = $(this).attr("data-id");
+    ExcluirProd(Id, elemento);
+})
 
-    clickDecremento(button) {
-        let data = this.getData(button);
-        data.Amount--;
-        this.postQuantidade(data);
-    }
-
-    updateQuantidade(input) {
-        let data = this.getData(input);
-        this.postQuantidade(data);
-    }
-
-    getData(elemento) {
-        var linhaDoItem = $(elemento).parents('[item-id]');
-        var itemId = $(linhaDoItem).attr('item-id');
-        var novaQuantidade = $(linhaDoItem).find('input').val();
-
-        return {
-            Id: itemId,
-            Amount: novaQuantidade
-        };
-    }
-
-    postQuantidade(data) {
-
-        let token = $('[name=__RequestVerificationToken]').val();
-
-        let headers = {};
-        headers['RequestVerificationToken'] = token;
-
-        $.ajax({
-            url: '/pedido/updatequantidade',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            headers: headers
-        }).done(function (response) {
-            let itemPedido = response.itemPedido;
-            let linhaDoItem = $('[item-id=' + itemPedido.id + ']')
-            linhaDoItem.find('input').val(itemPedido.quantidade);
-            linhaDoItem.find('[subtotal]').html((itemPedido.subtotal).duasCasas());
-            let carrinhoViewModel = response.carrinhoViewModel;
-            $('[numero-itens]').html('Total: ' + carrinhoViewModel.itens.length + ' itens');
-            $('[total]').html((carrinhoViewModel.total).duasCasas());
-
-            if (itemPedido.quantidade == 0) {
-                linhaDoItem.remove();
-            }
-        });
-    }
+function ExcluirProd(Id, elemento) {
+    $.ajax({
+        type: "POST",
+        url: "/ShoppingCart/RemoveProdShoppingCart",
+        data: { Id: Id, }
+    }).done(function (data) {
+        $(elemento).fadeOut();
+        var valorFormatado = data.cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        $('#cart-total').html(valorFormatado);
+        if (data.listaProd == 0) {
+            $('#carrinho').html("");
+        } else {
+            $('#carrinho').html(data.listaProd);
+        }
+    });
 }
 
-var carrinho = new Carrinho();
+$(".btnAumentar").click(function(e) {
+    e.preventDefault();
+    var Id = $(this).attr("prod-id");
 
-Number.prototype.duasCasas = function () {
-    return this.toFixed(2).replace('.', ',');
+    $.ajax({
+        type: "POST",
+        url: "/ShoppingCart/AddToShopping",
+        data: { Id: Id, }
+    }).done(function (data) {
+        var cartTotal = data.cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        var Prod = parseInt(data.itemCount) * parseFloat(data.cartCount);
+        var TotalProd = Prod.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        $('#cart-total').html(cartTotal);
+        $('#totalItem-' + data.deleteId).html(TotalProd);
+        $('#input-id-' + data.deleteId).val(data.itemCount);
+        if (data.mensagem != null)
+        {
+            Swal.fire({
+                icon: "warning",
+                text: data.mensagem,
+                type: "warning",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK",
+                closeOnConfirm: true,
+            });
+        }
+    });
+})
+
+$("#janela_transportadoras tr td div div a.btnDiminuir").click(function(e) {
+    e.preventDefault();
+    var elemento = $(this).parent().parent().parent().parent();
+    var Id = $(this).attr("prod-id");
+    var QuantidadeProd = $("#input-id-" + Id).val();
+    if (QuantidadeProd == 1) {
+        ExcluirProd(Id, elemento);
+    } else {
+        DiminuirProd(Id);
+    }
+})
+
+function DiminuirProd(Id) {
+    $.ajax({
+        type: "POST",
+        url: "/ShoppingCart/RemoveFromShoppingCart",
+        data: { Id: Id, }
+    }).done(function(data) {
+        var cartTotal = data.cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        var Prod = parseInt(data.itemCount) * parseFloat(data.cartCount);
+        var TotalProd = Prod.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        $('#cart-total').html(cartTotal);
+        $('#totalItem-' + data.deleteId).html(TotalProd);
+        $('#input-id-' + data.deleteId).val(data.itemCount);
+    });
 }
-
-
-

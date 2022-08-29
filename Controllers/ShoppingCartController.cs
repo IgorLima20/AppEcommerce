@@ -44,32 +44,70 @@ namespace AppEcommerce.Controllers
             var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
             if (selectedProduto != null)
             {
-                _shoppingCart.AddToCart(selectedProduto, 1);
+                _shoppingCart.AddToCart(selectedProduto);
             } 
-            TempData["Erro"] = _shoppingCart.Mensagem;
             return RedirectToAction("Index"); 
         }
 
-        public RedirectToActionResult RemoveFromShoppingCart(int Id)
+        [HttpPost]
+        public JsonResult AddToShopping(int Id)
         {
+            ViewData["ShoppingCartItems"] = _contexto.ShoppingCartItems;
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
-            if (selectedProduto != null)
+           
+            
+            int Amount = _shoppingCart.AddToCart(selectedProduto);
+
+            var results = new ShoppingCartValorViewModel
             {
-                _shoppingCart.RemoveFromCart(selectedProduto);
-            }
-            return RedirectToAction("Index");
+                CartTotal = _shoppingCart.GetShoppingCartTotal(),
+                ItemCount = Amount,
+                CartCount = selectedProduto.Valor,
+                Mensagem = _shoppingCart.Mensagem,
+                DeleteId = Id
+            };
+            
+            return Json(results);
         }
 
-        public RedirectToActionResult RemoveProdShoppingCart(int Id)
+        [HttpPost]
+        public JsonResult RemoveFromShoppingCart(int Id)
         {
             ViewData["Categorias"] = _contexto.Categorias.ToList();
             var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
-            if (selectedProduto != null)
+            
+             int Amount = _shoppingCart.RemoveFromCart(selectedProduto);
+            
+            var results = new ShoppingCartValorMenosViewModel
             {
-                _shoppingCart.RemoveProd(selectedProduto);
-            }
-            return RedirectToAction("Index");
+                CartTotal = _shoppingCart.GetShoppingCartTotal(),
+                ItemCount = Amount,
+                CartCount = selectedProduto.Valor,
+                Mensagem = _shoppingCart.Mensagem,
+                DeleteId = Id
+            };
+            return Json(results);
+           
+        }
+
+        [HttpPost]
+        public JsonResult RemoveProdShoppingCart(int Id)
+        {
+            ViewData["Categorias"] = _contexto.Categorias.ToList();
+            var selectedProduto = _contexto.Produtos.FirstOrDefault(p => p.Id == Id);
+
+            int localAmount = _shoppingCart.RemoveProd(selectedProduto);
+            var items = _shoppingCart.GetShoppingCartItems().Count();
+
+            var results = new ShoppingCartRemoveViewModel
+            {
+                CartTotal = _shoppingCart.GetShoppingCartTotal(),
+                ItemCount = localAmount,
+                DeleteId = Id,
+                ListaProd = items
+            };
+            return Json(results);
         }
 
     }

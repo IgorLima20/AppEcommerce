@@ -1,23 +1,6 @@
 ﻿@model AppEcommerce.ViewModels.ShoppingCartViewModel
 
 <div class="container-fluid">
-    @if (TempData["Erro"] != null)
-    {
-        <div class="row px-xl-5">
-            <div class="col-lg-12 table-responsive mb-2">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
-                    aria-label="danger:">
-                        <path
-                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </svg>
-                    <strong> @TempData["Erro"]</strong>
-                    <button type="button" class="btn-close close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
-    }
     <div class="row px-xl-5">
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -30,7 +13,7 @@
                         <th>Remover</th>
                     </tr>
                 </thead>
-                <tbody class="align-middle">
+                <tbody class="align-middle" id="janela_transportadoras">
                     @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
                     {
                         <tr item-id="@item.Produto.Id">
@@ -41,29 +24,23 @@
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;" name="@item.Produto.Id">
                                     <div class="input-group-btn">
-                                        <a class="btn btn-sm btn-primary btn-minus" asp-controller="ShoppingCart"
-                                        asp-action="RemoveFromShoppingCart" asp-route-Id="@item.Produto.Id">
+                                        <a href="" class="btn btn-sm btn-primary btn-minus btnDiminuir" prod-id="@item.Produto.Id">
                                             <i class="fa fa-minus"></i>
                                         </a>
                                     </div>
-                                    <input class="form-control form-control-sm bg-secondary border-0 text-center"
+                                    <input id="input-id-@item.Produto.Id" class="form-control form-control-sm bg-secondary border-0 text-center"
                                     type="text" step="1" max="@item.Produto.Estoque" min="1" value="@item.Amount"
                                     name="@item.Produto.Id" disabled>
                                     <div class="input-group-btn">
-                                        @* <button class="btn btn-sm btn-primary btn-plus" onclick="clickIncremento(this)">
-                                            <i class="fa fa-plus"></i>
-                                            </button> *@
-                                        <a class="btn btn-sm btn-primary btn-plus" asp-action="AddToShoppingCart"
-                                        asp-controller="ShoppingCart" asp-route-Id="@item.Produto.Id">
+                                        <a  href="" class="btn btn-sm btn-primary btn-plus btnAumentar" prod-id="@item.Produto.Id">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">@((item.Amount * item.Produto.Valor).ToString("c"))</td>
+                            <td id="totalItem-@item.Produto.Id" class="align-middle">@((item.Amount * item.Produto.Valor).ToString("c"))</td>
                             <td class="align-middle">
-                                <a class="btn btn-sm btn-danger" asp-controller="ShoppingCart"
-                                asp-action="RemoveProdShoppingCart" asp-route-Id="@item.Produto.Id">
+                                <a href="" class="btn btn-sm btn-danger excluir" data-id="@item.Produto.Id">
                                     <i class="fa fa-times"></i>
                                 </a>
                             </td>
@@ -78,9 +55,11 @@
                     class="bg-secondary pr-3">Carrinho</span></h5>
             <div class="bg-light p-30 mb-5">
                 <div class="pt-2">
-                    <div class="d-flex justify-content-between mt-2" id="valorPedido">
+                    <div class="d-flex justify-content-between mt-2">
                         <h5>Total:</h5>
-                        <h5 id="valorPedido">@Model.ShoppingCartTotal.ToString("C")</h5>
+                        <div id="cart-total">
+                            <p>@Model.ShoppingCartTotal.ToString("C")</p>
+                        </div>
                     </div>
                     <a class="btn btn-block btn-primary font-weight-bold my-3 py-3">Fazer Checkout</a>
                 </div>
@@ -88,3 +67,6 @@
         </div>
     </div>
 </div>
+@section Scripts{
+<script src="~/js/carrinho.js"></script>
+}

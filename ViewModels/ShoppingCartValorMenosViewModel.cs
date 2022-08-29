@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace AppEcommerce.ViewModels
 {
-    // usado para exibir informações quando o produto for removido do carrinho.
-    public class ShoppingCartRemoveViewModel
+    // usado para exibir informações quando diminuir a quantidade do produto no carrinho.
+    public class ShoppingCartValorMenosViewModel
     {
-        public string Message { get; set; }
         public decimal CartTotal { get; set; }
-        public int CartCount { get; set; }
+        public string Mensagem { get; set; }
+        public decimal CartCount { get; set; }
         public int ItemCount { get; set; }
         public int DeleteId { get; set; } 
-        public int ListaProd { get; set; }
     }
 }
